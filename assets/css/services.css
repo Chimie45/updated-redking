@@ -5,7 +5,7 @@
         url('../images/services/servicesheader.jpg');
     background-attachment: fixed; 
     min-height: 70vh;
-    position: relative;
+    position: center;
     overflow: hidden;
 }
 
