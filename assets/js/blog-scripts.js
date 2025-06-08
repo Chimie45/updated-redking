@@ -82,7 +82,8 @@ async function displayFeaturedArticle() {
                 
                 if (creationDateStr) {
                     const date = new Date(creationDateStr + 'T00:00:00');
-                    displayDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+                    // MODIFICATION: Changed date format to match screenshot (Month YYYY)
+                    displayDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', timeZone: 'UTC' });
                 }
             }
         } catch (error) {
@@ -90,8 +91,9 @@ async function displayFeaturedArticle() {
         }
     }
 
+    // MODIFICATION: Removed the 'blog-card' class to prevent CSS conflict
     const articleHTML = `
-        <div class="featured-article-card blog-card" onclick="openBlogModal('${featuredArticle.id}')">
+        <div class="featured-article-card" onclick="openBlogModal('${featuredArticle.id}')">
             <div class="featured-article-image">
                 <img src="${featuredArticle.image}" alt="${featuredArticle.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a1a/f5f5f5?text=Image+Not+Found';">
             </div>
@@ -198,7 +200,8 @@ async function openBlogModal(articleId) {
         let displayDate = 'Unknown Date';
         if (creationDateStr) {
             const date = new Date(creationDateStr + 'T00:00:00');
-            displayDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+            // MODIFICATION: Changed date format for consistency
+            displayDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', timeZone: 'UTC' });
         }
         
         const articleBodyContent = doc.querySelector('.article-body')?.innerHTML || doc.querySelector('.article-content')?.innerHTML || '<p>Could not find article content within the fetched file.</p>';
