@@ -148,6 +148,7 @@ async function openBlogModal(articleId) {
     modalTitle.textContent = articleData.title;
     modalHeroImage.src = articleData.image;
     modalHeroImage.alt = articleData.title;
+    modalHeroImage.removeAttribute('style');
     modalMeta.innerHTML = '';
     modalContent.innerHTML = '<p>Loading article...</p>';
 
