@@ -10,14 +10,17 @@
     <style>
         /* --- Base Styles & Resets --- */
         :root {
+            /* CHANGED: Lightened background colors */
             --dark-bg: #0d0d0f;
-            --section-bg: #111113;
-            --section-bg-darker: #0a0a0c;
+            --section-bg: #1a1a1c;
+            --section-bg-darker: #141416;
             --text-primary: #ffffff;
             --text-secondary: #c3c3c3;
             --accent-yellow: #faf86f;
             --accent-blue: #3d8bff;
             --accent-purple: #a13bfd;
+            /* ADDED: New accent color for ELO border */
+            --accent-green: #66ff66;
             --border-color: #3d3d3d;
         }
 
@@ -143,7 +146,8 @@
         /* --- Intro Section --- */
         .intro {
             background-color: var(--section-bg);
-            border-top: 2px solid var(--accent-purple);
+            /* CHANGED: Swapped purple for gray border */
+            border-top: 2px solid var(--border-color);
             border-bottom: 2px solid var(--accent-purple);
             position: relative;
             overflow: hidden;
@@ -233,6 +237,11 @@
             align-items: center;
             border-bottom: 2px solid var(--accent-purple);
         }
+
+        /* ADDED: Borders for specific sections */
+        .elo-challenge { border-top: 2px solid var(--accent-green); }
+        .bankroll-challenge { border-top: 2px solid var(--accent-yellow); }
+        .last-longer-challenge { border-top: 2px solid var(--accent-purple); }
         
         .challenge-slider-section::before {
             content: '';
@@ -257,7 +266,8 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
-            opacity: 0.15;
+            /* CHANGED: Increased opacity for visibility */
+            opacity: 0.4;
             mix-blend-mode: color-dodge;
             z-index: 1;
         }
@@ -320,6 +330,9 @@
             justify-content: space-between;
             gap: 40px;
             text-align: left;
+             /* ADDED: Max height and margin for vertical centering */
+            max-height: 400px;
+            margin: auto 0;
         }
         
         .slide-content .text-content {
@@ -364,6 +377,8 @@
             font-size: 0.8rem;
             color: var(--text-secondary);
             text-align: left;
+            /* ADDED: Gray border top */
+            border-top: 2px solid var(--border-color);
         }
 
         .terms-footer h4 {
@@ -409,6 +424,7 @@
         .custom-carousel-container {
             position: relative;
             overflow: hidden;
+            padding: 0 40px; /* Add padding to make space for arrows */
         }
         .carousel-track {
             display: flex;
@@ -424,32 +440,39 @@
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
-            background: transparent;
+            background: rgba(0,0,0,0.3);
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             cursor: pointer;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             pointer-events: all;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
-        .carousel-arrow.prev { left: -60px; }
-        .carousel-arrow.next { right: -60px; }
-        .carousel-arrow:hover { color: white; }
+        /* CHANGED: Positioned arrows inside the container */
+        .carousel-arrow.prev { left: 15px; }
+        .carousel-arrow.next { right: 15px; }
+        .carousel-arrow:hover { 
+            color: white;
+            background: rgba(0,0,0,0.6);
+        }
         
         .carousel-dots {
             position: absolute;
-            bottom: -40px;
+            /* CHANGED: Positioned dots inside the container */
+            bottom: 15px;
             list-style: none;
             display: block;
             text-align: center;
             padding: 0;
             margin: 0;
             width: 100%;
+            left: 0; /* Ensure it's centered */
         }
         .carousel-dots .dot {
             position: relative;
@@ -466,6 +489,7 @@
             background: #fff;
             opacity: 0.5;
             display: block;
+            transition: opacity 0.3s ease;
         }
         .carousel-dots .dot.active::before {
             opacity: 1;
@@ -482,8 +506,25 @@
 
         @media (max-width: 768px) {
             .hero { height: 40vh; }
-            .slide-content { flex-direction: column; }
-            .slide-content .image-content { order: -1; width: 100%; }
+            /* This existing rule already handles the mobile layout for the slider */
+            .slide-content { 
+                flex-direction: column;
+                max-height: none; /* remove max-height for mobile */
+            }
+            .slide-content .image-content { 
+                order: -1; 
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .slide-content .text-content {
+                text-align: center;
+            }
+            .slide-content .text-content ul {
+                text-align: left;
+            }
+            .custom-carousel-container {
+                 padding: 0; /* Remove padding for mobile */
+            }
             .carousel-arrow.prev { left: 10px; }
             .carousel-arrow.next { right: 10px; }
             .section-title { font-size: 2rem; }
@@ -497,7 +538,6 @@
 <body>
 
     <main>
-        <!-- Hero Section -->
         <section class="hero">
             <img src="./propbet_files/ggpoker_logo-1_white-1.png" alt="GGPoker Logo" class="ggpoker-logo">
             <div class="hero-content">
@@ -506,7 +546,6 @@
             </div>
         </section>
 
-        <!-- Intro Section -->
         <section class="intro">
             <div class="container">
                 <h2>introducing a <span>new side betting</span><br> feature on GGPoker</h2>
@@ -535,7 +574,6 @@
             </div>
         </section>
         
-        <!-- ELO Challenge Section -->
         <section class="challenge-slider-section elo-challenge">
              <div class="elo-spray-bg spray-paint-bg"></div>
             <div class="container">
@@ -616,7 +654,6 @@
             </div>
         </section>
 
-        <!-- Bankroll Challenge Section -->
         <section class="challenge-slider-section bankroll-challenge">
              <div class="bankroll-spray-bg spray-paint-bg"></div>
             <div class="container">
@@ -626,7 +663,6 @@
                 </div>
                 <div class="custom-carousel-container" data-carousel-id="bankroll-carousel">
                     <div class="carousel-track">
-                        <!-- Slide 1 -->
                         <div class="carousel-slide">
                             <div class="slide-content">
                                 <div class="image-content">
@@ -639,8 +675,7 @@
                                 </div>
                             </div>
                         </div>
-                         <!-- Slide 2 -->
-                        <div class="carousel-slide">
+                         <div class="carousel-slide">
                             <div class="slide-content">
                                 <div class="image-content">
                                     <img src="./propbet_files/BKRC_GIF02_opt.gif" alt="Bankroll Challenge Animation 2">
@@ -651,7 +686,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Slide 3 -->
                         <div class="carousel-slide">
                             <div class="slide-content">
                                 <div class="image-content">
@@ -667,7 +701,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Slide 4 -->
                         <div class="carousel-slide">
                             <div class="slide-content">
                                 <div class="image-content">
@@ -683,7 +716,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Slide 5 -->
                         <div class="carousel-slide">
                             <div class="slide-content">
                                 <div class="image-content">
@@ -700,7 +732,6 @@
             </div>
         </section>
 
-        <!-- Last Longer Section -->
         <section class="challenge-slider-section last-longer-challenge">
              <div class="last-longer-spray-bg spray-paint-bg"></div>
             <div class="container">
@@ -710,7 +741,6 @@
                 </div>
                 <div class="custom-carousel-container" data-carousel-id="last-longer-carousel">
                     <div class="carousel-track">
-                        <!-- Slide 1 -->
                         <div class="carousel-slide">
                             <div class="slide-content">
                                 <div class="text-content">
@@ -723,8 +753,7 @@
                                 </div>
                             </div>
                         </div>
-                         <!-- Slide 2 -->
-                        <div class="carousel-slide">
+                         <div class="carousel-slide">
                             <div class="slide-content">
                                  <div class="text-content">
                                     <h4>How to Register?</h4>
@@ -735,7 +764,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Slide 3 -->
                         <div class="carousel-slide">
                             <div class="slide-content">
                                  <div class="text-content">
@@ -751,7 +779,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Slide 4 -->
                         <div class="carousel-slide">
                             <div class="slide-content">
                                  <div class="text-content">
@@ -773,7 +800,6 @@
             </div>
         </section>
 
-        <!-- Stay Tuned Section -->
         <section class="stay-tuned">
             <div class="container">
                 <p>STAY TUNED, MORE PROP BETS ARE COMING</p>
@@ -899,6 +925,7 @@
 
                 // Initial setup
                 goToSlide(0);
+                handleResize(); // Call resize once to set initial correct width
 
             }
 
