@@ -10,7 +10,6 @@
     <style>
         /* --- Base Styles & Resets --- */
         :root {
-            /* CHANGED: Lightened background colors */
             --dark-bg: #0d0d0f;
             --section-bg: #1a1a1c;
             --section-bg-darker: #141416;
@@ -19,7 +18,6 @@
             --accent-yellow: #faf86f;
             --accent-blue: #3d8bff;
             --accent-purple: #a13bfd;
-            /* ADDED: New accent color for ELO border */
             --accent-green: #66ff66;
             --border-color: #3d3d3d;
         }
@@ -38,18 +36,15 @@
             cursor: default;
         }
 
-        /* ADDED: New wrapper to constrain page width for modal display */
         .page-wrapper {
             max-width: 1080px;
             margin: 0 auto;
             overflow: hidden;
-            /* Optional: adds a subtle shadow to lift the modal off the background */
             box-shadow: 0 0 30px rgba(0,0,0,0.5); 
         }
 
         /* --- Global Helper Classes --- */
         .container {
-            /* REMOVED: max-width is now controlled by page-wrapper */
             margin: 0 auto;
             padding: 60px 20px;
         }
@@ -112,7 +107,7 @@
             background-position: top center;
             background-repeat: no-repeat;
             background-size: cover;
-            opacity: 0.6;
+            opacity: 0.8;
             z-index: 1;
         }
 
@@ -130,7 +125,6 @@
             top: 40px;
             left: 50%;
             transform: translateX(-50%);
-            opacity: 0.7;
             z-index: 3;
         }
 
@@ -155,7 +149,6 @@
         /* --- Intro Section --- */
         .intro {
             background-color: var(--section-bg);
-            /* CHANGED: Swapped purple for gray border */
             border-top: 2px solid var(--border-color);
             border-bottom: 2px solid var(--accent-purple);
             position: relative;
@@ -173,7 +166,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            opacity: 0.4;
+            opacity: 0.7;
             z-index: 1;
         }
         
@@ -244,10 +237,10 @@
             min-height: 720px;
             display: flex;
             align-items: center;
+            justify-content: center;
             border-bottom: 2px solid var(--accent-purple);
         }
 
-        /* ADDED: Borders for specific sections */
         .elo-challenge { border-top: 2px solid var(--accent-green); }
         .bankroll-challenge { border-top: 2px solid var(--accent-yellow); }
         .last-longer-challenge { border-top: 2px solid var(--accent-purple); }
@@ -262,23 +255,22 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            opacity: 0.5;
+            opacity: 0.8;
             z-index: 1;
         }
-
+        
         .spray-paint-bg {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 400px;
             height: 400px;
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
-            /* CHANGED: Increased opacity for visibility */
-            opacity: 0.4;
-            mix-blend-mode: color-dodge;
             z-index: 1;
+            width: 29vw;
+            opacity: .41;
+            filter: brightness(500%) contrast(124%) saturate(48%) blur(0px) hue-rotate(0deg);
         }
 
         .elo-spray-bg { background-image: url('./propbet_files/Icon_ELOC_Small.png'); left: 5%; transform: translateY(-50%) rotate(-30deg);}
@@ -292,6 +284,7 @@
         .challenge-slider-section .container {
              position: relative;
              z-index: 2;
+             width: 100%;
         }
         
         .section-title-container {
@@ -333,40 +326,88 @@
             position: relative;
         }
         
-        .slide-content {
+        /* --- ELO SLIDER STYLES START --- */
+        .elo-slider-container {
+            position: relative;
+            max-width: 950px;
+            margin: auto;
+            padding: 0 50px; /* Space for arrows */
+            box-sizing: border-box;
+        }
+        .elo-slider-track-container {
+            overflow: hidden;
+            width: 100%;
+        }
+        .elo-slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .elo-slide {
+            min-width: 100%;
+            box-sizing: border-box;
             display: flex;
             align-items: center;
-            justify-content: space-between;
             gap: 40px;
-            text-align: left;
-             /* ADDED: Max height and margin for vertical centering */
-            max-height: 400px;
-            margin: auto 0;
         }
-        
-        .slide-content .text-content {
-            flex: 1;
+        .elo-slide-content {
+            flex: 1; /* Each section takes up half the space */
         }
-        
-         .slide-content .text-content h4 {
+        .elo-slide-content.text-section h4 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
         }
-
-        .slide-content .text-content h5 {
+        .elo-slide-content.text-section h5 {
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
             color: var(--accent-yellow);
         }
-        
-        .slide-content .image-content {
-            flex: 0 0 40%;
-        }
-        
-        .slide-content .image-content img {
+        .elo-slide-content.gif-section img {
             max-width: 100%;
             border-radius: 8px;
+            display: block;
         }
+        .elo-slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            font-size: 3rem;
+            font-weight: 100;
+            cursor: pointer;
+            z-index: 10;
+            padding: 0 10px;
+            user-select: none; /* Prevent text selection */
+            transition: color 0.3s ease;
+        }
+        .elo-slider-arrow:hover {
+            color: var(--accent-yellow);
+        }
+        .elo-slider-arrow.prev {
+            left: 0;
+        }
+        .elo-slider-arrow.next {
+            right: 0;
+        }
+        .elo-slider-dots {
+            text-align: center;
+            padding-top: 25px;
+        }
+        .elo-dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: #555;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .elo-dot.active {
+            background-color: var(--accent-yellow);
+        }
+        /* --- ELO SLIDER STYLES END --- */
         
         /* --- Final Section --- */
         .stay-tuned {
@@ -386,7 +427,6 @@
             font-size: 0.8rem;
             color: var(--text-secondary);
             text-align: left;
-            /* ADDED: Gray border top */
             border-top: 2px solid var(--border-color);
         }
 
@@ -427,121 +467,28 @@
             color: var(--text-secondary);
         }
 
-        /* --- CUSTOM CAROUSEL STYLES --- */
-        @font-face{font-family:"Font Awesome 5 Free";font-style:normal;font-weight:900;font-display:block;src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.eot);src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.eot#iefix) format("embedded-opentype"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff2) format("woff2"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff) format("woff"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.ttf) format("truetype"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.svg#fontawesome) format("svg")}.fa,.fas{font-family:"Font Awesome 5 Free";font-weight:900}
-        
-        .custom-carousel-container {
-            position: relative;
-            overflow: hidden;
-            padding: 0 40px; /* Add padding to make space for arrows */
-        }
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .carousel-slide {
-            min-width: 100%;
-            box-sizing: border-box;
-            flex-shrink: 0;
-        }
-        .carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 10;
-            background: rgba(0,0,0,0.3);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            pointer-events: all;
-            transition: all 0.3s ease;
-        }
-        /* CHANGED: Positioned arrows inside the container */
-        .carousel-arrow.prev { left: 15px; }
-        .carousel-arrow.next { right: 15px; }
-        .carousel-arrow:hover { 
-            color: white;
-            background: rgba(0,0,0,0.6);
-        }
-        
-        .carousel-dots {
-            position: absolute;
-            /* CHANGED: Positioned dots inside the container */
-            bottom: 15px;
-            list-style: none;
-            display: block;
-            text-align: center;
-            padding: 0;
-            margin: 0;
-            width: 100%;
-            left: 0; /* Ensure it's centered */
-        }
-        .carousel-dots .dot {
-            position: relative;
-            display: inline-block;
-            margin: 0 5px;
-            padding: 5px;
-            cursor: pointer;
-        }
-        .carousel-dots .dot::before {
-            content: '';
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #fff;
-            opacity: 0.5;
-            display: block;
-            transition: opacity 0.3s ease;
-        }
-        .carousel-dots .dot.active::before {
-            opacity: 1;
-        }
-
-
-        /* Responsive */
+        /* Responsive Overrides */
         @media (max-width: 1024px) {
             .challenge-slider-section {
                 min-height: auto;
-                padding: 40px 0;
+                padding: 60px 0;
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .hero { height: 40vh; }
-            /* This existing rule already handles the mobile layout for the slider */
-            .slide-content { 
-                flex-direction: column;
-                max-height: none; /* remove max-height for mobile */
-            }
-            .slide-content .image-content { 
-                order: -1; 
-                width: 100%;
-                margin-bottom: 20px;
-            }
-            .slide-content .text-content {
-                text-align: center;
-            }
-            .slide-content .text-content ul {
-                text-align: left;
-            }
-            .custom-carousel-container {
-                 padding: 0; /* Remove padding for mobile */
-            }
-            .carousel-arrow.prev { left: 10px; }
-            .carousel-arrow.next { right: 10px; }
             .section-title { font-size: 2rem; }
             .section-title-bg { font-size: 5rem; }
             .section-title-container { text-align: center !important; }
             .section-title-bg { left: 50% !important; transform: translate(-50%, -50%) !important; }
+            
+            .elo-slide {
+                flex-direction: column;
+            }
+            .elo-slide-content.gif-section {
+                order: -1; /* Move GIF to top on mobile */
+            }
         }
-
     </style>
 </head>
 <body>
@@ -591,23 +538,22 @@
                         <h2 class="section-title-bg">PROP BET</h2>
                         <h2 class="section-title">ELO Challenge</h2>
                     </div>
-                    <div class="custom-carousel-container" data-carousel-id="elo-carousel">
-                        <div class="carousel-track">
-                            <div class="carousel-slide">
-                                <div class="slide-content">
-                                    <div class="text-content">
+                    
+                    <div class="elo-slider-container">
+                        <div class="elo-slider-track-container">
+                            <div class="elo-slider-track">
+                                <div class="elo-slide">
+                                    <div class="elo-slide-content text-section">
                                         <h4>What is ELO Challenge?</h4>
                                         <p><strong>ELO Challenge Prop Bets</strong> offer an engaging and competitive way for players to test their skills and strategic prowess based on Spin & Gold's ELO Rating System. Participants can create or join these challenges, setting targets and timeframes to grow their ELO ratings and potentially win big.</p>
                                         <p>Engaging in an <strong>ELO Challenge Prop Bet</strong> serves as a motivating tool for players, encouraging them to enhance their ELO ratings and poker abilities. <strong>ELO Challenge Prop Bets</strong> can be found in the <strong>Prop Bet Menu</strong> or in the <strong>Spin & Gold Lobby.</strong></p>
                                     </div>
-                                    <div class="image-content">
+                                    <div class="elo-slide-content gif-section">
                                         <img src="./propbet_files/ELO_Slide_1.gif" alt="ELO Challenge Animation 1">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="slide-content">
-                                    <div class="text-content">
+                                <div class="elo-slide">
+                                    <div class="elo-slide-content text-section">
                                         <h4>How to Register?</h4>
                                         <p>Participating in an ELO Challenge is a straightforward process. Here's how you can get started:</p>
                                         <h5><strong>Creating a Challenge:</strong></h5>
@@ -618,14 +564,12 @@
                                             <li>Personalize your challenge by inputting your desired target rating.</li>
                                         </ul>
                                     </div>
-                                    <div class="image-content">
+                                    <div class="elo-slide-content gif-section">
                                         <img src="./propbet_files/ELO_Slide_2.gif" alt="ELO Challenge Animation 2">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="slide-content">
-                                    <div class="text-content">
+                                <div class="elo-slide">
+                                    <div class="elo-slide-content text-section">
                                         <h4>How to Win an ELO Challenge?</h4>
                                         <p>To kick off the challenge, the ELO Challenge begins at the set time, as scheduled by the Host. As the challenge progresses, ELO Ratings are influenced by game results. ELO Rating changes are visible to all participants, providing real-time insights into the competition.</p>
                                         <h5><strong>Challenge Conclusion:</strong></h5>
@@ -635,14 +579,12 @@
                                             <li><strong>Host Forfeit:</strong> The Host can choose to quit the challenge, leading to Bettors winning.</li>
                                         </ul>
                                     </div>
-                                    <div class="image-content">
+                                    <div class="elo-slide-content gif-section">
                                         <img src="./propbet_files/ELO_Slide_3.gif" alt="ELO Challenge Animation 3">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="slide-content">
-                                    <div class="text-content">
+                                <div class="elo-slide">
+                                    <div class="elo-slide-content text-section">
                                         <h4>Additional Information</h4>
                                         <h5><strong>Challenge Cancellation and Forfeiting:</strong></h5>
                                         <ul>
@@ -654,14 +596,22 @@
                                             <li>Games that start during the challenge but end after its conclusion are not valid.</li>
                                         </ul>
                                     </div>
-                                    <div class="image-content">
+                                    <div class="elo-slide-content gif-section">
                                         <img src="./propbet_files/ELO_Slide_4.gif" alt="ELO Challenge Animation 4">
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <button class="elo-slider-arrow prev">&lt;</button>
+                        <button class="elo-slider-arrow next">&gt;</button>
+                        <div class="elo-slider-dots">
+                            <span class="elo-dot active"></span>
+                            <span class="elo-dot"></span>
+                            <span class="elo-dot"></span>
+                            <span class="elo-dot"></span>
+                        </div>
                     </div>
-                </div>
+                    </div>
             </section>
 
             <section class="challenge-slider-section bankroll-challenge">
@@ -671,75 +621,7 @@
                         <h2 class="section-title-bg">PROP BET</h2>
                         <h2 class="section-title">Bankroll Challenge</h2>
                     </div>
-                    <div class="custom-carousel-container" data-carousel-id="bankroll-carousel">
-                        <div class="carousel-track">
-                            <div class="carousel-slide">
-                                <div class="slide-content">
-                                    <div class="image-content">
-                                        <img src="./propbet_files/BKRC_GIF01_opt.gif" alt="Bankroll Challenge Animation 1">
-                                    </div>
-                                    <div class="text-content">
-                                        <h4>What is Bankroll Challenge?</h4>
-                                        <p><strong>Bankroll Challenge Prop Bets</strong> are a fun way for players to challenge each other or themselves to see how well they can perform over a period of time at building their bankroll.</p>
-                                        <p>If the host manages to achieve the target amount in the set period of time, the host wins the Prop Bet. Otherwise, the bettors win the Prop Bet.​ Profits gained will be added towards the goal, and the losses will be deducted from the current amount.</p>
-                                    </div>
-                                </div>
-                            </div>
-                             <div class="carousel-slide">
-                                <div class="slide-content">
-                                    <div class="image-content">
-                                        <img src="./propbet_files/BKRC_GIF02_opt.gif" alt="Bankroll Challenge Animation 2">
-                                    </div>
-                                     <div class="text-content">
-                                        <h4>How to Register?</h4>
-                                        <p>To participate in a Bankroll Challenge Prop Bet, you can join or create one from the Prop Bet Menu. It is available for various Tournaments and Cash Games.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="slide-content">
-                                    <div class="image-content">
-                                        <img src="./propbet_files/BKRC_GIF04_opt.gif" alt="Bankroll Challenge Animation 3">
-                                    </div>
-                                     <div class="text-content">
-                                        <h4>Game Types</h4>
-                                        <p>Players can choose to challenge other players or play against themselves.</p>
-                                        <h5>Single Mode</h5>
-                                        <p>Created when the host enters 0 as the number of bettors. No bets will be placed, thus no prizes will be provided.</p>
-                                        <h5>Bet Mode</h5>
-                                        <p>Host can set the number of bettor(s) that can bet against the host's challenge.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="slide-content">
-                                    <div class="image-content">
-                                        <img src="./propbet_files/BKRC_GIF05_opt.gif" alt="Bankroll Challenge Animation 4">
-                                    </div>
-                                     <div class="text-content">
-                                        <h4>What are the Payouts?</h4>
-                                        <p>The host sets the goal, time, applied games, number of bettors, bet amount, and markup. Winnings are distributed as follows:</p>
-                                        <h5>Host Wins</h5>
-                                        <p>All money bet by the bettors will be won by the host, along with the host's deposited amount.</p>
-                                        <h5>Host Loses</h5>
-                                        <p>All money deposited by the host will be won by the bettors. If there are multiple bettors, the money will be awarded evenly.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="slide-content">
-                                    <div class="image-content">
-                                        <img src="./propbet_files/BKRC_GIF06_opt.gif" alt="Bankroll Challenge Animation 5">
-                                    </div>
-                                     <div class="text-content">
-                                        <h4>Are Other Profits Included?</h4>
-                                        <p>Profits from across GGPoker can apply to your Bankroll Challenge. This includes features like GGCare, Jackpots, and Daily Leaderboards. However, profits from Staking, Bet on Flop, and other Prop Bets are excluded.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
             </section>
 
             <section class="challenge-slider-section last-longer-challenge">
@@ -749,65 +631,7 @@
                         <h2 class="section-title-bg">PROP BET</h2>
                         <h2 class="section-title">Last Longer</h2>
                     </div>
-                    <div class="custom-carousel-container" data-carousel-id="last-longer-carousel">
-                        <div class="carousel-track">
-                            <div class="carousel-slide">
-                                <div class="slide-content">
-                                    <div class="text-content">
-                                        <h4>What is Last Longer?</h4>
-                                        <p><strong>Last Longer Prop Bets</strong> can add an extra layer of competition and intensity to the game, as players strive to outlast each other in the tournament.</p>
-                                        <p>Participating in Last Longer Prop Bets can be a fun way for friends or colleagues to compete against each other in a friendly and exciting environment.</p>
-                                    </div>
-                                    <div class="image-content">
-                                        <img src="./propbet_files/01_Whats_Propbet_B_gif.gif" alt="Last Longer Animation 1">
-                                    </div>
-                                </div>
-                            </div>
-                             <div class="carousel-slide">
-                                <div class="slide-content">
-                                     <div class="text-content">
-                                        <h4>How to Register?</h4>
-                                        <p>To participate, first, register for a tournament that has not yet begun. Once registered, you can join or create a Last Longer Prop Bet from the Prop Bet Menu or directly in the Tournament Lobby.</p>
-                                    </div>
-                                     <div class="image-content">
-                                        <img src="./propbet_files/02_How-to-Register_B_gif.gif" alt="Last Longer Animation 2">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="slide-content">
-                                     <div class="text-content">
-                                        <h4>What are the Payouts?</h4>
-                                        <p>The payout depends on how winnings are split. You can choose before the bet begins.</p>
-                                        <ul>
-                                            <li><strong>Winner Takes All:</strong> The last person remaining wins 100%.</li>
-                                            <li><strong>Payout X%:</strong> The last X% of participants split the prize money (Standard, Top Heavy, or Even distribution).</li>
-                                        </ul>
-                                    </div>
-                                     <div class="image-content">
-                                        <img src="./propbet_files/03_Payouts_B_gif.gif" alt="Last Longer Animation 3">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="slide-content">
-                                     <div class="text-content">
-                                        <h4>Finishing the Bet</h4>
-                                        <h5>Unregistering and Canceling</h5>
-                                        <p>Be aware of the payout structure and minimum participants required.</p>
-                                        <ul>
-                                            <li>You can cancel or unregister before the tournament begins.</li>
-                                            <li>If the minimum number of participants is not met, the bet will be canceled.</li>
-                                        </ul>
-                                    </div>
-                                     <div class="image-content">
-                                        <img src="./propbet_files/04_Leave-LL_B_gif.gif" alt="Last Longer Animation 4">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
             </section>
 
             <section class="stay-tuned">
@@ -839,110 +663,80 @@
     </div>
     
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Find all carousel containers and initialize them
-            const carousels = document.querySelectorAll('.custom-carousel-container');
+    document.addEventListener('DOMContentLoaded', function() {
+        const sliderContainer = document.querySelector('.elo-slider-container');
+        if (!sliderContainer) return; // Don't run if the slider isn't on the page
 
-            function initCarousel(carouselContainer) {
-                const track = carouselContainer.querySelector('.carousel-track');
-                const slides = Array.from(track.children);
-                let slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
-                let currentIndex = 0;
+        const track = sliderContainer.querySelector('.elo-slider-track');
+        const slides = Array.from(track.children);
+        const nextButton = sliderContainer.querySelector('.elo-slider-arrow.next');
+        const prevButton = sliderContainer.querySelector('.elo-slider-arrow.prev');
+        const dotsNav = sliderContainer.querySelector('.elo-slider-dots');
+        const dots = Array.from(dotsNav.children);
 
-                // Create controls
-                const prevButton = document.createElement('button');
-                prevButton.classList.add('carousel-arrow', 'prev');
-                prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        let slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
+        let currentIndex = 0;
 
-                const nextButton = document.createElement('button');
-                nextButton.classList.add('carousel-arrow', 'next');
-                nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        // Function to move the track
+        const moveToSlide = (track, targetIndex) => {
+            track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
+            currentIndex = targetIndex;
+        };
 
-                const dotsContainer = document.createElement('ul');
-                dotsContainer.classList.add('carousel-dots');
-                
-                carouselContainer.appendChild(prevButton);
-                carouselContainer.appendChild(nextButton);
-                carouselContainer.appendChild(dotsContainer);
+        // Function to update the navigation dots
+        const updateDots = (currentDot, targetDot) => {
+            currentDot.classList.remove('active');
+            targetDot.classList.add('active');
+        };
 
-                // Create dots
-                slides.forEach((_, i) => {
-                    const dot = document.createElement('li');
-                    dot.classList.add('dot');
-                    if (i === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => {
-                        goToSlide(i);
-                    });
-                    dotsContainer.appendChild(dot);
-                });
-                
-                const dots = Array.from(dotsContainer.children);
-
-                const updateDots = (targetIndex) => {
-                    dots.forEach(dot => dot.classList.remove('active'));
-                    if (dots[targetIndex]) {
-                        dots[targetIndex].classList.add('active');
-                    }
-                };
-
-                const goToSlide = (targetIndex) => {
-                    if (targetIndex < 0 || targetIndex >= slides.length || !track) return;
-                    track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
-                    currentIndex = targetIndex;
-                    updateDots(currentIndex);
-                };
-                
-                function handleResize() {
-                    slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
-                     track.style.transition = 'none'; // Disable transition for instant resize
-                    goToSlide(currentIndex);
-                    setTimeout(() => {
-                        track.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
-                    }, 50);
-                }
-
-                window.addEventListener('resize', handleResize);
-
-
-                // Event Listeners
-                prevButton.addEventListener('click', e => {
-                    let newIndex = currentIndex - 1;
-                    if (newIndex < 0) newIndex = slides.length - 1; // Loop
-                    goToSlide(newIndex);
-                });
-
-                nextButton.addEventListener('click', e => {
-                    let newIndex = currentIndex + 1;
-                    if (newIndex >= slides.length) newIndex = 0; // Loop
-                    goToSlide(newIndex);
-                });
-                
-                // Auto-play
-                let autoplayInterval = setInterval(() => {
-                    let newIndex = currentIndex + 1;
-                    if (newIndex >= slides.length) newIndex = 0;
-                    goToSlide(newIndex);
-                }, 5000);
-                
-                carouselContainer.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
-                
-                carouselContainer.addEventListener('mouseleave', () => {
-                     autoplayInterval = setInterval(() => {
-                        let newIndex = currentIndex + 1;
-                        if (newIndex >= slides.length) newIndex = 0;
-                        goToSlide(newIndex);
-                    }, 5000);
-                });
-
-                // Initial setup
-                goToSlide(0);
-                handleResize(); // Call resize once to set initial correct width
-
+        // Handle Arrow Clicks
+        nextButton.addEventListener('click', () => {
+            const currentSlide = slides[currentIndex];
+            let nextIndex = currentIndex + 1;
+            if (nextIndex >= slides.length) {
+                nextIndex = 0; // Loop to start
             }
 
-            carousels.forEach(initCarousel);
-
+            moveToSlide(track, nextIndex);
+            updateDots(dots[currentIndex], dots[nextIndex]);
+            currentIndex = nextIndex;
         });
+
+        prevButton.addEventListener('click', () => {
+            const currentSlide = slides[currentIndex];
+            let prevIndex = currentIndex - 1;
+            if (prevIndex < 0) {
+                prevIndex = slides.length - 1; // Loop to end
+            }
+            
+            moveToSlide(track, prevIndex);
+            updateDots(dots[currentIndex], dots[prevIndex]);
+            currentIndex = prevIndex;
+        });
+
+        // Handle Dot Clicks
+        dotsNav.addEventListener('click', e => {
+            const targetDot = e.target.closest('.elo-dot');
+            if (!targetDot) return;
+
+            const targetIndex = dots.findIndex(dot => dot === targetDot);
+            moveToSlide(track, targetIndex);
+            updateDots(dots[currentIndex], dots[targetIndex]);
+            currentIndex = targetIndex;
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
+            // Instantly move to the correct position without animation
+            track.style.transition = 'none';
+            moveToSlide(track, currentIndex);
+            // Re-enable animation after a short delay
+            setTimeout(() => {
+                track.style.transition = 'transform 0.5s ease-in-out';
+            }, 50);
+        });
+    });
     </script>
 </body>
 </html>
