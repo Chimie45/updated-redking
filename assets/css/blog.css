@@ -62,7 +62,6 @@
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
 }
 
-/* MODIFICATION: Removed margin and radius for a flush look */
 .blog-card.blog-card--featured .featured-article-image {
     flex: 0 0 45%;
     aspect-ratio: 16 / 9;
@@ -174,8 +173,20 @@
 /* --- Modal Styles (Unchanged) --- */
 .blog-modal .blog-modal-content { width: 80%; }
 .blog-modal .close-blog-modal {}
-.blog-modal .blog-modal-header { height: 300px; background-color: var(--black); }
-.blog-modal .blog-modal-header img { width: 100%; height: auto; max-width: 720px; max-height: 100%; object-fit: cover; border-radius: 5px; }
+
+/* MODIFICATION: Updated modal header height */
+.blog-modal .blog-modal-header {
+    height: 400px;
+    background-color: var(--black);
+}
+
+/* MODIFICATION: Updated image styles to be fully visible */
+.blog-modal .blog-modal-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* This makes the full image visible */
+    border-radius: 5px;
+}
 .blog-modal .blog-modal-body { padding: 2rem 2.5rem; }
 .blog-modal-body h1 { font-size: 2.2rem; color: var(--muted-gold); margin-bottom: 0.5rem; }
 .blog-modal-body .blog-meta { font-size: 0.9rem; color: #ccc; margin-bottom: 2rem; }
@@ -214,7 +225,10 @@
         align-items: flex-start;
         gap: 0.5rem;
     }
-    .blog-modal .blog-modal-header { height: 220px; }
+    /* MODIFICATION: Updated modal header height for mobile */
+    .blog-modal .blog-modal-header { 
+        height: 300px;
+    }
     .blog-modal .blog-modal-body { padding: 1.5rem; }
     .blog-modal-body h1 { font-size: 1.8rem; }
     .blog-modal-body .blog-full-content { font-size: 1rem; }
