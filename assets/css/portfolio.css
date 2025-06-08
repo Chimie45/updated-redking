@@ -1,14 +1,90 @@
-/* portfolio.css */
-
-/* Portfolio Page Header Style */
+/* Portfolio Page Header Styling */
 #portfolio-header.page-header.hero {
-    background-image: 
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    background-image:
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-        url('../images/portfolio/portfolioheader.jpg');
-    background-attachment: fixed; 
-    min-height: 70vh;
-    background-position: center;
+        url('../images/portfolio/portfolioheader.jpg'); /* or your portfolio header image */
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 3px solid var(--muted-gold);
+}
+
+#portfolio-header .crown-animation {
+    margin-bottom: 2rem;
+    animation: crownFloat 3s ease-in-out infinite;
+}
+
+#portfolio-header .crown-animation i {
+    font-size: 4rem;
+    color: var(--muted-gold);
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+#portfolio-header .hero-content h1 {
+    font-size: 3.5rem;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+#portfolio-header .hero-content .subtitle {
+    font-size: 1.5rem;
+    color: var(--muted-gold);
+    font-weight: 300;
+    margin-bottom: 3rem;
+}
+
+/* Particles for portfolio page */
+#portfolio-header .hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, var(--muted-gold), transparent),
+        radial-gradient(2px 2px at 40px 70px, var(--gold), transparent),
+        radial-gradient(1px 1px at 90px 40px, var(--muted-gold), transparent),
+        radial-gradient(1px 1px at 130px 80px, var(--gold), transparent),
+        radial-gradient(2px 2px at 160px 30px, var(--muted-gold), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: particleMove 20s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes crownFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes particleMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-200px, -100px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #portfolio-header .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    #portfolio-header .hero-content .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    #portfolio-header .crown-animation i {
+        font-size: 3rem;
+    }
 }
 
 #portfolio-header .hero-content h1 {
