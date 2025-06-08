@@ -143,8 +143,8 @@
         /* --- Intro Section --- */
         .intro {
             background-color: var(--section-bg);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
+            border-top: 2px solid var(--accent-purple);
+            border-bottom: 2px solid var(--accent-purple);
             position: relative;
             overflow: hidden;
         }
@@ -231,6 +231,7 @@
             min-height: 720px;
             display: flex;
             align-items: center;
+            border-bottom: 2px solid var(--accent-purple);
         }
         
         .challenge-slider-section::before {
@@ -243,7 +244,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            opacity: 0.4;
+            opacity: 0.5;
             z-index: 1;
         }
 
@@ -291,6 +292,7 @@
             white-space: nowrap;
             letter-spacing: 0.05em;
             font-family: 'Roboto', sans-serif;
+            z-index: -1;
         }
         
         .section-title-container.align-left .section-title-bg {
@@ -347,7 +349,7 @@
         /* --- Final Section --- */
         .stay-tuned {
             background-color: var(--section-bg);
-            border-top: 1px solid var(--border-color);
+            border-bottom: 2px solid var(--accent-purple);
         }
 
         .stay-tuned p {
@@ -358,7 +360,6 @@
         /* --- Footer --- */
         .terms-footer {
             background-color: var(--section-bg);
-            border-top: 1px solid var(--border-color);
             padding: 40px 20px;
             font-size: 0.8rem;
             color: var(--text-secondary);
@@ -880,15 +881,16 @@
                 });
                 
                 // Auto-play
-                 const autoplay = setInterval(() => {
+                let autoplayInterval = setInterval(() => {
                     let newIndex = currentIndex + 1;
                     if (newIndex >= slides.length) newIndex = 0;
                     goToSlide(newIndex);
                 }, 5000);
                 
-                carouselContainer.addEventListener('mouseenter', () => clearInterval(autoplay));
+                carouselContainer.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+                
                 carouselContainer.addEventListener('mouseleave', () => {
-                     setInterval(() => {
+                     autoplayInterval = setInterval(() => {
                         let newIndex = currentIndex + 1;
                         if (newIndex >= slides.length) newIndex = 0;
                         goToSlide(newIndex);
