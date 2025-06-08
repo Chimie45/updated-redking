@@ -151,7 +151,6 @@
         .intro {
             background-color: var(--section-bg);
             border-top: 2px solid var(--border-color);
-            /* REMOVED: border-bottom */
             position: relative;
             overflow: hidden;
         }
@@ -239,7 +238,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* REMOVED: border-bottom */
         }
 
         .elo-challenge { border-top: 2px solid var(--accent-green); }
@@ -272,13 +270,18 @@
             width: 29vw;
             opacity: .41;
             filter: brightness(500%) contrast(124%) saturate(48%) blur(0px) hue-rotate(0deg);
-            /* ADDED: blend mode */
             mix-blend-mode: soft-light;
         }
 
-        .elo-spray-bg { background-image: url('./propbet_files/Icon_ELOC_Small.png'); left: 5%; transform: translateY(-50%) rotate(-30deg);}
-        .bankroll-spray-bg { background-image: url('./propbet_files/Icon_Bankroll.png'); right: 5%; transform: translateY(-50%) rotate(30deg); }
-        .last-longer-spray-bg { background-image: url('./propbet_files/Icon_Last_Longer_192-1.png'); left: 5%; transform: translateY(-50%) rotate(-30deg); }
+        /* Specific override for Bankroll spraypaint saturation */
+        .bankroll-spray-bg {
+             filter: brightness(500%) contrast(100%) saturate(25%) blur(0px) hue-rotate(0deg);
+        }
+
+        /* UPDATED: Rotation reduced to 15deg */
+        .elo-spray-bg { background-image: url('./propbet_files/Icon_ELOC_Small.png'); left: 5%; transform: translateY(-50%) rotate(-15deg);}
+        .bankroll-spray-bg { background-image: url('./propbet_files/Icon_Bankroll.png'); right: 5%; transform: translateY(-50%) rotate(15deg); }
+        .last-longer-spray-bg { background-image: url('./propbet_files/Icon_Last_Longer_192-1.png'); left: 5%; transform: translateY(-50%) rotate(-15deg); }
         
         .elo-challenge::before { background-image: url('./propbet_files/PB_5ELO_2.jpg'); }
         .bankroll-challenge::before { background-image: url('./propbet_files/PB_3BC.jpg'); }
@@ -306,7 +309,8 @@
             top: 50%;
             white-space: nowrap;
             letter-spacing: 0.05em;
-            font-family: 'Roboto', sans-serif;
+            /* UPDATED: Font Family */
+            font-family: 'Roboto Condensed', sans-serif;
             z-index: -1;
         }
         
@@ -323,7 +327,8 @@
         }
 
         .section-title {
-            font-family: 'Roboto', sans-serif;
+            /* UPDATED: Font Family */
+            font-family: 'Roboto Condensed', sans-serif;
             font-size: 2.5rem;
             margin: 0;
             position: relative;
@@ -352,12 +357,12 @@
             align-items: center;
             gap: 40px;
         }
-        /* Modifier class to reverse layout for Bankroll slider */
+        /* Modifier class to reverse layout */
         .slide.layout-reverse {
             flex-direction: row-reverse;
         }
         .slide-content {
-            flex: 1; /* Each section takes up half the space */
+            flex: 1; 
         }
         .slide-content.text-section h4 {
             font-size: 1.8rem;
@@ -389,7 +394,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            user-select: none; /* Prevent text selection */
+            user-select: none;
             transition: all 0.3s ease;
         }
         .slider-arrow:hover {
@@ -424,7 +429,6 @@
         /* --- Final Section --- */
         .stay-tuned {
             background-color: var(--section-bg);
-            /* REMOVED: border-bottom */
         }
 
         .stay-tuned p {
@@ -715,7 +719,69 @@
                         <h2 class="section-title-bg">PROP BET</h2>
                         <h2 class="section-title">Last Longer</h2>
                     </div>
+                    
+                    <div class="slider-container">
+                        <div class="slider-track-container">
+                            <div class="slider-track">
+                                <div class="slide">
+                                    <div class="slide-content text-section">
+                                        <h4>What is Last Longer?</h4>
+                                        <p><strong>Last Longer Prop Bets</strong> can add an extra layer of competition and intensity to the game, as players strive to outlast each other in the tournament.</p>
+                                        <p>Participating in Last Longer Prop Bets can be a fun way for friends or colleagues to compete against each other in a friendly and exciting environment.</p>
+                                    </div>
+                                    <div class="slide-content gif-section">
+                                        <img src="./propbet_files/01_Whats_Propbet_B_gif.gif" alt="Last Longer Animation 1">
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                     <div class="slide-content text-section">
+                                        <h4>How to Register?</h4>
+                                        <p>To participate, first, register for a tournament that has not yet begun. Once registered, you can join or create a Last Longer Prop Bet from the Prop Bet Menu or directly in the Tournament Lobby.</p>
+                                    </div>
+                                     <div class="slide-content gif-section">
+                                        <img src="./propbet_files/02_How-to-Register_B_gif.gif" alt="Last Longer Animation 2">
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                     <div class="slide-content text-section">
+                                        <h4>What are the Payouts?</h4>
+                                        <p>The payout depends on how winnings are split. You can choose before the bet begins.</p>
+                                        <ul>
+                                            <li><strong>Winner Takes All:</strong> The last person remaining wins 100%.</li>
+                                            <li><strong>Payout X%:</strong> The last X% of participants split the prize money (Standard, Top Heavy, or Even distribution).</li>
+                                        </ul>
+                                    </div>
+                                     <div class="slide-content gif-section">
+                                        <img src="./propbet_files/03_Payouts_B_gif.gif" alt="Last Longer Animation 3">
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                     <div class="slide-content text-section">
+                                        <h4>Finishing the Bet</h4>
+                                        <h5>Unregistering and Canceling</h5>
+                                        <p>Be aware of the payout structure and minimum participants required.</p>
+                                        <ul>
+                                            <li>You can cancel or unregister before the tournament begins.</li>
+                                            <li>If the minimum number of participants is not met, the bet will be canceled.</li>
+                                        </ul>
+                                    </div>
+                                     <div class="slide-content gif-section">
+                                        <img src="./propbet_files/04_Leave-LL_B_gif.gif" alt="Last Longer Animation 4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-dots">
+                            <span class="slider-dot active"></span>
+                            <span class="slider-dot"></span>
+                            <span class="slider-dot"></span>
+                            <span class="slider-dot"></span>
+                        </div>
                     </div>
+
+                </div>
             </section>
 
             <section class="stay-tuned">
@@ -762,13 +828,17 @@
             const dotsNav = sliderContainer.querySelector('.slider-dots');
             const dots = Array.from(dotsNav.children);
 
-            let slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
+            if (slides.length === 0) return; // Exit if no slides
+
+            let slideWidth = slides[0].getBoundingClientRect().width;
             let currentIndex = 0;
 
             const moveToSlide = (targetIndex) => {
                 track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
-                dots[currentIndex].classList.remove('active');
-                dots[targetIndex].classList.add('active');
+                if (dots.length > 0) {
+                    dots[currentIndex].classList.remove('active');
+                    dots[targetIndex].classList.add('active');
+                }
                 currentIndex = targetIndex;
             };
 
@@ -796,7 +866,7 @@
             });
             
             window.addEventListener('resize', () => {
-                slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
+                slideWidth = slides[0].getBoundingClientRect().width;
                 track.style.transition = 'none';
                 track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
                 setTimeout(() => {
