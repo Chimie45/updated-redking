@@ -184,11 +184,11 @@
     border: 2px solid var(--primary-red);
     transition: border-color 0.3s ease, transform 0.3s ease;
     position: relative;
-    aspect-ratio: 16/9;
+    aspect-ratio: 4/5;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 250px;
+    min-height: 300px;
 }
 
 .timeline-content:hover {
