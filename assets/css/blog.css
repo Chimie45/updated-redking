@@ -7,18 +7,19 @@
 #blog-header.page-header.hero {
     background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
     background-image:
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
         url('../images/blog/blogheader.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     background-attachment: fixed;
     min-height: 70vh;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     text-align: center;
     position: relative;
     overflow: hidden;
-    border-bottom: 3px solid var(--muted-gold);
+    border-bottom: 2px solid var(--muted-gold);
+    padding-bottom: 4rem;
 }
 
 /* Crown Animation for Blog Page */
@@ -64,8 +65,7 @@
 }
 
 #blog-header .hero-content {
-    padding-top: 100px;
-    padding-bottom: 40px;
+    padding-top: 80px;
 }
 
 #blog-header .hero-content h1 {
