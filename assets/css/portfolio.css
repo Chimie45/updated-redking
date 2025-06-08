@@ -367,28 +367,20 @@
     line-height: 1.6;
 }
 
-/* Container for 3:4 vertical videos */
-.video-container-vertical {
-    position: relative;
-    /* Constrain width on large screens so vertical video doesn't look too wide */
-    max-width: 480px;
-    max-height: 640px;
-    margin: 0 auto 2rem auto; /* Center the container and add space below */
-    padding-bottom: 133.33%; /* This is 4 / 3 * 100, which creates the 3:4 aspect ratio */
-    height: 0;
+/* Container for fixed-size videos like the 640x480 Boxing Star ad */
+.fixed-size-video-container {
+    width: 640px;
+    height: 480px;
+    max-width: 100%; /* Ensures the video shrinks on screens smaller than 640px */
+    margin: 0 auto 2rem auto; /* Centers the container and adds space below */
     border-radius: 8px;
-    overflow: hidden;
+    overflow: hidden; /* Clips the video to the rounded corners */
     border: 2px solid var(--muted-gold);
 }
 
-.video-container-vertical iframe,
-.video-container-vertical video {
-    position: absolute;
-    top: 0;
-    left: 0;
+.fixed-size-video-container video {
     width: 100%;
     height: 100%;
-    border: none;
 }
 
 /* Animation for gallery filter */
