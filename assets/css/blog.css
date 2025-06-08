@@ -18,123 +18,7 @@
     padding-top: 80px;
 }
 
-.featured-article-section {
-    padding: 80px 0;
-    background-color: var(--black);
-}
-
-/* Featured Article Layout - Image Left, Content Right */
-.featured-article-card {
-    display: flex;
-    align-items: stretch;
-    gap: 0;
-    background-color: var(--dark-gray);
-    border: 1px solid #333;
-    border-radius: 10px;
-    overflow: hidden;
-    max-width: 1000px;
-    margin: 0 auto;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    min-height: 300px;
-}
-
-.featured-article-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
-}
-
-.featured-article-image {
-    flex: 0 0 400px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.featured-article-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.featured-article-card:hover .featured-article-image img {
-    transform: scale(1.05);
-}
-
-.featured-article-content {
-    flex: 1;
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.featured-article-content h2 {
-    font-size: 2rem;
-    color: var(--white);
-    line-height: 1.3;
-    margin: 0;
-}
-
-.featured-article-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.9rem;
-}
-
-.featured-tag {
-    display: inline-block;
-    background-color: var(--muted-gold);
-    color: var(--black);
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.featured-author {
-    color: #ccc;
-}
-
-.featured-author::before {
-    content: "By ";
-    color: #999;
-}
-
-.featured-date {
-    color: #ccc;
-}
-
-.featured-date::before {
-    content: "• ";
-    color: #666;
-    margin-right: 0.25rem;
-}
-
-.featured-article-content .article-excerpt {
-    color: #ccc;
-    line-height: 1.6;
-    margin: 0;
-    font-size: 1rem;
-}
-
-.featured-article-content .read-more-link {
-    color: var(--muted-gold);
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-size: 1rem;
-    margin-top: 0.5rem;
-}
-
-.featured-article-content .read-more-link:hover {
-    color: var(--gold);
-}
+/* MODIFICATION: Removed .featured-article-section as it's no longer used */
 
 .latest-articles-section {
     padding: 80px 0;
@@ -147,6 +31,127 @@
     gap: 2rem;
 }
 
+/* --- Styles for the new featured card within the grid --- */
+.blog-card--featured {
+    grid-column: 1 / -1; /* Span full width of the grid */
+    display: flex;
+    flex-direction: row; /* Horizontal layout on desktop */
+    align-items: stretch;
+    gap: 0;
+    background-color: var(--black);
+    border: 2px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 300px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* MODIFICATION: Gold outline on hover */
+.blog-card--featured:hover {
+    border-color: var(--muted-gold);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+}
+
+/* MODIFICATION: Image is now 16:9 */
+.blog-card--featured .featured-article-image {
+    flex: 0 0 45%; /* Give the image a fixed proportion of the card */
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    align-self: center; /* Center the image container vertically if content is taller */
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+.blog-card--featured .featured-article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.blog-card--featured:hover .featured-article-image img {
+    transform: scale(1.05);
+}
+
+.blog-card--featured .featured-article-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* MODIFICATION: Title font size reduced */
+.blog-card--featured .featured-article-content h2 {
+    font-size: 1.8rem;
+    color: var(--white);
+    line-height: 1.3;
+    margin: 0;
+}
+
+.blog-card--featured .featured-article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.blog-card--featured .featured-tag {
+    display: inline-block;
+    background-color: var(--muted-gold);
+    color: var(--black);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.blog-card--featured .featured-author {
+    color: #ccc;
+}
+
+.blog-card--featured .featured-author::before {
+    content: "By ";
+    color: #999;
+}
+
+.blog-card--featured .featured-date {
+    color: #ccc;
+}
+
+.blog-card--featured .featured-date::before {
+    content: "• ";
+    color: #666;
+    margin-right: 0.25rem;
+}
+
+.blog-card--featured .article-excerpt {
+    color: #ccc;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.blog-card--featured .read-more-link {
+    color: var(--muted-gold);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.blog-card--featured .read-more-link:hover {
+    color: var(--gold);
+}
+
+
+/* --- Styles for standard (non-featured) cards --- */
 .blog-card {
     background: var(--black);
     border-radius: 10px;
@@ -209,17 +214,15 @@
     margin-top: auto;
 }
 
+/* --- Modal Styles (Unchanged) --- */
 .blog-modal .blog-modal-content {
     width: 80%;
 }
-
 .blog-modal .close-blog-modal {}
-
 .blog-modal .blog-modal-header {
     height: 300px;
     background-color: var(--black);
 }
-
 .blog-modal .blog-modal-header img {
     width: 100%;
     height: auto;
@@ -228,80 +231,41 @@
     object-fit: cover;
     border-radius: 5px;
 }
+.blog-modal .blog-modal-body { padding: 2rem 2.5rem; }
+.blog-modal-body h1 { font-size: 2.2rem; color: var(--muted-gold); margin-bottom: 0.5rem; }
+.blog-modal-body .blog-meta { font-size: 0.9rem; color: #ccc; margin-bottom: 2rem; }
+.blog-modal-body .blog-meta span { margin-right: 1.5rem; }
+.blog-modal-body .blog-full-content { font-size: 1.1rem; line-height: 1.8; color: #e0e0e0; }
+.blog-modal-body .blog-full-content p { margin-bottom: 1.5rem; }
+.blog-modal-body .blog-full-content h2 { font-size: 1.6rem; color: var(--gold); margin-top: 2.5rem; margin-bottom: 1rem; }
 
-.blog-modal .blog-modal-body {
-    padding: 2rem 2.5rem;
-}
-
-.blog-modal-body h1 {
-    font-size: 2.2rem;
-    color: var(--muted-gold);
-    margin-bottom: 0.5rem;
-}
-
-.blog-modal-body .blog-meta {
-    font-size: 0.9rem;
-    color: #ccc;
-    margin-bottom: 2rem;
-}
-
-.blog-modal-body .blog-meta span {
-    margin-right: 1.5rem;
-}
-
-.blog-modal-body .blog-full-content {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #e0e0e0;
-}
-
-.blog-modal-body .blog-full-content p {
-    margin-bottom: 1.5rem;
-}
-
-.blog-modal-body .blog-full-content h2 {
-    font-size: 1.6rem;
-    color: var(--gold);
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .featured-article-card {
-        flex-direction: column;
-        max-width: 100%;
-        gap: 0;
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .blog-card--featured {
+        flex-direction: column; /* Stack featured card vertically */
     }
-    .featured-article-image {
-        flex: none;
-        width: 100%;
-        height: 250px;
-    }
-    .featured-article-content {
-        width: 100%;
+     .blog-card--featured .featured-article-image {
+        width: auto; /* Allow width to be natural in the column */
+        margin: 1rem 1rem 0 1rem; /* Adjust margin for stacked layout */
     }
 }
+
 
 @media (max-width: 768px) {
     #blog-header.page-header.hero {
         min-height: 40vh;
     }
-    .featured-article-card {
-        max-width: 100%;
-        gap: 0;
-    }
-    .featured-article-section, .latest-articles-section {
+    .latest-articles-section {
         padding: 60px 0;
     }
-    .featured-article-content {
-        padding: 2rem 1.5rem;
+    .blog-card--featured .featured-article-content {
+        padding: 1.5rem;
         gap: 0.75rem;
     }
-    .featured-article-content h2 {
+    .blog-card--featured .featured-article-content h2 {
         font-size: 1.6rem;
     }
-    .featured-article-meta {
+    .blog-card--featured .featured-article-meta {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
