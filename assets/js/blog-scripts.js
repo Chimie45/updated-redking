@@ -9,12 +9,12 @@ const blogArticles = [
         contentUrl: '/blog/articles/effective-igaming-marketing'
     },
     {
-    id: 'latam-cultural-credibility',
-    isFeatured: false,
-    title: 'What iGaming Brands Get Wrong in LATAM',
-    excerpt: 'International brands burn millions in Latin America by treating diverse markets as homogeneous. Cultural blindness, payment misunderstanding, and regulatory ignorance cost sustainable growth opportunities.',
-    image: '/assets/images/blog/latam-cultural-hero.jpg',
-    contentUrl: '/blog/articles/latam-cultural-credibility'
+        id: 'latam-cultural-credibility',
+        isFeatured: false,
+        title: 'What iGaming Brands Get Wrong in LATAM',
+        excerpt: 'International brands burn millions in Latin America by treating diverse markets as homogeneous. Cultural blindness, payment misunderstanding, and regulatory ignorance cost sustainable growth opportunities.',
+        image: '/assets/images/blog/latam-cultural-hero.jpg',
+        contentUrl: '/blog/articles/latam-cultural-credibility'
 },
     {
         id: 'korea-igaming-potential',
