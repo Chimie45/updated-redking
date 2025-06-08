@@ -255,7 +255,7 @@ if (contactForm) {
             submitButton.disabled = false;
             return;
         }
-        const workerUrl = 'https://contact-form-handler.thomas-streetman.workers.dev/'; // Updated Cloudflare Worker URL
+        const workerUrl = 'https://contact-form-handler.thomas-streetman.workers.dev/';
         try {
             const response = await fetch(workerUrl, {
                 method: 'POST',
@@ -283,13 +283,12 @@ if (contactForm) {
     });
 }
 
-// Handler for the newsletter form
-const newsletterForm = document.getElementById('newsletterForm');
-if (newsletterForm) {
-    let newsletterMessageDiv = document.getElementById('newsletter-submission-message');
+// Handler for the newsletter forms
+// This selects ALL forms with the class 'newsletter-form'
+document.querySelectorAll('.newsletter-form').forEach(newsletterForm => {
+    let newsletterMessageDiv = newsletterForm.querySelector('.form-submission-feedback');
     if(!newsletterMessageDiv){
         newsletterMessageDiv = document.createElement('div');
-        newsletterMessageDiv.id = 'newsletter-submission-message';
         newsletterMessageDiv.className = 'form-submission-feedback';
         newsletterMessageDiv.style.cssText = 'margin-top: 10px; padding: 8px; border-radius: 4px; text-align: center; font-size: 0.9em; display: none;';
         newsletterForm.parentNode.insertBefore(newsletterMessageDiv, newsletterForm.nextSibling);
@@ -322,12 +321,12 @@ if (newsletterForm) {
             submitButton.disabled = false;
             return;
         }
-        const workerUrl = 'https://contact-form-handler.thomas-streetman.workers.dev/'; // Updated Cloudflare Worker URL
-        const data = { email: email, formType: 'newsletter' };
+        const workerUrl = 'https://contact-form-handler.thomas-streetman.workers.dev/';
+        const data = { email: email, formType: 'newsletter' }; // Form type is now dynamically fetched or defaults to 'newsletter'
         try {
             const response = await fetch(workerUrl, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
             const result = await response.json();
@@ -349,14 +348,14 @@ if (newsletterForm) {
             submitButton.disabled = false;
         }
     });
-}
+});
 
-// Job Application Form Handler (Example for one job type)
-const jobAppFormMotionDesigner = document.getElementById('jobApplicationFormMotionDesigner');
-if (jobAppFormMotionDesigner) {
-    const messageTextarea = document.getElementById('jobAppMessageMotionDesigner');
-    const charCounterDisplay = document.getElementById('charCounterMotionDesigner');
-    const maxLength = messageTextarea.maxLength > 0 ? messageTextarea.maxLength : 300; // Use attribute or default
+
+// Handler for job application forms - now targets all forms with the class 'job-application-form'
+document.querySelectorAll('.job-application-form').forEach(jobAppForm => {
+    const messageTextarea = jobAppForm.querySelector('textarea[name="message"]');
+    const charCounterDisplay = jobAppForm.querySelector('.char-counter');
+    const maxLength = messageTextarea && messageTextarea.maxLength > 0 ? messageTextarea.maxLength : 300; // Use attribute or default
 
     if (messageTextarea && charCounterDisplay) {
         charCounterDisplay.textContent = `${maxLength} characters remaining`; // Initial display
@@ -368,9 +367,9 @@ if (jobAppFormMotionDesigner) {
         });
     }
 
-    jobAppFormMotionDesigner.addEventListener('submit', async function(e) {
+    jobAppForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        const feedbackDiv = document.getElementById('jobAppSubmissionMessageMotionDesigner');
+        const feedbackDiv = this.querySelector('.form-submission-feedback'); // Get feedback div specific to THIS form
         feedbackDiv.textContent = '';
         feedbackDiv.style.display = 'none';
         feedbackDiv.className = 'form-submission-feedback';
@@ -379,9 +378,9 @@ if (jobAppFormMotionDesigner) {
         submitButton.textContent = 'Submitting...';
         submitButton.disabled = true;
 
-        const nameInput = document.getElementById('jobAppNameMotionDesigner');
-        const emailInput = document.getElementById('jobAppEmailMotionDesigner');
-        const resumeInput = document.getElementById('jobAppResumeMotionDesigner');
+        const nameInput = this.querySelector('input[name="name"]');
+        const emailInput = this.querySelector('input[name="email"]');
+        const resumeInput = this.querySelector('input[name="resume"]'); // Assuming 'resume' is the name attribute for the file input
 
         if (!nameInput.value || !emailInput.value || !messageTextarea.value || !resumeInput.files.length) {
             feedbackDiv.textContent = 'Please fill in all required fields and attach a resume.';
@@ -428,9 +427,15 @@ if (jobAppFormMotionDesigner) {
             return;
         }
 
-        const workerUrl = 'https://contact-form-handler.thomas-streetman.workers.dev/'; // Updated Cloudflare Worker URL
+        const workerUrl = 'https://contact-form-handler.thomas-streetman.workers.dev/';
         const formData = new FormData(this);
-        formData.append('formType', 'job-application-motion-designer');
+        // The formType might be set on the HTML form with data-form-type, or default as needed.
+        // For job applications, it might be dynamically determined or explicitly set.
+        // As a fallback for this specific job application context:
+        if (!formData.get('formType')) {
+            formData.append('formType', 'job-application-motion-designer');
+        }
+
         try {
             const response = await fetch(workerUrl, { method: 'POST', body: formData });
             const result = await response.json();
@@ -453,7 +458,7 @@ if (jobAppFormMotionDesigner) {
             submitButton.disabled = false;
         }
     });
-}
+});
 
 // Image error handling
 document.querySelectorAll('img').forEach(img => {
