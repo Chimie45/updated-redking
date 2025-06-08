@@ -1,6 +1,21 @@
 // Define the observer in the global scope so other scripts can access it.
 let animatedElementsObserver;
+// Crown animation enhancement for home page
+function enhanceHomeCrownAnimation() {
+    const crown = document.querySelector('.hero .crown-animation i');
+    if (crown) {
+        crown.addEventListener('mouseenter', function() {
+            this.style.animation = 'crownSpin 1s ease-in-out';
+        });
+        
+        crown.addEventListener('animationend', function() {
+            this.style.animation = 'crownFloat 3s ease-in-out infinite';
+        });
+    }
+}
 
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', enhanceHomeCrownAnimation);
 // Portfolio modal functions
 function openPortfolioModal(modalId) {
     const modal = document.getElementById(modalId);
