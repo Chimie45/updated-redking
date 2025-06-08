@@ -256,15 +256,14 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
-            opacity: 0.08;
+            opacity: 0.15;
             mix-blend-mode: color-dodge;
             z-index: 1;
         }
 
-        .elo-spray-bg { background-image: url('./propbet_files/Icon_ELOC_Small.png'); left: 5%; }
-        .bankroll-spray-bg { background-image: url('./propbet_files/Icon_Bankroll.png'); right: 5%; }
-        .last-longer-spray-bg { background-image: url('./propbet_files/Icon_Last_Longer_192-1.png'); left: 5%;}
-
+        .elo-spray-bg { background-image: url('./propbet_files/Icon_ELOC_Small.png'); left: 5%; transform: translateY(-50%) rotate(-30deg);}
+        .bankroll-spray-bg { background-image: url('./propbet_files/Icon_Bankroll.png'); right: 5%; transform: translateY(-50%) rotate(30deg); }
+        .last-longer-spray-bg { background-image: url('./propbet_files/Icon_Last_Longer_192-1.png'); left: 5%; transform: translateY(-50%) rotate(-30deg); }
         
         .elo-challenge::before { background-image: url('./propbet_files/PB_5ELO_2.jpg'); }
         .bankroll-challenge::before { background-image: url('./propbet_files/PB_3BC.jpg'); }
@@ -291,6 +290,7 @@
             top: 50%;
             white-space: nowrap;
             letter-spacing: 0.05em;
+            font-family: 'Roboto', sans-serif;
         }
         
         .section-title-container.align-left .section-title-bg {
@@ -306,6 +306,7 @@
         }
 
         .section-title {
+            font-family: 'Roboto', sans-serif;
             font-size: 2.5rem;
             margin: 0;
             position: relative;
@@ -354,10 +355,22 @@
             letter-spacing: 0.1em;
         }
 
-        /* --- SLICK SLIDER STYLES --- */
+        /* --- CUSTOM CAROUSEL STYLES --- */
         @font-face{font-family:"Font Awesome 5 Free";font-style:normal;font-weight:900;font-display:block;src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.eot);src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.eot#iefix) format("embedded-opentype"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff2) format("woff2"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff) format("woff"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.ttf) format("truetype"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.svg#fontawesome) format("svg")}.fa,.fas{font-family:"Font Awesome 5 Free";font-weight:900}
-        .slick-slider{position:relative;display:block;box-sizing:border-box;-webkit-touch-callout:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;-ms-touch-action:pan-y;touch-action:pan-y;-webkit-tap-highlight-color:transparent}.slick-list{position:relative;overflow:hidden;display:block;margin:0;padding:0}.slick-list:focus{outline:0}.slick-list.dragging{cursor:pointer}.slick-slider .slick-list,.slick-slider .slick-track{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}.slick-track{position:relative;left:0;top:0;display:block}.slick-track:after,.slick-track:before{content:"";display:table}.slick-track:after{clear:both}.slick-loading .slick-track{visibility:hidden}.slick-slide{float:left;height:100%;min-height:1px;display:none}[dir=rtl] .slick-slide{float:right}.slick-slide.slick-loading img{display:none}.slick-slide.dragging img{pointer-events:none}.slick-initialized .slick-slide{display:block}.slick-loading .slick-slide{visibility:hidden}.slick-vertical .slick-slide{display:block;height:auto;border:1px solid transparent}.slick-arrow.slick-hidden{display:none}
-        .slick-arrow {
+        
+        .custom-carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .carousel-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -375,10 +388,11 @@
             pointer-events: all;
             transition: color 0.3s ease;
         }
-        .slick-prev { left: -60px; }
-        .slick-next { right: -60px; }
-        .slick-prev:hover, .slick-next:hover { color: white; }
-        .slick-dots {
+        .carousel-arrow.prev { left: -60px; }
+        .carousel-arrow.next { right: -60px; }
+        .carousel-arrow:hover { color: white; }
+        
+        .carousel-dots {
             position: absolute;
             bottom: -40px;
             list-style: none;
@@ -388,41 +402,26 @@
             margin: 0;
             width: 100%;
         }
-        .slick-dots li {
+        .carousel-dots .dot {
             position: relative;
             display: inline-block;
             margin: 0 5px;
-            padding: 0;
-            cursor: pointer;
-        }
-        .slick-dots li button {
-            border: 0;
-            background: transparent;
-            display: block;
-            height: 10px;
-            width: 10px;
-            outline: none;
-            line-height: 0;
-            font-size: 0;
-            color: transparent;
             padding: 5px;
             cursor: pointer;
-            pointer-events: all;
         }
-        .slick-dots li button:before {
+        .carousel-dots .dot::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 10px;
             height: 10px;
             border-radius: 50%;
             background: #fff;
             opacity: 0.5;
+            display: block;
         }
-        .slick-dots li.slick-active button:before {
+        .carousel-dots .dot.active::before {
             opacity: 1;
         }
+
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -436,8 +435,8 @@
             .hero { height: 40vh; }
             .slide-content { flex-direction: column; }
             .slide-content .image-content { order: -1; width: 100%; }
-            .slick-prev { left: 10px; }
-            .slick-next { right: 10px; }
+            .carousel-arrow.prev { left: 10px; }
+            .carousel-arrow.next { right: 10px; }
             .section-title { font-size: 2rem; }
             .section-title-bg { font-size: 5rem; }
             .section-title-container { text-align: center !important; }
@@ -495,74 +494,72 @@
                     <h2 class="section-title-bg">PROP BET</h2>
                     <h2 class="section-title">ELO Challenge</h2>
                 </div>
-                <div class="challenge-carousel">
-                    <!-- Slide 1 -->
-                    <div>
-                        <div class="slide-content">
-                            <div class="text-content">
-                                <h4>What is ELO Challenge?</h4>
-                                <p><strong>ELO Challenge Prop Bets</strong> offer an engaging and competitive way for players to test their skills and strategic prowess based on Spin & Gold's ELO Rating System. Participants can create or join these challenges, setting targets and timeframes to grow their ELO ratings and potentially win big.</p>
-                                <p>Engaging in an <strong>ELO Challenge Prop Bet</strong> serves as a motivating tool for players, encouraging them to enhance their ELO ratings and poker abilities. <strong>ELO Challenge Prop Bets</strong> can be found in the <strong>Prop Bet Menu</strong> or in the <strong>Spin & Gold Lobby.</strong></p>
-                            </div>
-                            <div class="image-content">
-                                <img src="./propbet_files/ELO_Slide_1.gif" alt="ELO Challenge Animation 1">
-                            </div>
-                        </div>
-                    </div>
-                     <!-- Slide 2 -->
-                    <div>
-                        <div class="slide-content">
-                            <div class="text-content">
-                                <h4>How to Register?</h4>
-                                <p>Participating in an ELO Challenge is a straightforward process. Here's how you can get started:</p>
-                                <h5><strong>Creating a Challenge:</strong></h5>
-                                <ul>
-                                    <li>Choose between Single Challenge or involve multiple Bettors.</li>
-                                    <li>Set the challenge duration in one-hour increments with a minimum of one day.</li>
-                                    <li>The start time aligns with the hour, with up to 7 days of advanced scheduling.</li>
-                                    <li>Personalize your challenge by inputting your desired target rating.</li>
-                                </ul>
-                            </div>
-                            <div class="image-content">
-                                <img src="./propbet_files/ELO_Slide_2.gif" alt="ELO Challenge Animation 2">
+                <div class="custom-carousel-container" data-carousel-id="elo-carousel">
+                    <div class="carousel-track">
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <div class="text-content">
+                                    <h4>What is ELO Challenge?</h4>
+                                    <p><strong>ELO Challenge Prop Bets</strong> offer an engaging and competitive way for players to test their skills and strategic prowess based on Spin & Gold's ELO Rating System. Participants can create or join these challenges, setting targets and timeframes to grow their ELO ratings and potentially win big.</p>
+                                    <p>Engaging in an <strong>ELO Challenge Prop Bet</strong> serves as a motivating tool for players, encouraging them to enhance their ELO ratings and poker abilities. <strong>ELO Challenge Prop Bets</strong> can be found in the <strong>Prop Bet Menu</strong> or in the <strong>Spin & Gold Lobby.</strong></p>
+                                </div>
+                                <div class="image-content">
+                                    <img src="./propbet_files/ELO_Slide_1.gif" alt="ELO Challenge Animation 1">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                     <!-- Slide 3 -->
-                    <div>
-                        <div class="slide-content">
-                            <div class="text-content">
-                                <h4>How to Win an ELO Challenge?</h4>
-                                <p>To kick off the challenge, the ELO Challenge begins at the set time, as scheduled by the Host. As the challenge progresses, ELO Ratings are influenced by game results. ELO Rating changes are visible to all participants, providing real-time insights into the competition.</p>
-                                <h5><strong>Challenge Conclusion:</strong></h5>
-                                <ul>
-                                    <li><strong>Host Win:</strong> If the Host hits the target ELO Rating within the time frame, they win.</li>
-                                    <li><strong>Bettor Win:</strong> If the Host falls short of the target, Bettors emerge victorious.</li>
-                                    <li><strong>Host Forfeit:</strong> The Host can choose to quit the challenge, leading to Bettors winning.</li>
-                                </ul>
-                            </div>
-                            <div class="image-content">
-                                <img src="./propbet_files/ELO_Slide_3.gif" alt="ELO Challenge Animation 3">
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <div class="text-content">
+                                    <h4>How to Register?</h4>
+                                    <p>Participating in an ELO Challenge is a straightforward process. Here's how you can get started:</p>
+                                    <h5><strong>Creating a Challenge:</strong></h5>
+                                    <ul>
+                                        <li>Choose between Single Challenge or involve multiple Bettors.</li>
+                                        <li>Set the challenge duration in one-hour increments with a minimum of one day.</li>
+                                        <li>The start time aligns with the hour, with up to 7 days of advanced scheduling.</li>
+                                        <li>Personalize your challenge by inputting your desired target rating.</li>
+                                    </ul>
+                                </div>
+                                <div class="image-content">
+                                    <img src="./propbet_files/ELO_Slide_2.gif" alt="ELO Challenge Animation 2">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                     <!-- Slide 4 -->
-                    <div>
-                        <div class="slide-content">
-                            <div class="text-content">
-                                <h4>Additional Information</h4>
-                                <h5><strong>Challenge Cancellation and Forfeiting:</strong></h5>
-                                <ul>
-                                    <li>Hosts and operators have the authority to cancel challenges before they commence. After the start of a challenge, cancelation by the host will result in a loss for the host.</li>
-                                </ul>
-                                <h5><strong>Valid Games:</strong></h5>
-                                <ul>
-                                    <li>Games ending after the challenge starts are considered valid.</li>
-                                    <li>Games that start during the challenge but end after its conclusion are not valid.</li>
-                                </ul>
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <div class="text-content">
+                                    <h4>How to Win an ELO Challenge?</h4>
+                                    <p>To kick off the challenge, the ELO Challenge begins at the set time, as scheduled by the Host. As the challenge progresses, ELO Ratings are influenced by game results. ELO Rating changes are visible to all participants, providing real-time insights into the competition.</p>
+                                    <h5><strong>Challenge Conclusion:</strong></h5>
+                                    <ul>
+                                        <li><strong>Host Win:</strong> If the Host hits the target ELO Rating within the time frame, they win.</li>
+                                        <li><strong>Bettor Win:</strong> If the Host falls short of the target, Bettors emerge victorious.</li>
+                                        <li><strong>Host Forfeit:</strong> The Host can choose to quit the challenge, leading to Bettors winning.</li>
+                                    </ul>
+                                </div>
+                                <div class="image-content">
+                                    <img src="./propbet_files/ELO_Slide_3.gif" alt="ELO Challenge Animation 3">
+                                </div>
                             </div>
-                            <div class="image-content">
-                                <img src="./propbet_files/ELO_Slide_4.gif" alt="ELO Challenge Animation 4">
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <div class="text-content">
+                                    <h4>Additional Information</h4>
+                                    <h5><strong>Challenge Cancellation and Forfeiting:</strong></h5>
+                                    <ul>
+                                        <li>Hosts and operators have the authority to cancel challenges before they commence. After the start of a challenge, cancelation by the host will result in a loss for the host.</li>
+                                    </ul>
+                                    <h5><strong>Valid Games:</strong></h5>
+                                    <ul>
+                                        <li>Games ending after the challenge starts are considered valid.</li>
+                                        <li>Games that start during the challenge but end after its conclusion are not valid.</li>
+                                    </ul>
+                                </div>
+                                <div class="image-content">
+                                    <img src="./propbet_files/ELO_Slide_4.gif" alt="ELO Challenge Animation 4">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -578,73 +575,75 @@
                     <h2 class="section-title-bg">PROP BET</h2>
                     <h2 class="section-title">Bankroll Challenge</h2>
                 </div>
-                <div class="bankroll-carousel">
-                    <!-- Slide 1 -->
-                    <div>
-                        <div class="slide-content">
-                            <div class="image-content">
-                                <img src="./propbet_files/BKRC_GIF01_opt.gif" alt="Bankroll Challenge Animation 1">
-                            </div>
-                            <div class="text-content">
-                                <h4>What is Bankroll Challenge?</h4>
-                                <p><strong>Bankroll Challenge Prop Bets</strong> are a fun way for players to challenge each other or themselves to see how well they can perform over a period of time at building their bankroll.</p>
-                                <p>If the host manages to achieve the target amount in the set period of time, the host wins the Prop Bet. Otherwise, the bettors win the Prop Bet.​ Profits gained will be added towards the goal, and the losses will be deducted from the current amount.</p>
-                            </div>
-                        </div>
-                    </div>
-                     <!-- Slide 2 -->
-                    <div>
-                        <div class="slide-content">
-                            <div class="image-content">
-                                <img src="./propbet_files/BKRC_GIF02_opt.gif" alt="Bankroll Challenge Animation 2">
-                            </div>
-                             <div class="text-content">
-                                <h4>How to Register?</h4>
-                                <p>To participate in a Bankroll Challenge Prop Bet, you can join or create one from the Prop Bet Menu. It is available for various Tournaments and Cash Games.</p>
+                <div class="custom-carousel-container" data-carousel-id="bankroll-carousel">
+                    <div class="carousel-track">
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <div class="image-content">
+                                    <img src="./propbet_files/BKRC_GIF01_opt.gif" alt="Bankroll Challenge Animation 1">
+                                </div>
+                                <div class="text-content">
+                                    <h4>What is Bankroll Challenge?</h4>
+                                    <p><strong>Bankroll Challenge Prop Bets</strong> are a fun way for players to challenge each other or themselves to see how well they can perform over a period of time at building their bankroll.</p>
+                                    <p>If the host manages to achieve the target amount in the set period of time, the host wins the Prop Bet. Otherwise, the bettors win the Prop Bet.​ Profits gained will be added towards the goal, and the losses will be deducted from the current amount.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Slide 3 -->
-                    <div>
-                        <div class="slide-content">
-                            <div class="image-content">
-                                <img src="./propbet_files/BKRC_GIF04_opt.gif" alt="Bankroll Challenge Animation 3">
-                            </div>
-                             <div class="text-content">
-                                <h4>Game Types</h4>
-                                <p>Players can choose to challenge other players or play against themselves.</p>
-                                <h5>Single Mode</h5>
-                                <p>Created when the host enters 0 as the number of bettors. No bets will be placed, thus no prizes will be provided.</p>
-                                <h5>Bet Mode</h5>
-                                <p>Host can set the number of bettor(s) that can bet against the host's challenge.</p>
+                         <!-- Slide 2 -->
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <div class="image-content">
+                                    <img src="./propbet_files/BKRC_GIF02_opt.gif" alt="Bankroll Challenge Animation 2">
+                                </div>
+                                 <div class="text-content">
+                                    <h4>How to Register?</h4>
+                                    <p>To participate in a Bankroll Challenge Prop Bet, you can join or create one from the Prop Bet Menu. It is available for various Tournaments and Cash Games.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Slide 4 -->
-                    <div>
-                        <div class="slide-content">
-                            <div class="image-content">
-                                <img src="./propbet_files/BKRC_GIF05_opt.gif" alt="Bankroll Challenge Animation 4">
-                            </div>
-                             <div class="text-content">
-                                <h4>What are the Payouts?</h4>
-                                <p>The host sets the goal, time, applied games, number of bettors, bet amount, and markup. Winnings are distributed as follows:</p>
-                                <h5>Host Wins</h5>
-                                <p>All money bet by the bettors will be won by the host, along with the host's deposited amount.</p>
-                                <h5>Host Loses</h5>
-                                <p>All money deposited by the host will be won by the bettors. If there are multiple bettors, the money will be awarded evenly.</p>
+                        <!-- Slide 3 -->
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <div class="image-content">
+                                    <img src="./propbet_files/BKRC_GIF04_opt.gif" alt="Bankroll Challenge Animation 3">
+                                </div>
+                                 <div class="text-content">
+                                    <h4>Game Types</h4>
+                                    <p>Players can choose to challenge other players or play against themselves.</p>
+                                    <h5>Single Mode</h5>
+                                    <p>Created when the host enters 0 as the number of bettors. No bets will be placed, thus no prizes will be provided.</p>
+                                    <h5>Bet Mode</h5>
+                                    <p>Host can set the number of bettor(s) that can bet against the host's challenge.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Slide 5 -->
-                    <div>
-                        <div class="slide-content">
-                            <div class="image-content">
-                                <img src="./propbet_files/BKRC_GIF06_opt.gif" alt="Bankroll Challenge Animation 5">
+                        <!-- Slide 4 -->
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <div class="image-content">
+                                    <img src="./propbet_files/BKRC_GIF05_opt.gif" alt="Bankroll Challenge Animation 4">
+                                </div>
+                                 <div class="text-content">
+                                    <h4>What are the Payouts?</h4>
+                                    <p>The host sets the goal, time, applied games, number of bettors, bet amount, and markup. Winnings are distributed as follows:</p>
+                                    <h5>Host Wins</h5>
+                                    <p>All money bet by the bettors will be won by the host, along with the host's deposited amount.</p>
+                                    <h5>Host Loses</h5>
+                                    <p>All money deposited by the host will be won by the bettors. If there are multiple bettors, the money will be awarded evenly.</p>
+                                </div>
                             </div>
-                             <div class="text-content">
-                                <h4>Are Other Profits Included?</h4>
-                                <p>Profits from across GGPoker can apply to your Bankroll Challenge. This includes features like GGCare, Jackpots, and Daily Leaderboards. However, profits from Staking, Bet on Flop, and other Prop Bets are excluded.</p>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <div class="image-content">
+                                    <img src="./propbet_files/BKRC_GIF06_opt.gif" alt="Bankroll Challenge Animation 5">
+                                </div>
+                                 <div class="text-content">
+                                    <h4>Are Other Profits Included?</h4>
+                                    <p>Profits from across GGPoker can apply to your Bankroll Challenge. This includes features like GGCare, Jackpots, and Daily Leaderboards. However, profits from Staking, Bet on Flop, and other Prop Bets are excluded.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -660,62 +659,64 @@
                     <h2 class="section-title-bg">PROP BET</h2>
                     <h2 class="section-title">Last Longer</h2>
                 </div>
-                <div class="last-longer-carousel">
-                    <!-- Slide 1 -->
-                    <div>
-                        <div class="slide-content">
-                            <div class="text-content">
-                                <h4>What is Last Longer?</h4>
-                                <p><strong>Last Longer Prop Bets</strong> can add an extra layer of competition and intensity to the game, as players strive to outlast each other in the tournament.</p>
-                                <p>Participating in Last Longer Prop Bets can be a fun way for friends or colleagues to compete against each other in a friendly and exciting environment.</p>
-                            </div>
-                            <div class="image-content">
-                                <img src="./propbet_files/01_Whats_Propbet_B_gif.gif" alt="Last Longer Animation 1">
-                            </div>
-                        </div>
-                    </div>
-                     <!-- Slide 2 -->
-                    <div>
-                        <div class="slide-content">
-                             <div class="text-content">
-                                <h4>How to Register?</h4>
-                                <p>To participate, first, register for a tournament that has not yet begun. Once registered, you can join or create a Last Longer Prop Bet from the Prop Bet Menu or directly in the Tournament Lobby.</p>
-                            </div>
-                             <div class="image-content">
-                                <img src="./propbet_files/02_How-to-Register_B_gif.gif" alt="Last Longer Animation 2">
+                <div class="custom-carousel-container" data-carousel-id="last-longer-carousel">
+                    <div class="carousel-track">
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <div class="text-content">
+                                    <h4>What is Last Longer?</h4>
+                                    <p><strong>Last Longer Prop Bets</strong> can add an extra layer of competition and intensity to the game, as players strive to outlast each other in the tournament.</p>
+                                    <p>Participating in Last Longer Prop Bets can be a fun way for friends or colleagues to compete against each other in a friendly and exciting environment.</p>
+                                </div>
+                                <div class="image-content">
+                                    <img src="./propbet_files/01_Whats_Propbet_B_gif.gif" alt="Last Longer Animation 1">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Slide 3 -->
-                    <div>
-                        <div class="slide-content">
-                             <div class="text-content">
-                                <h4>What are the Payouts?</h4>
-                                <p>The payout depends on how winnings are split. You can choose before the bet begins.</p>
-                                <ul>
-                                    <li><strong>Winner Takes All:</strong> The last person remaining wins 100%.</li>
-                                    <li><strong>Payout X%:</strong> The last X% of participants split the prize money (Standard, Top Heavy, or Even distribution).</li>
-                                </ul>
-                            </div>
-                             <div class="image-content">
-                                <img src="./propbet_files/03_Payouts_B_gif.gif" alt="Last Longer Animation 3">
+                         <!-- Slide 2 -->
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                 <div class="text-content">
+                                    <h4>How to Register?</h4>
+                                    <p>To participate, first, register for a tournament that has not yet begun. Once registered, you can join or create a Last Longer Prop Bet from the Prop Bet Menu or directly in the Tournament Lobby.</p>
+                                </div>
+                                 <div class="image-content">
+                                    <img src="./propbet_files/02_How-to-Register_B_gif.gif" alt="Last Longer Animation 2">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Slide 4 -->
-                    <div>
-                        <div class="slide-content">
-                             <div class="text-content">
-                                <h4>Finishing the Bet</h4>
-                                <h5>Unregistering and Canceling</h5>
-                                <p>Be aware of the payout structure and minimum participants required.</p>
-                                <ul>
-                                    <li>You can cancel or unregister before the tournament begins.</li>
-                                    <li>If the minimum number of participants is not met, the bet will be canceled.</li>
-                                </ul>
+                        <!-- Slide 3 -->
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                 <div class="text-content">
+                                    <h4>What are the Payouts?</h4>
+                                    <p>The payout depends on how winnings are split. You can choose before the bet begins.</p>
+                                    <ul>
+                                        <li><strong>Winner Takes All:</strong> The last person remaining wins 100%.</li>
+                                        <li><strong>Payout X%:</strong> The last X% of participants split the prize money (Standard, Top Heavy, or Even distribution).</li>
+                                    </ul>
+                                </div>
+                                 <div class="image-content">
+                                    <img src="./propbet_files/03_Payouts_B_gif.gif" alt="Last Longer Animation 3">
+                                </div>
                             </div>
-                             <div class="image-content">
-                                <img src="./propbet_files/04_Leave-LL_B_gif.gif" alt="Last Longer Animation 4">
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                 <div class="text-content">
+                                    <h4>Finishing the Bet</h4>
+                                    <h5>Unregistering and Canceling</h5>
+                                    <p>Be aware of the payout structure and minimum participants required.</p>
+                                    <ul>
+                                        <li>You can cancel or unregister before the tournament begins.</li>
+                                        <li>If the minimum number of participants is not met, the bet will be canceled.</li>
+                                    </ul>
+                                </div>
+                                 <div class="image-content">
+                                    <img src="./propbet_files/04_Leave-LL_B_gif.gif" alt="Last Longer Animation 4">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -732,29 +733,86 @@
         
     </main>
     
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
-        $(document).ready(function(){
-          
-          const sliderOptions = {
-            dots: true,
-            arrows: true,
-            infinite: true,
-            speed: 500,
-            fade: true,
-            cssEase: 'linear',
-            autoplay: true,
-            autoplaySpeed: 5000,
-            prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-            nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>'
-          };
-
-          $('.elo-challenge .challenge-carousel').slick(sliderOptions);
-          $('.bankroll-challenge .bankroll-carousel').slick(sliderOptions);
-          $('.last-longer-challenge .last-longer-carousel').slick(sliderOptions);
-
+        document.addEventListener('DOMContentLoaded', function() {
+            // Find all carousel containers and initialize them
+            const carousels = document.querySelectorAll('.custom-carousel-container');
+            carousels.forEach(initCarousel);
         });
+
+        function initCarousel(carouselContainer) {
+            const track = carouselContainer.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            let currentIndex = 0;
+
+            // Create controls
+            const prevButton = document.createElement('button');
+            prevButton.classList.add('carousel-arrow', 'prev');
+            prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+
+            const nextButton = document.createElement('button');
+            nextButton.classList.add('carousel-arrow', 'next');
+            nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+
+            const dotsContainer = document.createElement('ul');
+            dotsContainer.classList.add('carousel-dots');
+            
+            carouselContainer.appendChild(prevButton);
+            carouselContainer.appendChild(nextButton);
+            carouselContainer.appendChild(dotsContainer);
+
+            // Create dots
+            slides.forEach((_, i) => {
+                const dot = document.createElement('li');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    goToSlide(i);
+                });
+                dotsContainer.appendChild(dot);
+            });
+            
+            const dots = Array.from(dotsContainer.children);
+
+            const setSlidePosition = (slide, index) => {
+                slide.style.left = slideWidth * index + 'px';
+            };
+            // slides.forEach(setSlidePosition); // not needed for flexbox implementation
+
+            const updateDots = (targetIndex) => {
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[targetIndex].classList.add('active');
+            };
+
+            const goToSlide = (targetIndex) => {
+                if (targetIndex < 0 || targetIndex >= slides.length) return;
+                track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
+                currentIndex = targetIndex;
+                updateDots(currentIndex);
+            };
+
+            // Event Listeners
+            prevButton.addEventListener('click', e => {
+                let newIndex = currentIndex - 1;
+                if (newIndex < 0) newIndex = slides.length - 1; // Loop
+                goToSlide(newIndex);
+            });
+
+            nextButton.addEventListener('click', e => {
+                let newIndex = currentIndex + 1;
+                if (newIndex >= slides.length) newIndex = 0; // Loop
+                goToSlide(newIndex);
+            });
+            
+            // Auto-play
+             setInterval(() => {
+                let newIndex = currentIndex + 1;
+                if (newIndex >= slides.length) newIndex = 0;
+                goToSlide(newIndex);
+            }, 5000);
+        }
+
     </script>
 </body>
 </html>
