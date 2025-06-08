@@ -1,12 +1,11 @@
 /* Services Page Specific Styles */
 
-/* Page Header for Services Page */
 #services-page-header.page-header.hero {
-    /* MODIFICATION: Updated image path */
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
         url('../images/services/servicesheader.jpg');
     background-attachment: fixed; 
+    min-height: 70vh;
 }
 
 #services-page-header .hero-content h1 {
@@ -22,7 +21,7 @@
     margin-bottom: 1.5rem; 
 }
 
-.page-intro-text { /* Used on services.html for intro paragraph */
+.page-intro-text {
     max-width: 800px;
     margin: 1rem auto 0 auto;
     font-size: 1.1rem;
@@ -31,7 +30,6 @@
     text-align: center;
 }
 
-/* Styling for the services section on this page */
 .services-page-section {
     padding: 80px 0;
     background-color: var(--dark-gray);
@@ -41,7 +39,6 @@
     cursor: pointer; 
 }
 
-/* Service Detail Modal Styles */
 .service-modal-content { 
     max-width: 850px;
 }
@@ -90,8 +87,6 @@
     text-align: center;
 }
 
-
-/* Responsive adjustments for service modals and page */
 @media (max-width: 768px) {
     #services-page-header .hero-content h1 {
         font-size: 2.2rem; 
