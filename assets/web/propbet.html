@@ -60,8 +60,8 @@
         }
         
         ul {
-            list-style-position: inside;
-            padding-left: 0;
+             list-style-position: inside;
+             padding-left: 0;
         }
         
         li {
@@ -218,6 +218,9 @@
         .challenge-slider-section {
             background-color: var(--section-bg-darker);
             position: relative;
+            min-height: 1080px;
+            display: flex;
+            align-items: center;
         }
         
         .challenge-slider-section::before {
@@ -231,6 +234,21 @@
             background-repeat: no-repeat;
             background-size: cover;
             opacity: 0.4;
+            z-index: 1;
+        }
+
+        .spray-paint-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('./propbet_files/PB_PropBet_Logo-1.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0.1;
+            mix-blend-mode: hard-light;
             z-index: 1;
         }
         
@@ -254,7 +272,10 @@
         .section-title-container {
             position: relative;
             margin-bottom: 40px;
+            padding: 0 5%;
         }
+        .section-title-container.align-left { text-align: left; }
+        .section-title-container.align-right { text-align: right; }
 
         .section-title-bg {
             font-size: clamp(4rem, 15vw, 9rem);
@@ -265,6 +286,11 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 100%;
+            text-align: center;
+        }
+
+        .elo-challenge .section-title-bg {
+             left: 60%;
         }
 
         .section-title {
@@ -391,6 +417,13 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .challenge-slider-section {
+                min-height: auto;
+                padding: 40px 0;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero { height: 40vh; }
             .slide-content { flex-direction: column; }
@@ -399,6 +432,8 @@
             .slick-next { right: 10px; }
             .section-title { font-size: 2rem; }
             .section-title-bg { font-size: 5rem; }
+            .section-title-container { text-align: center !important; }
+            .section-title-bg { left: 50% !important; }
         }
 
     </style>
@@ -446,8 +481,9 @@
         
         <!-- ELO Challenge Section -->
         <section class="challenge-slider-section elo-challenge">
+             <div class="spray-paint-bg"></div>
             <div class="container">
-                 <div class="section-title-container">
+                 <div class="section-title-container align-right">
                     <h2 class="section-title-bg">PROP BET</h2>
                     <h2 class="section-title">ELO Challenge</h2>
                 </div>
@@ -528,8 +564,9 @@
 
         <!-- Bankroll Challenge Section -->
         <section class="challenge-slider-section bankroll-challenge">
+             <div class="spray-paint-bg"></div>
             <div class="container">
-                <div class="section-title-container">
+                <div class="section-title-container align-left">
                     <h2 class="section-title-bg">PROP BET</h2>
                     <h2 class="section-title">Bankroll Challenge</h2>
                 </div>
@@ -565,8 +602,9 @@
 
         <!-- Last Longer Section -->
         <section class="challenge-slider-section last-longer-challenge">
+             <div class="spray-paint-bg"></div>
             <div class="container">
-                 <div class="section-title-container">
+                 <div class="section-title-container align-right">
                     <h2 class="section-title-bg">PROP BET</h2>
                     <h2 class="section-title">Last Longer</h2>
                 </div>
