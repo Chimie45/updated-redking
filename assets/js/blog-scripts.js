@@ -68,17 +68,24 @@ function displayFeaturedArticle() {
 
     if (!featuredContainer || !featuredArticle) return;
 
-    // The image paths in this template literal will now work because the `blogArticles` object has the correct paths.
     const articleHTML = `
         <div class="featured-article-card blog-card" onclick="openBlogModal('${featuredArticle.id}')">
             <div class="featured-article-image">
                 <img src="${featuredArticle.image}" alt="${featuredArticle.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a1a/f5f5f5?text=Image+Not+Found';">
             </div>
             <div class="featured-article-content">
-                <span class="featured-tag">Featured Article</span>
-                <h2>${featuredArticle.title}</h2>
+                <div class="featured-article-header">
+                    <h2>${featuredArticle.title}</h2>
+                    <div class="featured-article-meta">
+                        <span class="featured-tag">Featured</span>
+                        <span class="featured-author">RedKing Marketing</span>
+                        <span class="featured-date">December 2024</span>
+                    </div>
+                </div>
                 <p class="article-excerpt">${featuredArticle.excerpt}</p>
-                <span class="read-more-link">Read Full Story &rarr;</span>
+                <div class="featured-article-footer">
+                    <span class="read-more-link">Read Full Article &rarr;</span>
+                </div>
             </div>
         </div>
     `;
@@ -101,7 +108,6 @@ function displayLatestArticles() {
 
     let articlesHTML = '';
     latestArticles.forEach(article => {
-        // The image paths here will also be correct.
         articlesHTML += `
             <div class="blog-card" onclick="openBlogModal('${article.id}')">
                 <div class="blog-card-thumbnail">
@@ -180,8 +186,6 @@ async function openBlogModal(articleId) {
             displayDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
         }
         
-        // This selector was the source of the bug. It was grabbing the INSIDE of the wrong div.
-        // Let's get the whole article body's content correctly.
         const articleBodyContent = doc.querySelector('.article-body')?.innerHTML || doc.querySelector('.article-content')?.innerHTML || '<p>Could not find article content within the fetched file.</p>';
 
         modalTitle.textContent = doc.querySelector('title')?.textContent || articleData.title;
@@ -190,8 +194,6 @@ async function openBlogModal(articleId) {
             <span><strong>Date:</strong> ${displayDate}</span>
         `;
 
-        // *** THE FIX IS HERE ***
-        // We now wrap the fetched content in the .article-body div that the CSS needs.
         modalContent.innerHTML = `<div class="article-body">${articleBodyContent}</div>`;
 
     } catch (error) {
