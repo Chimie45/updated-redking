@@ -43,7 +43,7 @@
         }
 
         /* --- Typography --- */
-        h1, h2, h3, h4 {
+        h1, h2, h3, h4, h5 {
             font-family: 'Roboto Condensed', sans-serif;
             font-weight: 700;
             text-transform: uppercase;
@@ -60,12 +60,22 @@
         }
         
         ul {
-             list-style-position: inside;
-             padding-left: 0;
+            list-style: none;
+            padding-left: 0;
+            text-align: left;
+        }
+
+        li {
+            padding-left: 1.5em;
+            position: relative;
+            margin-bottom: 0.75rem;
         }
         
-        li {
-            margin-bottom: 0.75rem;
+        li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-yellow);
         }
 
         /* --- Hero Section --- */
@@ -218,7 +228,7 @@
         .challenge-slider-section {
             background-color: var(--section-bg-darker);
             position: relative;
-            min-height: 1080px;
+            min-height: 720px;
             display: flex;
             align-items: center;
         }
@@ -239,30 +249,26 @@
 
         .spray-paint-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('./propbet_files/PB_PropBet_Logo-1.png');
+            top: 50%;
+            transform: translateY(-50%);
+            width: 400px;
+            height: 400px;
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
-            opacity: 0.1;
-            mix-blend-mode: hard-light;
+            opacity: 0.08;
+            mix-blend-mode: color-dodge;
             z-index: 1;
         }
+
+        .elo-spray-bg { background-image: url('./propbet_files/Icon_ELOC_Small.png'); left: 5%; }
+        .bankroll-spray-bg { background-image: url('./propbet_files/Icon_Bankroll.png'); right: 5%; }
+        .last-longer-spray-bg { background-image: url('./propbet_files/Icon_Last_Longer_192-1.png'); left: 5%;}
+
         
-        .elo-challenge::before {
-             background-image: url('./propbet_files/PB_5ELO_2.jpg');
-        }
-
-        .bankroll-challenge::before {
-             background-image: url('./propbet_files/PB_3BC.jpg');
-        }
-
-        .last-longer-challenge::before {
-            background-image: url('./propbet_files/P4_3LL.jpg');
-        }
+        .elo-challenge::before { background-image: url('./propbet_files/PB_5ELO_2.jpg'); }
+        .bankroll-challenge::before { background-image: url('./propbet_files/PB_3BC.jpg'); }
+        .last-longer-challenge::before { background-image: url('./propbet_files/P4_3LL.jpg'); }
 
         .challenge-slider-section .container {
              position: relative;
@@ -283,14 +289,20 @@
             margin: 0;
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            text-align: center;
+            white-space: nowrap;
+            letter-spacing: 0.05em;
         }
-
+        
+        .section-title-container.align-left .section-title-bg {
+            left: 0;
+            transform: translate(-10%, -50%);
+        }
+        .section-title-container.align-right .section-title-bg {
+            right: 0;
+            transform: translate(10%, -50%);
+        }
         .elo-challenge .section-title-bg {
-             left: 60%;
+             transform: translate(20%, -50%);
         }
 
         .section-title {
@@ -319,11 +331,7 @@
         .slide-content .text-content h5 {
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
-        }
-        
-        .slide-content .text-content p, .slide-content .text-content ul {
-            font-size: 1rem;
-            color: var(--text-secondary);
+            color: var(--accent-yellow);
         }
         
         .slide-content .image-content {
@@ -433,7 +441,7 @@
             .section-title { font-size: 2rem; }
             .section-title-bg { font-size: 5rem; }
             .section-title-container { text-align: center !important; }
-            .section-title-bg { left: 50% !important; }
+            .section-title-bg { left: 50% !important; transform: translate(-50%, -50%) !important; }
         }
 
     </style>
@@ -481,7 +489,7 @@
         
         <!-- ELO Challenge Section -->
         <section class="challenge-slider-section elo-challenge">
-             <div class="spray-paint-bg"></div>
+             <div class="elo-spray-bg spray-paint-bg"></div>
             <div class="container">
                  <div class="section-title-container align-right">
                     <h2 class="section-title-bg">PROP BET</h2>
@@ -564,7 +572,7 @@
 
         <!-- Bankroll Challenge Section -->
         <section class="challenge-slider-section bankroll-challenge">
-             <div class="spray-paint-bg"></div>
+             <div class="bankroll-spray-bg spray-paint-bg"></div>
             <div class="container">
                 <div class="section-title-container align-left">
                     <h2 class="section-title-bg">PROP BET</h2>
@@ -592,7 +600,51 @@
                             </div>
                              <div class="text-content">
                                 <h4>How to Register?</h4>
-                                <p>To participate in a Bankroll Challenge Prop Bet, You can join or create a Bankroll Challenge Prop Bet from the Prop Bet Menu. It is available for Tournaments and Cash Games.</p>
+                                <p>To participate in a Bankroll Challenge Prop Bet, you can join or create one from the Prop Bet Menu. It is available for various Tournaments and Cash Games.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div>
+                        <div class="slide-content">
+                            <div class="image-content">
+                                <img src="./propbet_files/BKRC_GIF04_opt.gif" alt="Bankroll Challenge Animation 3">
+                            </div>
+                             <div class="text-content">
+                                <h4>Game Types</h4>
+                                <p>Players can choose to challenge other players or play against themselves.</p>
+                                <h5>Single Mode</h5>
+                                <p>Created when the host enters 0 as the number of bettors. No bets will be placed, thus no prizes will be provided.</p>
+                                <h5>Bet Mode</h5>
+                                <p>Host can set the number of bettor(s) that can bet against the host's challenge.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div>
+                        <div class="slide-content">
+                            <div class="image-content">
+                                <img src="./propbet_files/BKRC_GIF05_opt.gif" alt="Bankroll Challenge Animation 4">
+                            </div>
+                             <div class="text-content">
+                                <h4>What are the Payouts?</h4>
+                                <p>The host sets the goal, time, applied games, number of bettors, bet amount, and markup. Winnings are distributed as follows:</p>
+                                <h5>Host Wins</h5>
+                                <p>All money bet by the bettors will be won by the host, along with the host's deposited amount.</p>
+                                <h5>Host Loses</h5>
+                                <p>All money deposited by the host will be won by the bettors. If there are multiple bettors, the money will be awarded evenly.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 5 -->
+                    <div>
+                        <div class="slide-content">
+                            <div class="image-content">
+                                <img src="./propbet_files/BKRC_GIF06_opt.gif" alt="Bankroll Challenge Animation 5">
+                            </div>
+                             <div class="text-content">
+                                <h4>Are Other Profits Included?</h4>
+                                <p>Profits from across GGPoker can apply to your Bankroll Challenge. This includes features like GGCare, Jackpots, and Daily Leaderboards. However, profits from Staking, Bet on Flop, and other Prop Bets are excluded.</p>
                             </div>
                         </div>
                     </div>
@@ -602,7 +654,7 @@
 
         <!-- Last Longer Section -->
         <section class="challenge-slider-section last-longer-challenge">
-             <div class="spray-paint-bg"></div>
+             <div class="last-longer-spray-bg spray-paint-bg"></div>
             <div class="container">
                  <div class="section-title-container align-right">
                     <h2 class="section-title-bg">PROP BET</h2>
@@ -627,10 +679,43 @@
                         <div class="slide-content">
                              <div class="text-content">
                                 <h4>How to Register?</h4>
-                                <p>To participate in a Last Longer Prop Bet, first, register for a tournament that has not yet begun. Once registered, you can join or create a Last Longer Prop Bet from the Prop Bet Menu or directly in the Tournament Lobby.</p>
+                                <p>To participate, first, register for a tournament that has not yet begun. Once registered, you can join or create a Last Longer Prop Bet from the Prop Bet Menu or directly in the Tournament Lobby.</p>
                             </div>
                              <div class="image-content">
                                 <img src="./propbet_files/02_How-to-Register_B_gif.gif" alt="Last Longer Animation 2">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div>
+                        <div class="slide-content">
+                             <div class="text-content">
+                                <h4>What are the Payouts?</h4>
+                                <p>The payout depends on how winnings are split. You can choose before the bet begins.</p>
+                                <ul>
+                                    <li><strong>Winner Takes All:</strong> The last person remaining wins 100%.</li>
+                                    <li><strong>Payout X%:</strong> The last X% of participants split the prize money (Standard, Top Heavy, or Even distribution).</li>
+                                </ul>
+                            </div>
+                             <div class="image-content">
+                                <img src="./propbet_files/03_Payouts_B_gif.gif" alt="Last Longer Animation 3">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div>
+                        <div class="slide-content">
+                             <div class="text-content">
+                                <h4>Finishing the Bet</h4>
+                                <h5>Unregistering and Canceling</h5>
+                                <p>Be aware of the payout structure and minimum participants required.</p>
+                                <ul>
+                                    <li>You can cancel or unregister before the tournament begins.</li>
+                                    <li>If the minimum number of participants is not met, the bet will be canceled.</li>
+                                </ul>
+                            </div>
+                             <div class="image-content">
+                                <img src="./propbet_files/04_Leave-LL_B_gif.gif" alt="Last Longer Animation 4">
                             </div>
                         </div>
                     </div>
