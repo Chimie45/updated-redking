@@ -48,106 +48,99 @@ const blogArticles = [
         contentUrl: '/blog/articles/asian-gaming-markets'
     }
 ];
+
 document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('featured-article-container')) {
-        displayFeaturedArticle();
-    }
+    // MODIFICATION: Replaced two function calls with a single one to build the whole grid.
     if (document.getElementById('blog-grid-container')) {
-        displayLatestArticles();
+        displayAllArticles();
     }
 });
-async function displayFeaturedArticle() {
-    const featuredContainer = document.getElementById('featured-article-container');
-    const featuredArticle = blogArticles.find(article => article.isFeatured);
 
-    if (!featuredContainer || !featuredArticle) return;
-
-    let author = 'RedKing Marketing';
-    let displayDate = 'Recent';
-
-    if (featuredArticle.contentUrl) {
-        try {
-            const response = await fetch(featuredArticle.contentUrl);
-            if (response.ok) {
-                const htmlString = await response.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(htmlString, 'text/html');
-
-                const authorMeta = doc.querySelector('meta[name="author"]')?.getAttribute('content');
-                const creationDateStr = doc.querySelector('meta[name="creation-date"]')?.getAttribute('content');
-                
-                if (authorMeta) {
-                    author = authorMeta;
-                }
-                
-                if (creationDateStr) {
-                    const date = new Date(creationDateStr + 'T00:00:00');
-                    // MODIFICATION: Changed date format to match screenshot (Month YYYY)
-                    displayDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', timeZone: 'UTC' });
-                }
-            }
-        } catch (error) {
-            console.log('Could not fetch article metadata for featured article:', error);
-        }
-    }
-
-    // MODIFICATION: Removed the 'blog-card' class to prevent CSS conflict
-    const articleHTML = `
-        <div class="featured-article-card" onclick="openBlogModal('${featuredArticle.id}')">
-            <div class="featured-article-image">
-                <img src="${featuredArticle.image}" alt="${featuredArticle.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a1a/f5f5f5?text=Image+Not+Found';">
-            </div>
-            <div class="featured-article-content">
-                <h2>${featuredArticle.title}</h2>
-                <div class="featured-article-meta">
-                    <span class="featured-tag">Featured</span>
-                    <span class="featured-author">${author}</span>
-                    <span class="featured-date">${displayDate}</span>
-                </div>
-                <p class="article-excerpt">${featuredArticle.excerpt}</p>
-                <span class="read-more-link">Read Full Article &rarr;</span>
-            </div>
-        </div>
-    `;
-    featuredContainer.innerHTML = articleHTML;
-    
-    if (typeof animatedElementsObserver !== 'undefined') {
-        const cardElement = featuredContainer.querySelector('.featured-article-card');
-        if(cardElement) {
-            animatedElementsObserver.observe(cardElement);
-        }
-    }
-}
-
-function displayLatestArticles() {
+// MODIFICATION: This new function builds the entire blog grid, handling both featured and standard articles.
+async function displayAllArticles() {
     const gridContainer = document.getElementById('blog-grid-container');
-    const latestArticles = blogArticles.filter(article => !article.isFeatured);
-
     if (!gridContainer) return;
 
+    // Ensure the featured article always comes first
+    const featuredArticle = blogArticles.find(article => article.isFeatured);
+    const otherArticles = blogArticles.filter(article => !article.isFeatured);
+    const orderedArticles = [featuredArticle, ...otherArticles].filter(Boolean);
+
     let articlesHTML = '';
-    latestArticles.forEach(article => {
-        articlesHTML += `
-            <div class="blog-card" onclick="openBlogModal('${article.id}')">
-                <div class="blog-card-thumbnail">
-                    <img src="${article.image}" alt="${article.title}" onerror="this.onerror=null;this.src='https://placehold.co/400x200/1a1a1a/f5f5f5?text=Image+Not+Found';">
+    
+    // MODIFICATION: Update date options to include the day.
+    const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
+
+    for (const article of orderedArticles) {
+        if (article.isFeatured) {
+            // Fetch metadata for the featured article to get author and date
+            let author = 'RedKing Marketing';
+            let displayDate = 'Recent';
+            if (article.contentUrl) {
+                try {
+                    const response = await fetch(article.contentUrl);
+                    if (response.ok) {
+                        const htmlString = await response.text();
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(htmlString, 'text/html');
+                        const authorMeta = doc.querySelector('meta[name="author"]')?.getAttribute('content');
+                        const creationDateStr = doc.querySelector('meta[name="creation-date"]')?.getAttribute('content');
+                        if (authorMeta) author = authorMeta;
+                        if (creationDateStr) {
+                            const date = new Date(creationDateStr + 'T00:00:00');
+                            displayDate = date.toLocaleDateString('en-US', dateOptions);
+                        }
+                    }
+                } catch (error) { console.log('Could not fetch metadata for featured article:', error); }
+            }
+
+            // HTML for the FEATURED card (uses new 'blog-card--featured' class)
+            articlesHTML += `
+                <div class="blog-card blog-card--featured" onclick="openBlogModal('${article.id}')">
+                    <div class="featured-article-image">
+                        <img src="${article.image}" alt="${article.title}" onerror="this.onerror=null;this.src='https://placehold.co/800x450/1a1a1a/f5f5f5?text=Image+Not+Found';">
+                    </div>
+                    <div class="featured-article-content">
+                        <h2>${article.title}</h2>
+                        <div class="featured-article-meta">
+                            <span class="featured-tag">Featured</span>
+                            <span class="featured-author">${author}</span>
+                            <span class="featured-date">${displayDate}</span>
+                        </div>
+                        <p class="article-excerpt">${article.excerpt}</p>
+                        <span class="read-more-link">Read Full Article &rarr;</span>
+                    </div>
                 </div>
-                <div class="blog-card-content">
-                    <h3>${article.title}</h3>
-                    <p class="article-excerpt">${article.excerpt}</p>
-                    <span class="read-more-link">Read More &rarr;</span>
+            `;
+        } else {
+            // HTML for a STANDARD card
+            articlesHTML += `
+                <div class="blog-card" onclick="openBlogModal('${article.id}')">
+                    <div class="blog-card-thumbnail">
+                        <img src="${article.image}" alt="${article.title}" onerror="this.onerror=null;this.src='https://placehold.co/400x200/1a1a1a/f5f5f5?text=Image+Not+Found';">
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>${article.title}</h3>
+                        <p class="article-excerpt">${article.excerpt}</p>
+                        <span class="read-more-link">Read More &rarr;</span>
+                    </div>
                 </div>
-            </div>
-        `;
-    });
+            `;
+        }
+    }
+
     gridContainer.innerHTML = articlesHTML;
 
+    // Re-attach observers if they are defined
     if (typeof animatedElementsObserver !== 'undefined') {
         gridContainer.querySelectorAll('.blog-card').forEach(card => {
             animatedElementsObserver.observe(card);
         });
     }
 }
+
+
+// MODIFICATION: Removed the now-unused displayFeaturedArticle and displayLatestArticles functions
 
 async function openBlogModal(articleId) {
     const articleData = blogArticles.find(a => a.id === articleId);
@@ -200,8 +193,8 @@ async function openBlogModal(articleId) {
         let displayDate = 'Unknown Date';
         if (creationDateStr) {
             const date = new Date(creationDateStr + 'T00:00:00');
-            // MODIFICATION: Changed date format for consistency
-            displayDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', timeZone: 'UTC' });
+            // MODIFICATION: Update date format here as well for consistency.
+            displayDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
         }
         
         const articleBodyContent = doc.querySelector('.article-body')?.innerHTML || doc.querySelector('.article-content')?.innerHTML || '<p>Could not find article content within the fetched file.</p>';
