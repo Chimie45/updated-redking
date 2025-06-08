@@ -17,8 +17,8 @@
     --dark-gray: #1a1a1a;
     --light-gray: #f5f5f5;
     --white: #ffffff;
-    --success-green: #28a745; /* For success messages */
-    --error-red: #dc3545;     /* For error messages */
+    --success-green: #28a745;
+    --error-red: #dc3545;
 }
 
 /* Typography and Body */
@@ -42,7 +42,7 @@ html {
 
 /* Section Spacing */
 section {
-    scroll-margin-top: 80px; /* Adjust if nav height changes */
+    scroll-margin-top: 80px;
 }
 
 .section-title {
@@ -61,10 +61,10 @@ nav {
     top: 0;
     z-index: 1000;
     border-bottom: 2px solid var(--muted-gold);
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease; /* For scroll effect */
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
-nav.nav--scrolled { /* Class added by JS on scroll */
+nav.nav--scrolled {
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(8px);
 }
@@ -145,10 +145,10 @@ nav .container {
 }
 
 .mobile-menu {
-    display: none; /* Hidden by default, shown in media query */
+    display: none;
     flex-direction: column;
     cursor: pointer;
-    padding: 5px; /* Easier to tap */
+    padding: 5px;
 }
 
 .mobile-menu span {
@@ -160,7 +160,6 @@ nav .container {
     border-radius: 1px;
 }
 
-/* Mobile menu active state (X icon) */
 .mobile-menu.active span:nth-child(1) {
     transform: rotate(-45deg) translate(-6px, 6px);
 }
@@ -173,7 +172,7 @@ nav .container {
 
 
 /* Hero Section */
-.hero { /* General hero for index.html */
+.hero {
     background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
@@ -229,7 +228,7 @@ nav .container {
     border: 0;
 }
 
-.hero-logo { /* For index.html main logo */
+.hero-logo {
     max-width: 720px;
     width: 100%;
     height: auto;
@@ -242,7 +241,7 @@ nav .container {
     color: var(--muted-gold);
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
-.hero .hero-content h1 { /* For index.html sr-only, if it became visible */
+.hero .hero-content h1 {
     font-size: 3.5rem;
     color: var(--white);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -255,12 +254,12 @@ nav .container {
     color: var(--white);
     font-weight: 300;
 }
-.hero .hero-content .subtitle { /* For index.html main subtitle */
+.hero .hero-content .subtitle {
      color: var(--muted-gold);
 }
 
 
-.hero p { /* For index.html hero text */
+.hero p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     max-width: 600px;
@@ -322,7 +321,7 @@ nav .container {
     transform: translateY(-5px);
 }
 
-.service-icon { /* Used in Service Cards */
+.service-icon {
     font-size: 2.8rem;
     color: var(--muted-gold);
     margin-bottom: 1rem;
@@ -341,7 +340,7 @@ nav .container {
     flex-grow: 1;
     margin-bottom: 1rem;
 }
-.service-card .view-details-button { /* Shared with services.html cards */
+.service-card .view-details-button {
     display: inline-block;
     margin-top: auto;
     padding: 0.5rem 1rem;
@@ -476,9 +475,9 @@ nav .container {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%;
     overflow: hidden;
-    background-color: var(--dark-gray); /* Placeholder color */
+    background-color: var(--dark-gray);
 }
 
 .portfolio-image img {
@@ -539,7 +538,7 @@ nav .container {
     line-height: 1.2;
 }
 
-.view-details { /* Used on portfolio cards */
+.view-details {
     color: var(--muted-gold);
     font-weight: bold;
     font-size: 0.8rem;
@@ -554,49 +553,47 @@ nav .container {
 
 /* === Common Modal Styles (Overlay) === */
 .portfolio-modal, .team-modal, .blog-modal, .job-modal, .service-detail-modal {
-    display: none; /* Default: hidden. JS will toggle with .modal--is-open */
+    display: none;
     opacity: 0;
     visibility: hidden;
     position: fixed;
-    z-index: 2000; /* Base z-index */
+    z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.92);
-    transition: opacity 0.3s ease, visibility 0s linear 0.3s; /* Visibility hidden AFTER opacity fades */
-    overflow-y: auto; /* For the overlay itself if content box is very tall */
-    padding: 20px; /* Gutters around the modal content */
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    overflow-y: auto;
+    padding: 20px;
     box-sizing: border-box;
-    /* Flex properties for centering content will be applied by .modal--is-open */
 }
 
 /* Class to show modals, added/removed by JavaScript */
 .modal--is-open {
-    display: flex !important; /* Override display:none to show */
-    align-items: center !important; /* Center content vertically */
-    justify-content: center !important; /* Center content horizontally */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     opacity: 1 !important;
     visibility: visible !important;
-    transition: opacity 0.3s ease, visibility 0s linear 0s; /* Visibility shown immediately with opacity fade-in */
+    transition: opacity 0.3s ease, visibility 0s linear 0s;
 }
 
 
 /* === Common Modal Content Box Styles === */
 .portfolio-modal-content, .team-modal-content, .blog-modal-content, .job-modal-content, .service-modal-content {
-    position: relative; /* For absolute positioning of close button */
+    position: relative;
     background-color: var(--black);
-    padding: 0; /* Padding is handled by modal-body or header */
+    padding: 0;
     border: 2px solid var(--muted-gold);
     border-radius: 10px;
-    width: 100%; /* Use available width within overlay's padding */
-    max-height: 100%; /* Use available height within overlay's padding */
-    /* Max-width is set per modal type */
-    animation: slideIn 0.3s ease; /* Keep existing slide-in animation */
+    width: 100%;
+    max-height: 100%;
+    animation: slideIn 0.3s ease;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    overflow-y: auto; /* This makes the content box scrollable if its content overflows */
+    overflow-y: auto;
     display: flex;
-    flex-direction: column; /* Stack header, body, footer */
+    flex-direction: column;
 }
 
 .portfolio-modal-content { max-width: 1000px; }
@@ -608,7 +605,7 @@ nav .container {
 
 /* Common Modal Header Styles (Portfolio, Team, Blog - for modals with cover images) */
 .portfolio-modal-header, .team-modal-header, .blog-modal-header {
-    position: relative; /* For pseudo-elements and close button positioning */
+    position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -616,9 +613,9 @@ nav .container {
     background-color: var(--black);
     background-size: cover;
     background-position: center;
-    border-top-left-radius: 8px; /* Match parent content box */
-    border-top-right-radius: 8px; /* Match parent content box */
-    flex-shrink: 0; /* Prevent header from shrinking if body content is large */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    flex-shrink: 0;
 }
 .portfolio-modal-header { height: 400px; }
 .team-modal-header { height: 280px; background-color: var(--dark-gray); }
@@ -637,7 +634,7 @@ nav .container {
     background-position: center;
     filter: blur(12px) brightness(0.7);
     opacity: 1;
-    z-index: 1; /* Behind actual image */
+    z-index: 1;
 }
 .team-modal-header::before { filter: blur(10px) brightness(0.6); transform: scale(1.1); }
 
@@ -649,7 +646,7 @@ nav .container {
     width: auto;
     height: auto;
     object-fit: contain;
-    z-index: 2; /* Above pseudo-element */
+    z-index: 2;
     border-radius: 5px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
@@ -657,7 +654,6 @@ nav .container {
 
 
 /* Common Close Button for All Modals */
-/* Positioned relative to .*-modal-content */
 .close-modal, .close-team-modal, .close-blog-modal, .close-job-modal, .close-service-modal {
     position: absolute;
     top: 15px;
@@ -674,7 +670,7 @@ nav .container {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    z-index: 2510 !important; /* Ensure high z-index */
+    z-index: 2510 !important;
     line-height: 1;
 }
 
@@ -686,13 +682,1072 @@ nav .container {
 
 /* Common Modal Body Base Styles */
 .portfolio-modal-body, .team-modal-body, .blog-modal-body, .job-modal-body, .service-modal-body {
-    flex-grow: 1; /* Allow body to take up remaining space */
-    padding: 2.5rem; /* Default padding, can be overridden */
+    flex-grow: 1;
+    padding: 2.5rem;
 }
 
 /* Specific paddings if different from default */
 .team-modal-body { text-align: center; padding: 2rem; }
 
 
-.portfolio-modal h2 { /* Specific to portfolio modal title */
-    color: var
+.portfolio-modal h2 {
+    color: var(--muted-gold);
+    font-size: 2.2rem; 
+    margin-bottom: 1.5rem;
+}
+
+.portfolio-modal .client-info {
+    background: var(--dark-gray);
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 2.5rem;
+    border-left: 5px solid var(--muted-gold);
+    font-size: 0.95rem;
+    color: #ddd;
+}
+.portfolio-modal .client-info strong {
+    color: var(--white);
+}
+
+
+.portfolio-modal .metrics, .team-metrics {
+    display: grid;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+.portfolio-modal .metrics { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.team-metrics { grid-template-columns: 1fr 1fr; margin: 1.5rem auto; max-width: 500px; }
+
+
+.metric-card {
+    background: var(--dark-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid var(--primary-red);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.metric-card:hover {
+    border-color: var(--muted-gold);
+    transform: scale(1.03);
+}
+.team-metrics .metric-card { padding: 0.75rem; min-height: auto; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; background-color: rgba(26, 26, 26, 0.7); border-color: var(--dark-gold); }
+
+
+.metric-number {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--muted-gold);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+.team-metrics .metric-card .metric-number { font-size: 1.6rem; margin-bottom: 0.1rem; color: var(--gold); }
+
+.metric-label {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+.team-metrics .metric-card .metric-label { font-size: 0.85rem; line-height: 1.2; color: #bbb; }
+
+
+/* === Service Modal Specific Styles === */
+.service-detail-modal .service-modal-header {
+    background-color: var(--dark-gray);
+    color: var(--white);
+    padding: 1.5rem 2rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    flex-shrink: 0;
+    border-bottom: 2px solid var(--muted-gold);
+}
+
+.service-detail-modal .service-modal-header i {
+    font-size: 2.5rem;
+    color: var(--muted-gold);
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.service-detail-modal .service-modal-header h2 {
+    font-size: 1.8rem; 
+    font-weight: bold;
+    margin: 0;
+    color: var(--white);
+}
+
+.service-detail-modal .service-modal-body h4 {
+    font-size: 1.4rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--dark-gray);
+    text-align: left;
+}
+
+.service-detail-modal .service-modal-body ul {
+    list-style: disc;
+    padding-left: 25px;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.service-detail-modal .service-modal-body ul li {
+    margin-bottom: 0.85rem;
+    line-height: 1.7;
+    color: #ccc;
+}
+
+.service-modal-cta-wrapper {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+
+/* Contact Section */
+.contact {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--dark-red) 0%, var(--primary-red) 100%);
+}
+
+.contact-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    text-align: center;
+}
+
+.contact-icon-wrapper {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.contact-icon-wrapper .fas.fa-crown,
+.contact-icon-wrapper .fas.fa-envelope {
+    font-size: 3rem;
+    color: var(--muted-gold);
+}
+
+.contact-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--muted-gold);
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: var(--white);
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-form {
+    background: rgba(0, 0, 0, 0.35);
+    padding: 2.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--muted-gold);
+    width: 100%;
+}
+
+.contact-form .form-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form .form-column-left,
+.contact-form .form-column-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.contact-form .form-group {
+    margin-bottom: 0;
+}
+
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--muted-gold);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--dark-gray);
+    border-radius: 5px;
+    background: var(--black);
+    color: var(--white);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--muted-gold);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+}
+
+.form-group textarea {
+    height: 165px;
+    resize: vertical;
+}
+.job-application-form .form-group textarea {
+    height: 100px;
+}
+
+
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23C9B037%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px auto;
+    padding-right: 30px;
+}
+
+
+.submit-btn {
+    background: var(--muted-gold);
+    color: var(--black);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background: var(--dark-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* Form Submission Feedback Messages */
+.form-submission-feedback {
+    margin-top: 1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: none;
+}
+.form-submission-feedback.success {
+    background-color: var(--success-green);
+    color: var(--white);
+    border: 1px solid var(--success-green);
+}
+.form-submission-feedback.error {
+    background-color: var(--error-red);
+    color: var(--white);
+    border: 1px solid var(--error-red);
+}
+
+
+/* Footer Styles */
+.site-footer {
+    background-color: var(--black);
+    color: #ccc;
+    padding: 60px 0 30px;
+    border-top: 3px solid var(--muted-gold);
+    font-size: 0.95rem;
+}
+
+.site-footer .footer-main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+    align-items: start;
+}
+
+.site-footer .footer-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.site-footer .footer-column h4 {
+    color: var(--muted-gold);
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.site-footer .footer-logo {
+    max-height: 50px;
+    margin-bottom: 25px;
+    align-self: flex-start;
+}
+
+.site-footer .footer-about {
+     justify-content: flex-start;
+}
+
+.site-footer .footer-about p {
+    margin-bottom: 25px;
+    line-height: 1.7;
+    color: #b3b3b3;
+}
+
+.site-footer .footer-social-icons {
+    margin-top: 10px;
+}
+
+.site-footer .footer-social-icons a {
+    color: #ccc;
+    font-size: 1.6rem;
+    margin-right: 18px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.site-footer .footer-social-icons a:last-child {
+    margin-right: 0;
+}
+
+.site-footer .footer-social-icons a:hover {
+    color: var(--muted-gold);
+    transform: scale(1.1);
+}
+
+.site-footer .footer-links-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.site-footer .footer-links-columns ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.site-footer .footer-links-wrapper li {
+    margin-bottom: 12px;
+    list-style-type: none !important;
+}
+
+.site-footer .footer-links-wrapper a {
+    color: #ccc;
+    text-decoration: none !important;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.site-footer .footer-links-wrapper a:hover {
+    color: var(--muted-gold);
+    padding-left: 5px;
+}
+
+.site-footer .footer-contact p {
+    margin-bottom: 12px;
+}
+.site-footer .footer-contact a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.site-footer .footer-contact a:hover {
+    color: var(--muted-gold);
+    text-decoration: underline;
+}
+
+.site-footer .newsletter-form {
+    display: flex;
+    margin-top: 15px;
+}
+
+.site-footer .newsletter-form input[type="email"] {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid var(--dark-gray);
+    border-radius: 4px 0 0 4px;
+    background-color: var(--dark-gray);
+    color: var(--white);
+    font-size: 0.9rem;
+}
+.site-footer .newsletter-form input[type="email"]::placeholder {
+    color: #888;
+}
+.site-footer .newsletter-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--muted-gold);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+}
+
+.site-footer .newsletter-form button {
+    padding: 12px 18px;
+    background-color: var(--muted-gold);
+    color: var(--black);
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease;
+}
+
+.site-footer .newsletter-form button:hover {
+    background-color: var(--dark-gold);
+}
+
+.site-footer .footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 40px;
+    border-top: 1px solid var(--dark-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.site-footer .footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.site-footer .footer-legal-links {
+    display: flex;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+.site-footer .footer-legal-links a {
+    color: #aaa;
+    text-decoration: none !important;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+.site-footer .footer-legal-links a:hover {
+    color: var(--muted-gold);
+    text-decoration: underline !important;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* CSS for scroll-triggered animations */
+.portfolio-card, .service-card, .about-text > *, .client-logos,
+.contact-info > *, .contact-form > *,
+.team-member-card, .job-posting, .mission-content, .blog-card
+{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.element--in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Our Team Page Specific Styles */
+.page-header#team-header {
+}
+
+.mission-statement-header {
+    margin-top: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mission-statement-header h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 1rem !important;
+    color: var(--gold) !important;
+}
+
+.mission-statement-header p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #e0e0e0;
+    margin-bottom: 0;
+}
+
+
+.team-section {
+    padding: 80px 0;
+    background-color: var(--dark-gray);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.team-member-card {
+    background: var(--black);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border: 2px solid var(--primary-red);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.team-member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.25);
+    border-color: var(--muted-gold);
+}
+
+.team-member-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 4px solid var(--muted-gold);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.team-member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-member-info h3 {
+    font-size: 1.6rem;
+    color: var(--muted-gold);
+    margin-bottom: 0.25rem;
+}
+
+.team-member-title {
+    font-size: 1rem;
+    color: var(--white);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.team-member-bio {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    min-height: 60px;
+}
+
+.team-modal-body h2 {
+    font-size: 2.2rem; 
+    color: var(--muted-gold);
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+.team-modal-title {
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.team-modal-bio {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.7;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+.team-modal-bio p {
+    margin-bottom: 1em;
+}
+.team-modal-bio p:last-child {
+    margin-bottom: 0;
+}
+
+/* Jobs Section Styles */
+.jobs-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--dark-red) 0%, var(--primary-red) 100%);
+}
+
+.jobs-section .section-title,
+.jobs-section .jobs-intro {
+    color: var(--white);
+}
+.jobs-section .section-title {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+
+.jobs-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+}
+
+.jobs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.job-posting {
+    background: var(--black);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--muted-gold);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.job-posting:hover {
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.25);
+    transform: translateY(-5px);
+}
+
+.job-posting-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.job-posting-icon {
+    font-size: 2.2rem;
+    color: var(--muted-gold);
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.job-posting .job-posting-header h3 {
+    font-size: 1.6rem;
+    color: var(--muted-gold);
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.job-posting .job-location {
+    font-size: 0.95rem;
+    color: #bbb;
+    margin-bottom: 1rem;
+    margin-left: 0;
+}
+
+.job-posting .job-description {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    flex-grow: 1;
+    margin-left: 0;
+}
+
+.job-posting-footer {
+    margin-top: auto;
+    text-align: right;
+}
+
+.job-posting .see-more-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    background-color: transparent;
+    color: var(--muted-gold);
+    border: 1px solid var(--muted-gold);
+    border-radius: 4px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.job-posting:hover .see-more-button {
+    background-color: var(--muted-gold);
+    color: var(--black);
+}
+
+/* Job Modal Content Styling */
+.job-modal .job-modal-body {
+    padding: 2rem 2.5rem;
+    flex-grow: 1;
+}
+
+.job-modal .job-modal-body h2 {
+    font-size: 1.8rem; 
+    font-weight: bold;
+    color: var(--muted-gold);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.job-modal .job-details-section h3 {
+    font-size: 1.4rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--dark-gray);
+    text-align: left;
+}
+
+.job-modal .job-details-section ul {
+    list-style: disc;
+    padding-left: 25px;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.job-modal .job-details-section ul li {
+    margin-bottom: 0.85rem;
+    line-height: 1.7;
+    color: #ccc;
+}
+
+.job-modal .job-application-form h3 {
+    font-size: 1.5rem;
+    color: var(--muted-gold);
+    text-align: center;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.job-application-form .form-group label {
+    color: var(--muted-gold);
+}
+
+.job-application-form .form-group input,
+.job-application-form .form-group textarea {
+    background: var(--black);
+    border-color: var(--dark-gray);
+    color: var(--white);
+}
+
+.job-application-form .form-group input:focus,
+.job-application-form .form-group textarea:focus {
+    border-color: var(--muted-gold);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+}
+
+.job-submit-cta-wrapper {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.char-counter {
+    font-size: 0.85rem;
+    color: #aaa;
+    text-align: right;
+    margin-top: 0.25rem;
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--black);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--muted-gold);
+    border-radius: 20px;
+    border: 2px solid var(--black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--dark-gold);
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .about-content,
+    .contact-content-wrapper .form-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .contact-form .form-columns {
+        gap: 1.5rem;
+    }
+
+    .contact-content-wrapper .form-column-right .form-group textarea {
+        height: 120px;
+    }
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .site-footer .footer-main {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+    .site-footer .footer-about,
+    .site-footer .footer-links-wrapper,
+    .site-footer .footer-contact,
+    .site-footer .footer-newsletter {
+        grid-column: span 1;
+        text-align: left;
+    }
+    .site-footer .footer-about {
+         grid-column: span 2;
+         text-align: center;
+    }
+     .site-footer .footer-social-icons {
+        justify-content: center;
+    }
+    .site-footer .footer-links-columns {
+        justify-content: flex-start;
+        grid-template-columns: 1fr;
+    }
+    .site-footer .newsletter-form {
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .team-metrics {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,0.98);
+        padding: 1rem;
+        gap: 1rem;
+        border-bottom: 1px solid var(--muted-gold);
+        z-index: 998;
+    }
+
+    .nav-links.nav-links--active {
+        display: flex;
+    }
+
+
+    .nav-right .social-icons {
+        display: none;
+    }
+
+
+    .mobile-menu {
+        display: flex;
+        z-index: 1001;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+
+    .hero h1, .page-header .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .subtitle, .page-header .hero-content .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+     .jobs-section .section-title {
+        font-size: 2rem;
+    }
+
+
+    .services-grid,
+    .portfolio-grid,
+    .site-footer .footer-main {
+        grid-template-columns: 1fr;
+    }
+    .site-footer .footer-about,
+    .site-footer .footer-links-wrapper,
+    .site-footer .footer-contact,
+    .site-footer .footer-newsletter {
+        grid-column: auto;
+        text-align: left;
+    }
+     .site-footer .footer-social-icons {
+        justify-content: flex-start;
+    }
+
+     .site-footer .newsletter-form {
+        max-width: none;
+    }
+
+    .portfolio-modal-content, .team-modal-content, .blog-modal-content, .job-modal-content, .service-modal-content {
+        width: 95%;
+        max-height: calc(100% - 40px);
+    }
+
+    .portfolio-modal-header { height: 250px; }
+    .team-modal-header { height: 200px; }
+    .blog-modal-header { height: 220px; } 
+
+    .service-detail-modal .service-modal-header {
+        padding: 1rem 1.5rem; 
+        padding-right: 60px;
+        gap: 0.5rem;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .service-detail-modal .service-modal-header i { 
+        font-size: 1.8rem;
+    } 
+    .service-detail-modal .service-modal-header h2 { 
+        font-size: 0.9rem;
+    } 
+
+    .job-modal .job-modal-body h2 { font-size: 1.5rem; } 
+    .portfolio-modal h2 { font-size: 1.5rem; } 
+    .team-modal-body h2 { font-size: 1.5rem; } 
+
+
+    .service-detail-modal .service-modal-body h4 { font-size: 1.2rem; }
+    .job-modal .job-details-section h3 { font-size: 1.2rem; } 
+
+
+    .portfolio-modal-body .client-info { font-size: 0.9rem; padding: 1rem; }
+
+
+    .metric-card {
+        padding: 1rem;
+    }
+    .metric-number {
+        font-size: 1.8rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+     .contact-form .form-columns {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .contact-form .form-column-left .form-group, 
+    .contact-form .form-column-right .form-group {
+        margin-bottom: 1.5rem;
+    }
+     .contact-form .form-column-right .form-group:last-child {
+        margin-bottom: 0; 
+    }
+
+
+    .site-footer .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .site-footer .footer-legal-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .page-header#team-header {
+        min-height: 100vh;
+    }
+    .mission-statement-header p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    .team-member-card {
+        padding: 1.5rem 1rem;
+    }
+    .team-member-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+    }
+
+    .team-modal-body { padding: 1.5rem; }
+    .team-modal .metrics { grid-template-columns: 1fr; gap: 1rem; }
+    .team-metrics .metric-card { min-height: auto; padding: 0.5rem; }
+    .team-metrics .metric-card .metric-number { font-size: 1.4rem; }
+    .team-metrics .metric-card .metric-label { font-size: 0.7rem; }
+
+    .job-modal .job-modal-body { padding: 1.5rem; }
+    .job-modal .job-details-section p, .job-modal .job-details-section ul { font-size: 0.9rem; }
+}
+
+/* MODAL Z-INDEX HIERARCHY & DISPLAY FIXES */
+
+.service-detail-modal.modal--is-open, 
+.portfolio-modal.modal--is-open,
+.team-modal.modal--is-open,
+.blog-modal.modal--is-open,
+.job-modal.modal--is-open {
+}
+
+.service-detail-modal { 
+    z-index: 2500;
+}
+.portfolio-modal,
+.team-modal,
+.blog-modal,
+.job-modal {
+    z-index: 2000;
+}
+
+.close-service-modal,
+.close-modal,
+.close-team-modal,
+.close-blog-modal,
+.close-job-modal {
+    z-index: 2510 !important;
+}
