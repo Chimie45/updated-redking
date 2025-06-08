@@ -27,7 +27,7 @@
     margin-top: 0;
     margin-bottom: 15px;
     font-family: 'Arial', sans-serif;
-    color: var(--gold);
+    color: var(--muted-gold);
 }
 
 .toc-container ul {
@@ -50,7 +50,7 @@
 }
 
 .toc-container a:hover {
-    color: var(--gold);
+    color: var(--muted-gold);
 }
 
 .toc-container .toc-level-2 {
@@ -65,9 +65,9 @@
 .article-body h2, .article-body h3, .article-body h4 {
     font-family: 'Arial', sans-serif;
     font-weight: bold;
-    color: var(--gold);
+    color: var(--muted-gold);
     line-height: 1.3;
-    margin-top: 2.5em;
+    margin-top: 3.5em;
     margin-bottom: 1em;
     scroll-margin-top: 100px; /* Offset for fixed nav when jumping to ID */
 }
@@ -80,7 +80,7 @@
 
 .article-body h3 {
     font-size: 1.6rem;
-    color: var(--gold);
+    color: var(--muted-gold);
 }
 
 .article-body h4 {
@@ -97,9 +97,9 @@
 }
 
 .article-body a {
-    color: var(--gold);
+    color: var(--muted-gold);
     text-decoration: none;
-    border-bottom: 1px dotted var(--gold);
+    border-bottom: 1px dotted var(--muted-gold);
     transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
 
@@ -144,7 +144,7 @@
 }
 
 .article-body blockquote footer::before {
-    content: '— ';
+    content: '';
 }
 
 
@@ -177,7 +177,7 @@
     border-top: 2px solid #444;
 }
 .article-content footer h4 {
-    color: var(--gold);
+    color: var(--muted-gold);
     margin-bottom: 1em;
 }
 .article-content footer ul {
@@ -190,9 +190,9 @@
 }
 
 .article-content footer a {
-    font-size: 0.8rem; /* Equivalent to ~8pt */
-    color: var(--gold);
-    border-bottom: 1px dotted var(--gold);
+    font-size: 8pt;
+    color: var(--muted-gold);
+    border-bottom: 1px dotted var(--muted-gold);
 }
 .article-content footer a:hover {
     color: var(--light-gold);
