@@ -5,7 +5,6 @@ const blogArticles = [
         isFeatured: true,
         title: 'Effective Marketing in Regulated iGaming Sectors',
         excerpt: 'A deep dive into the high-risk, high-reward iGaming markets of Japan and South Korea, analyzing the Ohtani scandal and the strategies for navigating these regulatory minefields.',
-        // MODIFICATION: Consolidated thumbnail and heroImage into a single 'image' property.
         image: '../assets/images/blog/igaming-article-hero.jpg',
         contentUrl: 'articles/effective-igaming-marketing.html'
     },
@@ -136,13 +135,11 @@ async function openBlogModal(articleId) {
     const modalHeroImage = document.getElementById('modal-hero-image');
 
     if (!articleData || !modal) {
-        console.error('Article data or modal element not found.');
+        console.error('Article data or modal element not found for ID:', articleId);
         return;
     }
 
-    // Set content immediately with correct image paths
     modalTitle.textContent = articleData.title;
-    // MODIFICATION: Using the single 'image' property
     modalHeroImage.src = articleData.image;
     modalHeroImage.alt = articleData.title;
     modalMeta.innerHTML = '';
@@ -150,25 +147,28 @@ async function openBlogModal(articleId) {
 
     modal.classList.add('modal--is-open');
     document.body.style.overflow = 'hidden';
-    // Ensure modal content scrolls to top on open
     const contentBox = modal.querySelector('.blog-modal-content');
     if (contentBox) contentBox.scrollTop = 0;
 
-
     if (!articleData.contentUrl) {
+        console.error('Article has no contentUrl defined:', articleData.title);
         modalContent.innerHTML = '<p>Article content is not available yet. Please check back later.</p>';
         return;
     }
+    
+    // MODIFICATION: Added console logging for debugging
+    console.log(`Attempting to fetch article from: ${articleData.contentUrl}`);
 
     try {
-        // Fetch will now use the corrected path like 'articles/effective-igaming-marketing.html'
         const response = await fetch(articleData.contentUrl, { redirect: 'error' });
 
         if (!response.ok) {
-            throw new Error(`Could not load article. Server responded with status: ${response.status}`);
+            // MODIFICATION: Added more detailed error logging
+            throw new Error(`Could not load article. Server responded with status: ${response.status} (${response.statusText}) for URL: ${response.url}`);
         }
         
         const htmlString = await response.text();
+        console.log('Successfully fetched article content.');
         
         const parser = new DOMParser();
         const doc = parser.parseFromString(htmlString, 'text/html');
@@ -182,7 +182,7 @@ async function openBlogModal(articleId) {
             displayDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
         }
 
-        const articleBody = doc.querySelector('.article-content .article-body')?.innerHTML || doc.querySelector('.article-content')?.innerHTML || '<p>Could not find article content.</p>';
+        const articleBody = doc.querySelector('.article-content .article-body')?.innerHTML || doc.querySelector('.article-content')?.innerHTML || '<p>Could not find article content within the fetched file.</p>';
 
         modalTitle.textContent = doc.querySelector('title')?.textContent || articleData.title;
         modalMeta.innerHTML = `
@@ -193,7 +193,7 @@ async function openBlogModal(articleId) {
 
     } catch (error) {
         console.error('Error fetching article content:', error);
-        modalContent.innerHTML = `<p>Sorry, there was an error loading the article. Please check that the file path is correct or try again later.</p>`;
+        modalContent.innerHTML = `<p>Sorry, there was an error loading the article. Please try again later. Check the console for more details.</p>`;
     }
 }
 
@@ -203,7 +203,6 @@ function closeBlogModal() {
     if (modal) {
         modal.classList.remove('modal--is-open');
     }
-    // checkAndRestoreScroll is defined in scripts.js and will be available
     if(typeof checkAndRestoreScroll === 'function') {
         checkAndRestoreScroll();
     } else {
