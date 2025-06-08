@@ -63,6 +63,9 @@
         .hero-content {
             position: relative;
             z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .ggpoker-logo {
@@ -79,18 +82,16 @@
         }
 
         .prop-bet-icon {
-            position: absolute;
-            width: clamp(100px, 20vw, 180px);
-            right: 15%;
-            top: 50%;
-            transform: translateY(-50%);
+            width: clamp(150px, 25vw, 250px);
             animation: float 6s ease-in-out infinite;
+            margin-left: -5vw;
+            z-index: -1;
         }
         
         @keyframes float {
-            0% { transform: translateY(-55%); }
-            50% { transform: translateY(-45%); }
-            100% { transform: translateY(-55%); }
+            0% { transform: translateY(-5%); }
+            50% { transform: translateY(5%); }
+            100% { transform: translateY(-5%); }
         }
 
 
@@ -165,8 +166,8 @@
             <img src="./propbet_files/ggpoker_logo-1_white-1.png" alt="GGPoker Logo" class="ggpoker-logo">
             <div class="hero-content">
                 <img src="./propbet_files/PB_PropBet_Blupurp-1.png" alt="Prop Bet" class="prop-bet-logo-img">
+                <img src="./propbet_files/PB_PropBet_Logo-1.png" alt="Prop Bet Icon" class="prop-bet-icon">
             </div>
-            <img src="./propbet_files/PB_PropBet_Logo-1.png" alt="Prop Bet Icon" class="prop-bet-icon">
         </section>
 
         <!-- Intro Section -->
