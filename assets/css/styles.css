@@ -201,14 +201,8 @@ nav .container {
     min-height: 70vh;
     align-items: flex-end;
     padding-bottom: 4rem;
+    background-position: bottom;
 }
-#blog-header.page-header.hero {
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-        url('../images/blog/blogheader.jpg');
-     min-height: 100vh;
-}
-
 
 .hero-content {
     position: relative;
