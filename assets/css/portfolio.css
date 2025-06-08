@@ -1,149 +1,147 @@
-/* /assets/css/portfolio.css */
+/* ==============================
+   Portfolio Page Specific Styles
+   ============================== */
 
-/* Portfolio Page Header Style */
-#portfolio-header.page-header.hero {
+/* -------- Hero Override -------- */
+#portfolio-header.hero {
+    /* Overlay + portfolio header image */
     background-image:
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-        url('../images/portfolio/portfolioheader.jpg'); /* Corrected path as requested */
-    min-height: 70vh;
-    align-items: center; /* Center content vertically */
-    padding-bottom: 0;
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+        url('../images/portfolioheader.jpg');
 }
 
-#portfolio-header .hero-content h1 {
-    font-size: 3rem;
-    color: var(--muted-gold);
-}
-
-#portfolio-header .hero-content .subtitle {
-    font-size: 1.4rem;
-    color: var(--white);
-    font-weight: 300;
-}
-
-
-/* New Gallery Section Styles */
+/* -------- Gallery Section -------- */
 .gallery-section {
-    padding: 80px 0;
-    background-color: var(--black); /* Matches the 'About' section background */
-    border-top: 2px solid var(--muted-gold);
+    padding: 6rem 0;
+    background: var(--black);
+    border-top: 3px solid var(--muted-gold);
 }
 
-.gallery-intro {
-    text-align: center;
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: -2rem auto 3rem auto;
-    color: #ccc;
+/* Filter bar */
+.gallery-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
 }
 
+.filter-btn {
+    background: var(--muted-gold);
+    color: var(--black);
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--light-gold);
+}
+
+/* Gallery Grid */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .gallery-item {
-    background-color: var(--dark-gray);
-    border-radius: 10px;
-    overflow: hidden;
-    border: 2px solid transparent;
-    transition: all 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-}
-
-.gallery-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
-    border-color: var(--muted-gold);
-}
-
-.gallery-content {
     position: relative;
     overflow: hidden;
-    cursor: pointer;
-    flex-grow: 1;
-    background-color: #000;
+    border: 2px solid var(--muted-gold);
+    border-radius: 8px;
 }
 
-.gallery-content img {
+.gallery-item img,
+.gallery-item video,
+.gallery-item iframe {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    display: block;
 }
 
-.gallery-item:hover .gallery-content img {
-    transform: scale(1.05);
-}
-
-.gallery-caption {
-    padding: 1.5rem;
-    text-align: center;
-    background-color: var(--dark-gray);
-    border-top: 1px solid #2a2a2a;
-}
-
-.gallery-caption h3 {
-    font-size: 1.3rem;
-    color: var(--muted-gold);
-    margin-bottom: 0.5rem;
-}
-
-.gallery-caption p {
-    color: #ccc;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-/* Specific item styles */
-.video-responsive-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    width: 100%;
-}
-
-.video-responsive-wrapper iframe {
+/* Overlay on hover */
+.gallery-item .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.gallery-item:hover .gallery-overlay {
+.gallery-item:hover .overlay {
     opacity: 1;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    #portfolio-header .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    .gallery-intro {
-        font-size: 1rem;
-    }
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
+/* -------- Lightbox Modal -------- */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.lightbox.is-open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.lightbox-content img,
+.lightbox-content video,
+.lightbox-content iframe {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+/* Navigation Arrows */
+.lightbox .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: var(--light-gold);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.lightbox .nav-btn:hover {
+    color: var(--gold);
+}
+
+.lightbox .nav-btn.prev { left: 2rem; }
+.lightbox .nav-btn.next { right: 2rem; }
+
+/* Close Button */
+.lightbox .close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--light-gold);
+    cursor: pointer;
 }
