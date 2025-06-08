@@ -87,28 +87,6 @@
     }
 }
 
-#portfolio-header .hero-content h1 {
-    font-size: 3rem; 
-    color: var(--muted-gold);
-    margin-bottom: 0.5rem;
-}
-
-#portfolio-header .hero-content .subtitle {
-    font-size: 1.4rem;
-    color: var(--white);
-    font-weight: 300;
-    margin-bottom: 1.5rem; 
-}
-
-.page-intro-text {
-    max-width: 800px;
-    margin: 1rem auto 0 auto;
-    font-size: 1.1rem;
-    color: #e0e0e0;
-    line-height: 1.7;
-    text-align: center;
-}
-
 /* Gallery Section */
 .gallery-section {
     padding: 100px 0;
