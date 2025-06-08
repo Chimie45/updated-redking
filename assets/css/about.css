@@ -1,583 +1,366 @@
-/* About Page Specific Styles */
-
-/* Hero Section */
-.about-hero {
-    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-        url('../images/about/aboutheader.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 3px solid var(--muted-gold);
-}
-
-.about-hero .hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-}
-
-.crown-animation {
-    margin-bottom: 2rem;
-    animation: crownFloat 3s ease-in-out infinite;
-}
-
-.crown-animation i {
-    font-size: 4rem;
-    color: var(--muted-gold);
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-}
-
-@keyframes crownFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-}
-
-.about-hero h1 {
-    font-size: 3.5rem;
-    color: var(--white);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-.about-hero .subtitle {
-    font-size: 1.5rem;
-    color: var(--muted-gold);
-    font-weight: 300;
-    margin-bottom: 3rem;
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    color: var(--white);
-    font-size: 0.9rem;
-    animation: scrollBounce 2s ease-in-out infinite;
-    cursor: pointer;
-}
-
-.scroll-indicator i {
-    font-size: 1.2rem;
-    color: var(--muted-gold);
-}
-
-@keyframes scrollBounce {
-    0%, 100% { transform: translateX(-50%) translateY(0px); }
-    50% { transform: translateX(-50%) translateY(5px); }
-}
-
-/* Particles Background */
-.hero-particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background-image: 
-        radial-gradient(2px 2px at 20px 30px, var(--muted-gold), transparent),
-        radial-gradient(2px 2px at 40px 70px, var(--gold), transparent),
-        radial-gradient(1px 1px at 90px 40px, var(--muted-gold), transparent),
-        radial-gradient(1px 1px at 130px 80px, var(--gold), transparent),
-        radial-gradient(2px 2px at 160px 30px, var(--muted-gold), transparent);
-    background-repeat: repeat;
-    background-size: 200px 100px;
-    animation: particleMove 20s linear infinite;
-    opacity: 0.3;
-}
-
-@keyframes particleMove {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-200px, -100px); }
-}
-
-/* Timeline Section */
-.timeline-section {
-    padding: 100px 0;
-    background: var(--black);
-    position: relative;
-}
-
-.timeline {
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem 0;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: linear-gradient(to bottom, var(--muted-gold), var(--dark-gold));
-    transform: translateX(-50%);
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-}
-
-.timeline-item {
-    position: relative;
-    margin: 3rem 0;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.timeline-item.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.timeline-item:nth-child(odd) .timeline-content {
-    margin-left: 0;
-    margin-right: 60%;
-    text-align: right;
-}
-
-.timeline-item:nth-child(even) .timeline-content {
-    margin-left: 60%;
-    margin-right: 0;
-    text-align: left;
-}
-
-.timeline-item::before {
-    content: attr(data-year);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--black);
-    color: var(--muted-gold);
-    border: 3px solid var(--muted-gold);
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1rem;
-    z-index: 2;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-}
-
-.timeline-content {
-    background: var(--dark-gray);
-    padding: 2rem;
-    border-radius: 10px;
-    border: 2px solid var(--primary-red);
-    transition: border-color 0.3s ease, transform 0.3s ease;
-    position: relative;
-    aspect-ratio: 4/5;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 300px;
-}
-
-.timeline-content:hover {
-    border-color: var(--muted-gold);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
-}
-
-.timeline-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--muted-gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-    flex-shrink: 0;
-}
-
-.timeline-icon i {
-    font-size: 1.8rem;
-    color: var(--black);
-}
-
-.timeline-content h3 {
-    font-size: 1.8rem;
-    color: var(--muted-gold);
-    margin-bottom: 1rem;
-}
-
-.timeline-content p {
-    color: #ccc;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-}
-
-.timeline-stats {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.timeline-stats .stat {
-    background: var(--black);
-    color: var(--muted-gold);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.65rem;
-    font-weight: bold;
-    border: 1px solid var(--muted-gold);
-}
-
-/* Philosophy Section */
-.philosophy-section {
-    padding: 100px 0;
-    background: var(--dark-gray);
-    border-bottom: 2px solid var(--muted-gold);
-}
-
-.philosophy-section h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    color: var(--muted-gold);
-}
-
-.philosophy-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.philosophy-card {
-    background: var(--black);
-    padding: 2.5rem 2rem;
-    border-radius: 10px;
-    text-align: center;
-    border: 2px solid var(--primary-red);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.philosophy-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-    transform: rotate(45deg);
-    transition: transform 0.6s ease;
-    z-index: 1;
-}
-
-.philosophy-card:hover::before {
-    transform: rotate(45deg) translate(50%, 50%);
-}
-
-.philosophy-card:hover {
-    border-color: var(--muted-gold);
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
-}
-
-.philosophy-card > * {
-    position: relative;
-    z-index: 2;
-}
-
-.philosophy-card i {
-    font-size: 3rem;
-    color: var(--muted-gold);
-    margin-bottom: 1.5rem;
-    display: block;
-}
-
-.philosophy-card h3 {
-    font-size: 1.4rem;
-    color: var(--white);
-    margin-bottom: 1rem;
-}
-
-.philosophy-card p {
-    color: #ccc;
-    line-height: 1.6;
-    font-size: 0.95rem;
-}
-
-/* Mission Section */
-.mission-section {
-    padding: 100px 0;
-    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
-    text-align: center;
-}
-
-.mission-content {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.mission-icon {
-    margin-bottom: 2rem;
-}
-
-.mission-icon i {
-    font-size: 4rem;
-    color: var(--muted-gold);
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-}
-
-.mission-section h2 {
-    font-size: 2.8rem;
-    color: var(--white);
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
-
-.mission-statement {
-    font-size: 1.3rem;
-    line-height: 1.8;
-    color: var(--white);
-    margin-bottom: 3rem;
-    font-weight: 300;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-}
-
-.mission-values {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.value-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
-    background: rgba(0,0,0,0.3);
-    padding: 2rem;
-    border-radius: 10px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    transition: all 0.3s ease;
-}
-
-.value-item:hover {
-    background: rgba(0,0,0,0.5);
-    border-color: var(--muted-gold);
-    transform: translateX(10px);
-}
-
-.value-number {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--muted-gold);
-    min-width: 60px;
-    text-align: center;
-    line-height: 1;
-}
-
-.value-content h4 {
-    font-size: 1.3rem;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-}
-
-.value-content p {
-    color: #e0e0e0;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* Achievements Section */
-.achievements-section {
-    padding: 100px 0;
-    background: var(--black);
-    border-bottom: 2px solid var(--muted-gold);
-}
-
-.achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.achievement-card {
-    background: var(--dark-gray);
-    padding: 2.5rem 2rem;
-    border-radius: 10px;
-    text-align: center;
-    border: 2px solid var(--primary-red);
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.achievement-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-    transition: left 0.6s ease;
-}
-
-.achievement-card:hover::before {
-    left: 100%;
-}
-
-.achievement-card:hover {
-    border-color: var(--muted-gold);
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
-}
-
-.achievement-card > * {
-    position: relative;
-    z-index: 2;
-}
-
-.achievement-icon {
-    margin-bottom: 1.5rem;
-}
-
-.achievement-icon i {
-    font-size: 3rem;
-    color: var(--muted-gold);
-}
-
-.achievement-number {
-    font-size: 3rem;
-    font-weight: bold;
-    color: var(--muted-gold);
-    display: block;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-}
-
-.achievement-label {
-    color: #ccc;
-    font-size: 1rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Responsive Design for About Page */
-@media (max-width: 992px) {
-    .timeline::before {
-        left: 30px;
-    }
-    
-    .timeline-item::before {
-        left: 30px;
-        width: 60px;
-        height: 60px;
-        font-size: 0.9rem;
-    }
-    
-    .timeline-item:nth-child(odd) .timeline-content,
-    .timeline-item:nth-child(even) .timeline-content {
-        margin-left: 80px;
-        margin-right: 0;
-        text-align: left;
-    }
-    
-    .timeline-content {
-        aspect-ratio: auto;
-        min-height: auto;
-    }
-    
-    .philosophy-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    
-    .mission-values {
-        gap: 1.5rem;
-    }
-    
-    .value-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-    
-    .achievements-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    .about-hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .about-hero .subtitle {
-        font-size: 1.2rem;
-    }
-    
-    .crown-animation i {
-        font-size: 3rem;
-    }
-    
-    .timeline-content {
-        padding: 1.5rem;
-        aspect-ratio: auto;
-        min-height: auto;
-    }
-    
-    .timeline-content h3 {
-        font-size: 1.5rem;
-    }
-    
-    .timeline-stats {
-        justify-content: center;
-    }
-    
-    .philosophy-card {
-        padding: 2rem 1.5rem;
-    }
-    
-    .mission-section h2 {
-        font-size: 2.2rem;
-    }
-    
-    .mission-statement {
-        font-size: 1.1rem;
-    }
-    
-    .achievement-card {
-        padding: 2rem 1.5rem;
-    }
-    
-    .achievement-number {
-        font-size: 2.5rem;
-    }
-    
-    .scroll-indicator {
-        bottom: 20px;
-        font-size: 0.8rem;
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M56HMGXR');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - RedKing Marketing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/about.css">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M56HMGXR"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-left">
+                    <a href="index" class="logo">
+                        <img src="assets/images/home/logo.png" alt="RedKing Marketing">
+                    </a>
+                    <ul class="nav-links">
+                        <li><a href="index">Home</a></li>
+                        <li><a href="services">Services</a></li>
+                        <li><a href="about">About</a></li>
+                        <li><a href="our-team">Our Team</a></li>
+                        <li><a href="portfolio">Portfolio</a></li>
+                        <li><a href="blog/">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <div class="social-icons">
+                        <a href="https://linkedin.com/company/red-king-marketing" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://instagram.com/Red_King_Marketing" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="mobile-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about-hero" class="about-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="crown-animation">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h1>Founded in 2016<br>Leading Since Day One</h1>
+                <p class="subtitle">From Vision to Global Gaming Marketing Dominance</p>
+            </div>
+        </div>
+        <div class="hero-particles"></div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-year="2016">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <h3>The Foundation</h3>
+                        <p>Founded RedKing Marketing with expertise in community management, localization, and global operations at Smilegate. From Epic Seven to multiple mobile RPGs, we established our core philosophy of authentic cultural understanding combined with data-driven strategies.</p>
+                        <div class="timeline-stats">
+                            <span class="stat">First Client</span>
+                            <span class="stat">Vision Set</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2017">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community Empire Born</h3>
+                        <p>Launched the Lost Ark Global communities from zero. This early success proved that authentic community building creates lasting brand advocates and drives organic growth at scale.</p>
+                        <div class="timeline-stats">
+                            <span class="stat">Empire Begins</span>
+                            <span class="stat">Zero to Hero</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2018">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Award-Winning Breakthrough</h3>
+                        <p>Our partnership with 4:33 Creative Lab and Boxing Star generated 50M+ downloads across 140+ countries. This success earned us IMGA People's Choice Award nomination and Mobile Game Awards "Best Marketing Team" finalist status.</p>
+                        <div class="timeline-stats">
+                            <span class="stat">50M Downloads</span>
+                            <span class="stat">Award Finalist</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2020">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>GGPoker & Team Expansion</h3>
+                        <p>Joined GGPoker as they transformed into the world's largest poker platform. Dan Koh joined our team, bringing elite video production expertise. Together, we managed 16 global domains and revolutionized poker content creation.</p>
+                        <div class="timeline-stats">
+                            <span class="stat">World's #1</span>
+                            <span class="stat">Team Grows</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2023">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h3>Live Events & Global Partnerships</h3>
+                        <p>Expanded into live event management with WPT Global, specializing in Japanese operations and building strategic partnerships with Triton Poker. From WPT Osaka to high-stakes tournaments, we proved our international event expertise.</p>
+                        <div class="timeline-stats">
+                            <span class="stat">Live Mastery</span>
+                            <span class="stat">Triton Elite</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2024">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Rising & Future Expansion</h3>
+                        <p>Partnering with GTO LAB and achieving exceptional results, we're expanding our team with specialists across key markets. From Game of Gold content revolution to our growing international presence, we've evolved into a global marketing powerhouse.</p>
+                        <div class="timeline-stats">
+                            <span class="stat">Peak Performance</span>
+                            <span class="stat">Global Force</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2025">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <h3>The Future Unfolds</h3>
+                        <p>With nearly a decade of proven expertise, we're setting new standards in gaming marketing. Our expanded team of specialists continues to push boundaries, creating innovative campaigns that redefine what's possible in global gaming outreach.</p>
+                        <div class="timeline-stats">
+                            <span class="stat">Next Level</span>
+                            <span class="stat">Unlimited</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <h2>Our Philosophy</h2>
+                    <div class="philosophy-grid">
+                        <div class="philosophy-card">
+                            <i class="fas fa-chess-king"></i>
+                            <h3>Strategic Mastery</h3>
+                            <p>Every campaign is a chess game. We think multiple moves ahead, anticipating market shifts and player behavior to position your brand for long-term dominance.</p>
+                        </div>
+                        <div class="philosophy-card">
+                            <i class="fas fa-heart"></i>
+                            <h3>Player-First Mentality</h3>
+                            <p>Great marketing doesn't interrupt the gaming experience—it enhances it. We create campaigns that players actually want to engage with, building genuine connections.</p>
+                        </div>
+                        <div class="philosophy-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Data-Driven Decisions</h3>
+                            <p>Intuition starts the conversation, but data wins the argument. Every strategy is backed by analytics, tested rigorously, and optimized continuously.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Statement -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h2>Our Mission</h2>
+                <p class="mission-statement">
+                    Founded in 2016, RedKing Marketing has grown into a global leader in gaming and iGaming marketing, delivering data-driven strategies and authentic community-building across diverse markets. We believe that exceptional games deserve exceptional marketing, and every player interaction should feel like a victory.
+                </p>
+                <div class="mission-values">
+                    <div class="value-item">
+                        <span class="value-number">01</span>
+                        <div class="value-content">
+                            <h4>Authenticity Over Automation</h4>
+                            <p>Real communities are built by real people, not algorithms.</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-number">02</span>
+                        <div class="value-content">
+                            <h4>Innovation Through Experience</h4>
+                            <p>We don't follow trends—we create them through proven expertise.</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-number">03</span>
+                        <div class="value-content">
+                            <h4>Global Vision, Local Execution</h4>
+                            <p>Think worldwide, act with cultural precision.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mission-values">
+                    <div class="value-item">
+                        <span class="value-number">01</span>
+                        <div class="value-content">
+                            <h4>Authenticity Over Automation</h4>
+                            <p>Real communities are built by real people, not algorithms.</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-number">02</span>
+                        <div class="value-content">
+                            <h4>Innovation Through Experience</h4>
+                            <p>We don't follow trends—we create them through proven expertise.</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-number">03</span>
+                        <div class="value-content">
+                            <h4>Global Vision, Local Execution</h4>
+                            <p>Think worldwide, act with cultural precision.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content-wrapper">
+                <div class="contact-info">
+                    <div class="contact-icon-wrapper"><i class="fas fa-crown"></i></div>
+                    <h2>Ready to Dominate?</h2>
+                    <p>Let's discuss how RedKing Marketing can elevate your gaming brand to the next level. With our global expertise and proven track record, we'll create campaigns that turn players into profits.</p>
+                    <p>Maximize your impact in Asia with our specialized strategies for Japan and Korea. We also fuel significant growth across North America (US & Canada) and champion your expansion into the vibrant Latin American gaming markets.</p>
+                </div>
+                <form class="contact-form" id="contactForm" data-form-type="contact">
+                    <div class="form-columns">
+                        <div class="form-column-left">
+                            <div class="form-group"><label for="name">Name *</label><input type="text" id="name" name="name" required></div>
+                            <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" required></div>
+                            <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company"></div>
+                        </div>
+                        <div class="form-column-right">
+                            <div class="form-group">
+                                <label for="service">Service Interest</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="ppc">PPC & Paid Advertising</option>
+                                    <option value="seo">SEO & Content Marketing</option>
+                                    <option value="social">Social Media Management</option>
+                                    <option value="consultation">Gaming Industry Consultation</option>
+                                    <option value="community">Community Management</option>
+                                    <option value="strategy">Marketing Strategy</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label for="message">Message *</label><textarea id="message" name="message" placeholder="Tell us about your project and goals..." required></textarea></div>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <div class="form-submission-feedback" style="display:none;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-column footer-about">
+                    <img src="assets/images/home/logo.png" alt="RedKing Marketing" class="footer-logo">
+                    <p>Global gaming marketing experts specializing in Asia, Americas, and beyond. We turn gaming brands into market leaders through data-driven strategies and cultural expertise.</p>
+                    <div class="footer-social-icons">
+                        <a href="https://linkedin.com/company/red-king-marketing" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com/Red_King_Marketing" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column footer-links-wrapper">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links-columns">
+                        <ul class="footer-links-col-1">
+                            <li><a href="index">Home</a></li>
+                            <li><a href="services">Services</a></li>
+                            <li><a href="about">About Us</a></li>
+                            <li><a href="our-team">Our Team</a></li>
+                        </ul>
+                        <ul class="footer-links-col-2">
+                            <li><a href="portfolio">Portfolio</a></li>
+                            <li><a href="blog/">Blog</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-column footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><a href="tel:+16148228696">P: +1 (614) 822-8696</a></p>
+                    <p><a href="mailto:info@redkingmarketing.com">E: info@redkingmarketing.com</a></p>
+                </div>
+                <div class="footer-column footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest gaming marketing insights.</p>
+                    <form id="newsletterFormAboutPage" class="newsletter-form" data-form-type="newsletter-footer-about">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                        <div class="form-submission-feedback" style="display:none; font-size: 0.9em; margin-top: 10px;"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> RedKing Marketing. All Rights Reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="terms">Terms and Conditions</a>
+                    <a href="privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/about.js"></script>
+</body>
+</html>
