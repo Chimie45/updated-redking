@@ -15,7 +15,7 @@ const blogArticles = [
         excerpt: 'International brands burn millions in Latin America by treating diverse markets as homogeneous. Cultural blindness, payment misunderstanding, and regulatory ignorance cost sustainable growth opportunities.',
         image: '/assets/images/blog/latam-cultural-hero.jpg',
         contentUrl: '/blog/articles/latam-cultural-credibility'
-},
+    },
     {
         id: 'korea-igaming-potential',
         isFeatured: false,
@@ -36,7 +36,7 @@ const blogArticles = [
         id: 'gaming-trends-2025',
         isFeatured: false,
         title: 'Gaming Market Trends 2025',
-        excerpt: 'Gaming evolves beyond entertainment into cultural infrastructure. Cross-platform engagement, creator-driven discovery, and AI personalization reshape marketing strategies for 2025's $300+ billion industry.',
+        excerpt: 'Gaming evolves beyond entertainment into cultural infrastructure. Cross-platform engagement, creator-driven discovery, and AI personalization reshape marketing strategies for 2025\'s $300+ billion industry.',
         image: '/assets/images/blog/gaming-trends-2025-hero.jpg',
         contentUrl: '/blog/articles/gaming-trends-2025'
     },
@@ -199,7 +199,6 @@ async function openBlogModal(articleId) {
         modalContent.innerHTML = `<p>Sorry, there was an error loading the article. Please try again later. Check the console for more details.</p>`;
     }
 }
-
 
 function closeBlogModal() {
     const modal = document.getElementById('blog-modal');
