@@ -178,7 +178,7 @@
 .blog-modal .blog-modal-content {
     /* MODIFICATION: Changed width behavior */
     width: 80%;
-    max-width: 1100px; /* Capped max width for readability on large screens */
+    max-width: 1080px; /* Capped max width for readability on large screens */
 }
 
 .blog-modal .close-blog-modal {
@@ -281,4 +281,206 @@
     .blog-modal .blog-modal-content {
         width: 95%;
     }
+
+/*
+ * ARTICLE STYLESHEET
+ * Provides enhanced formatting for blog article content.
+ */
+
+/* Main article container for consistent width and spacing */
+.article-body {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Georgia', serif; /* A more classic, readable font for long text */
+    font-size: 18px;
+    line-height: 1.7;
+    color: #e0e0e0;
+}
+
+/* Table of Contents Styling */
+.toc-container {
+    background: rgba(30, 30, 30, 0.7);
+    border-left: 4px solid var(--muted-gold);
+    padding: 20px 30px;
+    margin: 40px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.toc-container h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-family: 'Arial', sans-serif;
+    color: var(--muted-gold);
+}
+
+.toc-container ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.toc-container li {
+    margin-bottom: 10px;
+}
+
+.toc-container a {
+    color: #ccc;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    transition: color 0.2s ease;
+    border-bottom: none; /* Override general link styles */
+}
+
+.toc-container a:hover {
+    color: var(--muted-gold);
+}
+
+.toc-container .toc-level-2 {
+    padding-left: 20px;
+}
+.toc-container .toc-level-3 {
+    padding-left: 40px;
+}
+
+
+/* Standout Article Headings */
+.article-body h2, .article-body h3, .article-body h4 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: var(--muted-gold);
+    line-height: 1.3;
+    margin-top: 3.5em;
+    margin-bottom: 1em;
+    scroll-margin-top: 100px; /* Offset for fixed nav when jumping to ID */
+}
+
+.article-body h2 {
+    font-size: 2rem;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #444;
+}
+
+.article-body h3 {
+    font-size: 1.6rem;
+    color: var(--muted-gold);
+}
+
+.article-body h4 {
+    font-size: 1.3rem;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* Paragraph and Link Styles */
+.article-body p {
+    margin-bottom: 2em;
+}
+
+.article-body a {
+    color: var(--muted-gold);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--muted-gold);
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+}
+
+.article-body a:hover {
+    color: var(--light-gold);
+    border-bottom-color: var(--light-gold);
+}
+
+/* List Styling with more padding */
+.article-body ul, .article-body ol {
+    padding-left: 30px;
+    margin-bottom: 2em;
+}
+
+.article-body li {
+    padding-left: 10px;
+    margin-bottom: 0.75em;
+}
+
+/* Blockquote Styling */
+.article-body blockquote {
+    margin: 2em 0;
+    padding: 1.5em 2em;
+    background: #111; /* Darker background to stand out */
+    border-left: 5px solid var(--muted-gold);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #fff;
+    position: relative;
+    border-radius: 8px;
+}
+
+.article-body blockquote p {
+    margin-bottom: 1em;
+}
+
+.article-body blockquote footer {
+    font-style: normal;
+    font-size: 1rem;
+    color: #aaa;
+    text-align: right;
+}
+
+.article-body blockquote footer::before {
+    content: '';
+}
+
+
+/* Image and Caption Styling */
+.article-image-container {
+    margin: 3em 0;
+    padding: 0;
+}
+
+.article-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.article-image-container figcaption {
+    margin-top: 0.75em;
+    text-align: center;
+    font-size: 15px; /* Smaller text */
+    color: #999; /* Greyer color */
+    font-family: 'Arial', sans-serif;
+    font-style: italic;
+}
+
+/* Sources Section Styling */
+.article-content footer {
+    margin-top: 3em;
+    padding-top: 2em;
+    border-top: 2px solid #444;
+}
+.article-content footer h4 {
+    color: var(--muted-gold);
+    margin-bottom: 1em;
+}
+.article-content footer ul {
+    list-style: none;
+    padding: 0;
+}
+.article-content footer li {
+    padding: 0;
+    margin-bottom: 0.5em;
+}
+
+.article-content footer a {
+    font-size: 8pt;
+    color: var(--muted-gold);
+    border-bottom: 1px dotted var(--muted-gold);
+}
+.article-content footer a:hover {
+    color: var(--light-gold);
+    border-bottom-color: var(--light-gold);
+}
+
 }
