@@ -271,7 +271,6 @@
             mix-blend-mode: soft-light;
         }
 
-        /* UPDATED: Specific overrides for spraypaint filters */
         .elo-spray-bg, .bankroll-spray-bg {
             opacity: .32;
             filter: brightness(181%) contrast(137%) saturate(171%) blur(0px) hue-rotate(0deg);
@@ -310,8 +309,7 @@
             position: absolute;
             top: 50%;
             white-space: nowrap;
-            letter-spacing: 0.1em; /* Adjusted letter spacing for Bebas Neue */
-            /* UPDATED: Font Family */
+            letter-spacing: 0.1em;
             font-family: 'Bebas Neue', sans-serif;
             z-index: -1;
         }
@@ -329,9 +327,8 @@
         }
 
         .section-title {
-            /* UPDATED: Font Family */
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem; /* Increased size slightly for new font */
+            font-size: 3rem;
             letter-spacing: 0.05em;
             margin: 0;
             position: relative;
@@ -360,7 +357,6 @@
             align-items: center;
             gap: 40px;
         }
-        /* Modifier class to reverse layout */
         .slide.layout-reverse {
             flex-direction: row-reverse;
         }
@@ -502,10 +498,10 @@
             .section-title-bg { left: 50% !important; transform: translate(-50%, -50%) !important; }
             
             .slide {
-                flex-direction: column !important; /* Use !important to override layout-reverse */
+                flex-direction: column !important;
             }
             .slide-content.gif-section {
-                order: -1; /* Move GIF to top on mobile */
+                order: -1;
             }
         }
     </style>
@@ -564,8 +560,10 @@
                                 <div class="slide">
                                     <div class="slide-content text-section">
                                         <h4>What is ELO Challenge?</h4>
-                                        <p><strong>ELO Challenge Prop Bets</strong> offer an engaging and competitive way for players to test their skills and strategic prowess based on Spin & Gold's ELO Rating System. Participants can create or join these challenges, setting targets and timeframes to grow their ELO ratings and potentially win big.</p>
-                                        <p>Engaging in an <strong>ELO Challenge Prop Bet</strong> serves as a motivating tool for players, encouraging them to enhance their ELO ratings and poker abilities. <strong>ELO Challenge Prop Bets</strong> can be found in the <strong>Prop Bet Menu</strong> or in the <strong>Spin & Gold Lobby.</strong></p>
+                                        <p>ELO Challenge Prop Bets offer an engaging and competitive way for players to test their skills and strategic prowess based on Spin & Gold's ELO Rating System.</p>
+                                        <p>Participants can create or join these challenges, setting targets and timeframes to grow their ELO ratings and potentially win big.</p>
+                                        <p>Engaging in an ELO Challenge Prop Bet serves as a motivating tool for players, encouraging them to enhance their ELO ratings and poker abilities.</p>
+                                        <p>ELO Challenge Prop Bets can be found in the Prop Bet Menu or in the Spin & Gold Lobby.</p>
                                     </div>
                                     <div class="slide-content gif-section">
                                         <img src="./propbet_files/ELO_Slide_1.gif" alt="ELO Challenge Animation 1">
@@ -582,6 +580,10 @@
                                             <li>The start time aligns with the hour, with up to 7 days of advanced scheduling.</li>
                                             <li>Personalize your challenge by inputting your desired target rating.</li>
                                         </ul>
+                                        <h5><strong>Bettor Selection:</strong></h5>
+                                        <p>When creating your challenge, determine the number of participants; whether you prefer a solo challenge or want to engage with others.</p>
+                                        <h5><strong>Host Deposit:</strong></h5>
+                                        <p>Hosts are required to make an initial deposit based on the number of Bettors and the Bet Amount.</p>
                                     </div>
                                     <div class="slide-content gif-section">
                                         <img src="./propbet_files/ELO_Slide_2.gif" alt="ELO Challenge Animation 2">
@@ -590,12 +592,15 @@
                                 <div class="slide">
                                     <div class="slide-content text-section">
                                         <h4>How to Win an ELO Challenge?</h4>
-                                        <p>To kick off the challenge, the ELO Challenge begins at the set time, as scheduled by the Host. As the challenge progresses, ELO Ratings are influenced by game results. ELO Rating changes are visible to all participants, providing real-time insights into the competition.</p>
+                                        <h5><strong>Starting a Challenge:</strong></h5>
+                                        <p>To kick off the challenge, the ELO Challenge begins at the set time, as scheduled by the Host. If the Host initiates the challenge with Bettors, the host can choose to forfeit after a designated time.</p>
+                                        <p>As the challenge progresses, ELO Ratings are influenced by game results. ELO Rating changes are visible to all participants, providing real-time insights into the competition.</p>
                                         <h5><strong>Challenge Conclusion:</strong></h5>
+                                        <p>The challenge concludes based on the following outcomes:</p>
                                         <ul>
-                                            <li><strong>Host Win:</strong> If the Host hits the target ELO Rating within the time frame, they win.</li>
-                                            <li><strong>Bettor Win:</strong> If the Host falls short of the target, Bettors emerge victorious.</li>
-                                            <li><strong>Host Forfeit:</strong> The Host can choose to quit the challenge, leading to Bettors winning.</li>
+                                            <li><strong>Host Win</strong> — If the Host hits the target ELO Rating within the time frame, they win.</li>
+                                            <li><strong>Bettor Win</strong> — If the Host falls short of the target, Bettors emerge victorious.</li>
+                                            <li><strong>Host Forfeit</strong> — The Host can choose to quit the challenge, leading to Bettors winning.</li>
                                         </ul>
                                     </div>
                                     <div class="slide-content gif-section">
@@ -607,8 +612,14 @@
                                         <h4>Additional Information</h4>
                                         <h5><strong>Challenge Cancellation and Forfeiting:</strong></h5>
                                         <ul>
-                                            <li>Hosts and operators have the authority to cancel challenges before they commence. After the start of a challenge, cancelation by the host will result in a loss for the host.</li>
+                                            <li>Hosts and operators have the authority to cancel challenges before they commence.</li>
+                                            <li>After the start of a challenge, cancelation by the host will result in a loss for the host.</li>
+                                            <li>Refunds for canceled challenges will be determined based on our standard T&C.</li>
                                         </ul>
+                                        <h5><strong>History Tracking:</strong></h5>
+                                        <p>Prior to the start, the Host's 10 most recent games are visible. Once the challenge starts, all games played during the challenge are additionally visible.</p>
+                                        <h5><strong>Maintenance Extension:</strong></h5>
+                                        <p>Challenges may be extended due to server maintenance, and challenges commencing during maintenance will be canceled.</p>
                                         <h5><strong>Valid Games:</strong></h5>
                                         <ul>
                                             <li>Games ending after the challenge starts are considered valid.</li>
@@ -630,7 +641,6 @@
                             <span class="slider-dot"></span>
                         </div>
                     </div>
-
                 </div>
             </section>
 
@@ -648,8 +658,10 @@
                                 <div class="slide layout-reverse">
                                     <div class="slide-content text-section">
                                         <h4>What is Bankroll Challenge?</h4>
-                                        <p><strong>Bankroll Challenge Prop Bets</strong> are a fun way for players to challenge each other or themselves to see how well they can perform over a period of time at building their bankroll.</p>
+                                        <p>Bankroll Challenge Prop Bets are a fun way for players to challenge each other or themselves to see how well they can perform over a period of time at building their bankroll.</p>
+                                        <p>Creating or joining in Bankroll Challenge Prop Bets is a way for players to track their progress and provide motivation to grow both their bankroll and their poker skill!</p>
                                         <p>If the host manages to achieve the target amount in the set period of time, the host wins the Prop Bet. Otherwise, the bettors win the Prop Bet.​ Profits gained will be added towards the goal, and the losses will be deducted from the current amount.</p>
+                                        <p>Bankroll Challenge Prop Bets can be found in the Prop Bet Menu.</p>
                                     </div>
                                     <div class="slide-content gif-section">
                                         <img src="./propbet_files/BKRC_GIF01_opt.gif" alt="Bankroll Challenge Animation 1">
@@ -658,7 +670,12 @@
                                 <div class="slide layout-reverse">
                                     <div class="slide-content text-section">
                                         <h4>How to Register?</h4>
-                                        <p>To participate in a Bankroll Challenge Prop Bet, you can join or create one from the Prop Bet Menu. It is available for various Tournaments and Cash Games.</p>
+                                        <p>To participate in a Bankroll Challenge Prop Bet, You can join or create a Bankroll Challenge Prop Bet from the Prop Bet Menu.</p>
+                                        <h5><strong>Bankroll Challenge is available for the following game types:</strong></h5>
+                                        <ul>
+                                            <li><strong>Tournaments:</strong> Spin & Gold, Battle Royale, Flip & Go, AoF Sit & Go, Regular Tournaments</li>
+                                            <li><strong>Cash Games:</strong> Hold'em, PLO / PLO-5, AoF (Hold'em / Omaha), Short Deck, Rush & Cash, VIP Games</li>
+                                        </ul>
                                     </div>
                                     <div class="slide-content gif-section">
                                         <img src="./propbet_files/BKRC_GIF02_opt.gif" alt="Bankroll Challenge Animation 2">
@@ -667,11 +684,18 @@
                                 <div class="slide layout-reverse">
                                      <div class="slide-content text-section">
                                         <h4>Game Types</h4>
-                                        <p>Players can choose to challenge other players or play against themselves.</p>
-                                        <h5>Single Mode</h5>
-                                        <p>Created when the host enters 0 as the number of bettors. No bets will be placed, thus no prizes will be provided.</p>
-                                        <h5>Bet Mode</h5>
-                                        <p>Host can set the number of bettor(s) that can bet against the host's challenge.</p>
+                                        <p>Players can choose to challenge other players to a Bankroll Challenge or they can play against themselves.</p>
+                                        <h5><strong>Single Mode:</strong></h5>
+                                        <ul>
+                                            <li>This is created when the host enters 0 as the number of bettors.</li>
+                                            <li>No bets will be placed, thus no prizes will be provided upon completion of the challenge.</li>
+                                        </ul>
+                                        <h5><strong>Bet Mode:</strong></h5>
+                                        <ul>
+                                            <li>Host can set the number of bettor(s) that can bet against the host's challenge.</li>
+                                            <li>If a host creates a Bet Mode but no bettors join, the bet amount deposited by the host will automatically be refunded, and the bet will change to a Single Mode.</li>
+                                            <li>If the number of bettors are not matched with the number of bettors set during the prop bet creation, the bet amount deposited for the difference of the number of bettors will be refunded.</li>
+                                        </ul>
                                     </div>
                                      <div class="slide-content gif-section">
                                         <img src="./propbet_files/BKRC_GIF04_opt.gif" alt="Bankroll Challenge Animation 3">
@@ -680,11 +704,12 @@
                                 <div class="slide layout-reverse">
                                      <div class="slide-content text-section">
                                         <h4>What are the Payouts?</h4>
-                                        <p>The host sets the goal, time, applied games, number of bettors, bet amount, and markup. Winnings are distributed as follows:</p>
-                                        <h5>Host Wins</h5>
-                                        <p>All money bet by the bettors will be won by the host, along with the host's deposited amount.</p>
-                                        <h5>Host Loses</h5>
-                                        <p>All money deposited by the host will be won by the bettors. If there are multiple bettors, the money will be awarded evenly.</p>
+                                        <p>When creating the challenge, the host sets the challenge goal, start time, end time, the applied games, number of bettors, bet amount, and markup. The host is required to make a deposit to create the Prop Bet. Depending on the result of the challenge, the winnings are distributed as follows:</p>
+                                        <ul>
+                                            <li><strong>Host Wins the Challenge:</strong> All money bet by the bettors will be won by the host​, along with the host's deposited amount.</li>
+                                            <li><strong>Host Loses the Challenge:</strong> All money deposited by the host will be won by the bettor​s, along with the amount paid by the bettors. If there are more than 1 bettor, the deposited money will be awarded evenly to all the bettors.</li>
+                                            <li><strong>Give Up:</strong> If you do not want to continue the Bank Roll Challenge, you can only give up after 1 day from the start of the challenge. The payments will be settled as soon as you give up.</li>
+                                        </ul>
                                     </div>
                                      <div class="slide-content gif-section">
                                         <img src="./propbet_files/BKRC_GIF05_opt.gif" alt="Bankroll Challenge Animation 4">
@@ -693,7 +718,12 @@
                                 <div class="slide layout-reverse">
                                      <div class="slide-content text-section">
                                         <h4>Are Other Profits Included?</h4>
-                                        <p>Profits from across GGPoker can apply to your Bankroll Challenge. This includes features like GGCare, Jackpots, and Daily Leaderboards. However, profits from Staking, Bet on Flop, and other Prop Bets are excluded.</p>
+                                        <p>Profits you gain all across GGPoker can also apply to your Bankroll Challenge, not just the pots you win at the tables.</p>
+                                        <h5><strong>Profits gained from the following features are included:</strong></h5>
+                                        <p>GGCheers & GGCare, Honeymoon for Newcomers, Bad Beat Jackpot, AoF Jackpot, Bounty Jackpot, Mystery Envelope / Cash Drop, All-In Fortune, Daily Leaderboards.</p>
+                                        <h5><strong>Profits gained from the following features are excluded:</strong></h5>
+                                        <p>Bet on Flop, Next Hand Roulette, Staking, Spin & Gold Insurance, Other Prop Bets.</p>
+                                        <p>However, for Jackpots, only those that occur in the configured blinds of Bankroll Challenge will apply.​ Profits include both C$ and T$. Unclaimed Fish Buffet rewards earned before the start of your challenge will not count as your challenge profit.</p>
                                     </div>
                                      <div class="slide-content gif-section">
                                         <img src="./propbet_files/BKRC_GIF06_opt.gif" alt="Bankroll Challenge Animation 5">
@@ -711,7 +741,6 @@
                             <span class="slider-dot"></span>
                         </div>
                     </div>
-
                 </div>
             </section>
 
@@ -729,8 +758,9 @@
                                 <div class="slide">
                                     <div class="slide-content text-section">
                                         <h4>What is Last Longer?</h4>
-                                        <p><strong>Last Longer Prop Bets</strong> can add an extra layer of competition and intensity to the game, as players strive to outlast each other in the tournament.</p>
-                                        <p>Participating in Last Longer Prop Bets can be a fun way for friends or colleagues to compete against each other in a friendly and exciting environment.</p>
+                                        <p>Last Longer Prop Bets can add an extra layer of competition and intensity to the game, as players strive to outlast each other in the tournament.</p>
+                                        <p>Participating in Last Longer Prop Bets can be a fun way for friends or colleagues to compete against each other in a friendly and exciting environment and a great way to make the most of your poker tournaments.</p>
+                                        <p>Last Longer Prop Bets can be found in the Prop Bet Menu or in the Tournament Lobby.</p>
                                     </div>
                                     <div class="slide-content gif-section">
                                         <img src="./propbet_files/01_Whats_Propbet_B_gif.gif" alt="Last Longer Animation 1">
@@ -739,7 +769,15 @@
                                 <div class="slide">
                                      <div class="slide-content text-section">
                                         <h4>How to Register?</h4>
-                                        <p>To participate, first, register for a tournament that has not yet begun. Once registered, you can join or create a Last Longer Prop Bet from the Prop Bet Menu or directly in the Tournament Lobby.</p>
+                                        <p>To participate in a Last Longer Prop Bet, first, register for a tournament that has not yet begun. Once registered, you can join or create a Last Longer Prop Bet from the Prop Bet Menu or directly in the Tournament Lobby.</p>
+                                        <h5><strong>Last Longer is available for the following tournaments:</strong></h5>
+                                        <ul>
+                                            <li>Featured Tournaments</li>
+                                            <li>Signature Tournaments</li>
+                                            <li>Standard Tournaments</li>
+                                            <li>Battle Royale</li>
+                                            <li>AoF Sit & Go</li>
+                                        </ul>
                                     </div>
                                      <div class="slide-content gif-section">
                                         <img src="./propbet_files/02_How-to-Register_B_gif.gif" alt="Last Longer Animation 2">
@@ -748,10 +786,14 @@
                                 <div class="slide">
                                      <div class="slide-content text-section">
                                         <h4>What are the Payouts?</h4>
-                                        <p>The payout depends on how winnings are split. You can choose before the bet begins.</p>
+                                        <p>The payout of the Last Longer Prop Bet depends on how the winnings are paid out. You can choose how the prizes are split to win the payout before betting begins.</p>
+                                        <h5><strong>There are several types of payouts available:</strong></h5>
                                         <ul>
-                                            <li><strong>Winner Takes All:</strong> The last person remaining wins 100%.</li>
-                                            <li><strong>Payout X%:</strong> The last X% of participants split the prize money (Standard, Top Heavy, or Even distribution).</li>
+                                            <li><strong>Winner Takes All</strong> — The last person remaining wins 100% of the prize money when everyone else is eliminated.</li>
+                                            <li><strong>Payout x%</strong> — The last x% of participants split the prize money.</li>
+                                            <li><strong>Standard</strong> — Standard tournament distribution.</li>
+                                            <li><strong>Top Heavy</strong> — First place gets the largest share.</li>
+                                            <li><strong>Even</strong> — Prize is divided evenly among an amount of players.</li>
                                         </ul>
                                     </div>
                                      <div class="slide-content gif-section">
@@ -761,11 +803,13 @@
                                 <div class="slide">
                                      <div class="slide-content text-section">
                                         <h4>Finishing the Bet</h4>
-                                        <h5>Unregistering and Canceling</h5>
-                                        <p>Be aware of the payout structure and minimum participants required.</p>
+                                        <p>Bet payouts will be distributed at the conclusion of the Prop Bet, when all places have been decided.</p>
+                                        <h5><strong>Unregistering and Canceling:</strong></h5>
+                                        <p>When creating or joining a Last Longer Prop Bet, make sure you are aware of the payout structure and the minimum number of participants required to avoid any confusion.</p>
                                         <ul>
-                                            <li>You can cancel or unregister before the tournament begins.</li>
-                                            <li>If the minimum number of participants is not met, the bet will be canceled.</li>
+                                            <li>You can cancel the Last Longer or unregister before the tournament begins.</li>
+                                            <li>If the minimum number of participants is not met, the Last Longer will be canceled.</li>
+                                            <li>If the Last Longer is canceled after it has started, the winnings will be divided by the remaining players except for the dropout.</li>
                                         </ul>
                                     </div>
                                      <div class="slide-content gif-section">
@@ -817,10 +861,8 @@
     
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Find all slider containers on the page
         const sliders = document.querySelectorAll('.slider-container');
 
-        // Function to initialize a single slider
         const initSlider = (sliderContainer) => {
             const track = sliderContainer.querySelector('.slider-track');
             if (!track) return;
@@ -831,7 +873,7 @@
             const dotsNav = sliderContainer.querySelector('.slider-dots');
             const dots = Array.from(dotsNav.children);
 
-            if (slides.length === 0) return; // Exit if no slides
+            if (slides.length === 0) return;
 
             let slideWidth = slides[0].getBoundingClientRect().width;
             let currentIndex = 0;
@@ -878,7 +920,6 @@
             });
         };
 
-        // Initialize each slider found on the page
         sliders.forEach(initSlider);
     });
     </script>
