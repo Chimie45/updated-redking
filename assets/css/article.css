@@ -53,7 +53,7 @@
 }
 
 .toc-container .toc-level-2 {
-    padding-left: 20px; /* Indent sub-headings */
+    padding-left: 20px; /* Indent h2 headings */
 }
 .toc-container .toc-level-3 {
     padding-left: 40px; /* Indent h3 headings */
@@ -77,7 +77,7 @@
     border-bottom: 2px solid #444;
 }
 
-/* MODIFICATION: Changed subheading color to gold */
+/* MODIFICATION: Ensured subheading color is gold */
 .article-body h3 {
     font-size: 1.6rem;
     color: var(--gold);
@@ -92,12 +92,12 @@
 
 
 /* Paragraph and Link Styles */
-/* MODIFICATION: Increased paragraph bottom margin */
+/* MODIFICATION: Increased paragraph bottom margin for more padding */
 .article-body p {
     margin-bottom: 2em;
 }
 
-/* MODIFICATION: Changed link color to gold */
+/* MODIFICATION: Ensured link color is gold */
 .article-body a {
     color: var(--gold);
     text-decoration: none;
@@ -111,10 +111,10 @@
 }
 
 /* List Styling with more padding */
-/* MODIFICATION: Increased list bottom margin */
+/* MODIFICATION: Increased list bottom margin for more padding */
 .article-body ul, .article-body ol {
     padding-left: 30px;
-    margin: 1.5em 0 2em 0;
+    margin-bottom: 2em;
 }
 
 .article-body li {
@@ -191,6 +191,8 @@
     padding: 0;
     margin-bottom: 0.5em;
 }
+
+/* MODIFICATION: Set source link font-size and color */
 .article-content footer a {
     font-size: 0.8rem;
     color: var(--gold);
