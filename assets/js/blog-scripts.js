@@ -4,7 +4,7 @@ const blogArticles = [
         id: 'effective-igaming-marketing',
         isFeatured: true,
         title: 'Effective Marketing in Regulated iGaming Sectors',
-        excerpt: 'A deep dive into the high-risk, high-reward iGaming markets of Japan and South Korea, analyzing the Ohtani scandal and the strategies for navigating these regulatory minefields.',
+        excerpt: 'Japan and Korea represent billion-dollar iGaming opportunities trapped in regulatory minefields. Cultural taboos and legal complexity make these lucrative markets dangerous for unprepared brands.',
         image: '/assets/images/blog/igaming-article-hero.jpg',
         contentUrl: '/blog/articles/effective-igaming-marketing'
     },
@@ -12,7 +12,7 @@ const blogArticles = [
         id: 'latam-cultural-credibility',
         isFeatured: false,
         title: 'What iGaming Brands Get Wrong in LATAM,
-        excerpt: 'An honest look at why many global iGaming campaigns fall flat in Latin America and how to fix it through regional teams, slang fluency, and local content creation.',
+        excerpt: 'International brands burn millions in Latin America by treating diverse markets as homogeneous. Cultural blindness, payment misunderstanding, and regulatory ignorance cost sustainable growth opportunities.',
         image: '/assets/images/blog/latam-cultural-hero.jpg',
         contentUrl: '/blog/articles/latam-cultural-credibility'
     },
@@ -36,7 +36,7 @@ const blogArticles = [
         id: 'gaming-trends-2025',
         isFeatured: false,
         title: 'Gaming Market Trends 2025',
-        excerpt: 'Discover the latest trends shaping the gaming industry and how to capitalize on emerging opportunities in global markets.',
+        excerpt: 'Gaming evolves beyond entertainment into cultural infrastructure. Cross-platform engagement, creator-driven discovery, and AI personalization reshape marketing strategies for 2025's $300+ billion industry.',
         image: '/assets/images/blog/gaming-trends-2025-hero.jpg',
         contentUrl: '/blog/articles/gaming-trends-2025'
     },
