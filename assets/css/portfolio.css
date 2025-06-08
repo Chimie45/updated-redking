@@ -371,9 +371,10 @@
 .video-container-vertical {
     position: relative;
     /* Constrain width on large screens so vertical video doesn't look too wide */
-    max-width: 480px; 
+    max-width: 480px;
     max-height: 640px;
     margin: 0 auto 2rem auto; /* Center the container and add space below */
+    padding-bottom: 133.33%; /* This is 4 / 3 * 100, which creates the 3:4 aspect ratio */
     height: 0;
     border-radius: 8px;
     overflow: hidden;
