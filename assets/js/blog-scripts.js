@@ -12,7 +12,8 @@ const blogArticles = [
         isFeatured: false,
         title: 'What iGaming Brands Get Wrong in LATAM',
         excerpt: 'International brands burn millions in Latin America by treating diverse markets as homogeneous. Cultural blindness, payment misunderstanding, and regulatory ignorance cost sustainable growth opportunities.',
-        image: '/assets/images/blog/latam-cultural-hero.jpg',
+        // MODIFICATION: Filename has been updated.
+        image: '/assets/images/blog/latam-igaming-mistakes-hero.jpg',
         contentUrl: '/blog/articles/latam-cultural-credibility'
     },
     {
@@ -50,30 +51,25 @@ const blogArticles = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    // MODIFICATION: Replaced two function calls with a single one to build the whole grid.
     if (document.getElementById('blog-grid-container')) {
         displayAllArticles();
     }
 });
 
-// MODIFICATION: This new function builds the entire blog grid, handling both featured and standard articles.
 async function displayAllArticles() {
     const gridContainer = document.getElementById('blog-grid-container');
     if (!gridContainer) return;
 
-    // Ensure the featured article always comes first
     const featuredArticle = blogArticles.find(article => article.isFeatured);
     const otherArticles = blogArticles.filter(article => !article.isFeatured);
     const orderedArticles = [featuredArticle, ...otherArticles].filter(Boolean);
 
     let articlesHTML = '';
     
-    // MODIFICATION: Update date options to include the day.
     const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
 
     for (const article of orderedArticles) {
         if (article.isFeatured) {
-            // Fetch metadata for the featured article to get author and date
             let author = 'RedKing Marketing';
             let displayDate = 'Recent';
             if (article.contentUrl) {
@@ -94,7 +90,6 @@ async function displayAllArticles() {
                 } catch (error) { console.log('Could not fetch metadata for featured article:', error); }
             }
 
-            // HTML for the FEATURED card (uses new 'blog-card--featured' class)
             articlesHTML += `
                 <div class="blog-card blog-card--featured" onclick="openBlogModal('${article.id}')">
                     <div class="featured-article-image">
@@ -113,7 +108,6 @@ async function displayAllArticles() {
                 </div>
             `;
         } else {
-            // HTML for a STANDARD card
             articlesHTML += `
                 <div class="blog-card" onclick="openBlogModal('${article.id}')">
                     <div class="blog-card-thumbnail">
@@ -122,7 +116,7 @@ async function displayAllArticles() {
                     <div class="blog-card-content">
                         <h3>${article.title}</h3>
                         <p class="article-excerpt">${article.excerpt}</p>
-                        <span class="read-more-link">Read More &rarr;</span>
+                        <span class="read-more-link">Read Full Article &rarr;</span>
                     </div>
                 </div>
             `;
@@ -131,16 +125,12 @@ async function displayAllArticles() {
 
     gridContainer.innerHTML = articlesHTML;
 
-    // Re-attach observers if they are defined
     if (typeof animatedElementsObserver !== 'undefined') {
         gridContainer.querySelectorAll('.blog-card').forEach(card => {
             animatedElementsObserver.observe(card);
         });
     }
 }
-
-
-// MODIFICATION: Removed the now-unused displayFeaturedArticle and displayLatestArticles functions
 
 async function openBlogModal(articleId) {
     const articleData = blogArticles.find(a => a.id === articleId);
@@ -193,7 +183,6 @@ async function openBlogModal(articleId) {
         let displayDate = 'Unknown Date';
         if (creationDateStr) {
             const date = new Date(creationDateStr + 'T00:00:00');
-            // MODIFICATION: Update date format here as well for consistency.
             displayDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
         }
         
