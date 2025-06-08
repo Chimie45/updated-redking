@@ -5,48 +5,54 @@ const blogArticles = [
         isFeatured: true,
         title: 'Effective Marketing in Regulated iGaming Sectors',
         excerpt: 'A deep dive into the high-risk, high-reward iGaming markets of Japan and South Korea, analyzing the Ohtani scandal and the strategies for navigating these regulatory minefields.',
-        image: '../assets/images/blog/igaming-article-hero.jpg',
-        contentUrl: 'articles/effective-igaming-marketing.html'
+        // MODIFICATION: Changed to absolute paths
+        image: '/assets/images/blog/igaming-article-hero.jpg',
+        contentUrl: '/blog/articles/effective-igaming-marketing.html'
     },
     {
         id: 'latam-cultural-credibility',
         isFeatured: false,
         title: 'Cultural Credibility: What iGaming Brands Get Wrong in LATAM',
         excerpt: 'An honest look at why many global iGaming campaigns fall flat in Latin America and how to fix it through regional teams, slang fluency, and local content creation.',
-        image: '../assets/images/blog/latam-cultural-hero.jpg',
-        contentUrl: 'articles/latam-cultural-credibility.html'
+        // MODIFICATION: Changed to absolute paths
+        image: '/assets/images/blog/latam-cultural-hero.jpg',
+        contentUrl: '/blog/articles/latam-cultural-credibility.html'
     },
     {
         id: 'korea-igaming-potential',
         isFeatured: false,
         title: 'The Untapped Potential of Korea\'s iGaming Audience—And What\'s Holding It Back',
         excerpt: 'A deep dive into Korea\'s unique legal and cultural challenges around iGaming, why local interest still exists despite restrictions, and how global brands can engage Korean users responsibly.',
-        image: '../assets/images/blog/korea-igaming-hero.jpg',
-        contentUrl: 'articles/korea-igaming-potential.html'
+        // MODIFICATION: Changed to absolute paths
+        image: '/assets/images/blog/korea-igaming-hero.jpg',
+        contentUrl: '/blog/articles/korea-igaming-potential.html'
     },
     {
         id: 'latam-learns-from-asia',
         isFeatured: false,
         title: 'What LATAM Gaming Companies Can Learn from Asia\'s Mobile Gaming Boom',
         excerpt: 'Latin America\'s booming mobile market can unlock its potential by adapting proven strategies from Asia\'s $40+ billion ecosystem on cultural integration, monetization, and community design.',
-        image: '../assets/images/blog/latam-asia-hero.jpg',
-        contentUrl: 'articles/latam-learns-from-asia.html'
+        // MODIFICATION: Changed to absolute paths
+        image: '/assets/images/blog/latam-asia-hero.jpg',
+        contentUrl: '/blog/articles/latam-learns-from-asia.html'
     },
     {
         id: 'gaming-trends-2025',
         isFeatured: false,
         title: 'Gaming Market Trends 2025',
         excerpt: 'Discover the latest trends shaping the gaming industry and how to capitalize on emerging opportunities in global markets.',
-        image: '../assets/images/blog/gaming-trends-2025-hero.jpg',
-        contentUrl: 'articles/gaming-trends-2025.html'
+        // MODIFICATION: Changed to absolute paths
+        image: '/assets/images/blog/gaming-trends-2025-hero.jpg',
+        contentUrl: '/blog/articles/gaming-trends-2025.html'
     },
     {
         id: 'asian-gaming-markets',
         isFeatured: false,
         title: 'Asian Gaming Markets Guide',
         excerpt: 'Unlock the potential of the world\'s largest gaming region. This guide breaks down the key differences between markets like Japan, South Korea, and Southeast Asia.',
-        image: '../assets/images/blog/asian-gaming-markets-hero.jpg',
-        contentUrl: 'articles/asian-gaming-markets.html'
+        // MODIFICATION: Changed to absolute paths
+        image: '/assets/images/blog/asian-gaming-markets-hero.jpg',
+        contentUrl: '/blog/articles/asian-gaming-markets.html'
     }
 ];
 
@@ -156,14 +162,12 @@ async function openBlogModal(articleId) {
         return;
     }
     
-    // MODIFICATION: Added console logging for debugging
     console.log(`Attempting to fetch article from: ${articleData.contentUrl}`);
 
     try {
         const response = await fetch(articleData.contentUrl, { redirect: 'error' });
 
         if (!response.ok) {
-            // MODIFICATION: Added more detailed error logging
             throw new Error(`Could not load article. Server responded with status: ${response.status} (${response.statusText}) for URL: ${response.url}`);
         }
         
