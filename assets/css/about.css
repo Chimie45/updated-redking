@@ -198,7 +198,6 @@
 }
 
 .timeline-icon {
-    display: inline-block;
     width: 60px;
     height: 60px;
     background: var(--muted-gold);
@@ -208,6 +207,7 @@
     justify-content: center;
     margin-bottom: 1.5rem;
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    flex-shrink: 0;
 }
 
 .timeline-icon i {
@@ -239,7 +239,7 @@
     color: var(--muted-gold);
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: bold;
     border: 1px solid var(--muted-gold);
 }
