@@ -12,9 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - RedKing Marketing</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Core site styles -->
     <link rel="stylesheet" href="assets/css/styles.css">
-    <!-- Portfolio‑specific overrides -->
     <link rel="stylesheet" href="assets/css/portfolio.css">
 </head>
 <body>
@@ -36,7 +34,7 @@
                         <li><a href="services.html">Services</a></li>
                         <li><a href="index.html#about">About</a></li>
                         <li><a href="our-team.html">Our Team</a></li>
-                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
                         <li><a href="blog/">Blog</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -60,237 +58,216 @@
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section id="portfolio-page-header" class="page-header hero">
+    <!-- Page Header Section -->
+    <section id="portfolio-header" class="page-header hero">
         <div class="container">
             <div class="hero-content" style="padding-top: 100px; padding-bottom: 40px;">
-                <h1>Our Work</h1>
-                <p class="subtitle">Campaigns, Creatives, and Code in Action</p>
+                <h1>Our Portfolio</h1>
+                <p class="subtitle">Showcasing Our Best Work & Creative Excellence</p>
+                <div class="page-intro-text">
+                    <p>Explore our extensive portfolio of successful campaigns, innovative projects, and creative solutions that have driven real results for gaming and iGaming brands worldwide. From major tournament marketing to community building and digital transformation projects.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Grid (identical to homepage section) -->
-    <section id="portfolio" class="services">
+    <!-- Featured Portfolio Section -->
+    <section id="featured-portfolio" class="services">
         <div class="container">
-            <h2 class="section-title">Portfolio</h2>
+            <h2 class="section-title">Featured Projects</h2>
             <div class="portfolio-grid">
-                <!-- Card 1 -->
-                <div class="portfolio-card" onclick="openPortfolioModal('portfolio1')">
-                    <div class="portfolio-image">
-                        <img src="assets/images/home/portfolio-1.jpg" alt="WPT Osaka Marketing Campaign">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-info">
-                            <div class="portfolio-text">
-                                <h3>WPT Osaka</h3>
-                                <p>Marketing Campaign</p>
-                            </div>
-                            <span class="view-details">View Details →</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="portfolio-card" onclick="openPortfolioModal('portfolio2')">
-                    <div class="portfolio-image">
-                        <img src="assets/images/home/portfolio-2.jpg" alt="GGPoker Web Content">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-info">
-                            <div class="portfolio-text">
-                                <h3>GGPoker</h3>
-                                <p>Web Content</p>
-                            </div>
-                            <span class="view-details">View Details →</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="portfolio-card" onclick="openPortfolioModal('portfolio3')">
-                    <div class="portfolio-image">
-                        <img src="assets/images/home/portfolio-3.jpg" alt="GTO LAB Digital Marketing">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-info">
-                            <div class="portfolio-text">
-                                <h3>GTO LAB</h3>
-                                <p>Digital Marketing</p>
-                            </div>
-                            <span class="view-details">View Details →</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
                 <div class="portfolio-card" onclick="openPortfolioModal('portfolio4')">
-                    <div class="portfolio-image">
-                        <img src="assets/images/home/portfolio-4.jpg" alt="Game of Gold Social Media">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-info">
-                            <div class="portfolio-text">
-                                <h3>Game of Gold</h3>
-                                <p>Social Media Strategy</p>
-                            </div>
-                            <span class="view-details">View Details →</span>
-                        </div>
-                    </div>
+                    <div class="portfolio-image"><img src="assets/images/home/portfolio-4.jpg" alt="Game of Gold"></div>
+                    <div class="portfolio-overlay"><div class="portfolio-info"><div class="portfolio-text"><h3>Game of Gold</h3><p>Social Media Strategy</p></div><span class="view-details">View Details →</span></div></div>
                 </div>
-
-                <!-- Card 5 -->
-                <div class="portfolio-card" onclick="openPortfolioModal('portfolio5')">
-                    <div class="portfolio-image">
-                        <img src="assets/images/home/portfolio-5.jpg" alt="Lost Ark Community Management">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-info">
-                            <div class="portfolio-text">
-                                <h3>Lost Ark</h3>
-                                <p>Community Management</p>
-                            </div>
-                            <span class="view-details">View Details →</span>
-                        </div>
-                    </div>
+                <div class="portfolio-card" onclick="openPortfolioModal('portfolio3')">
+                    <div class="portfolio-image"><img src="assets/images/home/portfolio-3.jpg" alt="GTO LAB Digital Marketing"></div>
+                    <div class="portfolio-overlay"><div class="portfolio-info"><div class="portfolio-text"><h3>GTO LAB</h3><p>Digital Marketing</p></div><span class="view-details">View Details →</span></div></div>
                 </div>
-
-                <!-- Card 6 -->
+                <div class="portfolio-card" onclick="openPortfolioModal('portfolio1')">
+                    <div class="portfolio-image"><img src="assets/images/home/portfolio-1.jpg" alt="WPT Osaka Marketing Campaign"></div>
+                    <div class="portfolio-overlay"><div class="portfolio-info"><div class="portfolio-text"><h3>WPT OSAKA 2024</h3><p>Live Event Marketing</p></div><span class="view-details">View Details →</span></div></div>
+                </div>
+                <div class="portfolio-card" onclick="openPortfolioModal('portfolio2')">
+                    <div class="portfolio-image"><img src="assets/images/home/portfolio-2.jpg" alt="GGPoker Web Content"></div>
+                    <div class="portfolio-overlay"><div class="portfolio-info"><div class="portfolio-text"><h3>GGPoker Web Content</h3><p>Web Development</p></div><span class="view-details">View Details →</span></div></div>
+                </div>
                 <div class="portfolio-card" onclick="openPortfolioModal('portfolio6')">
-                    <div class="portfolio-image">
-                        <img src="assets/images/home/portfolio-6.jpg" alt="Boxing Star Mobile Marketing">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-info">
-                            <div class="portfolio-text">
-                                <h3>Boxing Star</h3>
-                                <p>Mobile Marketing</p>
-                            </div>
-                            <span class="view-details">View Details →</span>
-                        </div>
-                    </div>
+                    <div class="portfolio-image"><img src="assets/images/home/portfolio-6.jpg" alt="Boxing Star Mobile Marketing"></div>
+                    <div class="portfolio-overlay"><div class="portfolio-info"><div class="portfolio-text"><h3>Boxing Star</h3><p>User Acquisition</p></div><span class="view-details">View Details →</span></div></div>
+                </div>
+                <div class="portfolio-card" onclick="openPortfolioModal('portfolio5')">
+                    <div class="portfolio-image"><img src="assets/images/home/portfolio-5.jpg" alt="Lost Ark Community Management"></div>
+                    <div class="portfolio-overlay"><div class="portfolio-info"><div class="portfolio-text"><h3>Lost Ark Global Communities</h3><p>Community Management</p></div><span class="view-details">View Details →</span></div></div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Portfolio Modals -->
-    <div id="portfolio1" class="portfolio-modal">
-        <div class="portfolio-modal-content">
-            <div class="portfolio-modal-header">
-                <img src="assets/images/home/portfolio-1.jpg" alt="WPT Osaka Marketing Campaign">
-                <span class="close" onclick="closePortfolioModal('portfolio1')">&times;</span>
-            </div>
-            <div class="portfolio-modal-body">
-                <h2>WPT Osaka</h2>
-                <p>Marketing campaign across Japan’s Kansai region including influencer activations, livestream production, and localisation of creative assets.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="portfolio2" class="portfolio-modal">
-        <div class="portfolio-modal-content">
-            <div class="portfolio-modal-header">
-                <img src="assets/images/home/portfolio-2.jpg" alt="GGPoker Web Content">
-                <span class="close" onclick="closePortfolioModal('portfolio2')">&times;</span>
-            </div>
-            <div class="portfolio-modal-body">
-                <h2>GGPoker</h2>
-                <p>High‑converting landing pages and SEO‑optimised editorial that helped grow monthly active users by 22%.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="portfolio3" class="portfolio-modal">
-        <div class="portfolio-modal-content">
-            <div class="portfolio-modal-header">
-                <img src="assets/images/home/portfolio-3.jpg" alt="GTO LAB Digital Marketing">
-                <span class="close" onclick="closePortfolioModal('portfolio3')">&times;</span>
-            </div>
-            <div class="portfolio-modal-body">
-                <h2>GTO LAB</h2>
-                <p>Full‑funnel paid acquisition and CRM strategy, achieving a 4.7× ROAS within three months.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="portfolio4" class="portfolio-modal">
-        <div class="portfolio-modal-content">
-            <div class="portfolio-modal-header">
-                <img src="assets/images/home/portfolio-4.jpg" alt="Game of Gold Social Media">
-                <span class="close" onclick="closePortfolioModal('portfolio4')">&times;</span>
-            </div>
-            <div class="portfolio-modal-body">
-                <h2>Game of Gold</h2>
-                <p>End‑to‑end social media management that grew channels from zero to 120 K followers in under six months.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="portfolio5" class="portfolio-modal">
-        <div class="portfolio-modal-content">
-            <div class="portfolio-modal-header">
-                <img src="assets/images/home/portfolio-5.jpg" alt="Lost Ark Community Management">
-                <span class="close" onclick="closePortfolioModal('portfolio5')">&times;</span>
-            </div>
-            <div class="portfolio-modal-body">
-                <h2>Lost Ark</h2>
-                <p>Community moderation and event programming for one of South Korea’s largest Discord servers (380 K members).</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="portfolio6" class="portfolio-modal">
-        <div class="portfolio-modal-content">
-            <div class="portfolio-modal-header">
-                <img src="assets/images/home/portfolio-6.jpg" alt="Boxing Star Mobile Marketing">
-                <span class="close" onclick="closePortfolioModal('portfolio6')">&times;</span>
-            </div>
-            <div class="portfolio-modal-body">
-                <h2>Boxing Star</h2>
-                <p>Global launch marketing for a F2P mobile title, including UA creatives, store optimisation, and KOL partnerships.</p>
-            </div>
-        </div>
-    </div>
-    <!-- End Portfolio Modals -->
 
     <!-- Gallery Section -->
     <section id="gallery" class="gallery-section">
         <div class="container">
             <h2 class="section-title">Gallery</h2>
-            <div class="gallery-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="image">Images</button>
-                <button class="filter-btn" data-filter="video">Video</button>
-                <button class="filter-btn" data-filter="web">Websites</button>
+            <p class="gallery-intro">Dive deeper into our creative process and see examples of our work across different mediums and platforms.</p>
+            
+            <!-- Gallery Filter Tabs -->
+            <div class="gallery-filter-tabs">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="videos">Videos</button>
+                <button class="filter-tab" data-filter="websites">Websites</button>
+                <button class="filter-tab" data-filter="campaigns">Campaigns</button>
+                <button class="filter-tab" data-filter="creative">Creative Assets</button>
             </div>
 
+            <!-- Gallery Grid -->
             <div class="gallery-grid">
-                <!-- Example image item -->
-                <div class="gallery-item image">
-                    <img class="lazy" data-src="assets/images/gallery/sample-image-thumb.jpg" alt="Sample Image">
+                <!-- Video Items -->
+                <div class="gallery-item" data-category="videos" onclick="openGalleryModal('gallery-video-1')">
+                    <div class="gallery-item-image">
+                        <img src="assets/images/portfolio/gallery/video-thumb-1.jpg" alt="GGPoker Tournament Highlights">
+                        <div class="gallery-item-overlay">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item-info">
+                        <h4>GGPoker Tournament Highlights</h4>
+                        <p>Video Production</p>
+                    </div>
                 </div>
 
-                <!-- Example video item -->
-                <div class="gallery-item video" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
-                    <img class="lazy" data-src="assets/images/gallery/sample-video-thumb.jpg" alt="Sample Video">
+                <div class="gallery-item" data-category="videos" onclick="openGalleryModal('gallery-video-2')">
+                    <div class="gallery-item-image">
+                        <img src="assets/images/portfolio/gallery/video-thumb-2.jpg" alt="Game of Gold Behind the Scenes">
+                        <div class="gallery-item-overlay">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item-info">
+                        <h4>Game of Gold Behind the Scenes</h4>
+                        <p>Documentary Style</p>
+                    </div>
                 </div>
 
-                <!-- Example website item -->
-                <div class="gallery-item web" data-link="https://redkingmarketing.com">
-                    <img class="lazy" data-src="assets/images/gallery/sample-web-thumb.jpg" alt="Sample Website">
+                <!-- Website Items -->
+                <div class="gallery-item" data-category="websites" onclick="openGalleryModal('gallery-website-1')">
+                    <div class="gallery-item-image">
+                        <img src="assets/images/portfolio/gallery/website-thumb-1.jpg" alt="GTO LAB Platform">
+                        <div class="gallery-item-overlay">
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item-info">
+                        <h4>GTO LAB Platform</h4>
+                        <p>Web Development</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="websites" onclick="openGalleryModal('gallery-website-2')">
+                    <div class="gallery-item-image">
+                        <img src="assets/images/portfolio/gallery/website-thumb-2.jpg" alt="WPT Global Landing Pages">
+                        <div class="gallery-item-overlay">
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item-info">
+                        <h4>WPT Global Landing Pages</h4>
+                        <p>Campaign Pages</p>
+                    </div>
+                </div>
+
+                <!-- Campaign Items -->
+                <div class="gallery-item" data-category="campaigns" onclick="openGalleryModal('gallery-campaign-1')">
+                    <div class="gallery-item-image">
+                        <img src="assets/images/portfolio/gallery/campaign-thumb-1.jpg" alt="Lost Ark Launch Campaign">
+                        <div class="gallery-item-overlay">
+                            <i class="fas fa-images"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item-info">
+                        <h4>Lost Ark Launch Campaign</h4>
+                        <p>Multi-Platform Campaign</p>
+                    </div>
+                </div>
+
+                <!-- Creative Assets -->
+                <div class="gallery-item" data-category="creative" onclick="openGalleryModal('gallery-creative-1')">
+                    <div class="gallery-item-image">
+                        <img src="assets/images/portfolio/gallery/creative-thumb-1.jpg" alt="Boxing Star Ad Creatives">
+                        <div class="gallery-item-overlay">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item-info">
+                        <h4>Boxing Star Ad Creatives</h4>
+                        <p>Performance Ads</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="creative" onclick="openGalleryModal('gallery-creative-2')">
+                    <div class="gallery-item-image">
+                        <img src="assets/images/portfolio/gallery/creative-thumb-2.jpg" alt="Social Media Templates">
+                        <div class="gallery-item-overlay">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item-info">
+                        <h4>Social Media Templates</h4>
+                        <p>Brand Assets</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="campaigns" onclick="openGalleryModal('gallery-campaign-2')">
+                    <div class="gallery-item-image">
+                        <img src="assets/images/portfolio/gallery/campaign-thumb-2.jpg" alt="WSOP Social Campaign">
+                        <div class="gallery-item-overlay">
+                            <i class="fas fa-images"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item-info">
+                        <h4>WSOP Social Campaign</h4>
+                        <p>Social Media Strategy</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Lightbox -->
-    <div id="galleryLightbox" class="gallery-lightbox">
-        <button class="gallery-close" aria-label="Close Gallery">&times;</button>
-        <button class="gallery-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-        <button class="gallery-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-        <div class="gallery-lightbox-content"></div>
-    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content-wrapper">
+                <div class="contact-info">
+                    <div class="contact-icon-wrapper"><i class="fas fa-crown"></i></div>
+                    <h2>Ready to Dominate?</h2>
+                    <p>Let's discuss how RedKing Marketing can elevate your gaming brand to the next level. With our global expertise and proven track record, we'll create campaigns that turn players into profits.</p>
+                    <p>Maximize your impact in Asia with our specialized strategies for Japan and Korea. We also fuel significant growth across North America (US & Canada) and champion your expansion into the vibrant Latin American gaming markets.</p>
+                </div>
+                <form class="contact-form" id="contactForm" data-form-type="contact">
+                    <div class="form-columns">
+                        <div class="form-column-left">
+                            <div class="form-group"><label for="name">Name *</label><input type="text" id="name" name="name" required></div>
+                            <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" required></div>
+                            <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company"></div>
+                        </div>
+                        <div class="form-column-right">
+                            <div class="form-group">
+                                <label for="service">Service Interest</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="ppc">PPC & Paid Advertising</option><option value="seo">SEO & Content Marketing</option>
+                                    <option value="social">Social Media Management</option><option value="consultation">Gaming Industry Consultation</option>
+                                    <option value="community">Community Management</option><option value="strategy">Marketing Strategy</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label for="message">Message *</label><textarea id="message" name="message" placeholder="Tell us about your project and goals..." required></textarea></div>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <div class="form-submission-feedback" style="display:none;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -298,7 +275,7 @@
             <div class="footer-main">
                 <div class="footer-column footer-about">
                     <img src="assets/images/home/logo.png" alt="RedKing Marketing" class="footer-logo">
-                    <p>Global gaming marketing experts specialised in iGaming, esports, and F2P mobile. We help brands become market leaders through data‑driven strategy and cultural expertise.</p>
+                    <p>Global gaming marketing experts specializing in Asia, Americas, and beyond. We turn gaming brands into market leaders through data-driven strategies and cultural expertise.</p>
                     <div class="footer-social-icons">
                         <a href="https://linkedin.com/company/red-king-marketing" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="https://instagram.com/Red_King_Marketing" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -314,16 +291,25 @@
                             <li><a href="our-team.html">Our Team</a></li>
                         </ul>
                         <ul class="footer-links-col-2">
-                            <li><a href="index.html#portfolio">Portfolio</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
                             <li><a href="blog/">Blog</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="footer-column footer-contact">
-                    <h4>Contact</h4>
-                    <p>Email: info@redkingmarketing.com</p>
-                    <p>Seoul, South Korea</p>
+                    <h4>Contact Info</h4>
+                    <p><a href="tel:+16148228696">P: +1 (614) 822-8696</a></p>
+                    <p><a href="mailto:info@redkingmarketing.com">E: info@redkingmarketing.com</a></p>
+                </div>
+                <div class="footer-column footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest gaming marketing insights.</p>
+                    <form id="newsletterFormPortfolioPage" class="newsletter-form" data-form-type="newsletter-footer-portfolio">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                        <div class="form-submission-feedback" style="display:none; font-size: 0.9em; margin-top: 10px;"></div>
+                    </form>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -336,9 +322,305 @@
         </div>
     </footer>
 
-    <!-- Core scripts -->
+    <!-- Portfolio Modals (Copied from index.html) -->
+    <div id="portfolio4" class="portfolio-modal">
+        <div class="portfolio-modal-content">
+            <div class="portfolio-modal-header"><img src="assets/images/home/portfolio-4.jpg" alt="Game of Gold"><span class="close-modal" onclick="closePortfolioModal('portfolio4')">&times;</span></div>
+            <div class="portfolio-modal-body">
+                <h2>Game of Gold</h2>
+                <div class="client-info"><strong>Client:</strong> Poker After Dark<br><strong>Industry:</strong> iGaming<br><strong>Duration:</strong> 6 months<br><strong>Services:</strong> Web Development, SEO, Content Strategy</div>
+                <h3 style="color: var(--muted-gold); margin-bottom: 1rem;">Results & Impact</h3>
+                <p style="color: #ccc; line-height: 1.6;">Boxing Star achieved significant industry recognition under our marketing leadership, earning a nomination for the prestigious IMGA People's Choice Award 2019 and our marketing team was named as a finalist for "Best Marketing Team" at the Mobile Game Awards 2019. The comprehensive user acquisition strategy successfully positioned Boxing Star as a standout title in the competitive mobile gaming market, demonstrating exceptional creativity and execution standards that garnered industry-wide acclaim and established new benchmarks for mobile game marketing excellence.</p>
+            </div>
+        </div>
+    </div>
+    <div id="portfolio5" class="portfolio-modal">
+        <div class="portfolio-modal-content">
+            <div class="portfolio-modal-header"><img src="assets/images/home/portfolio-5.jpg" alt="Lost Ark Community Management"><span class="close-modal" onclick="closePortfolioModal('portfolio5')">&times;</span></div>
+            <div class="portfolio-modal-body">
+                <h2>Lost Ark Global Communities</h2>
+                <div class="client-info"><strong>Platforms:</strong> Discord & Reddit (/r/lostarkgame)<br><strong>Industry:</strong> Gaming (MMORPG)<br><strong>Duration:</strong> 9 years of operation<br> <strong>Services:</strong> Community Management, Social Media Operations, Content Moderation</div>
+                <h3 style="color: var(--muted-gold); margin-bottom: 1rem;">Project Overview</h3>
+                <p style="color: #ccc; line-height: 1.6; margin-bottom: 2rem;">Successfully operate and manage the largest independent Lost Ark communities globally, serving as the primary hubs for the MMORPG's international player base. Built and maintained the Lost Ark Global Discord and /r/lostarkgame subreddit over 9 years, establishing these platforms as the go-to destinations for game updates, community discussion, and player support. Work directly with Amazon Games and Smilegate RPG to facilitate communication between developers and the global player community, ensuring timely dissemination of critical game information and fostering positive community engagement across multiple regions and languages.</p>
+                <div class="metrics"><div class="metric-card"><span class="metric-number">380K</span><span class="metric-label">Discord Members</span></div><div class="metric-card"><span class="metric-number">280K</span><span class="metric-label">Reddit Members</span></div><div class="metric-card"><span class="metric-number">9</span><span class="metric-label">Years Operation</span></div></div>
+                <h3 style="color: var(--muted-gold); margin-bottom: 1rem;">Results & Impact</h3>
+                <p style="color: #ccc; line-height: 1.6;">Built the largest independent Lost Ark community ecosystem with over 660,000 combined members across Discord and Reddit. Established direct partnerships with major gaming companies Amazon Games and Smilegate RPG, becoming the official community liaison for global player communications. The 9-year operational track record demonstrates exceptional community building expertise and long-term strategic vision, creating sustainable platforms that serve as essential resources for the global Lost Ark player base and maintain active engagement across diverse international audiences.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Modals -->
+    <div id="gallery-video-1" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="close-gallery-modal" onclick="closeGalleryModal('gallery-video-1')">&times;</span>
+            <div class="gallery-modal-header">
+                <h2>GGPoker Tournament Highlights</h2>
+                <p>Professional video production showcasing high-stakes tournament action</p>
+            </div>
+            <div class="gallery-modal-body">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="gallery-modal-description">
+                    <h4>Project Details</h4>
+                    <p>Created dynamic tournament highlight reels that captured the excitement and drama of live poker tournaments. This video series increased viewer engagement by 85% and helped establish GGPoker's brand presence in the tournament space.</p>
+                    <ul>
+                        <li>Multi-camera tournament coverage</li>
+                        <li>Professional color grading and editing</li>
+                        <li>Dynamic graphics and overlays</li>
+                        <li>Social media optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-video-2" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="close-gallery-modal" onclick="closeGalleryModal('gallery-video-2')">&times;</span>
+            <div class="gallery-modal-header">
+                <h2>Game of Gold Behind the Scenes</h2>
+                <p>Documentary-style content from the production of Game of Gold</p>
+            </div>
+            <div class="gallery-modal-body">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="gallery-modal-description">
+                    <h4>Project Details</h4>
+                    <p>Behind-the-scenes documentary showcasing the production process of Game of Gold, filmed on location in Seoul, South Korea. This content provided viewers with exclusive access to the creative process.</p>
+                    <ul>
+                        <li>On-location filming in Seoul</li>
+                        <li>Interviews with cast and crew</li>
+                        <li>Production process documentation</li>
+                        <li>Multilingual subtitles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-website-1" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="close-gallery-modal" onclick="closeGalleryModal('gallery-website-1')">&times;</span>
+            <div class="gallery-modal-header">
+                <h2>GTO LAB Platform</h2>
+                <p>Educational platform design and development</p>
+            </div>
+            <div class="gallery-modal-body">
+                <div class="website-preview">
+                    <img src="assets/images/portfolio/gallery/website-full-1.jpg" alt="GTO LAB Platform Full View">
+                </div>
+                <div class="gallery-modal-description">
+                    <h4>Project Details</h4>
+                    <p>Complete redesign and development of the GTO LAB educational platform, focusing on user experience and conversion optimization. The new design increased user engagement by 180%.</p>
+                    <ul>
+                        <li>Responsive web design</li>
+                        <li>User experience optimization</li>
+                        <li>Learning management system integration</li>
+                        <li>Performance optimization</li>
+                    </ul>
+                    <a href="https://gtolab.com" target="_blank" class="cta-button" style="margin-top: 1rem;">View Live Site</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-website-2" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="close-gallery-modal" onclick="closeGalleryModal('gallery-website-2')">&times;</span>
+            <div class="gallery-modal-header">
+                <h2>WPT Global Landing Pages</h2>
+                <p>High-converting campaign landing pages</p>
+            </div>
+            <div class="gallery-modal-body">
+                <div class="website-preview">
+                    <img src="assets/images/portfolio/gallery/website-full-2.jpg" alt="WPT Global Landing Pages">
+                </div>
+                <div class="gallery-modal-description">
+                    <h4>Project Details</h4>
+                    <p>Series of optimized landing pages for WPT Global campaigns, designed to maximize conversion rates and user acquisition. These pages achieved a 45% increase in signup rates.</p>
+                    <ul>
+                        <li>A/B tested designs</li>
+                        <li>Mobile-first approach</li>
+                        <li>Conversion optimization</li>
+                        <li>Analytics integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-campaign-1" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="close-gallery-modal" onclick="closeGalleryModal('gallery-campaign-1')">&times;</span>
+            <div class="gallery-modal-header">
+                <h2>Lost Ark Launch Campaign</h2>
+                <p>Multi-platform marketing campaign for game launch</p>
+            </div>
+            <div class="gallery-modal-body">
+                <div class="campaign-gallery">
+                    <img src="assets/images/portfolio/gallery/campaign-full-1.jpg" alt="Lost Ark Campaign Assets">
+                </div>
+                <div class="gallery-modal-description">
+                    <h4>Campaign Details</h4>
+                    <p>Comprehensive launch campaign for Lost Ark spanning multiple platforms and regions. The campaign generated over 2 million impressions and drove significant user acquisition.</p>
+                    <ul>
+                        <li>Social media strategy</li>
+                        <li>Influencer partnerships</li>
+                        <li>Content creation</li>
+                        <li>Community management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-campaign-2" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="close-gallery-modal" onclick="closeGalleryModal('gallery-campaign-2')">&times;</span>
+            <div class="gallery-modal-header">
+                <h2>WSOP Social Campaign</h2>
+                <p>Social media strategy and content creation</p>
+            </div>
+            <div class="gallery-modal-body">
+                <div class="campaign-gallery">
+                    <img src="assets/images/portfolio/gallery/campaign-full-2.jpg" alt="WSOP Social Campaign">
+                </div>
+                <div class="gallery-modal-description">
+                    <h4>Campaign Details</h4>
+                    <p>Social media campaign for WSOP events, focusing on real-time engagement and community building. Achieved 300% increase in social media engagement.</p>
+                    <ul>
+                        <li>Real-time content creation</li>
+                        <li>Live event coverage</li>
+                        <li>Community engagement</li>
+                        <li>Hashtag strategies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-creative-1" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="close-gallery-modal" onclick="closeGalleryModal('gallery-creative-1')">&times;</span>
+            <div class="gallery-modal-header">
+                <h2>Boxing Star Ad Creatives</h2>
+                <p>Performance advertising creative assets</p>
+            </div>
+            <div class="gallery-modal-body">
+                <div class="creative-gallery">
+                    <div class="creative-grid">
+                        <img src="assets/images/portfolio/gallery/creative-1-1.jpg" alt="Boxing Star Creative 1">
+                        <img src="assets/images/portfolio/gallery/creative-1-2.jpg" alt="Boxing Star Creative 2">
+                        <img src="assets/images/portfolio/gallery/creative-1-3.jpg" alt="Boxing Star Creative 3">
+                        <img src="assets/images/portfolio/gallery/creative-1-4.jpg" alt="Boxing Star Creative 4">
+                    </div>
+                </div>
+                <div class="gallery-modal-description">
+                    <h4>Creative Details</h4>
+                    <p>High-performance ad creatives for Boxing Star mobile game, optimized for user acquisition across multiple platforms. These creatives achieved a 25% higher CTR than industry benchmarks.</p>
+                    <ul>
+                        <li>Mobile-optimized designs</li>
+                        <li>A/B tested variations</li>
+                        <li>Platform-specific formats</li>
+                        <li>Performance optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-creative-2" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="close-gallery-modal" onclick="closeGalleryModal('gallery-creative-2')">&times;</span>
+            <div class="gallery-modal-header">
+                <h2>Social Media Templates</h2>
+                <p>Brand asset templates for social media</p>
+            </div>
+            <div class="gallery-modal-body">
+                <div class="creative-gallery">
+                    <div class="creative-grid">
+                        <img src="assets/images/portfolio/gallery/creative-2-1.jpg" alt="Social Template 1">
+                        <img src="assets/images/portfolio/gallery/creative-2-2.jpg" alt="Social Template 2">
+                        <img src="assets/images/portfolio/gallery/creative-2-3.jpg" alt="Social Template 3">
+                        <img src="assets/images/portfolio/gallery/creative-2-4.jpg" alt="Social Template 4">
+                    </div>
+                </div>
+                <div class="gallery-modal-description">
+                    <h4>Template Details</h4>
+                    <p>Comprehensive social media template system enabling consistent brand presentation across all platforms. Templates increased content production efficiency by 70%.</p>
+                    <ul>
+                        <li>Brand-consistent designs</li>
+                        <li>Multiple format variations</li>
+                        <li>Easy customization</li>
+                        <li>Platform optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="assets/js/scripts.js"></script>
-    <!-- Portfolio page scripts -->
     <script src="assets/js/portfolio.js"></script>
 </body>
-</html>
+</html>;">Project Overview</h3>
+                <p style="color: #ccc; line-height: 1.6; margin-bottom: 2rem;">Successfully took over the Poker After Dark brand from PokerGo and spearheaded the complete digital transformation for the Game of Gold season. Created a comprehensive web applet for the revolutionary new season, implementing the Game of Gold brand identity as a hybrid poker-reality TV show. Provided on-location production support during filming in Seoul, South Korea, assisting international talent and coordinating with production teams. Managed the complete global release strategy including social media presence, thumbnail creation, multilingual translations and subtitles, while coordinating closely with QA teams to ensure flawless execution across all platforms.</p>
+                <div class="metrics"><div class="metric-card"><span class="metric-number">3M+</span><span class="metric-label">YouTube Views</span></div><div class="metric-card"><span class="metric-number">485K</span><span class="metric-label">Episode 1 Views</span></div><div class="metric-card"><span class="metric-number">13</span><span class="metric-label">Languages</span></div></div>
+                <h3 style="color: var(--muted-gold); margin-bottom: 1rem;">Results & Impact</h3>
+                <p style="color: #ccc; line-height: 1.6;">Game of Gold became an overnight sensation, amassing over 3 million views on YouTube and revolutionizing the poker viewing experience. The inaugural episode attracted 485,000 viewers in its first six weeks, with strong retention throughout the 12-episode season. The show successfully established a new format combining high-stakes poker with reality TV elements, setting a new standard for poker entertainment and winning industry recognition. The project demonstrated exceptional execution across international production, digital strategy, and global content distribution.</p>
+            </div>
+        </div>
+    </div>
+    <div id="portfolio3" class="portfolio-modal">
+        <div class="portfolio-modal-content">
+            <div class="portfolio-modal-header"><img src="assets/images/home/portfolio-3.jpg" alt="GTO LAB Digital Marketing"><span class="close-modal" onclick="closePortfolioModal('portfolio3')">&times;</span></div>
+            <div class="portfolio-modal-body">
+                <h2>GTO LAB</h2>
+                <div class="client-info"><strong>Client:</strong> GTO LAB<br><strong>Industry:</strong> Educational Software<br><strong>Duration:</strong> Feb 2025 - Present · 5 mos<br><strong>Services:</strong> Digital Marketing, Content Strategy, Community Management, SEO, Influencer Partnerships</div>
+                <h3 style="color: var(--muted-gold); margin-bottom: 1rem;">Project Overview</h3>
+                <p style="color: #ccc; line-height: 1.6; margin-bottom: 2rem;">Leading comprehensive digital marketing campaigns across Meta, Google, YouTube, and Twitter/X Ads to drive user acquisition and retention for educational software platform. Managing content strategy including coaching videos, blogs, and social media to enhance brand engagement. Implementing SEO strategies, growing Discord and social media communities, and leading influencer partnerships. Developing go-to-market strategies and analyzing performance data to refine approaches and improve ROI across multiple markets and languages.</p>
+                <div class="metrics"><div class="metric-card"><span class="metric-number">75+</span><span class="metric-label">Hours Coaching Videos</span></div><div class="metric-card"><span class="metric-number">10</span><span class="metric-label">Languages</span></div><div class="metric-card"><span class="metric-number">450%</span><span class="metric-label">ROAS</span></div></div>
+                <h3 style="color: var(--muted-gold); margin-bottom: 1rem;">Results & Impact</h3>
+                <p style="color: #ccc; line-height: 1.6;">Successfully doubled the user base while maintaining exceptional return on ad spend of 450%. Managed extensive multilingual content library and built engaged communities across multiple platforms. The integrated approach of paid advertising, organic content, and community building has established GTO LAB as a leading educational platform in the competitive software market.</p>
+            </div>
+        </div>
+    </div>
+    <div id="portfolio1" class="portfolio-modal">
+        <div class="portfolio-modal-content">
+            <div class="portfolio-modal-header"><img src="assets/images/home/portfolio-1.jpg" alt="WPT Osaka Marketing Campaign"><span class="close-modal" onclick="closePortfolioModal('portfolio1')">&times;</span></div>
+            <div class="portfolio-modal-body">
+                <h2>WPT Osaka Marketing Campaign</h2>
+                <div class="client-info"><strong>Client:</strong> WPT Global / WPT Japan<br><strong>Industry:</strong> iGaming<br><strong>Duration:</strong> Sep 2024 - Dec 2024 · 4 mos<br><strong>Services:</strong> Marketing, Mailers, Banners, PPC, Partnerships</div>
+                <h3 style="color: var(--muted-gold); margin-bottom: 1rem;">Campaign Overview</h3>
+                <p style="color: #ccc; line-height: 1.6; margin-bottom: 2rem;">We created a comprehensive marketing and promotional campaign for WPT Osaka, including Online Freerolls, Step Satellites, and Social Media giveaways for WPT Osaka 2024. Our integrated approach combined digital marketing with strategic partnerships to build brand awareness and drive participation in the Japanese market.</p>
+                <div class="metrics"><div class="metric-card"><span class="metric-number">380</span><span class="metric-label">Players Sent</span></div><div class="metric-card"><span class="metric-number">1015</span><span class="metric-label">Main Event Entries</span></div><div class="metric-card"><span class="metric-number">3636</span><span class="metric-label">Side Event Entries</span></div></div>
+                <h3 style="color: var(--muted-gold); margin-bottom: 1rem;">Results & Impact</h3>
+                <p style="color: #ccc; line-height: 1.6;">The event was a great success for our client, with the live event reaching higher than expected entries and significantly building the WPT brand presence in Japan. Our multi-channel approach effectively engaged the Japanese poker community and established a strong foundation for future WPT events in the region.</p>
+            </div>
+        </div>
+    </div>
+    <div id="portfolio2" class="portfolio-modal">
+        <div class="portfolio-modal-content">
+            <div class="portfolio-modal-header"><img src="assets/images/home/portfolio-2.jpg" alt="GGPoker Web Content"><span class="close-modal" onclick="closePortfolioModal('portfolio2')">&times;</span></div>
+            <div class="portfolio-modal-body">
+                <h2>GGPoker Web Content</h2>
+                <div class="client-info"><strong>Client:</strong> NSUS Lab Korea<br><strong>Industry:</strong> iGaming<br><strong>Duration:</strong> Sep 2020 - Mar 2024 · 3 yrs 7 mos<br><strong>Services:</strong> Social Media, Marketing, Landing Pages, Banners, Website Development, Project Management</div>
+                <h3 style="color: var(--muted-gold); margin-bottom: 1rem;">Project Overview</h3>
+                <p style="color: #ccc; line-height: 1.6; margin-bottom: 2rem;">Led the comprehensive design and management of multilingual websites for GGPoker's global network, including GGPoker.com, PlayGG.ro, PokerOK, and regional domains across Europe, Asia, and the Americas. Managed front-end development using HTML/CSS, collaborated with design teams for cohesive visual assets, and handled live website operations including content updates, promotional banners, and seasonal events. Utilized various CMS tools (WordPress, Wix, WPML, Weglot) to ensure accuracy and timely updates across multiple regions while maintaining localization and consistency for different markets.</p>
+                <div class="metrics"><div class="metric-card"><span class="metric-number">150+</span><span class="metric-label">Landing Pages</span></div><div class="metric-card"><span class="metric-number">16</span><span class="metric-label">Global Domains</span></div><div class="metric-card"><span class="metric-number">120%</span><span class="metric-label">CTR Increase</span></div></div>
+                <h3 style="color: var(--muted-gold); margin-bottom: 1rem;">Results & Impact</h3>
+                <p style="color: #ccc; line-height: 1.6;">Successfully optimized the web signup flow across all platforms, significantly improving user conversion rates. Monitored website performance and implemented data-driven improvements that increased overall traffic and user engagement. The multilingual approach and localized content strategy helped establish GGPoker's presence across diverse global markets, contributing to the platform's international growth and user acquisition success.</p>
+            </div>
+        </div>
+    </div>
+    <div id="portfolio6" class="portfolio-modal">
+        <div class="portfolio-modal-content">
+            <div class="portfolio-modal-header"><img src="assets/images/home/portfolio-6.jpg" alt="Boxing Star Mobile Marketing"><span class="close-modal" onclick="closePortfolioModal('portfolio6')">&times;</span></div>
+            <div class="portfolio-modal-body">
+                <h2>Boxing Star</h2>
+                <div class="client-info"><strong>Client:</strong> 4:33 Creative Lab<br><strong>Industry:</strong> Mobile Gaming<br><strong>Duration:</strong> Jun 2018 - Sep 2019 · 1 yr 4 mos<br><strong>Services:</strong> Global User Acquisition, Performance Marketing, Campaign Management</div>
+                <h3 style="color: var(--muted-gold); margin-bottom: 1rem;">Project Overview</h3>
+                <p style="color: #ccc; line-height: 1.6; margin-bottom: 2rem;">Led global user acquisition and performance marketing campaigns for Boxing Star, a premium mobile gaming title, as Global UA and Marketing Manager at 4:33 Creative Lab. Created and managed comprehensive mobile performance marketing campaigns across multiple ad networks including Facebook, Unity, Google Ads, and other premium platforms. Developed innovative test plans and experimented with new user acquisition initiatives, analyzing performance data to identify highest impact opportunities. Collaborated closely with creative teams on development of image, video, and playable ads while serving as the primary point of contact for multiple ad network partnerships and third-party relationships.</p>
+                <div class="metrics"><div class="metric-card"><span class="metric-number">50M+</span><span class="metric-label">Global Downloads</span></div><div class="metric-card"><span class="metric-number">140+</span><span class="metric-label">Countries Released</span></div><div class="metric-card"><span class="metric-number">$250M+</span><span class="metric-label">Global Sales</span></div></div>
+                <h3 style="color: var(--muted-gold); margin-bottom: 1rem
