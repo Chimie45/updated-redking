@@ -354,6 +354,53 @@
             font-size: 1.2rem;
             letter-spacing: 0.1em;
         }
+        
+        /* --- Footer --- */
+        .terms-footer {
+            background-color: var(--section-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-align: left;
+        }
+
+        .terms-footer h4 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .terms-footer ul {
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .terms-footer li {
+            padding-left: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .terms-footer li::before {
+            content: ''; 
+        }
+        
+        .terms-footer p {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+        }
+
+        .copyright-footer {
+            background-color: var(--dark-bg);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .copyright-footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
 
         /* --- CUSTOM CAROUSEL STYLES --- */
         @font-face{font-family:"Font Awesome 5 Free";font-style:normal;font-weight:900;font-display:block;src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.eot);src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.eot#iefix) format("embedded-opentype"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff2) format("woff2"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff) format("woff"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.ttf) format("truetype"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.svg#fontawesome) format("svg")}.fa,.fas{font-family:"Font Awesome 5 Free";font-weight:900}
@@ -369,6 +416,7 @@
         .carousel-slide {
             min-width: 100%;
             box-sizing: border-box;
+            flex-shrink: 0;
         }
         .carousel-arrow {
             position: absolute;
@@ -732,87 +780,129 @@
         </section>
         
     </main>
+
+    <footer>
+        <section class="terms-footer">
+            <div class="container">
+                <h4>Terms & Conditions</h4>
+                <ul>
+                    <li>Players must be aged 18+, 19+, 21+, or 24+ depending on jurisdiction, to participate.</li>
+                    <li>Please note that any prize pools or guarantees are subject to change and some amounts listed on this website may not be current. Please check the guarantee amounts listed in the game client for the most up-to-date information.</li>
+                    <li>We reserve the right to modify or suspend any promotion, tournament, or game feature at any time.</li>
+                    <li>If any players fall under suspicion of fraudulent activity, we have the right to investigate and remove the players if confirmed.</li>
+                    <li>These terms and conditions are subject to the site terms and conditions, which can be found in the game client.</li>
+                </ul>
+                <p>Standard rules apply. What does gambling cost you? Stop on time, Play Responsibly.</p>
+            </div>
+        </section>
+        <section class="copyright-footer">
+            <p>© 2023 GGPoker. All rights reserved.</p>
+        </section>
+    </footer>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Find all carousel containers and initialize them
             const carousels = document.querySelectorAll('.custom-carousel-container');
-            carousels.forEach(initCarousel);
-        });
 
-        function initCarousel(carouselContainer) {
-            const track = carouselContainer.querySelector('.carousel-track');
-            const slides = Array.from(track.children);
-            const slideWidth = slides[0].getBoundingClientRect().width;
-            let currentIndex = 0;
+            function initCarousel(carouselContainer) {
+                const track = carouselContainer.querySelector('.carousel-track');
+                const slides = Array.from(track.children);
+                let slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
+                let currentIndex = 0;
 
-            // Create controls
-            const prevButton = document.createElement('button');
-            prevButton.classList.add('carousel-arrow', 'prev');
-            prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                // Create controls
+                const prevButton = document.createElement('button');
+                prevButton.classList.add('carousel-arrow', 'prev');
+                prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
 
-            const nextButton = document.createElement('button');
-            nextButton.classList.add('carousel-arrow', 'next');
-            nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                const nextButton = document.createElement('button');
+                nextButton.classList.add('carousel-arrow', 'next');
+                nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
 
-            const dotsContainer = document.createElement('ul');
-            dotsContainer.classList.add('carousel-dots');
-            
-            carouselContainer.appendChild(prevButton);
-            carouselContainer.appendChild(nextButton);
-            carouselContainer.appendChild(dotsContainer);
+                const dotsContainer = document.createElement('ul');
+                dotsContainer.classList.add('carousel-dots');
+                
+                carouselContainer.appendChild(prevButton);
+                carouselContainer.appendChild(nextButton);
+                carouselContainer.appendChild(dotsContainer);
 
-            // Create dots
-            slides.forEach((_, i) => {
-                const dot = document.createElement('li');
-                dot.classList.add('dot');
-                if (i === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => {
-                    goToSlide(i);
+                // Create dots
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('li');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => {
+                        goToSlide(i);
+                    });
+                    dotsContainer.appendChild(dot);
                 });
-                dotsContainer.appendChild(dot);
-            });
-            
-            const dots = Array.from(dotsContainer.children);
+                
+                const dots = Array.from(dotsContainer.children);
 
-            const setSlidePosition = (slide, index) => {
-                slide.style.left = slideWidth * index + 'px';
-            };
-            // slides.forEach(setSlidePosition); // not needed for flexbox implementation
+                const updateDots = (targetIndex) => {
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    if (dots[targetIndex]) {
+                        dots[targetIndex].classList.add('active');
+                    }
+                };
 
-            const updateDots = (targetIndex) => {
-                dots.forEach(dot => dot.classList.remove('active'));
-                dots[targetIndex].classList.add('active');
-            };
+                const goToSlide = (targetIndex) => {
+                    if (targetIndex < 0 || targetIndex >= slides.length || !track) return;
+                    track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
+                    currentIndex = targetIndex;
+                    updateDots(currentIndex);
+                };
+                
+                function handleResize() {
+                    slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
+                     track.style.transition = 'none'; // Disable transition for instant resize
+                    goToSlide(currentIndex);
+                    setTimeout(() => {
+                        track.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
+                    }, 50);
+                }
 
-            const goToSlide = (targetIndex) => {
-                if (targetIndex < 0 || targetIndex >= slides.length) return;
-                track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
-                currentIndex = targetIndex;
-                updateDots(currentIndex);
-            };
+                window.addEventListener('resize', handleResize);
 
-            // Event Listeners
-            prevButton.addEventListener('click', e => {
-                let newIndex = currentIndex - 1;
-                if (newIndex < 0) newIndex = slides.length - 1; // Loop
-                goToSlide(newIndex);
-            });
 
-            nextButton.addEventListener('click', e => {
-                let newIndex = currentIndex + 1;
-                if (newIndex >= slides.length) newIndex = 0; // Loop
-                goToSlide(newIndex);
-            });
-            
-            // Auto-play
-             setInterval(() => {
-                let newIndex = currentIndex + 1;
-                if (newIndex >= slides.length) newIndex = 0;
-                goToSlide(newIndex);
-            }, 5000);
-        }
+                // Event Listeners
+                prevButton.addEventListener('click', e => {
+                    let newIndex = currentIndex - 1;
+                    if (newIndex < 0) newIndex = slides.length - 1; // Loop
+                    goToSlide(newIndex);
+                });
 
+                nextButton.addEventListener('click', e => {
+                    let newIndex = currentIndex + 1;
+                    if (newIndex >= slides.length) newIndex = 0; // Loop
+                    goToSlide(newIndex);
+                });
+                
+                // Auto-play
+                 const autoplay = setInterval(() => {
+                    let newIndex = currentIndex + 1;
+                    if (newIndex >= slides.length) newIndex = 0;
+                    goToSlide(newIndex);
+                }, 5000);
+                
+                carouselContainer.addEventListener('mouseenter', () => clearInterval(autoplay));
+                carouselContainer.addEventListener('mouseleave', () => {
+                     setInterval(() => {
+                        let newIndex = currentIndex + 1;
+                        if (newIndex >= slides.length) newIndex = 0;
+                        goToSlide(newIndex);
+                    }, 5000);
+                });
+
+                // Initial setup
+                goToSlide(0);
+
+            }
+
+            carousels.forEach(initCarousel);
+
+        });
     </script>
 </body>
 </html>
