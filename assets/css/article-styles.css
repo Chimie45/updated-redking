@@ -8,7 +8,7 @@
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
-    font-family: 'Georgia', serif; /* A more classic, readable font for long text */
+    font-family: 'Georgia', serif;
     font-size: 18px;
     line-height: 1.7;
     color: #e0e0e0;
@@ -46,6 +46,7 @@
     font-family: 'Arial', sans-serif;
     font-size: 16px;
     transition: color 0.2s ease;
+    border-bottom: none; /* Override general link styles */
 }
 
 .toc-container a:hover {
@@ -189,7 +190,7 @@
 }
 
 .article-content footer a {
-    font-size: 0.8rem;
+    font-size: 0.8rem; /* Equivalent to ~8pt */
     color: var(--gold);
     border-bottom: 1px dotted var(--gold);
 }
