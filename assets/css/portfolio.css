@@ -444,10 +444,14 @@
 }
 
 .masonry-ad-gallery img {
+    /* The display property is changed to block for more reliable margins */
     display: block;
     width: 100%;
     height: auto;
+    /* This now correctly adds the vertical space you want */
+    margin-bottom: 10px; 
     border-radius: 5px;
+    break-inside: avoid;
 }
 
 
