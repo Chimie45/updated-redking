@@ -19,8 +19,8 @@ const blogArticles = [
     {
         id: 'korea-igaming-potential',
         isFeatured: false,
-        title: 'The Untapped Potential of Korea\'s iGaming Audience—And What\'s Holding It Back',
-        excerpt: 'A deep dive into Korea\'s unique legal and cultural challenges around iGaming, why local interest still exists despite restrictions, and how global brands can engage Korean users responsibly.',
+        title: 'The Untapped Potential of Korean iGaming',
+        excerpt: 'South Korea represents a massive untapped iGaming market with 52 million tech-savvy consumers, but regulatory complexity and cultural taboos create both opportunity and risk for international operators.',
         image: '/assets/images/blog/korea-igaming-hero.jpg',
         contentUrl: '/blog/articles/korea-igaming-potential'
     },
