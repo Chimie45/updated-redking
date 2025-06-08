@@ -52,7 +52,6 @@
     grid-column: 1 / -1;
     flex-direction: row; 
     align-items: stretch;
-    /* MODIFICATION: Changed background to black */
     background-color: var(--black); 
     border-color: #333;
 }
@@ -63,13 +62,12 @@
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
 }
 
+/* MODIFICATION: Removed margin and radius for a flush look */
 .blog-card.blog-card--featured .featured-article-image {
     flex: 0 0 45%;
     aspect-ratio: 16 / 9;
     overflow: hidden;
-    align-self: center;
-    margin: 1rem;
-    border-radius: 5px;
+    align-self: stretch; /* Stretches to fill card height */
 }
 
 .blog-card.blog-card--featured .featured-article-image img {
@@ -192,8 +190,7 @@
         flex-direction: column; /* Stack featured card vertically */
     }
      .blog-card.blog-card--featured .featured-article-image {
-        width: auto; /* Allow width to be natural in the column */
-        margin: 1rem 1rem 0 1rem; /* Adjust margin for stacked layout */
+        /* No specific rules needed here anymore, it will behave correctly */
     }
 }
 
