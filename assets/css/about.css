@@ -177,6 +177,33 @@
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
+/* Timeline end marker - just the circle without content */
+.timeline-end {
+    position: relative;
+    margin: 3rem 0;
+}
+
+.timeline-end::before {
+    content: attr(data-year);
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    background: var(--black);
+    color: var(--muted-gold);
+    border: 3px solid var(--muted-gold);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
 .timeline-content {
     background: var(--dark-gray);
     padding: 2rem;
