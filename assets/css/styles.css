@@ -201,7 +201,7 @@ nav .container {
     min-height: 70vh;
     align-items: flex-end;
     padding-bottom: 4rem;
-    background-position: bottom;
+    background-position: top;
 }
 
 .hero-content {
