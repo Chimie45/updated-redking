@@ -176,9 +176,8 @@
 
 /* Blog Modal Styles (Follows patterns from styles.css) */
 .blog-modal .blog-modal-content {
-    /* MODIFICATION: Changed width behavior */
     width: 80%;
-    max-width: 720px; /* Capped max width for readability and hero image size */
+    /* max-width has been removed to allow the modal to be 80% of the screen */
 }
 
 .blog-modal .close-blog-modal {
@@ -191,9 +190,13 @@
 }
 
 .blog-modal .blog-modal-header img {
+    /* This rule is updated to constrain the image */
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-width: 720px;
+    max-height: 100%;
     object-fit: cover;
+    border-radius: 5px;
 }
 
 .blog-modal .blog-modal-body {
