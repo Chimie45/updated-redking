@@ -9,6 +9,8 @@
         url('../images/blog/blogheader.jpg');
     min-height: 70vh;
     border-bottom: 2px solid var(--muted-gold);
+    align-items: flex-end;
+    padding-bottom: 4rem;
 }
 
 #blog-header .hero-content {
