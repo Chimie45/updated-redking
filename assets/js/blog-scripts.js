@@ -27,8 +27,8 @@ const blogArticles = [
     {
         id: 'latam-learns-from-asia',
         isFeatured: false,
-        title: 'What LATAM Gaming Companies Can Learn from Asia\'s Mobile Gaming Boom',
-        excerpt: 'Latin America\'s booming mobile market can unlock its potential by adapting proven strategies from Asia\'s $40+ billion ecosystem on cultural integration, monetization, and community design.',
+        title: 'What LATAM Gaming Companies Can Learn from Asia',
+        excerpt: 'LATAM gaming companies are leaving billions on the table by ignoring Asia\'s proven playbook. After watching both markets evolve, the lessons are obvious—if you\'re willing to learn.',
         image: '/assets/images/blog/latam-asia-hero.jpg',
         contentUrl: '/blog/articles/latam-learns-from-asia'
     },
