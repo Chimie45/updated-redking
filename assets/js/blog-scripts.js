@@ -5,10 +5,8 @@ const blogArticles = [
         isFeatured: true,
         title: 'Effective Marketing in Regulated iGaming Sectors',
         excerpt: 'A deep dive into the high-risk, high-reward iGaming markets of Japan and South Korea, analyzing the Ohtani scandal and the strategies for navigating these regulatory minefields.',
-        // MODIFICATION: Updated image paths to be relative to the /blog/ directory
-        thumbnail: '../assets/images/blog/igaming-article-hero.jpg',
-        heroImage: '../assets/images/blog/igaming-article-hero.jpg',
-        // MODIFICATION: Updated content URL to be relative to the /blog/ directory and added .html extension
+        // MODIFICATION: Consolidated thumbnail and heroImage into a single 'image' property.
+        image: '../assets/images/blog/igaming-article-hero.jpg',
         contentUrl: 'articles/effective-igaming-marketing.html'
     },
     {
@@ -16,8 +14,7 @@ const blogArticles = [
         isFeatured: false,
         title: 'Cultural Credibility: What iGaming Brands Get Wrong in LATAM',
         excerpt: 'An honest look at why many global iGaming campaigns fall flat in Latin America and how to fix it through regional teams, slang fluency, and local content creation.',
-        thumbnail: '../assets/images/blog/latam-cultural-thumb.jpg',
-        heroImage: '../assets/images/blog/latam-cultural-hero.jpg',
+        image: '../assets/images/blog/latam-cultural-hero.jpg',
         contentUrl: 'articles/latam-cultural-credibility.html'
     },
     {
@@ -25,8 +22,7 @@ const blogArticles = [
         isFeatured: false,
         title: 'The Untapped Potential of Korea\'s iGaming Audience—And What\'s Holding It Back',
         excerpt: 'A deep dive into Korea\'s unique legal and cultural challenges around iGaming, why local interest still exists despite restrictions, and how global brands can engage Korean users responsibly.',
-        thumbnail: '../assets/images/blog/korea-igaming-thumb.jpg',
-        heroImage: '../assets/images/blog/korea-igaming-hero.jpg',
+        image: '../assets/images/blog/korea-igaming-hero.jpg',
         contentUrl: 'articles/korea-igaming-potential.html'
     },
     {
@@ -34,8 +30,7 @@ const blogArticles = [
         isFeatured: false,
         title: 'What LATAM Gaming Companies Can Learn from Asia\'s Mobile Gaming Boom',
         excerpt: 'Latin America\'s booming mobile market can unlock its potential by adapting proven strategies from Asia\'s $40+ billion ecosystem on cultural integration, monetization, and community design.',
-        thumbnail: '../assets/images/blog/latam-asia-hero.jpg',
-        heroImage: '../assets/images/blog/latam-asia-hero.jpg',
+        image: '../assets/images/blog/latam-asia-hero.jpg',
         contentUrl: 'articles/latam-learns-from-asia.html'
     },
     {
@@ -43,8 +38,7 @@ const blogArticles = [
         isFeatured: false,
         title: 'Gaming Market Trends 2025',
         excerpt: 'Discover the latest trends shaping the gaming industry and how to capitalize on emerging opportunities in global markets.',
-        thumbnail: '../assets/images/blog/gaming-trends-2025.jpg',
-        heroImage: '../assets/images/blog/gaming-trends-2025.jpg',
+        image: '../assets/images/blog/gaming-trends-2025-hero.jpg',
         contentUrl: 'articles/gaming-trends-2025.html'
     },
     {
@@ -52,8 +46,7 @@ const blogArticles = [
         isFeatured: false,
         title: 'Asian Gaming Markets Guide',
         excerpt: 'Unlock the potential of the world\'s largest gaming region. This guide breaks down the key differences between markets like Japan, South Korea, and Southeast Asia.',
-        thumbnail: '../assets/images/blog/asian-gaming-markets.jpg',
-        heroImage: '../assets/images/blog/asian-gaming-markets.jpg',
+        image: '../assets/images/blog/asian-gaming-markets-hero.jpg',
         contentUrl: 'articles/asian-gaming-markets.html'
     }
 ];
@@ -80,7 +73,7 @@ function displayFeaturedArticle() {
     const articleHTML = `
         <div class="featured-article-card blog-card" onclick="openBlogModal('${featuredArticle.id}')">
             <div class="featured-article-image">
-                <img src="${featuredArticle.heroImage}" alt="${featuredArticle.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a1a/f5f5f5?text=Image+Not+Found';">
+                <img src="${featuredArticle.image}" alt="${featuredArticle.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a1a/f5f5f5?text=Image+Not+Found';">
             </div>
             <div class="featured-article-content">
                 <span class="featured-tag">Featured Article</span>
@@ -113,7 +106,7 @@ function displayLatestArticles() {
         articlesHTML += `
             <div class="blog-card" onclick="openBlogModal('${article.id}')">
                 <div class="blog-card-thumbnail">
-                    <img src="${article.thumbnail}" alt="${article.title}" onerror="this.onerror=null;this.src='https://placehold.co/400x200/1a1a1a/f5f5f5?text=Image+Not+Found';">
+                    <img src="${article.image}" alt="${article.title}" onerror="this.onerror=null;this.src='https://placehold.co/400x200/1a1a1a/f5f5f5?text=Image+Not+Found';">
                 </div>
                 <div class="blog-card-content">
                     <h3>${article.title}</h3>
@@ -149,7 +142,8 @@ async function openBlogModal(articleId) {
 
     // Set content immediately with correct image paths
     modalTitle.textContent = articleData.title;
-    modalHeroImage.src = articleData.heroImage;
+    // MODIFICATION: Using the single 'image' property
+    modalHeroImage.src = articleData.image;
     modalHeroImage.alt = articleData.title;
     modalMeta.innerHTML = '';
     modalContent.innerHTML = '<p>Loading article...</p>';
