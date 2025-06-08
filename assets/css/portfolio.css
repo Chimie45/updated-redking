@@ -447,17 +447,57 @@
 .image-tile-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Enforces a strict 3-column layout */
-    gap: 0; /* Removes all space between images */
-    border-radius: 8px;
-    overflow: hidden;
-    border: 2px solid var(--muted-gold);
+    gap: 10px; /* MODIFIED: Adds 10px of space between each tile */
+    /* The border is removed from the container as it now looks better on individual tiles */
 }
 
 .image-tile-grid a {
     display: block;
     position: relative;
-    /* Set a fixed height for all tiles to make them fit together */
-    height: 250px; 
+    height: 250px; /* Set a fixed height for all tiles */
+    border-radius: 8px; /* ADDED: Rounds the corners of each individual tile */
+    overflow: hidden; /* Ensures the image respects the border-radius */
+    border: 2px solid var(--dark-gray);
+    transition: border-color 0.3s ease;
+}
+
+.image-tile-grid a:hover {
+    border-color: var(--muted-gold);
+}
+
+.image-tile-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.image-tile-grid a:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.75);
+}
+
+.image-tile-grid a::after {
+    content: 'View Full Image';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.image-tile-grid a:hover::after {
+    opacity: 1;
 }
 
 .image-tile-grid img {
