@@ -3,21 +3,18 @@
  * Inherits variables and base styles from styles.css
  */
 
-/* Page Header */
 #blog-header.page-header.hero {
-    /* MODIFICATION: Updated image path */
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
         url('../images/blog/blogheader.jpg');
-    min-height: 60vh; /* Reduced height for a sub-page feel */
+    min-height: 70vh;
     border-bottom: 2px solid var(--muted-gold);
 }
 
 #blog-header .hero-content {
-    padding-top: 80px; /* Adjust for fixed nav */
+    padding-top: 80px;
 }
 
-/* Featured Article Section */
 .featured-article-section {
     padding: 80px 0;
     background-color: var(--black);
@@ -100,7 +97,6 @@
     color: var(--gold);
 }
 
-/* Latest Articles Section */
 .latest-articles-section {
     padding: 80px 0;
     background-color: var(--dark-gray);
@@ -174,15 +170,11 @@
     margin-top: auto;
 }
 
-/* Blog Modal Styles (Follows patterns from styles.css) */
 .blog-modal .blog-modal-content {
     width: 80%;
-    /* max-width has been removed to allow the modal to be 80% of the screen */
 }
 
-.blog-modal .close-blog-modal {
-    /* Uses .close-modal styles from styles.css */
-}
+.blog-modal .close-blog-modal {}
 
 .blog-modal .blog-modal-header {
     height: 300px;
@@ -190,7 +182,6 @@
 }
 
 .blog-modal .blog-modal-header img {
-    /* This rule is updated to constrain the image */
     width: 100%;
     height: auto;
     max-width: 720px;
@@ -236,11 +227,10 @@
     margin-bottom: 1rem;
 }
 
-/* Responsive Styles */
 @media (max-width: 992px) {
     .featured-article-card {
         flex-direction: column;
-        max-width: 600px; /* Adjusted width for tablets */
+        max-width: 600px;
     }
     .featured-article-image {
         width: 100%;
@@ -257,7 +247,7 @@
         min-height: 40vh;
     }
     .featured-article-card {
-        max-width: 100%; /* Full width on mobile */
+        max-width: 100%;
     }
     .featured-article-section, .latest-articles-section {
         padding: 60px 0;
@@ -280,7 +270,6 @@
     .blog-modal-body .blog-full-content {
         font-size: 1rem;
     }
-    /* On smaller screens, make the modal take up more space */
     .blog-modal .blog-modal-content {
         width: 95%;
     }
