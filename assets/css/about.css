@@ -474,4 +474,26 @@
         margin: 0 !important;
     }
     
-    .reasons-
+/* Why Choose Us – grid layout */
+.choose-us-section .reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.choose-us-section .reason-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  text-align: center;
+}
+.choose-us-section .reason-icon {
+  font-size: 2rem;
+  color: var(--muted-gold);
+  margin-bottom: .75rem;
+}
+.choose-us-section .reason-card h3 {
+  font-size: 1.25rem;
+  margin: .5rem 0;
+}
