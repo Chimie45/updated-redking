@@ -173,6 +173,45 @@
                         <p>Performance Marketing</p>
                     </div>
                 </div>
+
+                <div class="gallery-item" data-category="websites" onclick="openGalleryModal('gallery-propbet-website')">
+                    <div class="gallery-item-image">
+                        <img src="assets/images/portfolio/propbet-website-thumb.jpg" alt="GGPoker Prop Bet Website">
+                        <div class="gallery-item-overlay">
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item-info">
+                        <h4>GGPoker Prop Bet Website</h4>
+                        <p>Web Development</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="videos" onclick="openGalleryModal('gallery-ts-video')">
+                    <div class="gallery-item-image">
+                        <img src="assets/images/portfolio/tsthumb.jpg" alt="Tournament Savagery Video Ad">
+                        <div class="gallery-item-overlay">
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item-info">
+                        <h4>Tournament Savagery Video Ad</h4>
+                        <p>GTO LAB Masterclass</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="campaigns" onclick="openGalleryModal('gallery-gtolab-ads')">
+                    <div class="gallery-item-image">
+                        <img src="assets/images/portfolio/gtolabad1.jpg" alt="GTO LAB PPC Ads">
+                        <div class="gallery-item-overlay">
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item-info">
+                        <h4>GTO LAB PPC Ads</h4>
+                        <p>Performance Marketing</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -482,6 +521,70 @@
             </div>
         </div>
     </div>
+    
+    <div id="gallery-propbet-website" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="close-gallery-modal" onclick="closeGalleryModal('gallery-propbet-website')">&times;</span>
+            <div class="gallery-modal-header">
+                <h2>GGPoker Prop Bet Website</h2>
+                <p>A live preview of the Prop Bet informational website.</p>
+            </div>
+            <div class="gallery-modal-body" style="padding: 0; height: 80vh;">
+                <iframe src="assets/web/propbet.html" style="width: 100%; height: 100%; border: none;"></iframe>
+            </div>
+        </div>
+    </div>
+    <div id="gallery-ts-video" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="close-gallery-modal" onclick="closeGalleryModal('gallery-ts-video')">&times;</span>
+            <div class="gallery-modal-header">
+                <h2>Tournament Savagery Video Ad</h2>
+                <p>GTO LAB's Masterclass by Daniel Dvoress and Nick Petrangelo.</p>
+            </div>
+            <div class="gallery-modal-body">
+                <div class="video-container">
+                     <video controls style="width:100%; border-radius: 8px;" poster="assets/images/portfolio/tsthumb.jpg">
+                        <source src="assets/videos/ts-video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="gallery-modal-description">
+                    <h4>About This Project</h4>
+                    <p>Promotional video ad for the "Tournament Savagery" Masterclass from GTO LAB, featuring professional poker players Daniel Dvoress and Nick Petrangelo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="gallery-gtolab-ads" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="close-gallery-modal" onclick="closeGalleryModal('gallery-gtolab-ads')">&times;</span>
+            <div class="gallery-modal-header">
+                <h2>GTO LAB PPC Ads</h2>
+                <p>A collection of Pay-Per-Click ad creatives for various campaigns.</p>
+            </div>
+            <div class="gallery-modal-body">
+                <div class="gallery-modal-description">
+                    <h4>Performance Marketing Creatives</h4>
+                    <p>This gallery showcases a variety of ad designs used in PPC campaigns to drive user acquisition for the GTO LAB platform. Click any image to view the full-size version.</p>
+                </div>
+                <div class="creative-gallery">
+                    <div class="creative-grid">
+                        <a href="assets/images/portfolio/gtolabad1.jpg" target="_blank"><img src="assets/images/portfolio/gtolabad1.jpg" alt="GTO LAB Ad 1"></a>
+                        <a href="assets/images/portfolio/gtolabad2.jpg" target="_blank"><img src="assets/images/portfolio/gtolabad2.jpg" alt="GTO LAB Ad 2"></a>
+                        <a href="assets/images/portfolio/gtolabad3.jpg" target="_blank"><img src="assets/images/portfolio/gtolabad3.jpg" alt="GTO LAB Ad 3"></a>
+                        <a href="assets/images/portfolio/gtolabad4.jpg" target="_blank"><img src="assets/images/portfolio/gtolabad4.jpg" alt="GTO LAB Ad 4"></a>
+                        <a href="assets/images/portfolio/gtolabad5.jpg" target="_blank"><img src="assets/images/portfolio/gtolabad5.jpg" alt="GTO LAB Ad 5"></a>
+                        <a href="assets/images/portfolio/gtolabad6.jpg" target="_blank"><img src="assets/images/portfolio/gtolabad6.jpg" alt="GTO LAB Ad 6"></a>
+                        <a href="assets/images/portfolio/gtolabad7.jpg" target="_blank"><img src="assets/images/portfolio/gtolabad7.jpg" alt="GTO LAB Ad 7"></a>
+                        <a href="assets/images/portfolio/gtolabad8.jpg" target="_blank"><img src="assets/images/portfolio/gtolabad8.jpg" alt="GTO LAB Ad 8"></a>
+                        <a href="assets/images/portfolio/gtolabad9.jpg" target="_blank"><img src="assets/images/portfolio/gtolabad9.jpg" alt="GTO LAB Ad 9"></a>
+                        <a href="assets/images/portfolio/gtolabad10.jpg" target="_blank"><img src="assets/images/portfolio/gtolabad10.jpg" alt="GTO LAB Ad 10"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/portfolio.js"></script>
