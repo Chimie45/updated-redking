@@ -4,7 +4,7 @@ const blogArticles = [
         isFeatured: true,
         title: 'Effective Marketing in Regulated iGaming Sectors',
         excerpt: 'Japan and Korea represent billion-dollar iGaming opportunities trapped in regulatory minefields. Cultural taboos and legal complexity make these lucrative markets dangerous for unprepared brands.',
-        image: '/assets/images/blog/igaming-article-hero.jpg',
+        image: '../assets/images/blog/igaming-article-hero.jpg',
         contentUrl: '/blog/articles/effective-igaming-marketing'
     },
     {
@@ -13,7 +13,7 @@ const blogArticles = [
         title: 'What iGaming Brands Get Wrong in LATAM',
         excerpt: 'International brands burn millions in Latin America by treating diverse markets as homogeneous. Cultural blindness, payment misunderstanding, and regulatory ignorance cost sustainable growth opportunities.',
         // MODIFICATION: Filename has been updated.
-        image: '/assets/images/blog/latam-igaming-mistakes-hero.jpg',
+        image: '../assets/images/blog/latam-igaming-mistakes-hero.jpg',
         contentUrl: '/blog/articles/latam-cultural-credibility'
     },
     {
@@ -21,7 +21,7 @@ const blogArticles = [
         isFeatured: false,
         title: 'Asian Gaming Markets Guide',
         excerpt: 'Unlock the potential of the world\'s largest gaming region. This guide breaks down the key differences between markets like Japan, South Korea, and Southeast Asia.',
-        image: '/assets/images/blog/asian-gaming-markets-hero.jpg',
+        image: '../assets/images/blog/asian-gaming-markets-hero.jpg',
         contentUrl: '/blog/articles/asian-gaming-markets'
     },
     {
@@ -29,7 +29,7 @@ const blogArticles = [
         isFeatured: false,
         title: 'Gaming Market Trends 2025',
         excerpt: 'Gaming evolves beyond entertainment into cultural infrastructure. Cross-platform engagement, creator-driven discovery, and AI personalization reshape marketing strategies for 2025\'s $300+ billion industry.',
-        image: '/assets/images/blog/gaming-trends-2025-hero.jpg',
+        image: '../assets/images/blog/gaming-trends-2025-hero.jpg',
         contentUrl: '/blog/articles/gaming-trends-2025'
     },
     {
@@ -37,7 +37,7 @@ const blogArticles = [
         isFeatured: false,
         title: 'What LATAM Gaming Companies Can Learn from Asia',
         excerpt: 'LATAM gaming companies are leaving billions on the table by ignoring Asia\'s proven playbook. After watching both markets evolve, the lessons are obvious—if you\'re willing to learn.',
-        image: '/assets/images/blog/latam-asia-hero.jpg',
+        image: '../assets/images/blog/latam-asia-hero.jpg',
         contentUrl: '/blog/articles/latam-learns-from-asia'
     },
     {
@@ -45,7 +45,7 @@ const blogArticles = [
         isFeatured: false,
         title: 'The Untapped Potential of Korean iGaming',
         excerpt: 'South Korea represents a massive untapped iGaming market with 52 million tech-savvy consumers, but regulatory complexity and cultural taboos create both opportunity and risk for international operators.',
-        image: '/assets/images/blog/korea-igaming-hero.jpg',
+        image: '../assets/images/blog/korea-igaming-hero.jpg',
         contentUrl: '/blog/articles/korea-igaming-potential'
     },
 ];
