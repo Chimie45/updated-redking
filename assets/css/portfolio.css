@@ -383,6 +383,33 @@
     height: 100%;
 }
 
+/* Styles for the single-column GTO LAB ad gallery */
+.vertical-ad-gallery {
+    display: flex;
+    flex-direction: column; /* This is the key: it stacks all items vertically */
+    gap: 10px;             /* This adds the 10px of space you wanted */
+    max-width: 800px;      /* Prevents ads from being too wide on large screens */
+    margin: 0 auto;        /* Centers the column within the modal */
+}
+
+.vertical-ad-gallery a {
+    display: block;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--dark-gray);
+    transition: border-color 0.3s ease;
+}
+
+.vertical-ad-gallery a:hover {
+    border-color: var(--muted-gold);
+}
+
+.vertical-ad-gallery img {
+    display: block; /* Removes any extra space below the image */
+    width: 100%;    /* Makes the image responsive to the container's width */
+    height: auto;   /* Maintains the original aspect ratio perfectly */
+}
+
 /* Animation for gallery filter */
 @keyframes galleryFadeIn {
     from {
