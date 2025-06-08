@@ -339,7 +339,7 @@
             position: relative;
             max-width: 950px;
             margin: auto;
-            padding: 0 50px; /* Space for arrows */
+            padding: 0 50px;
             box-sizing: border-box;
         }
         .slider-track-container {
@@ -354,15 +354,24 @@
             min-width: 100%;
             box-sizing: border-box;
             display: flex;
+            justify-content: center; /* Center content horizontally */
             align-items: center;
             gap: 40px;
         }
         .slide.layout-reverse {
             flex-direction: row-reverse;
         }
-        .slide-content {
-            flex: 1; 
+        
+        /* UPDATED: Set fixed widths for slider content sections */
+        .slide-content.text-section {
+            width: 500px;
+            flex-shrink: 0;
         }
+        .slide-content.gif-section {
+            width: 300px;
+            flex-shrink: 0;
+        }
+
         .slide-content.text-section h4 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
@@ -372,12 +381,17 @@
             margin-bottom: 0.5rem;
             color: var(--accent-yellow);
         }
-        /* ADDED: Slider text font size reduction */
-        .slide-content.text-section p,
+        .slide-content.text-section p {
+            font-size: 0.85rem;
+            line-height: 1.0; /* UPDATED: Reduced line height */
+        }
         .slide-content.text-section li {
             font-size: 0.85rem;
-            line-height: 1.5;
+            line-height: 1.0; /* UPDATED: Reduced line height */
+            padding-left: 1em; /* UPDATED: Reduced space for bullet point */
+            margin-bottom: 0.5rem;
         }
+
         .slide-content.gif-section img {
             max-width: 100%;
             border-radius: 8px;
@@ -505,6 +519,10 @@
             
             .slide {
                 flex-direction: column !important;
+                gap: 20px;
+            }
+            .slide-content.text-section, .slide-content.gif-section {
+                width: 100%; /* Allow sections to fill width on mobile */
             }
             .slide-content.gif-section {
                 order: -1;
