@@ -255,7 +255,7 @@ if (contactForm) {
             submitButton.disabled = false;
             return;
         }
-        const workerUrl = 'https://contact-form-handler.thomas-streetman.workers.dev/';
+        const workerUrl = 'https://contact-form-handler.thomas-streetman.workers.dev/'; // Updated Cloudflare Worker URL
         try {
             const response = await fetch(workerUrl, {
                 method: 'POST',
@@ -322,7 +322,7 @@ if (newsletterForm) {
             submitButton.disabled = false;
             return;
         }
-        const workerUrl = 'https://contact-form-handler.thomas-streetman.workers.dev/';
+        const workerUrl = 'https://contact-form-handler.thomas-streetman.workers.dev/'; // Updated Cloudflare Worker URL
         const data = { email: email, formType: 'newsletter' };
         try {
             const response = await fetch(workerUrl, {
@@ -428,9 +428,9 @@ if (jobAppFormMotionDesigner) {
             return;
         }
 
+        const workerUrl = 'https://contact-form-handler.thomas-streetman.workers.dev/'; // Updated Cloudflare Worker URL
         const formData = new FormData(this);
         formData.append('formType', 'job-application-motion-designer');
-        const workerUrl = 'https://contact-form-handler.thomas-streetman.workers.dev/';
         try {
             const response = await fetch(workerUrl, { method: 'POST', body: formData });
             const result = await response.json();
