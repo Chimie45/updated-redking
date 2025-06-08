@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M56HMGXR');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - RedKing Marketing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MODIFICATION: Updated paths for CSS files -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/services.css"> <!-- Styles specific to this page -->
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M56HMGXR"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-left">
+                    <a href="index.html#home" class="logo"> 
+                        <!-- MODIFICATION: Updated image path -->
+                        <img src="assets/images/home/logo.png" alt="RedKing Marketing">
+                    </a>
+                    <ul class="nav-links">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="services.html">Services</a></li> 
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="our-team.html">Our Team</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <!-- MODIFICATION: Updated blog path to be directory-based -->
+                        <li><a href="blog/">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li> 
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <div class="social-icons">
+                        <a href="https://linkedin.com/company/red-king-marketing" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://instagram.com/Red_King_Marketing" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="mobile-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header Section -->
+    <section id="services-page-header" class="page-header hero"> 
+        <div class="container">
+            <div class="hero-content" style="padding-top: 100px; padding-bottom: 40px;"> 
+                <h1>Our Expert Services</h1>
+                <p class="subtitle">Tailored Marketing Solutions to Elevate Your Game</p>
+                <div class="page-intro-text">
+                    <p>At RedKing Marketing, we offer a comprehensive suite of services designed to meet the unique needs of the gaming and iGaming industries. Explore our offerings below and discover how we can help you achieve your marketing goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Styled like Homepage) -->
+    <section id="services" class="services"> 
+        <div class="container">
+            <h2 class="section-title">Our Services</h2> 
+            <div class="services-grid">
+                <!-- Service 1: Social Media & Community Management -->
+                <div class="service-card" onclick="openServiceModal('serviceModal1')">
+                    <div class="service-icon"><i class="fas fa-users"></i></div>
+                    <h3>Social Media &<br>Community Management</h3>
+                    <p>Build and manage vibrant communities across major platforms. We grow loyal audiences that drive long-term value.</p>
+                    <span class="view-details-button">Learn More →</span>
+                </div>
+
+                <!-- Service 2: Web Development & Digital Strategy -->
+                <div class="service-card" onclick="openServiceModal('serviceModal2')">
+                    <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Web Development &<br>Digital Strategy</h3>
+                    <p>Design and develop fast, functional websites optimized for growth, from front-end builds to SEO and CMS management.</p>
+                    <span class="view-details-button">Learn More →</span>
+                </div>
+
+                <!-- Service 3: Data-Driven Marketing & User Acquisition -->
+                <div class="service-card" onclick="openServiceModal('serviceModal3')">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Data-Driven Marketing &<br>User Acquisition</h3>
+                    <p>Plan and execute performance campaigns that maximize ROI, handling targeting, creative, testing, and analytics.</p>
+                    <span class="view-details-button">Learn More →</span>
+                </div>
+
+                <!-- Service 4: Video Editing & Content Creation -->
+                <div class="service-card" onclick="openServiceModal('serviceModal4')">
+                    <div class="service-icon"><i class="fas fa-video"></i></div>
+                    <h3>Video Editing &<br>Content Creation</h3>
+                    <p>Produce high-impact visuals that convert: ads, trailers, tutorials, and social content tailored for engagement.</p>
+                    <span class="view-details-button">Learn More →</span>
+                </div>
+                
+                <!-- Service 5: Localization & Cultural Adaptation -->
+                <div class="service-card" onclick="openServiceModal('serviceModal5')">
+                    <div class="service-icon"><i class="fas fa-globe-americas"></i></div>
+                    <h3>Localization &<br>Cultural Adaptation</h3>
+                    <p>Translate and adapt your brand for global markets, ensuring your message resonates worldwide.</p>
+                    <span class="view-details-button">Learn More →</span>
+                </div>
+
+                <!-- Service 6: International Market Strategy & Growth -->
+                <div class="service-card" onclick="openServiceModal('serviceModal6')">
+                    <div class="service-icon"><i class="fas fa-compass"></i></div>
+                    <h3>International Market<br>Strategy & Growth</h3>
+                    <p>Navigate complex gaming markets with insider knowledge, strategic guidance, and player behavior analysis.</p>
+                    <span class="view-details-button">Learn More →</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content-wrapper">
+                <div class="contact-info">
+                    <div class="contact-icon-wrapper"><i class="fas fa-crown"></i></div>
+                    <h2>Ready to Dominate?</h2>
+                    <p>Let's discuss how RedKing Marketing can elevate your gaming brand to the next level. With our global expertise and proven track record, we'll create campaigns that turn players into profits.</p>
+                    <p>Maximize your impact in Asia with our specialized strategies for Japan and Korea. We also fuel significant growth across North America (US & Canada) and champion your expansion into the vibrant Latin American gaming markets.</p>
+                </div>
+                <form class="contact-form" id="contactForm" data-form-type="contact">
+                    <div class="form-columns">
+                        <div class="form-column-left">
+                            <div class="form-group"><label for="name">Name *</label><input type="text" id="name" name="name" required></div>
+                            <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" required></div>
+                            <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company"></div>
+                        </div>
+                        <div class="form-column-right">
+                            <div class="form-group">
+                                <label for="service">Service Interest</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="ppc">PPC & Paid Advertising</option><option value="seo">SEO & Content Marketing</option>
+                                    <option value="social">Social Media Management</option><option value="consultation">Gaming Industry Consultation</option>
+                                    <option value="community">Community Management</option><option value="strategy">Marketing Strategy</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label for="message">Message *</label><textarea id="message" name="message" placeholder="Tell us about your project and goals..." required></textarea></div>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <div class="form-submission-feedback" style="display:none;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-column footer-about">
+                    <!-- MODIFICATION: Updated image path -->
+                    <img src="assets/images/home/logo.png" alt="RedKing Marketing" class="footer-logo">
+                    <p>Global gaming marketing experts specializing in Asia, Americas, and beyond. We turn gaming brands into market leaders through data-driven strategies and cultural expertise.</p>
+                    <div class="footer-social-icons">
+                        <a href="https://linkedin.com/company/red-king-marketing" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com/Red_King_Marketing" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column footer-links-wrapper">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links-columns">
+                        <ul class="footer-links-col-1">
+                            <li><a href="index.html#home">Home</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="index.html#about">About Us</a></li>
+                            <li><a href="our-team.html">Our Team</a></li> 
+                        </ul>
+                        <ul class="footer-links-col-2">
+                            <li><a href="index.html#portfolio">Portfolio</a></li>
+                            <!-- MODIFICATION: Updated blog path to be directory-based -->
+                            <li><a href="blog/">Blog</a></li>
+                            <li><a href="#contact">Contact Us</a></li> 
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-column footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><a href="tel:+16148228696">P: +1 (614) 822-8696</a></p><p><a href="mailto:info@redkingmarketing.com">E: info@redkingmarketing.com</a></p>
+                </div>
+                <div class="footer-column footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest gaming marketing insights.</p>
+                    <form id="newsletterFormServicesPage" class="newsletter-form" data-form-type="newsletter-services-page">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                        <div class="form-submission-feedback" style="display:none; font-size: 0.9em; margin-top: 10px;"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> RedKing Marketing. All Rights Reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="terms.html">Terms and Conditions</a><a href="privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Service Modals -->
+    <div id="serviceModal1" class="service-detail-modal">
+        <div class="service-modal-content">
+            <span class="close-service-modal" onclick="closeServiceModal('serviceModal1')">&times;</span>
+            <div class="service-modal-header"><i class="fas fa-users"></i><h2>Social Media & Community Management</h2></div>
+            <div class="service-modal-body">
+                <p class="service-modal-intro">We build and nurture thriving online communities for your gaming brand, fostering engagement, loyalty, and organic growth across all relevant platforms.</p>
+                <h4>Key Offerings:</h4>
+                <ul><li>Platform-Specific Strategies (Discord, Reddit, Twitter/X, Facebook, Instagram, TikTok, etc.)</li><li>Comprehensive Content Calendar Creation & Execution</li><li>Community Guidelines Development & Consistent Enforcement</li><li>Proactive Moderation Services (Anti-Spam, Conflict Resolution, Positive Engagement)</li><li>Influencer & Content Creator Outreach and Collaboration Programs</li><li>Detailed Analytics & Reporting on Community Growth, Sentiment, and Engagement Metrics</li><li>Crisis Management Planning & Rapid Response Communication</li><li>User Feedback Collection and Synthesis for Product Improvement</li></ul>
+                <div class="service-modal-cta-wrapper">
+                    <a href="#contact" class="cta-button service-modal-cta" onclick="scrollToContactAndCloseModal(event, 'serviceModal1')">Discuss Your Community Strategy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="serviceModal2" class="service-detail-modal">
+        <div class="service-modal-content">
+            <span class="close-service-modal" onclick="closeServiceModal('serviceModal2')">&times;</span>
+            <div class="service-modal-header"><i class="fas fa-laptop-code"></i><h2>Web Development & Digital Strategy</h2></div>
+            <div class="service-modal-body">
+                <p class="service-modal-intro">We design and develop high-performance, visually stunning websites and digital platforms that serve as powerful marketing tools and hubs for your player base.</p>
+                <h4>Key Offerings:</h4>
+                <ul><li>Custom Website Design with a Focus on User Experience (UI/UX) and Conversion</li><li>Fully Responsive Web Development (HTML5, CSS3, JavaScript, Modern Frameworks)</li><li>Content Management System (CMS) Expertise (WordPress, Webflow, Headless CMS, Custom Solutions)</li><li>E-commerce Integration for Game Sales, Merchandise, or In-Game Purchases</li><li>High-Conversion Landing Page Design and Optimization for Marketing Campaigns</li><li>Technical SEO Implementation (Site Speed Optimization, Structured Data, Mobile-First Indexing)</li><li>Third-Party API Integrations (Payment Gateways, Analytics, Social Platforms, Game Servers)</li><li>Ongoing Website Maintenance, Security, and Support Packages</li></ul>
+                <div class="service-modal-cta-wrapper">
+                    <a href="#contact" class="cta-button service-modal-cta" onclick="scrollToContactAndCloseModal(event, 'serviceModal2')">Develop Your Digital Presence</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="serviceModal3" class="service-detail-modal">
+        <div class="service-modal-content">
+            <span class="close-service-modal" onclick="closeServiceModal('serviceModal3')">&times;</span>
+            <div class="service-modal-header"><i class="fas fa-chart-line"></i><h2>Data-Driven Marketing & User Acquisition</h2></div>
+            <div class="service-modal-body">
+                <p class="service-modal-intro">Leverage the power of data to fuel your growth. We craft and execute targeted user acquisition campaigns that deliver measurable results and maximize your return on investment.</p>
+                <h4>Key Offerings:</h4>
+                <ul><li>Strategic Paid Media Planning (PPC, Social Media Advertising, Programmatic Buying)</li><li>Advanced Audience Segmentation & Targeting (Demographics, Psychographics, Lookalike Audiences, In-Market Segments)</li><li>Rigorous A/B & Multivariate Testing for Ad Creatives, Copy, and Landing Pages</li><li>Campaign Budget Management & Real-Time Performance Optimization</li><li>Comprehensive Conversion Tracking & Multi-Touch Attribution Modeling</li><li>Customized Performance Analytics Dashboards & In-Depth Reporting</li><li>Effective Retargeting and Re-engagement Campaigns</li><li>App Store Optimization (ASO) & Mobile Game Marketing Expertise</li></ul>
+                <div class="service-modal-cta-wrapper">
+                    <a href="#contact" class="cta-button service-modal-cta" onclick="scrollToContactAndCloseModal(event, 'serviceModal3')">Boost Your User Acquisition</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="serviceModal4" class="service-detail-modal">
+        <div class="service-modal-content">
+            <span class="close-service-modal" onclick="closeServiceModal('serviceModal4')">&times;</span>
+            <div class="service-modal-header"><i class="fas fa-video"></i><h2>Video Editing & Content Creation</h2></div>
+            <div class="service-modal-body">
+                <p class="service-modal-intro">Capture attention and drive action with compelling video content. We produce everything from cinematic game trailers to high-performance social media ads, tailored to your brand and audience.</p>
+                <h4>Key Offerings:</h4>
+                <ul><li>Cinematic Game Trailers, Teasers, and Launch Videos</li><li>Engaging Gameplay Video Production, Editing, and Montages</li><li>Short-Form Video Ad Creation for Social Media (TikTok, Instagram Reels, YouTube Shorts, etc.)</li><li>Clear and Concise Tutorial Videos and Product Explainers</li><li>Professional Motion Graphics, Animation, and Visual Effects</li><li>Full-Service Video Production from Concept to Post-Production</li><li>Localization of Video Content (Subtitles, Voice-Overs, Regional Adaptation)</li><li>Understanding of Regional Visual Preferences and Viral Content Trends</li></ul>
+                <div class="service-modal-cta-wrapper">
+                    <a href="#contact" class="cta-button service-modal-cta" onclick="scrollToContactAndCloseModal(event, 'serviceModal4')">Elevate Your Video Content</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="serviceModal5" class="service-detail-modal">
+        <div class="service-modal-content">
+            <span class="close-service-modal" onclick="closeServiceModal('serviceModal5')">&times;</span>
+            <div class="service-modal-header"><i class="fas fa-globe-americas"></i><h2>Localization & Cultural Adaptation</h2></div>
+            <div class="service-modal-body">
+                <p class="service-modal-intro">Connect with global audiences authentically. We go beyond simple translation to ensure your game and marketing messages are culturally relevant and impactful in every target market.</p>
+                <h4>Key Offerings:</h4>
+                <ul><li>Professional Translation and Cultural Adaptation of In-Game Text, UI, and Storylines</li><li>Marketing Material Localization (Websites, Ads, Social Media Content, Press Releases)</li><li>Extensive Network of Native-Speaking Translators Specializing in Gaming Terminology</li><li>Comprehensive Linguistic Quality Assurance (LQA) Testing</li><li>In-Depth Market Research for New Regions and Target Demographics</li><li>Expert Consultation on Cultural Nuances, Sensitivities, and Local Preferences</li><li>Support for Multilingual Community Management and Customer Service</li><li>Ensuring Compliance with Regional Advertising Standards and Regulations</li></ul>
+                <div class="service-modal-cta-wrapper">
+                    <a href="#contact" class="cta-button service-modal-cta" onclick="scrollToContactAndCloseModal(event, 'serviceModal5')">Go Global with Confidence</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="serviceModal6" class="service-detail-modal">
+        <div class="service-modal-content">
+            <span class="close-service-modal" onclick="closeServiceModal('serviceModal6')">&times;</span>
+            <div class="service-modal-header"><i class="fas fa-compass"></i><h2>International Market Strategy & Growth</h2></div>
+            <div class="service-modal-body">
+                <p class="service-modal-intro">Expand your reach and navigate the complexities of global gaming markets with our expert strategic guidance, leveraging insider knowledge and data-driven insights.</p>
+                <h4>Key Offerings:</h4>
+                <ul><li>Customized Market Entry Strategy Development for New International Regions</li><li>Thorough Competitive Analysis and Benchmarking in Target Markets</li><li>Regulatory Landscape Research and Compliance Guidance for Gaming and iGaming</li><li>Identification, Vetting, and Facilitation of Local Partnerships (Publishers, Influencers, Payment Providers)</li><li>In-Depth Player Behavior Analysis and Profiling for Specific Regions</li><li>Strategic Roadmap Development for Phased Global Rollouts and Product Launches</li><li>Risk Assessment and Mitigation Strategies for International Expansion Challenges</li><li>Consultation on Regional Business Practices and Operational Setup</li></ul>
+                <div class="service-modal-cta-wrapper">
+                    <a href="#contact" class="cta-button service-modal-cta" onclick="scrollToContactAndCloseModal(event, 'serviceModal6')">Plan Your Global Expansion</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Service Modals -->
+
+    <!-- MODIFICATION: Updated path to scripts.js -->
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>
