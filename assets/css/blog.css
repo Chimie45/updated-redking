@@ -48,17 +48,17 @@
 }
 
 /* --- Styles for the new featured card within the grid --- */
-/* MODIFICATION: Increased selector specificity to override .blog-card styles */
 .blog-card.blog-card--featured {
-    grid-column: 1 / -1; /* Span full width of the grid */
-    flex-direction: row; /* Horizontal layout on desktop */
+    grid-column: 1 / -1;
+    flex-direction: row; 
     align-items: stretch;
-    background-color: var(--dark-gray);
-    border-color: #333; /* Start with a muted border */
+    /* MODIFICATION: Changed background to black */
+    background-color: var(--black); 
+    border-color: #333;
 }
 
 .blog-card.blog-card--featured:hover {
-    border-color: var(--muted-gold); /* Gold outline on hover */
+    border-color: var(--muted-gold); 
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
 }
