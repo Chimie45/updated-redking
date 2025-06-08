@@ -1,4 +1,3 @@
-// --- Blog Content Management ---
 const blogArticles = [
     {
         id: 'effective-igaming-marketing',
@@ -49,10 +48,7 @@ const blogArticles = [
         contentUrl: '/blog/articles/asian-gaming-markets'
     }
 ];
-
-// --- Page Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
-    // This script is specifically for the blog page, so we can directly call the functions.
     if (document.getElementById('featured-article-container')) {
         displayFeaturedArticle();
     }
@@ -60,13 +56,39 @@ document.addEventListener('DOMContentLoaded', () => {
         displayLatestArticles();
     }
 });
-
-// --- Dynamic Content Functions ---
-function displayFeaturedArticle() {
+async function displayFeaturedArticle() {
     const featuredContainer = document.getElementById('featured-article-container');
     const featuredArticle = blogArticles.find(article => article.isFeatured);
 
     if (!featuredContainer || !featuredArticle) return;
+
+    let author = 'RedKing Marketing';
+    let displayDate = 'Recent';
+
+    if (featuredArticle.contentUrl) {
+        try {
+            const response = await fetch(featuredArticle.contentUrl);
+            if (response.ok) {
+                const htmlString = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlString, 'text/html');
+
+                const authorMeta = doc.querySelector('meta[name="author"]')?.getAttribute('content');
+                const creationDateStr = doc.querySelector('meta[name="creation-date"]')?.getAttribute('content');
+                
+                if (authorMeta) {
+                    author = authorMeta;
+                }
+                
+                if (creationDateStr) {
+                    const date = new Date(creationDateStr + 'T00:00:00');
+                    displayDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+                }
+            }
+        } catch (error) {
+            console.log('Could not fetch article metadata for featured article:', error);
+        }
+    }
 
     const articleHTML = `
         <div class="featured-article-card blog-card" onclick="openBlogModal('${featuredArticle.id}')">
@@ -74,24 +96,19 @@ function displayFeaturedArticle() {
                 <img src="${featuredArticle.image}" alt="${featuredArticle.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a1a/f5f5f5?text=Image+Not+Found';">
             </div>
             <div class="featured-article-content">
-                <div class="featured-article-header">
-                    <h2>${featuredArticle.title}</h2>
-                    <div class="featured-article-meta">
-                        <span class="featured-tag">Featured</span>
-                        <span class="featured-author">RedKing Marketing</span>
-                        <span class="featured-date">December 2024</span>
-                    </div>
+                <h2>${featuredArticle.title}</h2>
+                <div class="featured-article-meta">
+                    <span class="featured-tag">Featured</span>
+                    <span class="featured-author">${author}</span>
+                    <span class="featured-date">${displayDate}</span>
                 </div>
                 <p class="article-excerpt">${featuredArticle.excerpt}</p>
-                <div class="featured-article-footer">
-                    <span class="read-more-link">Read Full Article &rarr;</span>
-                </div>
+                <span class="read-more-link">Read Full Article &rarr;</span>
             </div>
         </div>
     `;
     featuredContainer.innerHTML = articleHTML;
     
-    // Use the globally defined observer from scripts.js
     if (typeof animatedElementsObserver !== 'undefined') {
         const cardElement = featuredContainer.querySelector('.featured-article-card');
         if(cardElement) {
@@ -123,7 +140,6 @@ function displayLatestArticles() {
     });
     gridContainer.innerHTML = articlesHTML;
 
-    // Use the globally defined observer from scripts.js
     if (typeof animatedElementsObserver !== 'undefined') {
         gridContainer.querySelectorAll('.blog-card').forEach(card => {
             animatedElementsObserver.observe(card);
@@ -131,7 +147,6 @@ function displayLatestArticles() {
     }
 }
 
-// --- Modal Functionality ---
 async function openBlogModal(articleId) {
     const articleData = blogArticles.find(a => a.id === articleId);
     const modal = document.getElementById('blog-modal');
@@ -210,6 +225,6 @@ function closeBlogModal() {
     if(typeof checkAndRestoreScroll === 'function') {
         checkAndRestoreScroll();
     } else {
-        document.body.style.overflow = 'auto'; // Fallback
+        document.body.style.overflow = 'auto';
     }
 }
