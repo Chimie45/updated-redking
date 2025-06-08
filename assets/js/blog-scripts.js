@@ -6,16 +6,14 @@ const blogArticles = [
         title: 'Effective Marketing in Regulated iGaming Sectors',
         excerpt: 'A deep dive into the high-risk, high-reward iGaming markets of Japan and South Korea, analyzing the Ohtani scandal and the strategies for navigating these regulatory minefields.',
         image: '/assets/images/blog/igaming-article-hero.jpg',
-        // MODIFICATION: Removed .html extension
         contentUrl: '/blog/articles/effective-igaming-marketing'
     },
     {
         id: 'latam-cultural-credibility',
         isFeatured: false,
-        title: 'Cultural Credibility: What iGaming Brands Get Wrong in LATAM',
+        title: 'What iGaming Brands Get Wrong in LATAM,
         excerpt: 'An honest look at why many global iGaming campaigns fall flat in Latin America and how to fix it through regional teams, slang fluency, and local content creation.',
         image: '/assets/images/blog/latam-cultural-hero.jpg',
-        // MODIFICATION: Removed .html extension
         contentUrl: '/blog/articles/latam-cultural-credibility'
     },
     {
@@ -24,7 +22,6 @@ const blogArticles = [
         title: 'The Untapped Potential of Korea\'s iGaming Audience—And What\'s Holding It Back',
         excerpt: 'A deep dive into Korea\'s unique legal and cultural challenges around iGaming, why local interest still exists despite restrictions, and how global brands can engage Korean users responsibly.',
         image: '/assets/images/blog/korea-igaming-hero.jpg',
-        // MODIFICATION: Removed .html extension
         contentUrl: '/blog/articles/korea-igaming-potential'
     },
     {
@@ -33,7 +30,6 @@ const blogArticles = [
         title: 'What LATAM Gaming Companies Can Learn from Asia\'s Mobile Gaming Boom',
         excerpt: 'Latin America\'s booming mobile market can unlock its potential by adapting proven strategies from Asia\'s $40+ billion ecosystem on cultural integration, monetization, and community design.',
         image: '/assets/images/blog/latam-asia-hero.jpg',
-        // MODIFICATION: Removed .html extension
         contentUrl: '/blog/articles/latam-learns-from-asia'
     },
     {
@@ -42,7 +38,6 @@ const blogArticles = [
         title: 'Gaming Market Trends 2025',
         excerpt: 'Discover the latest trends shaping the gaming industry and how to capitalize on emerging opportunities in global markets.',
         image: '/assets/images/blog/gaming-trends-2025-hero.jpg',
-        // MODIFICATION: Removed .html extension
         contentUrl: '/blog/articles/gaming-trends-2025'
     },
     {
@@ -51,7 +46,6 @@ const blogArticles = [
         title: 'Asian Gaming Markets Guide',
         excerpt: 'Unlock the potential of the world\'s largest gaming region. This guide breaks down the key differences between markets like Japan, South Korea, and Southeast Asia.',
         image: '/assets/images/blog/asian-gaming-markets-hero.jpg',
-        // MODIFICATION: Removed .html extension
         contentUrl: '/blog/articles/asian-gaming-markets'
     }
 ];
