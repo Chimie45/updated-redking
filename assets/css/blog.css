@@ -26,8 +26,8 @@
 /* Featured Article Layout - Image Left, Content Right */
 .featured-article-card {
     display: flex;
-    align-items: center;
-    gap: 3rem;
+    align-items: stretch;
+    gap: 0;
     background-color: var(--dark-gray);
     border: 1px solid #333;
     border-radius: 10px;
@@ -36,7 +36,7 @@
     margin: 0 auto;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     cursor: pointer;
-    padding: 0;
+    min-height: 300px;
 }
 
 .featured-article-card:hover {
@@ -46,8 +46,10 @@
 
 .featured-article-image {
     flex: 0 0 400px;
-    height: 300px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .featured-article-image img {
@@ -66,6 +68,7 @@
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 1rem;
 }
 
@@ -264,10 +267,11 @@
 }
 
 /* Responsive Design */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .featured-article-card {
         flex-direction: column;
-        max-width: 600px;
+        max-width: 100%;
+        gap: 0;
     }
     .featured-article-image {
         flex: none;
