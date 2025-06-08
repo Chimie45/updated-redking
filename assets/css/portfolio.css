@@ -1,6 +1,6 @@
-/* Portfolio Page Specific Styles */
+/* portfolio.css */
 
-/* Portfolio Header */
+/* Portfolio Page Header Style */
 #portfolio-header.page-header.hero {
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
@@ -210,7 +210,7 @@
     border: 2px solid var(--muted-gold);
     border-radius: 10px;
     width: 100%;
-    max-width: 1080px;
+    max-width: 1080px; /* Updated width */
     max-height: 100%;
     animation: slideIn 0.3s ease;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -269,19 +269,20 @@
     flex-grow: 1;
 }
 
-/* Video Container */
+/* Default Video Container (16:9) */
 .video-container {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%; 
     margin-bottom: 2rem;
     border-radius: 8px;
     overflow: hidden;
     border: 2px solid var(--muted-gold);
 }
 
-.video-container iframe {
+.video-container iframe,
+.video-container video {
     position: absolute;
     top: 0;
     left: 0;
@@ -290,35 +291,23 @@
     border: none;
 }
 
-/* Website Preview */
-.website-preview {
-    margin-bottom: 2rem;
+/* Fixed Size Video Container (Boxing Star) */
+.fixed-size-video-container {
+    width: 640px;
+    height: 480px;
+    max-width: 100%; 
+    margin: 0 auto 2rem auto; 
     border-radius: 8px;
-    overflow: hidden;
+    overflow: hidden; 
     border: 2px solid var(--muted-gold);
 }
 
-.website-preview img {
+.fixed-size-video-container video {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
 }
 
-/* Campaign Gallery */
-.campaign-gallery {
-    margin-bottom: 2rem;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 2px solid var(--muted-gold);
-}
-
-.campaign-gallery img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Creative Gallery */
+/* General Campaign & Creative Gallery Styles */
 .creative-gallery {
     margin-bottom: 2rem;
 }
@@ -367,20 +356,76 @@
     line-height: 1.6;
 }
 
-/* Container for fixed-size videos like the 640x480 Boxing Star ad */
-.fixed-size-video-container {
-    width: 640px;
-    height: 480px;
-    max-width: 100%; /* Ensures the video shrinks on screens smaller than 640px */
-    margin: 0 auto 2rem auto; /* Centers the container and adds space below */
-    border-radius: 8px;
-    overflow: hidden; /* Clips the video to the rounded corners */
-    border: 2px solid var(--muted-gold);
+/* Animation for gallery filter */
+@keyframes galleryFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.fixed-size-video-container video {
+.gallery-item.fade-in {
+    animation: galleryFadeIn 0.5s ease forwards;
+}
+
+/* Styles for WPT Japan Tiled Gallery */
+.image-tile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px; 
+}
+
+.image-tile-grid a {
+    display: block;
+    position: relative;
+    height: 250px; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    border: 2px solid var(--dark-gray);
+    transition: border-color 0.3s ease;
+}
+
+.image-tile-grid a:hover {
+    border-color: var(--muted-gold);
+}
+
+.image-tile-grid img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.image-tile-grid a:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.75);
+}
+
+.image-tile-grid a::after {
+    content: 'View Full Image';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.image-tile-grid a:hover::after {
+    opacity: 1;
 }
 
 /* Masonry-style layout for the GTO LAB ad gallery */
@@ -405,21 +450,6 @@
     border-radius: 5px;
 }
 
-/* Animation for gallery filter */
-@keyframes galleryFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.gallery-item.fade-in {
-    animation: galleryFadeIn 0.5s ease forwards;
-}
 
 /* Responsive Design */
 @media (max-width: 992px) {
@@ -430,6 +460,14 @@
     
     .creative-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .image-tile-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .masonry-ad-gallery {
+        column-count: 2; /* Switch to 2 columns on medium screens */
     }
 }
 
@@ -480,101 +518,12 @@
     .creative-grid {
         grid-template-columns: 1fr 1fr;
     }
-}
-/* Custom styles for the WPT Japan tiled gallery */
-.image-tile-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Enforces a strict 3-column layout */
-    gap: 10px; /* MODIFIED: Adds 10px of space between each tile */
-    /* The border is removed from the container as it now looks better on individual tiles */
+    
+    .image-tile-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
-.image-tile-grid a {
-    display: block;
-    position: relative;
-    height: 250px; /* Set a fixed height for all tiles */
-    border-radius: 8px; /* ADDED: Rounds the corners of each individual tile */
-    overflow: hidden; /* Ensures the image respects the border-radius */
-    border: 2px solid var(--dark-gray);
-    transition: border-color 0.3s ease;
-}
-
-.image-tile-grid a:hover {
-    border-color: var(--muted-gold);
-}
-
-.image-tile-grid img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.image-tile-grid a:hover img {
-    transform: scale(1.05);
-    filter: brightness(0.75);
-}
-
-.image-tile-grid a::after {
-    content: 'View Full Image';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    text-align: center;
-    white-space: nowrap;
-}
-
-.image-tile-grid a:hover::after {
-    opacity: 1;
-}
-
-.image-tile-grid img {
-    /* These properties make the image fill the tile perfectly */
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top; /* Ensures the top of long screenshots is visible */
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-/* Adds a nice hover effect */
-.image-tile-grid a:hover img {
-    transform: scale(1.05);
-    filter: brightness(0.75);
-}
-
-/* Adds a "View Full Image" text overlay on hover */
-.image-tile-grid a::after {
-    content: 'View Full Image';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    text-align: center;
-    white-space: nowrap;
-}
-
-.image-tile-grid a:hover::after {
-    opacity: 1;
-}
 @media (max-width: 480px) {
     .gallery-filter-tabs {
         flex-direction: column;
@@ -588,5 +537,13 @@
     
     .creative-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .image-tile-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .masonry-ad-gallery {
+        column-count: 1; /* Switch to 1 column on small screens */
     }
 }
