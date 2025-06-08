@@ -185,15 +185,20 @@ async function openBlogModal(articleId) {
             const date = new Date(creationDateStr + 'T00:00:00');
             displayDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
         }
-
-        const articleBody = doc.querySelector('.article-content .article-body')?.innerHTML || doc.querySelector('.article-content')?.innerHTML || '<p>Could not find article content within the fetched file.</p>';
+        
+        // This selector was the source of the bug. It was grabbing the INSIDE of the wrong div.
+        // Let's get the whole article body's content correctly.
+        const articleBodyContent = doc.querySelector('.article-body')?.innerHTML || doc.querySelector('.article-content')?.innerHTML || '<p>Could not find article content within the fetched file.</p>';
 
         modalTitle.textContent = doc.querySelector('title')?.textContent || articleData.title;
         modalMeta.innerHTML = `
             <span><strong>By:</strong> ${author}</span>
             <span><strong>Date:</strong> ${displayDate}</span>
         `;
-        modalContent.innerHTML = articleBody;
+
+        // *** THE FIX IS HERE ***
+        // We now wrap the fetched content in the .article-body div that the CSS needs.
+        modalContent.innerHTML = `<div class="article-body">${articleBodyContent}</div>`;
 
     } catch (error) {
         console.error('Error fetching article content:', error);
