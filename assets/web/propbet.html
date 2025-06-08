@@ -48,15 +48,24 @@
             font-weight: 700;
             text-transform: uppercase;
         }
+        
+        h4 strong {
+            color: var(--accent-yellow);
+        }
 
         p {
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.6;
         }
         
         ul {
-             list-style-position: inside;
+            list-style-position: inside;
+            padding-left: 0;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
         }
 
         /* --- Hero Section --- */
@@ -280,18 +289,15 @@
             font-size: 1.8rem;
             margin-bottom: 1rem;
         }
+
+        .slide-content .text-content h5 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
         
         .slide-content .text-content p, .slide-content .text-content ul {
             font-size: 1rem;
             color: var(--text-secondary);
-        }
-
-        .slide-content .text-content ul {
-            padding-left: 20px;
-        }
-
-        .slide-content .text-content ul li {
-            margin-bottom: 0.5rem;
         }
         
         .slide-content .image-content {
@@ -322,22 +328,22 @@
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
+            background: transparent;
+            border: none;
             width: 40px;
             height: 40px;
             cursor: pointer;
-            color: white;
-            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             pointer-events: all;
+            transition: color 0.3s ease;
         }
         .slick-prev { left: -60px; }
         .slick-next { right: -60px; }
-        .slick-prev:hover, .slick-next:hover { background: rgba(255, 255, 255, 0.2); }
+        .slick-prev:hover, .slick-next:hover { color: white; }
         .slick-dots {
             position: absolute;
             bottom: -40px;
@@ -451,8 +457,8 @@
                         <div class="slide-content">
                             <div class="text-content">
                                 <h4>What is ELO Challenge?</h4>
-                                <p><strong>ELO Challenge Prop Bets</strong> offer an engaging and competitive way for players to test their skills and strategic prowess based on Spin & Gold's ELO Rating System.</p>
-                                <p>Participants can create or join these challenges, setting targets and timeframes to grow their ELO ratings and potentially win big.</p>
+                                <p><strong>ELO Challenge Prop Bets</strong> offer an engaging and competitive way for players to test their skills and strategic prowess based on Spin & Gold's ELO Rating System. Participants can create or join these challenges, setting targets and timeframes to grow their ELO ratings and potentially win big.</p>
+                                <p>Engaging in an <strong>ELO Challenge Prop Bet</strong> serves as a motivating tool for players, encouraging them to enhance their ELO ratings and poker abilities. <strong>ELO Challenge Prop Bets</strong> can be found in the <strong>Prop Bet Menu</strong> or in the <strong>Spin & Gold Lobby.</strong></p>
                             </div>
                             <div class="image-content">
                                 <img src="./propbet_files/ELO_Slide_1.gif" alt="ELO Challenge Animation 1">
@@ -465,9 +471,11 @@
                             <div class="text-content">
                                 <h4>How to Register?</h4>
                                 <p>Participating in an ELO Challenge is a straightforward process. Here's how you can get started:</p>
+                                <h5><strong>Creating a Challenge:</strong></h5>
                                 <ul>
                                     <li>Choose between Single Challenge or involve multiple Bettors.</li>
                                     <li>Set the challenge duration in one-hour increments with a minimum of one day.</li>
+                                    <li>The start time aligns with the hour, with up to 7 days of advanced scheduling.</li>
                                     <li>Personalize your challenge by inputting your desired target rating.</li>
                                 </ul>
                             </div>
@@ -481,7 +489,8 @@
                         <div class="slide-content">
                             <div class="text-content">
                                 <h4>How to Win an ELO Challenge?</h4>
-                                <p>The challenge concludes based on the following outcomes:</p>
+                                <p>To kick off the challenge, the ELO Challenge begins at the set time, as scheduled by the Host. As the challenge progresses, ELO Ratings are influenced by game results. ELO Rating changes are visible to all participants, providing real-time insights into the competition.</p>
+                                <h5><strong>Challenge Conclusion:</strong></h5>
                                 <ul>
                                     <li><strong>Host Win:</strong> If the Host hits the target ELO Rating within the time frame, they win.</li>
                                     <li><strong>Bettor Win:</strong> If the Host falls short of the target, Bettors emerge victorious.</li>
@@ -498,10 +507,14 @@
                         <div class="slide-content">
                             <div class="text-content">
                                 <h4>Additional Information</h4>
+                                <h5><strong>Challenge Cancellation and Forfeiting:</strong></h5>
                                 <ul>
-                                    <li>Hosts and operators have the authority to cancel challenges before they commence.</li>
-                                    <li>After the start of a challenge, cancelation by the host will result in a loss for the host.</li>
-                                    <li>Challenges may be extended due to server maintenance.</li>
+                                    <li>Hosts and operators have the authority to cancel challenges before they commence. After the start of a challenge, cancelation by the host will result in a loss for the host.</li>
+                                </ul>
+                                <h5><strong>Valid Games:</strong></h5>
+                                <ul>
+                                    <li>Games ending after the challenge starts are considered valid.</li>
+                                    <li>Games that start during the challenge but end after its conclusion are not valid.</li>
                                 </ul>
                             </div>
                             <div class="image-content">
@@ -530,6 +543,7 @@
                             <div class="text-content">
                                 <h4>What is Bankroll Challenge?</h4>
                                 <p><strong>Bankroll Challenge Prop Bets</strong> are a fun way for players to challenge each other or themselves to see how well they can perform over a period of time at building their bankroll.</p>
+                                <p>If the host manages to achieve the target amount in the set period of time, the host wins the Prop Bet. Otherwise, the bettors win the Prop Bet.​ Profits gained will be added towards the goal, and the losses will be deducted from the current amount.</p>
                             </div>
                         </div>
                     </div>
@@ -541,7 +555,7 @@
                             </div>
                              <div class="text-content">
                                 <h4>How to Register?</h4>
-                                <p>To participate in a Bankroll Challenge Prop Bet, You can join or create a Bankroll Challenge Prop Bet from the Prop Bet Menu.</p>
+                                <p>To participate in a Bankroll Challenge Prop Bet, You can join or create a Bankroll Challenge Prop Bet from the Prop Bet Menu. It is available for Tournaments and Cash Games.</p>
                             </div>
                         </div>
                     </div>
@@ -563,6 +577,7 @@
                             <div class="text-content">
                                 <h4>What is Last Longer?</h4>
                                 <p><strong>Last Longer Prop Bets</strong> can add an extra layer of competition and intensity to the game, as players strive to outlast each other in the tournament.</p>
+                                <p>Participating in Last Longer Prop Bets can be a fun way for friends or colleagues to compete against each other in a friendly and exciting environment.</p>
                             </div>
                             <div class="image-content">
                                 <img src="./propbet_files/01_Whats_Propbet_B_gif.gif" alt="Last Longer Animation 1">
