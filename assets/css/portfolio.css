@@ -1,0 +1,149 @@
+/* /assets/css/portfolio.css */
+
+/* Portfolio Page Header Style */
+#portfolio-header.page-header.hero {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+        url('../images/portfolio/portfolioheader.jpg'); /* Corrected path as requested */
+    min-height: 70vh;
+    align-items: center; /* Center content vertically */
+    padding-bottom: 0;
+}
+
+#portfolio-header .hero-content h1 {
+    font-size: 3rem;
+    color: var(--muted-gold);
+}
+
+#portfolio-header .hero-content .subtitle {
+    font-size: 1.4rem;
+    color: var(--white);
+    font-weight: 300;
+}
+
+
+/* New Gallery Section Styles */
+.gallery-section {
+    padding: 80px 0;
+    background-color: var(--black); /* Matches the 'About' section background */
+    border-top: 2px solid var(--muted-gold);
+}
+
+.gallery-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: -2rem auto 3rem auto;
+    color: #ccc;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.gallery-item {
+    background-color: var(--dark-gray);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+    border-color: var(--muted-gold);
+}
+
+.gallery-content {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    flex-grow: 1;
+    background-color: #000;
+}
+
+.gallery-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-content img {
+    transform: scale(1.05);
+}
+
+.gallery-caption {
+    padding: 1.5rem;
+    text-align: center;
+    background-color: var(--dark-gray);
+    border-top: 1px solid #2a2a2a;
+}
+
+.gallery-caption h3 {
+    font-size: 1.3rem;
+    color: var(--muted-gold);
+    margin-bottom: 0.5rem;
+}
+
+.gallery-caption p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Specific item styles */
+.video-responsive-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    width: 100%;
+}
+
+.video-responsive-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #portfolio-header .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .gallery-intro {
+        font-size: 1rem;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
