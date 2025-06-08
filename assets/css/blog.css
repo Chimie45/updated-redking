@@ -18,8 +18,6 @@
     padding-top: 80px;
 }
 
-/* MODIFICATION: Removed .featured-article-section as it's no longer used */
-
 .latest-articles-section {
     padding: 80px 0;
     background-color: var(--dark-gray);
@@ -30,126 +28,6 @@
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
 }
-
-/* --- Styles for the new featured card within the grid --- */
-.blog-card--featured {
-    grid-column: 1 / -1; /* Span full width of the grid */
-    display: flex;
-    flex-direction: row; /* Horizontal layout on desktop */
-    align-items: stretch;
-    gap: 0;
-    background-color: var(--black);
-    border: 2px solid #333;
-    border-radius: 10px;
-    overflow: hidden;
-    min-height: 300px;
-    cursor: pointer;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-/* MODIFICATION: Gold outline on hover */
-.blog-card--featured:hover {
-    border-color: var(--muted-gold);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
-}
-
-/* MODIFICATION: Image is now 16:9 */
-.blog-card--featured .featured-article-image {
-    flex: 0 0 45%; /* Give the image a fixed proportion of the card */
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    align-self: center; /* Center the image container vertically if content is taller */
-    margin: 1rem;
-    border-radius: 5px;
-}
-
-.blog-card--featured .featured-article-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.blog-card--featured:hover .featured-article-image img {
-    transform: scale(1.05);
-}
-
-.blog-card--featured .featured-article-content {
-    flex: 1;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-}
-
-/* MODIFICATION: Title font size reduced */
-.blog-card--featured .featured-article-content h2 {
-    font-size: 1.8rem;
-    color: var(--white);
-    line-height: 1.3;
-    margin: 0;
-}
-
-.blog-card--featured .featured-article-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.9rem;
-    flex-wrap: wrap;
-}
-
-.blog-card--featured .featured-tag {
-    display: inline-block;
-    background-color: var(--muted-gold);
-    color: var(--black);
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.blog-card--featured .featured-author {
-    color: #ccc;
-}
-
-.blog-card--featured .featured-author::before {
-    content: "By ";
-    color: #999;
-}
-
-.blog-card--featured .featured-date {
-    color: #ccc;
-}
-
-.blog-card--featured .featured-date::before {
-    content: "• ";
-    color: #666;
-    margin-right: 0.25rem;
-}
-
-.blog-card--featured .article-excerpt {
-    color: #ccc;
-    line-height: 1.6;
-    margin: 0;
-    font-size: 1rem;
-}
-
-.blog-card--featured .read-more-link {
-    color: var(--muted-gold);
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-size: 1rem;
-    margin-top: 0.5rem;
-}
-
-.blog-card--featured .read-more-link:hover {
-    color: var(--gold);
-}
-
 
 /* --- Styles for standard (non-featured) cards --- */
 .blog-card {
@@ -169,6 +47,87 @@
     border-color: var(--muted-gold);
 }
 
+/* --- Styles for the new featured card within the grid --- */
+/* MODIFICATION: Increased selector specificity to override .blog-card styles */
+.blog-card.blog-card--featured {
+    grid-column: 1 / -1; /* Span full width of the grid */
+    flex-direction: row; /* Horizontal layout on desktop */
+    align-items: stretch;
+    background-color: var(--dark-gray);
+    border-color: #333; /* Start with a muted border */
+}
+
+.blog-card.blog-card--featured:hover {
+    border-color: var(--muted-gold); /* Gold outline on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+}
+
+.blog-card.blog-card--featured .featured-article-image {
+    flex: 0 0 45%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    align-self: center;
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+.blog-card.blog-card--featured .featured-article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.blog-card.blog-card--featured:hover .featured-article-image img {
+    transform: scale(1.05);
+}
+
+.blog-card.blog-card--featured .featured-article-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.blog-card.blog-card--featured .featured-article-content h2 {
+    font-size: 1.8rem;
+    color: var(--white);
+    line-height: 1.3;
+    margin: 0;
+}
+
+.blog-card.blog-card--featured .featured-article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.blog-card.blog-card--featured .featured-tag {
+    display: inline-block;
+    background-color: var(--muted-gold);
+    color: var(--black);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.blog-card.blog-card--featured .featured-author { color: #ccc; }
+.blog-card.blog-card--featured .featured-author::before { content: "By "; color: #999; }
+.blog-card.blog-card--featured .featured-date { color: #ccc; }
+.blog-card.blog-card--featured .featured-date::before { content: "• "; color: #666; margin-right: 0.25rem; }
+.blog-card.blog-card--featured .article-excerpt { color: #ccc; line-height: 1.6; margin: 0; font-size: 1rem; }
+.blog-card.blog-card--featured .read-more-link { color: var(--muted-gold); font-weight: bold; text-decoration: none; transition: color 0.3s ease; font-size: 1rem; margin-top: 0.5rem; }
+.blog-card.blog-card--featured .read-more-link:hover { color: var(--gold); }
+
+
+/* --- Styles for standard card children --- */
 .blog-card-thumbnail {
     height: 200px;
     overflow: hidden;
@@ -215,22 +174,10 @@
 }
 
 /* --- Modal Styles (Unchanged) --- */
-.blog-modal .blog-modal-content {
-    width: 80%;
-}
+.blog-modal .blog-modal-content { width: 80%; }
 .blog-modal .close-blog-modal {}
-.blog-modal .blog-modal-header {
-    height: 300px;
-    background-color: var(--black);
-}
-.blog-modal .blog-modal-header img {
-    width: 100%;
-    height: auto;
-    max-width: 720px;
-    max-height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-}
+.blog-modal .blog-modal-header { height: 300px; background-color: var(--black); }
+.blog-modal .blog-modal-header img { width: 100%; height: auto; max-width: 720px; max-height: 100%; object-fit: cover; border-radius: 5px; }
 .blog-modal .blog-modal-body { padding: 2rem 2.5rem; }
 .blog-modal-body h1 { font-size: 2.2rem; color: var(--muted-gold); margin-bottom: 0.5rem; }
 .blog-modal-body .blog-meta { font-size: 0.9rem; color: #ccc; margin-bottom: 2rem; }
@@ -241,10 +188,10 @@
 
 /* --- Responsive Design --- */
 @media (max-width: 900px) {
-    .blog-card--featured {
+    .blog-card.blog-card--featured {
         flex-direction: column; /* Stack featured card vertically */
     }
-     .blog-card--featured .featured-article-image {
+     .blog-card.blog-card--featured .featured-article-image {
         width: auto; /* Allow width to be natural in the column */
         margin: 1rem 1rem 0 1rem; /* Adjust margin for stacked layout */
     }
@@ -258,31 +205,21 @@
     .latest-articles-section {
         padding: 60px 0;
     }
-    .blog-card--featured .featured-article-content {
+    .blog-card.blog-card--featured .featured-article-content {
         padding: 1.5rem;
         gap: 0.75rem;
     }
-    .blog-card--featured .featured-article-content h2 {
+    .blog-card.blog-card--featured .featured-article-content h2 {
         font-size: 1.6rem;
     }
-    .blog-card--featured .featured-article-meta {
+    .blog-card.blog-card--featured .featured-article-meta {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
     }
-    .blog-modal .blog-modal-header {
-        height: 220px;
-    }
-    .blog-modal .blog-modal-body {
-        padding: 1.5rem;
-    }
-    .blog-modal-body h1 {
-        font-size: 1.8rem;
-    }
-    .blog-modal-body .blog-full-content {
-        font-size: 1rem;
-    }
-    .blog-modal .blog-modal-content {
-        width: 95%;
-    }
+    .blog-modal .blog-modal-header { height: 220px; }
+    .blog-modal .blog-modal-body { padding: 1.5rem; }
+    .blog-modal-body h1 { font-size: 1.8rem; }
+    .blog-modal-body .blog-full-content { font-size: 1rem; }
+    .blog-modal .blog-modal-content { width: 95%; }
 }
