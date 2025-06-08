@@ -17,20 +17,12 @@ const blogArticles = [
         contentUrl: '/blog/articles/latam-cultural-credibility'
     },
     {
-        id: 'korea-igaming-potential',
+        id: 'asian-gaming-markets',
         isFeatured: false,
-        title: 'The Untapped Potential of Korean iGaming',
-        excerpt: 'South Korea represents a massive untapped iGaming market with 52 million tech-savvy consumers, but regulatory complexity and cultural taboos create both opportunity and risk for international operators.',
-        image: '/assets/images/blog/korea-igaming-hero.jpg',
-        contentUrl: '/blog/articles/korea-igaming-potential'
-    },
-    {
-        id: 'latam-learns-from-asia',
-        isFeatured: false,
-        title: 'What LATAM Gaming Companies Can Learn from Asia',
-        excerpt: 'LATAM gaming companies are leaving billions on the table by ignoring Asia\'s proven playbook. After watching both markets evolve, the lessons are obvious—if you\'re willing to learn.',
-        image: '/assets/images/blog/latam-asia-hero.jpg',
-        contentUrl: '/blog/articles/latam-learns-from-asia'
+        title: 'Asian Gaming Markets Guide',
+        excerpt: 'Unlock the potential of the world\'s largest gaming region. This guide breaks down the key differences between markets like Japan, South Korea, and Southeast Asia.',
+        image: '/assets/images/blog/asian-gaming-markets-hero.jpg',
+        contentUrl: '/blog/articles/asian-gaming-markets'
     },
     {
         id: 'gaming-trends-2025',
@@ -41,13 +33,21 @@ const blogArticles = [
         contentUrl: '/blog/articles/gaming-trends-2025'
     },
     {
-        id: 'asian-gaming-markets',
+        id: 'latam-learns-from-asia',
         isFeatured: false,
-        title: 'Asian Gaming Markets Guide',
-        excerpt: 'Unlock the potential of the world\'s largest gaming region. This guide breaks down the key differences between markets like Japan, South Korea, and Southeast Asia.',
-        image: '/assets/images/blog/asian-gaming-markets-hero.jpg',
-        contentUrl: '/blog/articles/asian-gaming-markets'
-    }
+        title: 'What LATAM Gaming Companies Can Learn from Asia',
+        excerpt: 'LATAM gaming companies are leaving billions on the table by ignoring Asia\'s proven playbook. After watching both markets evolve, the lessons are obvious—if you\'re willing to learn.',
+        image: '/assets/images/blog/latam-asia-hero.jpg',
+        contentUrl: '/blog/articles/latam-learns-from-asia'
+    },
+    {
+        id: 'korea-igaming-potential',
+        isFeatured: false,
+        title: 'The Untapped Potential of Korean iGaming',
+        excerpt: 'South Korea represents a massive untapped iGaming market with 52 million tech-savvy consumers, but regulatory complexity and cultural taboos create both opportunity and risk for international operators.',
+        image: '/assets/images/blog/korea-igaming-hero.jpg',
+        contentUrl: '/blog/articles/korea-igaming-potential'
+    },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
