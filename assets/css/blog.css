@@ -176,7 +176,9 @@
 
 /* Blog Modal Styles (Follows patterns from styles.css) */
 .blog-modal .blog-modal-content {
-    max-width: 800px; /* Clean, readable width */
+    /* MODIFICATION: Changed width behavior */
+    width: 80%;
+    max-width: 1100px; /* Capped max width for readability on large screens */
 }
 
 .blog-modal .close-blog-modal {
@@ -274,5 +276,9 @@
     }
     .blog-modal-body .blog-full-content {
         font-size: 1rem;
+    }
+    /* On smaller screens, make the modal take up more space */
+    .blog-modal .blog-modal-content {
+        width: 95%;
     }
 }
