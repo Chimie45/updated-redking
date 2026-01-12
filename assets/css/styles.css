@@ -176,7 +176,7 @@ nav .container {
     background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-        url('../images/home/header.jpg');
+        url('../images/home/header.gif');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
