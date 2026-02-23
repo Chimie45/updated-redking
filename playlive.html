@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octopi Poker x PlayLive Melbourne</title>
+    <!-- Tailwind CSS (Paste into CodePen HTML Head or leave here) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config (Paste into CodePen JS panel if using Babel, or leave here) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        playlive: {
+                            red: '#e60000',
+                            darkred: '#990000',
+                            bg: '#0a0a0a'
+                        },
+                        octopi: {
+                            blue: '#3b82f6',
+                            purple: '#6b46c1',
+                            lightpurple: '#7c3aed',
+                            bg: '#252932',
+                            nav: '#1c212c',
+                            border: '#333a4a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (Paste into CodePen CSS panel) -->
+    <style>
+        body {
+            background-color: #252932;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen font-sans">
+
+    <!-- Navigation (Exact Octopi Replica with dual logos) -->
+    <nav class="w-full bg-octopi-nav border-b border-octopi-border fixed top-0 z-50">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-16">
+                <!-- Left: Logos -->
+                <div class="flex items-center space-x-4">
+                    <img src="https://i.imgur.com/LtUd4sC.png" alt="Octopi Poker" class="h-6 sm:h-7 object-contain">
+                    <span class="text-gray-500 font-light text-xl">x</span>
+                    <img src="https://i.imgur.com/ONja7tQ.png" alt="PlayLive" class="h-4 sm:h-5 object-contain">
+                </div>
+                
+                <!-- Right: Octopi Links & Auth -->
+                <div class="hidden lg:flex items-center space-x-6 text-sm font-medium text-gray-300">
+                    <a href="#" class="hover:text-white transition">Ask George</a>
+                    <a href="#" class="hover:text-white transition">Coaching</a>
+                    <a href="#" class="hover:text-white transition">Shop</a>
+                    <a href="#" class="hover:text-white transition">Pricing</a>
+                    <a href="#" class="hover:text-white transition">About Us</a>
+                    
+                    <div class="flex items-center space-x-4 border-l border-gray-700 pl-6 ml-2">
+                        <span class="text-lg grayscale hover:grayscale-0 transition cursor-pointer">????</span>
+                        <i class="fa-regular fa-sun text-gray-400 hover:text-white cursor-pointer transition"></i>
+                        <button class="text-gray-300 hover:text-white font-semibold py-1.5 px-4 rounded border border-gray-600 hover:border-gray-400 transition text-sm">
+                            Sign In
+                        </button>
+                        <button class="bg-octopi-lightpurple hover:bg-octopi-purple text-white font-semibold py-1.5 px-4 rounded transition text-sm">
+                            Sign Up
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center">
+                    <button class="text-gray-400 hover:text-white">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="flex-grow pt-16">
+        <div class="relative overflow-hidden bg-octopi-bg min-h-[600px] flex items-center justify-center">
+            
+            <!-- Fallback Background Image (Z-0) -->
+            <div class="absolute inset-0 z-0 opacity-40" style="background-image: url('https://i.imgur.com/rvBrxFb.png'); background-repeat: repeat; background-size: 200px;"></div>
+            
+            <!-- YouTube Background Video (Z-10) -> Opacity 100 to stop bleed-through -->
+            <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-10">
+                <iframe 
+                    src="https://www.youtube.com/embed/TfrPbYh6sJo?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=TfrPbYh6sJo" 
+                    class="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] transform -translate-x-1/2 -translate-y-1/2 opacity-100 object-cover" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            
+            <!-- Decorative gradient overlay to dim video/background (Z-20) -->
+            <div class="absolute inset-0 bg-gradient-to-b from-octopi-bg/90 via-black/70 to-octopi-bg pointer-events-none z-20"></div>
+            
+            <!-- Content Container (Z-30) -->
+            <div class="relative w-full max-w-[850px] mx-auto px-4 sm:px-6 py-20 lg:py-28 text-center z-30">
+                
+                <div class="relative inline-block mb-2">
+                    
+                    <!-- Partnership Text -->
+                    <div class="flex items-center justify-center gap-2 mb-4 text-white text-xs sm:text-sm font-semibold tracking-wide uppercase mt-8">
+                        <img src="https://i.imgur.com/5xUx1qS.png" alt="Octopi" class="w-5 h-5 rounded-full object-cover">
+                        <span>OFFICIAL PARTNERSHIP</span>
+                        <img src="https://i.imgur.com/tpOHe3X.png" alt="PlayLive" class="w-5 h-5 rounded object-cover">
+                    </div>
+                    
+                    <!-- Headline with Badge positioned above 'Series' -->
+                    <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-white drop-shadow-lg leading-tight relative z-20">
+                        Dominate the 
+                        <span class="text-playlive-red relative inline-block whitespace-nowrap">
+                            PlayLive Series
+                        </span>
+                        <!-- CSS Circular Stamp Badge -->
+                        <div class="absolute -top-24 -right-10 md:-top-32 md:-right-16 w-24 h-24 sm:w-32 sm:h-32 rounded-full border-[3px] border-playlive-red flex items-center justify-center transform rotate-[-15deg] z-40 select-none pointer-events-none opacity-90">
+                            <div class="absolute inset-[3px] rounded-full border-[2px] border-dotted border-playlive-red"></div>
+                            <div class="absolute top-2 sm:top-3 w-full text-center text-playlive-red text-[8px] sm:text-xs font-bold tracking-widest uppercase">Special</div>
+                            
+                            <!-- Wider text box breaking the circle -->
+                            <div class="bg-playlive-red text-white px-2 py-1 text-[11px] sm:text-base font-black tracking-widest uppercase border-[3px] border-octopi-bg z-10 w-[140%] text-center shadow-md">
+                                Exclusive
+                            </div>
+                            
+                            <div class="absolute bottom-2 sm:bottom-3 w-full text-center text-playlive-red text-[8px] sm:text-xs font-bold tracking-widest uppercase">Offer</div>
+                        </div>
+                    </h1>
+                </div>
+                
+                <!-- Tournament Dates -->
+                <div class="text-white font-medium text-base md:text-lg mb-8 mt-4 block">
+                    Tournament Series: March 5th to March 16th
+                </div>
+                
+                <!-- Subheadline -->
+                <p class="text-lg md:text-xl text-gray-300 mx-auto mb-10 drop-shadow-md font-normal leading-relaxed max-w-2xl">
+                    As a PlayLive Melbourne attendee, get full Professional access to Octopi Poker from March 4th to March 18th. Train with the best tools in the game, absolutely free.
+                </p>
+                
+                <!-- Main CTA Button -->
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button class="bg-octopi-lightpurple hover:bg-octopi-purple text-white font-bold py-4 px-8 rounded text-lg transition duration-200 shadow-[0_0_20px_rgba(124,58,237,0.4)] flex items-center justify-center gap-2">
+                        Claim free access <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+                <p class="mt-4 text-sm text-gray-400 relative z-10">No payment info required.</p>
+            </div>
+        </div>
+
+        <!-- Embedded Video Section -->
+        <div class="bg-octopi-bg py-12 relative z-10">
+            <div class="max-w-[850px] mx-auto px-4 sm:px-6">
+                <div class="relative w-full rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(124,58,237,0.15)] border border-octopi-border bg-black" style="padding-top: 56.25%;">
+                    <iframe 
+                        src="https://www.youtube.com/embed/lVcrAH1nGvU" 
+                        class="absolute top-0 left-0 w-full h-full"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="bg-octopi-bg py-4 relative z-10">
+            <div class="max-w-[850px] mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-white">What's included in your Free Pro Access?</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Feature 1 -->
+                    <div class="bg-octopi-nav rounded-2xl p-6">
+                        <h3 class="text-lg font-bold mb-3 text-white">14 Days of Pro Access</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Unlock the full power of Octopi Poker Professional tier from March 4th to March 18th to prep for the series.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-octopi-nav rounded-2xl p-6 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-playlive-red/5 rounded-full -mr-16 -mt-16 blur-xl pointer-events-none"></div>
+                        <h3 class="text-lg font-bold mb-3 text-white">PlayLive Vault Access</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Study 8 final tables from the previous PlayLive tournament series, including fully simulated hands for in-depth review.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-octopi-nav rounded-2xl p-6">
+                        <h3 class="text-lg font-bold mb-3 text-white">Exclusive Analysis</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Watch special hand review breakdowns by Matt and Johan, featuring guest appearances by Josh from PlayLive.</p>
+                    </div>
+                </div>
+                
+                <!-- Bottom CTA Button -->
+                <div class="flex justify-center mt-12 mb-8">
+                    <button class="bg-octopi-lightpurple hover:bg-octopi-purple text-white font-bold py-3 px-10 rounded text-lg transition duration-200 shadow-[0_0_20px_rgba(124,58,237,0.4)] flex items-center justify-center gap-2">
+                        Claim free access <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="bg-octopi-bg py-16 relative z-10 border-t border-octopi-border">
+            <div class="max-w-[850px] mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-white">Frequently Asked Questions</h2>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="bg-octopi-nav rounded-xl p-6">
+                        <h3 class="text-base font-bold text-white mb-2">Do I need a credit card to claim this?</h3>
+                        <p class="text-sm text-gray-400">No, you can claim your 14 days of free Professional access without entering any payment information.</p>
+                    </div>
+                    
+                    <div class="bg-octopi-nav rounded-xl p-6">
+                        <h3 class="text-base font-bold text-white mb-2">When does my access expire?</h3>
+                        <p class="text-sm text-gray-400">Your free access begins immediately and will automatically end on March 18th.</p>
+                    </div>
+
+                    <div class="bg-octopi-nav rounded-xl p-6">
+                        <h3 class="text-base font-bold text-white mb-2">What happens after March 18th?</h3>
+                        <p class="text-sm text-gray-400">We will follow up with a special offer for attendees who want to continue using Octopi Poker to study and improve their game.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Exact Octopi Replica) -->
+    <footer class="bg-octopi-nav text-gray-500 py-6 border-t border-octopi-border">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs gap-4">
+                <p>2026 © Octopi Poker Studios, Inc. All rights reserved</p>
+                
+                <div class="flex flex-wrap justify-center gap-4 md:gap-6 font-medium">
+                    <a href="#" class="hover:text-gray-300 transition">Acceptable Use Policy</a>
+                    <a href="#" class="hover:text-gray-300 transition">Terms of Service</a>
+                    <a href="#" class="hover:text-gray-300 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-300 transition">Contact us</a>
+                    <a href="#" class="hover:text-gray-300 transition">Report a bug</a>
+                </div>
+
+                <div class="flex gap-3 text-gray-400">
+                    <a href="#" class="w-7 h-7 rounded-full bg-octopi-bg flex items-center justify-center hover:bg-octopi-purple hover:text-white transition duration-200">
+                        <i class="fa-brands fa-discord"></i>
+                    </a>
+                    <a href="#" class="w-7 h-7 rounded-full bg-octopi-bg flex items-center justify-center hover:bg-octopi-purple hover:text-white transition duration-200">
+                        <i class="fa-brands fa-facebook-f text-xs"></i>
+                    </a>
+                    <a href="#" class="w-7 h-7 rounded-full bg-octopi-bg flex items-center justify-center hover:bg-octopi-purple hover:text-white transition duration-200">
+                        <i class="fa-brands fa-instagram text-xs"></i>
+                    </a>
+                    <a href="#" class="w-7 h-7 rounded-full bg-octopi-bg flex items-center justify-center hover:bg-octopi-purple hover:text-white transition duration-200">
+                        <i class="fa-brands fa-x-twitter text-xs"></i>
+                    </a>
+                    <a href="#" class="w-7 h-7 rounded-full bg-octopi-bg flex items-center justify-center hover:bg-octopi-purple hover:text-white transition duration-200">
+                        <i class="fa-brands fa-youtube text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
