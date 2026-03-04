@@ -303,6 +303,32 @@
                         <p>Vertical Digital Ad</p>
                     </div>
                 </div>
+
+                <div class="gallery-item" data-category="websites" onclick="openGalleryModal('gallery-playlive-website')">
+                    <div class="gallery-item-image">
+                        <img src="assets/images/portfolio/playlive_thumb.png" alt="PlayLive x Octopi Promotion">
+                        <div class="gallery-item-overlay">
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item-info">
+                        <h4>PlayLive x Octopi Promotion</h4>
+                        <p>Sponsored Tournament Series Website</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="videos" onclick="openGalleryModal('gallery-octopi-vault')">
+                    <div class="gallery-item-image">
+                        <img src="assets/images/portfolio/playlivevideo_thumb.jpg" alt="Octopi Poker Vault Introduction">
+                        <div class="gallery-item-overlay">
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item-info">
+                        <h4>Octopi Poker Vault Introduction</h4>
+                        <p>Feature Introduction Video</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -839,6 +865,38 @@
             <div class="gallery-modal-body">
                 <img src="assets/images/portfolio/blog-beyond.png" alt="Beyond Blog" style="width:100%; border-radius: 8px; margin-bottom: 20px;">
                 <p>SEO Blog based on developed content from GTO LAB Coaching Videos.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-playlive-website" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="close-gallery-modal" onclick="closeGalleryModal('gallery-playlive-website')">&times;</span>
+            <div class="gallery-modal-header">
+                <h2>PlayLive x Octopi Promotion</h2>
+                <p>A preview of a sponsored tournament series informational website.</p>
+            </div>
+            <div class="gallery-modal-body" style="padding: 0; height: 80vh;">
+                <iframe src="https://redkingmarketing.com/playlive" style="width: 100%; height: 100%; border: none;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-octopi-vault" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="close-gallery-modal" onclick="closeGalleryModal('gallery-octopi-vault')">&times;</span>
+            <div class="gallery-modal-header">
+                <h2>Octopi Poker Vault Introduction</h2>
+                <p>A video introducing the Vault feature of Octopi Poker</p>
+            </div>
+            <div class="gallery-modal-body">
+                <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+                     <iframe src="https://www.youtube.com/embed/0lvjI_j84Z8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="gallery-modal-description">
+                    <h4>About This Project</h4>
+                    <p>A video introducing the Vault feature of Octopi Poker.</p>
+                </div>
             </div>
         </div>
     </div>
