@@ -26,7 +26,6 @@
     <meta name="twitter:image" content="https://redkingmarketing.com/assets/images/home/main.png">
         <link rel="icon" type="image/png" href="assets/images/home/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- MODIFICATION: Updated path to styles.css -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <!-- Link services.css if its specific modal styles are needed and not covered by styles.css -->
     <!-- <link rel="stylesheet" href="assets/css/services.css"> -->
@@ -148,13 +147,11 @@
                     <p>We don't just run campaigns – we leverage proven industry expertise and strategic partnerships to deliver measurable growth for gaming businesses of all sizes.</p>
                 </div>
                 <div class="stats-video">
-                    <!-- MODIFICATION: Updated image path -->
                     <img src="assets/images/home/stats-animation.webp" alt="RedKing Marketing Statistics" loading="eager">
                 </div>
             </div>
             <div class="client-logos">
                 <div class="logos-grid" style="margin-bottom: 2rem;">
-                    <!-- MODIFICATION: Top row of 5 client logos -->
                     <div class="logo-item"><img src="assets/images/home/ggpoker.png" alt="GGPoker"></div>
                     <div class="logo-item"><img src="assets/images/home/wptglobal.png" alt="WPT Global"></div>
                     <div class="logo-item"><img src="assets/images/home/octopi_logo.png" alt="Octopi Poker"></div>
@@ -162,7 +159,6 @@
                     <div class="logo-item"><img src="assets/images/home/pad.png" alt="Poker After Dark"></div>
                 </div>
                 <div class="logos-grid">
-                    <!-- MODIFICATION: Bottom row of 3 client logos -->
                     <div class="logo-item"><img src="assets/images/home/smilegate.png" alt="Smilegate"></div>
                     <div class="logo-item"><img src="assets/images/home/vespa.png" alt="Vespa"></div>
                     <div class="logo-item"><img src="assets/images/home/433.png" alt="4:33 Creative Lab"></div>
@@ -176,7 +172,6 @@
         <div class="container">
             <h2 class="section-title">Portfolio</h2>
             <div class="portfolio-grid">
-                 <!-- MODIFICATION: Updated all portfolio image paths -->
                 <div class="portfolio-card" onclick="openPortfolioModal('portfolio4')">
                     <div class="portfolio-image"><img src="assets/images/home/portfolio-4.jpg" alt="Game of Gold"></div>
                     <div class="portfolio-overlay"><div class="portfolio-info"><div class="portfolio-text"><h3>Game of Gold</h3><p>Social Media Strategy</p></div><span class="view-details">View Details →</span></div></div>
@@ -293,7 +288,6 @@
 </footer>
 
     <!-- Portfolio Modals -->
-     <!-- MODIFICATION: Updated all portfolio modal image paths -->
     <div id="portfolio4" class="portfolio-modal">
         <div class="portfolio-modal-content">
             <div class="portfolio-modal-header"><img src="assets/images/home/portfolio-4.jpg" alt="Game of Gold"><span class="close-modal" onclick="closePortfolioModal('portfolio4')">&times;</span></div>
@@ -465,7 +459,28 @@
         </div>
     </div>
 
-    <!-- MODIFICATION: Updated path to scripts.js -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "RedKing Marketing",
+        "url": "https://redkingmarketing.com",
+        "logo": "https://redkingmarketing.com/assets/images/home/logo.png",
+        "description": "Global gaming marketing experts specializing in Asia, Americas, and beyond. Strategic marketing solutions for gaming and iGaming companies.",
+        "telephone": "+1-614-259-1032",
+        "email": "info@redkingmarketing.com",
+        "sameAs": [
+            "https://linkedin.com/company/red-king-marketing",
+            "https://instagram.com/Red_King_Marketing"
+        ],
+        "foundingDate": "2016",
+        "founder": {
+            "@type": "Person",
+            "name": "Thomas Streetman"
+        },
+        "knowsAbout": ["Gaming Marketing", "iGaming", "Community Management", "User Acquisition", "Localization", "Digital Marketing"]
+    }
+    </script>
     <script src="assets/js/scripts.js"></script>
 </body>
 </html>

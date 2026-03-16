@@ -12,7 +12,6 @@ const blogArticles = [
         isFeatured: false,
         title: 'What iGaming Brands Get Wrong in LATAM',
         excerpt: 'International brands burn millions in Latin America by treating diverse markets as homogeneous. Cultural blindness, payment misunderstanding, and regulatory ignorance cost sustainable growth opportunities.',
-        // MODIFICATION: Filename has been updated.
         image: '../assets/images/blog/latam-igaming-mistakes-hero.jpg',
         contentUrl: '/blog/articles/latam-cultural-credibility'
     },
@@ -87,7 +86,7 @@ async function displayAllArticles() {
                             displayDate = date.toLocaleDateString('en-US', dateOptions);
                         }
                     }
-                } catch (error) { console.log('Could not fetch metadata for featured article:', error); }
+                } catch (error) { /* metadata fetch failed silently */ }
             }
 
             articlesHTML += `
@@ -141,7 +140,7 @@ async function openBlogModal(articleId) {
     const modalHeroImage = document.getElementById('modal-hero-image');
 
     if (!articleData || !modal) {
-        console.error('Article data or modal element not found for ID:', articleId);
+        
         return;
     }
 
@@ -158,12 +157,11 @@ async function openBlogModal(articleId) {
     if (contentBox) contentBox.scrollTop = 0;
 
     if (!articleData.contentUrl) {
-        console.error('Article has no contentUrl defined:', articleData.title);
+        
         modalContent.innerHTML = '<p>Article content is not available yet. Please check back later.</p>';
         return;
     }
     
-    console.log(`Attempting to fetch article from: ${articleData.contentUrl}`);
 
     try {
         const response = await fetch(articleData.contentUrl, { redirect: 'error' });
@@ -173,7 +171,6 @@ async function openBlogModal(articleId) {
         }
         
         const htmlString = await response.text();
-        console.log('Successfully fetched article content.');
         
         const parser = new DOMParser();
         const doc = parser.parseFromString(htmlString, 'text/html');
@@ -198,7 +195,7 @@ async function openBlogModal(articleId) {
         modalContent.innerHTML = `<div class="article-body">${articleBodyContent}</div>`;
 
     } catch (error) {
-        console.error('Error fetching article content:', error);
+        
         modalContent.innerHTML = `<p>Sorry, there was an error loading the article. Please try again later. Check the console for more details.</p>`;
     }
 }

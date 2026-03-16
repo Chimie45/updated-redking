@@ -26,7 +26,6 @@
     <meta name="twitter:image" content="https://redkingmarketing.com/assets/images/home/main.png">
         <link rel="icon" type="image/png" href="assets/images/home/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- MODIFICATION: Updated CSS path -->
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -181,7 +180,6 @@
     </section>
 
     <!-- Team Member Modals -->
-    <!-- MODIFICATION: Updated all team member modal image paths -->
     <div id="teamMember1" class="team-modal">
         <div class="team-modal-content">
             <div class="team-modal-header">
@@ -383,6 +381,46 @@
         </div>
     </div>
 
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content-wrapper">
+                <div class="contact-info">
+                    <div class="contact-icon-wrapper"><i class="fas fa-crown"></i></div>
+                    <h2>Ready to Dominate?</h2>
+                    <p>Let's discuss how RedKing Marketing can elevate your gaming brand to the next level. With our global expertise and proven track record, we'll create campaigns that turn players into profits.</p>
+                    <p>Maximize your impact in Asia with our specialized strategies for Japan and Korea. We also fuel significant growth across North America (US & Canada) and champion your expansion into the vibrant Latin American gaming markets.</p>
+                </div>
+                <form class="contact-form" id="contactForm" data-form-type="contact">
+                    <div class="form-columns">
+                        <div class="form-column-left">
+                            <div class="form-group"><label for="name">Name *</label><input type="text" id="name" name="name" required></div>
+                            <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" required></div>
+                            <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company"></div>
+                        </div>
+                        <div class="form-column-right">
+                            <div class="form-group">
+                                <label for="service">Service Interest</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="ppc">PPC & Paid Advertising</option>
+                                    <option value="seo">SEO & Content Marketing</option>
+                                    <option value="social">Social Media Management</option>
+                                    <option value="consultation">Gaming Industry Consultation</option>
+                                    <option value="community">Community Management</option>
+                                    <option value="strategy">Marketing Strategy</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label for="message">Message *</label><textarea id="message" name="message" placeholder="Tell us about your project and goals..." required></textarea></div>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <div class="form-submission-feedback" style="display:none;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
 <footer class="site-footer">
     <div class="container">
@@ -436,7 +474,6 @@
     </div>
 </footer>
 
-    <!-- MODIFICATION: Updated JS path -->
     <script src="assets/js/scripts.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 function openGalleryModal(modalId) {
     const modal = document.getElementById(modalId);
     if (!modal) { 
-        console.error('Gallery modal not found:', modalId); 
+        /* gallery modal not found */ 
         return; 
     }
     
@@ -298,7 +298,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    console.log('Portfolio page initialized successfully');
 });
 
 // Portfolio performance tracking (optional analytics)
@@ -311,7 +310,6 @@ function trackGalleryInteraction(action, category, item) {
         });
     }
     
-    console.log(`Gallery interaction: ${action} on ${category} - ${item}`);
 }
 
 // Add click tracking to gallery items

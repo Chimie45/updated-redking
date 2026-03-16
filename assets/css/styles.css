@@ -1806,3 +1806,152 @@ nav .container {
     0% { transform: translate(0, 0); }
     100% { transform: translate(-200px, -100px); }
 }
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .hero .hero-particles {
+        animation: none;
+        opacity: 0.15;
+    }
+
+    .hero .crown-animation {
+        animation: none;
+    }
+
+    .service-card,
+    .portfolio-card,
+    .team-member-card,
+    .job-posting,
+    .blog-card,
+    .mission-content,
+    .contact-info > *,
+    .contact-form > * {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* Small Mobile Breakpoint */
+@media (max-width: 480px) {
+    .hero h1, .page-header .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero .subtitle, .page-header .hero-content .subtitle {
+        font-size: 1rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .hero .crown-animation i {
+        font-size: 2.5rem;
+    }
+
+    .hero-logo {
+        max-width: 80%;
+    }
+
+    .cta-button {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.5rem;
+    }
+
+    .service-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .contact-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .contact-form {
+        padding: 1rem;
+    }
+
+    .contact-form .submit-btn {
+        width: 100%;
+    }
+
+    .metric-card {
+        padding: 0.75rem;
+    }
+
+    .metric-number {
+        font-size: 1.5rem;
+    }
+
+    .metric-label {
+        font-size: 0.7rem;
+    }
+
+    .portfolio-modal-content,
+    .team-modal-content,
+    .blog-modal-content,
+    .job-modal-content,
+    .service-modal-content {
+        width: 98%;
+        max-height: calc(100% - 20px);
+        margin: 10px auto;
+    }
+
+    .portfolio-modal-header { height: 180px; }
+    .team-modal-header { height: 160px; }
+
+    .portfolio-modal-body,
+    .team-modal-body,
+    .service-modal-body {
+        padding: 1rem;
+    }
+
+    .site-footer .footer-main {
+        gap: 1.5rem;
+    }
+
+    .site-footer .footer-column h4 {
+        font-size: 1rem;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form input[type="email"] {
+        width: 100%;
+    }
+
+    .newsletter-form button {
+        width: 100%;
+    }
+
+    .team-member-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .team-member-image {
+        margin: 0 auto;
+    }
+
+    .job-posting {
+        padding: 1rem;
+    }
+}

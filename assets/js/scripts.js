@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', enhanceHomeCrownAnimation);
 // Portfolio modal functions
 function openPortfolioModal(modalId) {
     const modal = document.getElementById(modalId);
-    if (!modal) { console.error('Portfolio modal not found:', modalId); return; }
+    if (!modal) return;
     const modalHeader = modal.querySelector('.portfolio-modal-header');
     const modalImg = modalHeader ? modalHeader.querySelector('img') : null;
     if (modalImg && modalImg.src && modalHeader) modalHeader.style.backgroundImage = `url(${modalImg.src})`;
@@ -41,7 +41,7 @@ function closePortfolioModal(modalId) {
 // Team Member Modal Functions
 function openTeamModal(modalId) {
     const modal = document.getElementById(modalId);
-    if (!modal) { console.error('Team modal not found:', modalId); return; }
+    if (!modal) return;
     const modalHeader = modal.querySelector('.team-modal-header');
     const modalImg = modalHeader ? modalHeader.querySelector('.team-modal-img-main') : null;
     if (modalImg && modalImg.src && modalHeader) modalHeader.style.backgroundImage = `url(${modalImg.src})`;
@@ -63,7 +63,7 @@ function closeTeamModal(modalId) {
 // Job Modal Functions
 function openJobModal(modalId) {
     const modal = document.getElementById(modalId);
-    if (!modal) { console.error('Job modal not found:', modalId); return; }
+    if (!modal) return;
 
     modal.style.removeProperty('display');
     modal.classList.add('modal--is-open');
@@ -94,7 +94,7 @@ function closeJobModal(modalId) {
 // Service Detail Modal Functions
 function openServiceModal(modalId) {
     const modal = document.getElementById(modalId);
-    if (!modal) { console.error('Service modal not found:', modalId); return; }
+    if (!modal) return;
 
     modal.style.removeProperty('display'); // Clear any inline display:none
     modal.classList.add('modal--is-open'); // Add class to trigger display:flex and transitions
@@ -135,7 +135,7 @@ function scrollToContactAndCloseModal(event, modalId) {
             behavior: "smooth"
         });
     } else {
-        console.error("Contact section with ID 'contact' not found for scrolling.");
+        
     }
 }
 
@@ -287,7 +287,7 @@ if (contactForm) {
                 formMessageDiv.classList.add('error');
             }
         } catch (error) {
-            console.error('Error submitting contact form:', error);
+            
             formMessageDiv.textContent = 'An error occurred. Please try again later.';
             formMessageDiv.classList.add('error');
         } finally {
@@ -354,7 +354,7 @@ document.querySelectorAll('.newsletter-form').forEach(newsletterForm => {
                 newsletterMessageDiv.classList.add('error');
             }
         } catch (error) {
-            console.error('Error submitting newsletter form:', error);
+            
             newsletterMessageDiv.textContent = 'An error occurred. Please try again later.';
             newsletterMessageDiv.classList.add('error');
         } finally {
@@ -464,7 +464,7 @@ document.querySelectorAll('.job-application-form').forEach(jobAppForm => {
                 feedbackDiv.classList.add('error');
             }
         } catch (error) {
-            console.error('Error submitting job application:', error);
+            
             feedbackDiv.textContent = 'An error occurred. Please try again later.';
             feedbackDiv.classList.add('error');
         } finally {
@@ -480,11 +480,11 @@ document.querySelectorAll('img').forEach(img => {
     if (!img.complete) {
         img.addEventListener('error', function() {
             this.style.display = 'none';
-            console.error('Failed to load image:', this.src);
+            
         });
     } else if (img.naturalWidth === 0 && img.src && !img.getAttribute('src').startsWith('data:image/')) {
          img.style.display = 'none';
-         console.error('Image previously failed to load (naturalWidth is 0):', img.src);
+         
     }
 });
 
