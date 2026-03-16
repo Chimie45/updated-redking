@@ -557,7 +557,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const elementsToObserve = document.querySelectorAll(
         '.portfolio-card, .service-card, .about-text > *, .client-logos, ' +
         '.contact-info > *, .contact-form > *, ' +
-        '.team-member-card, .job-posting, .mission-content, .blog-card'
+        '.team-member-card, .job-posting, .mission-content, .blog-card, .testimonial-card'
     );
     elementsToObserve.forEach(el => {
         // IMPORTANT: .blog-card is removed from this initial query
@@ -568,3 +568,65 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Testimonials Carousel
+(function() {
+    const track = document.getElementById('testimonialsTrack');
+    const dotsContainer = document.getElementById('testimonialsDots');
+    if (!track || !dotsContainer) return;
+
+    const cards = track.querySelectorAll('.testimonial-card');
+    if (cards.length === 0) return;
+
+    function getVisibleCount() {
+        const w = window.innerWidth;
+        if (w <= 768) return 1;
+        if (w <= 992) return 2;
+        return 3;
+    }
+
+    function buildDots() {
+        const visible = getVisibleCount();
+        const totalDots = Math.max(1, cards.length - visible + 1);
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalDots; i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('testimonial-dot');
+            dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', function() { scrollToIndex(i); });
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateDots() {
+        if (!cards[0]) return;
+        const cardWidth = cards[0].offsetWidth + 24;
+        const scrollPos = track.scrollLeft;
+        const index = Math.round(scrollPos / cardWidth);
+        const dots = dotsContainer.querySelectorAll('.testimonial-dot');
+        dots.forEach(function(d, i) {
+            d.classList.toggle('active', i === index);
+        });
+    }
+
+    function scrollToIndex(index) {
+        if (!cards[0]) return;
+        const cardWidth = cards[0].offsetWidth + 24;
+        track.scrollTo({ left: cardWidth * index, behavior: 'smooth' });
+    }
+
+    window.scrollTestimonials = function(direction) {
+        if (!cards[0]) return;
+        const cardWidth = cards[0].offsetWidth + 24;
+        const currentIndex = Math.round(track.scrollLeft / cardWidth);
+        const visible = getVisibleCount();
+        const maxIndex = Math.max(0, cards.length - visible);
+        const newIndex = Math.max(0, Math.min(maxIndex, currentIndex + direction));
+        scrollToIndex(newIndex);
+    };
+
+    track.addEventListener('scroll', updateDots);
+    window.addEventListener('resize', function() { buildDots(); updateDots(); });
+    buildDots();
+})();

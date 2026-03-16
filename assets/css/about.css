@@ -515,29 +515,48 @@
 /* Responsive Design for About Page */
 @media (max-width: 992px) {
     .timeline::before {
-        left: 30px;
+        display: none;
     }
     
+    .timeline-item {
+        display: flex;
+        align-items: flex-start;
+        min-height: auto;
+    }
+
     .timeline-item::before {
-        left: 30px;
+        left: 0;
+        top: 0;
+        transform: none;
         width: 60px;
         height: 60px;
         font-size: 0.9rem;
+        flex-shrink: 0;
+        position: relative;
+        margin-top: 0.5rem;
+    }
+    
+    .timeline-end {
+        display: flex;
+        justify-content: flex-start;
     }
     
     .timeline-end::before {
-        left: 30px;
-        transform: translate(0, -50%);
+        left: 0;
+        top: 0;
+        transform: none;
         width: 60px;
         height: 60px;
         font-size: 0.9rem;
+        position: relative;
     }
     
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
-        margin-left: 80px;
+        margin-left: 20px;
         margin-right: 0;
         text-align: left;
+        flex: 1;
     }
     
     .timeline-content {
@@ -547,9 +566,8 @@
     
     .timeline-stats {
         gap: 5px;
-        justify-content: center;
+        justify-content: flex-start;
         max-width: 100%;
-        padding: 0 5px;
     }
     
     .timeline-stats .stat {
@@ -593,28 +611,24 @@
     }
     
     .timeline::before {
-        left: 20px;
+        display: none;
     }
     
     .timeline-item::before {
-        left: 20px;
-        transform: translateX(0);
-        width: 50px;
-        height: 50px;
-        font-size: 0.8rem;
+        width: 44px;
+        height: 44px;
+        font-size: 0.75rem;
     }
     
     .timeline-end::before {
-        left: 20px;
-        transform: translate(0, -50%);
-        width: 50px;
-        height: 50px;
-        font-size: 0.8rem;
+        width: 44px;
+        height: 44px;
+        font-size: 0.75rem;
     }
     
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
-        margin-left: 70px;
+        margin-left: 14px;
         margin-right: 0;
         text-align: left;
     }
