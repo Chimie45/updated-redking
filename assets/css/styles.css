@@ -814,7 +814,6 @@ nav .container {
     background: var(--dark-gray);
     border-top: 2px solid var(--muted-gold);
     border-bottom: 2px solid var(--muted-gold);
-    overflow: hidden;
 }
 
 .testimonials-track {
@@ -877,6 +876,15 @@ nav .container {
     gap: 12px;
     padding-top: 1rem;
     border-top: 1px solid rgba(201, 176, 55, 0.2);
+}
+
+.testimonial-author-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--muted-gold);
+    flex-shrink: 0;
 }
 
 .testimonial-author-info h4 {
