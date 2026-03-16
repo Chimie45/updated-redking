@@ -214,9 +214,9 @@
                 <form class="contact-form" id="contactForm" data-form-type="contact">
                     <div class="form-columns">
                         <div class="form-column-left">
-                            <div class="form-group"><label for="name">Name *</label><input type="text" id="name" name="name" required></div>
-                            <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" required></div>
-                            <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company"></div>
+                            <div class="form-group"><label for="name">Name *</label><input type="text" id="name" name="name" autocomplete="name" required></div>
+                            <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+                            <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company" autocomplete="organization"></div>
                         </div>
                         <div class="form-column-right">
                             <div class="form-group">
@@ -273,7 +273,7 @@
                 <h4>Stay Updated</h4>
                 <p>Subscribe to our newsletter for the latest gaming marketing insights.</p>
                 <form id="newsletterForm" class="newsletter-form" data-form-type="newsletter-footer-index">
-                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <input type="email" name="email" placeholder="Enter your email" autocomplete="email" required>
                     <button type="submit">Subscribe</button>
                     <div class="form-submission-feedback" style="display:none; font-size: 0.9em; margin-top: 10px;"></div>
                 </form>

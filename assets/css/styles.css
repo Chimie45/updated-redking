@@ -582,10 +582,10 @@ nav .container {
     border: 2px solid var(--muted-gold);
     border-radius: 10px;
     width: 100%;
-    max-height: 100%;
+    max-height: calc(100vh - 40px);
     animation: slideIn 0.3s ease;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    overflow-y: auto;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
@@ -678,6 +678,8 @@ nav .container {
 .portfolio-modal-body, .team-modal-body, .blog-modal-body, .job-modal-body, .service-modal-body {
     flex-grow: 1;
     padding: 2.5rem;
+    overflow-y: auto;
+    min-height: 0;
 }
 
 /* Specific paddings if different from default */
@@ -1640,7 +1642,7 @@ nav .container {
 
     .portfolio-modal-content, .team-modal-content, .blog-modal-content, .job-modal-content, .service-modal-content {
         width: 95%;
-        max-height: calc(100% - 40px);
+        max-height: calc(100vh - 40px);
     }
 
     .portfolio-modal-header { height: 250px; }
@@ -1909,7 +1911,7 @@ nav .container {
     .job-modal-content,
     .service-modal-content {
         width: 98%;
-        max-height: calc(100% - 20px);
+        max-height: calc(100vh - 20px);
         margin: 10px auto;
     }
 
