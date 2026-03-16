@@ -1117,6 +1117,132 @@ nav .container {
 }
 
 
+/* Stats Bar */
+.stats-bar {
+    padding: 60px 0;
+    background: var(--black);
+    border-bottom: 2px solid var(--muted-gold);
+}
+
+.stats-bar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-item {
+    padding: 1rem;
+}
+
+.stat-number {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: var(--muted-gold);
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #ccc;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Region Coverage */
+.regions-section {
+    padding: 60px 0;
+    background: var(--dark-gray);
+}
+
+.regions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.region-card {
+    background: var(--black);
+    border: 1px solid rgba(201, 176, 55, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.region-card:hover {
+    border-color: var(--muted-gold);
+    transform: translateY(-4px);
+}
+
+.region-flag {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.region-card h4 {
+    color: var(--muted-gold);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.region-card p {
+    color: #999;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* Book a Call CTA */
+.book-call-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.book-call-divider span {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.book-call-divider::before,
+.book-call-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+}
+
+.book-call-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted-gold);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--muted-gold);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-top: 0.75rem;
+}
+
+.book-call-link:hover {
+    background: var(--muted-gold);
+    color: var(--black);
+}
+
+.book-call-link i {
+    font-size: 1.1rem;
+}
+
+
 /* Footer Styles */
 .site-footer {
     background-color: var(--black);
@@ -1889,6 +2015,20 @@ nav .container {
     }
     .testimonials {
         padding: 60px 0;
+    }
+    .stats-bar-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    .stat-number {
+        font-size: 2.2rem;
+    }
+    .regions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .book-call-link {
+        width: 100%;
+        justify-content: center;
     }
 }
 

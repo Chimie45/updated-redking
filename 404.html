@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - RedKing Marketing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/home/icon.ico">
+    <link rel="icon" type="image/png" href="assets/images/home/icon.png">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--black);
+            padding: 2rem;
+        }
+        .error-content {
+            max-width: 600px;
+        }
+        .error-crown {
+            font-size: 4rem;
+            color: var(--muted-gold);
+            margin-bottom: 1.5rem;
+            opacity: 0.6;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: var(--muted-gold);
+            line-height: 1;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+        .error-content h1 {
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .error-content p {
+            color: #999;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .error-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .error-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .error-links .primary-link {
+            background: var(--muted-gold);
+            color: var(--black);
+        }
+        .error-links .primary-link:hover {
+            background: var(--gold);
+            transform: translateY(-2px);
+        }
+        .error-links .secondary-link {
+            border: 2px solid var(--muted-gold);
+            color: var(--muted-gold);
+        }
+        .error-links .secondary-link:hover {
+            background: var(--muted-gold);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <section class="error-page">
+        <div class="error-content">
+            <div class="error-crown"><i class="fas fa-crown"></i></div>
+            <div class="error-code">404</div>
+            <h1>This Page Has Left the Kingdom</h1>
+            <p>The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+            <div class="error-links">
+                <a href="index" class="primary-link"><i class="fas fa-home"></i> Back to Home</a>
+                <a href="portfolio" class="secondary-link"><i class="fas fa-briefcase"></i> View Portfolio</a>
+                <a href="blog/" class="secondary-link"><i class="fas fa-newspaper"></i> Read Blog</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
