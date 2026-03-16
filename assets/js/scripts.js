@@ -557,7 +557,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const elementsToObserve = document.querySelectorAll(
         '.portfolio-card, .service-card, .about-text > *, .client-logos, ' +
         '.contact-info > *, .contact-form > *, ' +
-        '.team-member-card, .job-posting, .mission-content, .blog-card, .testimonial-card'
+        '.team-member-card, .job-posting, .mission-content, .blog-card'
     );
     elementsToObserve.forEach(el => {
         // IMPORTANT: .blog-card is removed from this initial query

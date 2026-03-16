@@ -816,8 +816,13 @@ nav .container {
     border-bottom: 2px solid var(--muted-gold);
 }
 
+.testimonials .container {
+    overflow: hidden;
+}
+
 .testimonials-track {
-    display: flex;
+    display: flex !important;
+    flex-wrap: nowrap !important;
     gap: 24px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -832,15 +837,15 @@ nav .container {
 }
 
 .testimonial-card {
-    flex: 0 0 calc(33.333% - 16px);
-    min-width: 300px;
+    flex: 0 0 350px;
+    max-width: 400px;
     background: var(--black);
     border: 1px solid rgba(201, 176, 55, 0.3);
     border-radius: 10px;
     padding: 2rem;
     scroll-snap-align: start;
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
     justify-content: space-between;
     transition: border-color 0.3s ease, transform 0.3s ease;
 }
@@ -855,7 +860,7 @@ nav .container {
     flex-grow: 1;
 }
 
-.testimonial-quote i {
+.testimonial-quote i.fa-quote-left {
     color: var(--muted-gold);
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -871,7 +876,8 @@ nav .container {
 }
 
 .testimonial-author {
-    display: flex;
+    display: flex !important;
+    flex-direction: row !important;
     align-items: center;
     gap: 12px;
     padding-top: 1rem;
@@ -1706,7 +1712,7 @@ nav .container {
         grid-template-columns: 1fr;
     }
     .testimonial-card {
-        flex: 0 0 calc(50% - 12px);
+        flex: 0 0 320px;
     }
 }
 
@@ -1878,8 +1884,8 @@ nav .container {
     .job-modal .job-details-section p, .job-modal .job-details-section ul { font-size: 0.9rem; }
 
     .testimonial-card {
-        flex: 0 0 calc(100% - 16px);
-        min-width: 0;
+        flex: 0 0 calc(100vw - 68px);
+        max-width: none;
     }
     .testimonials {
         padding: 60px 0;
