@@ -1,0 +1,328 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+jQuery(document).ready(function () {
+	jQuery('#tncIomConfirmModal input[type=checkbox]').click(function () {
+		var chk = jQuery(this);
+		var btn = jQuery('#ggIomAgreementConfirm');
+
+		if (chk.is(':checked')) {
+			btn.removeAttr('disabled');
+		} else {
+			btn.attr('disabled', 'disabled');
+		}
+	});
+
+	jQuery('#tncMgaConfirmModal input[type=checkbox]').click(function (e) {
+		var chkAll = document.getElementById('tncAgreeAll');
+		var chkAgree = document.getElementById('tncAgree');
+		var chkMarketing = document.getElementById('tncAgreeMarketing');
+		var btn = jQuery('#ggMgaAgreementConfirm');
+		var id = e.target.id;
+
+		if (id === 'tncAgreeAll') {
+			if (e.target.checked) {
+				chkAgree.checked = true;
+				chkMarketing.checked = true;
+			} else {
+				chkAgree.checked = false;
+				chkMarketing.checked = false;
+			}
+		}
+
+		if (chkAgree.checked && chkMarketing.checked) {
+			chkAll.checked = true;
+		} else {
+			chkAll.checked = false;
+		}
+
+		if (chkAgree.checked) {
+			btn.removeAttr('disabled');
+		} else {
+			btn.attr('disabled', 'disabled');
+		}
+	});
+
+	jQuery('#ggIomAgreementConfirm, #ggMgaAgreementConfirm').on('click', function (e) {
+		e.preventDefault();
+
+		TncAgreementRequest();
+	});
+
+	var useScroll;
+
+	jQuery(window).on('scroll', function () {
+		useScroll = true;
+	});
+
+	setInterval(function () {
+		if (useScroll) {
+			hasScrolled();
+			useScroll = false;
+		}
+	}, 250);
+
+	jQuery('#showGoTop').on('click', function () {
+		jQuery("html, body").animate({
+			scrollTop: 0
+		}, 300);
+	});
+
+	jQuery('.aside-menu .toggle-sub').on('click', function (e) {
+		e.preventDefault();
+		var subMenu = jQuery('.aside-menu .sub-menu');
+		if (subMenu.hasClass('show')) {
+			subMenu.removeClass('show');
+			jQuery(e.target).removeClass('on');
+		} else {
+			subMenu.addClass('show');
+			jQuery(e.target).addClass('on');
+		}
+	});
+
+	jQuery('.open-aside').on('click', function (e) {
+		e.preventDefault();
+		showAside();
+	});
+
+	jQuery('.aside-backdrop').on('click', function (e) {
+		e.preventDefault();
+		closeAside();
+	});
+
+	jQuery('.aside-top .btn-close').on('click', function (e) {
+		e.preventDefault();
+		closeAside();
+	});
+
+	jQuery('.app-banner-info .close').on('click', function (e) {
+		e.preventDefault();
+		jQuery('.app-banner-info').removeClass('show');
+		jQuery("body").addClass("not-app-banner");
+	});
+
+	jQuery('.gg-logout').on('click', function (e) {
+		e.preventDefault();
+		doLogout(true);
+	});
+
+	jQuery('.gg-balance-button').on('click', function (e) {
+		e.preventDefault();
+		closeAside();
+		openCashier('Cashier');
+	});
+
+	jQuery('.gg-cashier').on('click', function (e) {
+		e.preventDefault();
+		closeAside();
+		openDeposit();
+	});
+
+	jQuery('.gg-my-info').on('click', function (e) {
+		e.preventDefault();
+		closeAside();
+		openCashier('MyInfo');
+	});
+
+	jQuery('.gg-responsible-gaming').on('click', function (e) {
+		e.preventDefault();
+		closeAside();
+		openCashier('ResponsibleGaming');
+	});
+
+	// jQuery('.gg-fish-buffet').on('click', function (e) {
+	// 	e.preventDefault();
+	// 	OpenFishBuffetUrl();
+	// });
+
+	if (window.excludePromoCountries.indexOf(getUserCountryCode()) < 0) {
+		jQuery('.top-menu ul > li.was-login').addClass('show');
+		jQuery('.gg-my-promo').on('click', function (e) {
+			e.preventDefault();
+			OpenMyPromo();
+		});
+	}
+
+	jQuery('.gg-signup').on('click', function (e) {
+		e.preventDefault();
+
+		closeAside();
+
+		var signupModal = jQuery('#ggSignUpModal');
+		var url = window.ggBaseUrl + '/client/signup#!/?isFromExternalUrl=true&siteId=' + window.ggSiteId;
+		url += '&platformType=' + (device.desktop() ? 'pcType' : 'mobileType');
+		url += '&lang=' + window.ggLang;
+
+		window.isShowSignUp = true;
+		signupModal.find('iframe').attr('src', url);
+		signupModal.modal('show');
+	});
+
+	jQuery('#ggSignUpModal').on('hidden.bs.modal', function (e) {
+		jQuery(this).find('iframe').attr('src', 'about:blank');
+
+		if (window.isShowSignUp) {
+			window.isShowSignUp = false;
+
+			if (getLoginToken()) {
+				window.location.href = '/download/';
+			}
+		}
+	});
+
+	jQuery('#ggVerificationModal').on('hidden.bs.modal', function (e) {
+		jQuery(this).find('iframe').attr('src', 'about:blank');
+	});
+
+	jQuery('#ggCashierModal').on('hidden.bs.modal', function (e) {
+		jQuery(this).find('iframe').attr('src', 'about:blank');
+	});
+
+	jQuery('#realityCheckModal').on('shown.bs.modal', function () {
+		jQuery('.ggAccountHistoryLink').on('click', function (e) {
+			e.preventDefault();
+			jQuery('#realityCheckModal').modal('hide');
+			openCashier('Cashier', '#!/TransactionHistory');
+		});
+
+		jQuery('#realityCheckModal').find('.ggAcceptReality').on('click', function (e) {
+			e.preventDefault();
+	
+			AcceptRealityCheck();
+		});
+
+		jQuery('#realityCheckModal').find('.ggStopPlaying').on('click', function (e) {
+			e.preventDefault();
+	
+			doLogout(true);
+		});
+	});
+
+	jQuery('#realityCheckModal').on('hidden.bs.modal', function () {
+		jQuery('.ggAccountHistoryLink').unbind('click');
+		jQuery('#realityCheckModal').find('.ggAcceptReality').unbind('click');
+		jQuery('#realityCheckModal').find('.ggStopPlaying').unbind('click');
+	});
+
+	if (!window.balanceInterval && getLoginToken()) {
+		getBalance();
+		//GetFishBuffetStatus();
+		GetRealityCheckStatus();
+
+		window.balanceInterval = setInterval(function () {
+			getBalance();
+			//GetFishBuffetStatus();
+			GetRealityCheckStatus();
+		}, 10000);
+	}
+
+	jQuery(".header .mobile .app-banner-info").on('click', function (e) {
+		e.preventDefault();
+
+		if (!(jQuery(e.target).hasClass('close') || jQuery(e.target).hasClass('fa'))) {
+			window.location.href = 'https://web.archive.org/web/20221102134240/https://download.good-game-network.com/mobile-page/' + window.ggBrandName + '/' + window.ggLang;
+		}
+	});
+});
+
+window.addEventListener('message', function (e) {
+	function ggModalClose(modalName) {
+		if (modalName) {
+			var eleModal = jQuery('#' + modalName);
+
+			eleModal.find('iframe').attr('src', 'about:blank');
+			eleModal.modal('hide');
+		}
+	}
+
+	function ggModalTitle(modalName, title) {
+		if (modalName && title) {
+			jQuery('#' + modalName).find('.modal-title').html(title);
+		}
+	}
+
+	if (e.data.hasOwnProperty('method') && e.data.method === 'GGCORE') {
+		var signupModal = jQuery('#ggSignUpModal');
+
+		switch (e.data.action) {
+			case 'CLOSE_SIGNUP':
+				signupModal.find('iframe').attr('src', 'about:blank');
+				signupModal.modal('hide');
+				break;
+			case 'TOKEN_LOGIN':
+				doTokenLogin(e.data.token, function () {
+					addAuthBodyClass();
+					getBalance();
+					//GetFishBuffetStatus();
+
+					window.balanceInterval = setInterval(function () {
+						getBalance();
+						//GetFishBuffetStatus();
+						GetRealityCheckStatus();
+					}, 10000);
+				});
+				break;
+			case 'CLOSE_MODAL':
+				if (e.data.modalName) {
+					ggModalClose(e.data.modalName);
+				}
+				break;
+			case 'DOWNLOAD_PAGE':
+				if (e.data.modalName) {
+					ggModalClose(e.data.modalName);
+				}
+
+				window.location.href = '/download';
+				break;
+			case 'MODAL_TITLE':
+				if (e.data.modalName && e.data.modalTitle) {
+					ggModalTitle(e.data.modalName, e.data.modalTitle);
+				}
+				break;
+			case 'STOP_BALANCE':
+				doLogoutAction(false);
+				break;
+			case 'GG_WIX_PAGE':
+				var screenWidth = window.screen.width;
+				var transferRate = device.mobile() ? screenWidth / 320 : 1;
+				var pageHeight = e.data.pageHeight * transferRate;
+
+				jQuery('.default-content.wix-page').height(pageHeight);
+				jQuery('#gg-wix-page').height(e.data.pageHeight);
+				break;
+			default:
+				break;
+		}
+	}
+}, false);
+
+}
+/*
+     FILE ARCHIVED ON 13:42:40 Nov 02, 2022 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 16:44:44 Jun 03, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.825
+  exclusion.robots: 0.028
+  exclusion.robots.policy: 0.011
+  esindex: 0.017
+  cdx.remote: 30.695
+  LoadShardBlock: 359.801 (3)
+  PetaboxLoader3.resolve: 386.206 (3)
+  PetaboxLoader3.datanode: 235.636 (4)
+  load_resource: 293.142
+*/

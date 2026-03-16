@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prop Bet - Portfolio Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* --- Base Styles & Resets --- */
+        :root {
+            --dark-bg: #0d0d0f;
+            --section-bg: #1a1a1c;
+            --section-bg-darker: #141416;
+            --text-primary: #ffffff;
+            --text-secondary: #c3c3c3;
+            --accent-yellow: #faf86f;
+            --accent-blue: #3d8bff;
+            --accent-purple: #a13bfd;
+            --accent-green: #66ff66;
+            --border-color: #3d3d3d;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        a {
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .page-wrapper {
+            max-width: 1080px;
+            margin: 0 auto;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5); 
+        }
+
+        /* --- Global Helper Classes --- */
+        .container {
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, h4, h5 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        h4 strong {
+            color: var(--accent-yellow);
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 0;
+            text-align: left;
+        }
+
+        li {
+            padding-left: 1.5em;
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+        
+        li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-yellow);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--dark-bg);
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('./propbet_files/PB_1Header.jpg');
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .ggpoker-logo {
+            width: 150px;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+        }
+
+        .prop-bet-logo-img {
+            width: clamp(300px, 60vw, 650px);
+            height: auto;
+        }
+
+        .prop-bet-icon {
+            width: clamp(150px, 25vw, 250px);
+            animation: float 6s ease-in-out infinite;
+            margin-left: -5vw;
+            z-index: -1;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(-5%); }
+            50% { transform: translateY(5%); }
+            100% { transform: translateY(-5%); }
+        }
+
+        /* --- Intro Section --- */
+        .intro {
+            background-color: var(--section-bg);
+            border-top: 2px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('./propbet_files/PB_2Video.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.7;
+            z-index: 1;
+        }
+        
+        .intro .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro h2 span {
+            color: var(--accent-yellow);
+        }
+
+        .intro .intro-description {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        .challenges {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .challenge-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .challenge-item img {
+            width: 92px;
+            height: 92px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .challenge-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .challenge-item h3 {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .intro .no-fees-text {
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            font-size: 1.2rem;
+        }
+
+        .intro .no-fees-text strong {
+            color: var(--accent-yellow);
+        }
+        
+        /* --- Challenge Slider Section --- */
+        .challenge-slider-section {
+            background-color: var(--section-bg-darker);
+            position: relative;
+            min-height: 720px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .elo-challenge { border-top: 2px solid var(--accent-green); }
+        .bankroll-challenge { border-top: 2px solid var(--accent-yellow); }
+        .last-longer-challenge { border-top: 2px solid var(--accent-purple); }
+        
+        .challenge-slider-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.8;
+            z-index: 1;
+        }
+        
+        .spray-paint-bg {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 400px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            z-index: 1;
+            width: 29vw;
+            mix-blend-mode: soft-light;
+        }
+
+        .elo-spray-bg, .bankroll-spray-bg {
+            opacity: .32;
+            filter: brightness(181%) contrast(137%) saturate(171%) blur(0px) hue-rotate(0deg);
+        }
+        .last-longer-spray-bg {
+            opacity: .41;
+            filter: brightness(500%) contrast(124%) saturate(48%) blur(0px) hue-rotate(0deg);
+        }
+
+        .elo-spray-bg { background-image: url('./propbet_files/Icon_ELOC_Small.png'); left: 5%; transform: translateY(-50%) rotate(-15deg);}
+        .bankroll-spray-bg { background-image: url('./propbet_files/Icon_Bankroll.png'); right: 5%; transform: translateY(-50%) rotate(15deg); }
+        .last-longer-spray-bg { background-image: url('./propbet_files/Icon_Last_Longer_192-1.png'); left: 5%; transform: translateY(-50%) rotate(-15deg); }
+        
+        .elo-challenge::before { background-image: url('./propbet_files/PB_5ELO_2.jpg'); }
+        .bankroll-challenge::before { background-image: url('./propbet_files/PB_3BC.jpg'); }
+        .last-longer-challenge::before { background-image: url('./propbet_files/P4_3LL.jpg'); }
+
+        .challenge-slider-section .container {
+             position: relative;
+             z-index: 2;
+             width: 100%;
+        }
+        
+        .section-title-container {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 0 5%;
+        }
+        .section-title-container.align-left { text-align: left; }
+        .section-title-container.align-right { text-align: right; }
+
+        .section-title-bg {
+            font-size: clamp(4rem, 15vw, 9rem);
+            color: rgba(255, 255, 255, 0.05);
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            white-space: nowrap;
+            letter-spacing: 0.1em;
+            font-family: 'Bebas Neue', sans-serif;
+            z-index: -1;
+        }
+        
+        .section-title-container.align-left .section-title-bg {
+            left: 0;
+            transform: translate(-10%, -50%);
+        }
+        .section-title-container.align-right .section-title-bg {
+            right: 0;
+            transform: translate(10%, -50%);
+        }
+        .elo-challenge .section-title-bg {
+             transform: translate(20%, -50%);
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            letter-spacing: 0.05em;
+            margin: 0;
+            position: relative;
+        }
+        
+        /* --- GENERIC SLIDER STYLES START --- */
+        .slider-container {
+            position: relative;
+            max-width: 950px;
+            margin: auto;
+            padding: 0 50px;
+            box-sizing: border-box;
+        }
+        .slider-track-container {
+            overflow: hidden;
+            width: 100%;
+        }
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            gap: 40px;
+        }
+        .slide.layout-reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .slide-content.text-section {
+            width: 500px;
+            flex-shrink: 0;
+        }
+        .slide-content.gif-section {
+            width: 300px;
+            flex-shrink: 0;
+        }
+
+        .slide-content.text-section h4 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .slide-content.text-section h5 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-yellow);
+        }
+        .slide-content.text-section p {
+            font-size: 0.85rem;
+            line-height: 1.0;
+        }
+        .slide-content.text-section li {
+            font-size: 0.85rem;
+            line-height: 1.0;
+            padding-left: 1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .slide-content.gif-section img {
+            max-width: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.3);
+            border: none;
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            transition: all 0.3s ease;
+        }
+        .slider-arrow:hover {
+            color: var(--accent-yellow);
+            background-color: rgba(0,0,0,0.6);
+        }
+        .slider-arrow.prev {
+            left: 0;
+        }
+        .slider-arrow.next {
+            right: 0;
+        }
+        .slider-dots {
+            text-align: center;
+            padding-top: 25px;
+        }
+        .slider-dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: #555;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .slider-dot.active {
+            background-color: var(--accent-yellow);
+        }
+        /* --- GENERIC SLIDER STYLES END --- */
+        
+        /* --- Final Section --- */
+        .stay-tuned {
+            background-color: var(--section-bg);
+        }
+
+        .stay-tuned p {
+            font-size: 1.2rem;
+            letter-spacing: 0.1em;
+        }
+        
+        /* --- Footer --- */
+        .terms-footer {
+            background-color: var(--section-bg);
+            padding: 40px 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-align: left;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .terms-footer h4 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .terms-footer ul {
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .terms-footer li {
+            padding-left: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .terms-footer li::before {
+            content: ''; 
+        }
+        
+        .terms-footer p {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+        }
+
+        .copyright-footer {
+            background-color: var(--dark-bg);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .copyright-footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Overrides */
+        @media (max-width: 1024px) {
+            .challenge-slider-section {
+                min-height: auto;
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero { height: 40vh; }
+            .section-title { font-size: 2rem; }
+            .section-title-bg { font-size: 5rem; }
+            .section-title-container { text-align: center !important; }
+            .section-title-bg { left: 50% !important; transform: translate(-50%, -50%) !important; }
+            
+            .slide {
+                flex-direction: column !important;
+                gap: 20px;
+            }
+            .slide-content.text-section, .slide-content.gif-section {
+                width: 100%;
+            }
+            .slide-content.gif-section {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <main>
+            <section class="hero">
+                <img src="./propbet_files/ggpoker_logo-1_white-1.png" alt="GGPoker Logo" class="ggpoker-logo">
+                <div class="hero-content">
+                    <img src="./propbet_files/PB_PropBet_Blupurp-1.png" alt="Prop Bet" class="prop-bet-logo-img">
+                    <img src="./propbet_files/PB_PropBet_Logo-1.png" alt="Prop Bet Icon" class="prop-bet-icon">
+                </div>
+            </section>
+
+            <section class="intro">
+                <div class="container">
+                    <h2>introducing a <span>new side betting</span><br> feature on GGPoker</h2>
+                    <p class="intro-description">
+                        Have you ever wanted to challenge your friends to see who is better?
+                        Come try out GGPoker’s new Prop Bets
+                        and wager with friends or strangers alike to see who is the best!
+                    </p>
+                    <div class="challenges">
+                        <div class="challenge-item">
+                            <img src="./propbet_files/Icon_ELOC_Small.png" alt="ELO Challenge Icon">
+                            <h3>ELO CHALLENGE</h3>
+                        </div>
+                        <div class="challenge-item">
+                            <img src="./propbet_files/Icon_Bankroll.png" alt="Bankroll Challenge Icon">
+                            <h3>BANKROLL CHALLENGE</h3>
+                        </div>
+                        <div class="challenge-item">
+                            <img src="./propbet_files/Icon_Last_Longer_192-1.png" alt="Last Longer Icon">
+                            <h3>LAST LONGER</h3>
+                        </div>
+                    </div>
+                    <p class="no-fees-text">
+                        Prop Bets are separate from the tournament prize pool as a way for players to create additional incentives for themselves and their friends. There are <strong>No Fees</strong> for Prop Bets.
+                    </p>
+                </div>
+            </section>
+            
+            <section class="challenge-slider-section elo-challenge">
+                 <div class="elo-spray-bg spray-paint-bg"></div>
+                <div class="container">
+                     <div class="section-title-container align-right">
+                        <h2 class="section-title-bg">PROP BET</h2>
+                        <h2 class="section-title">ELO Challenge</h2>
+                    </div>
+                    
+                    <div class="slider-container">
+                        <div class="slider-track-container">
+                            <div class="slider-track">
+                                <div class="slide">
+                                    <div class="slide-content text-section">
+                                        <h4>What is ELO Challenge?</h4>
+                                        <p>ELO Challenge Prop Bets offer an engaging and competitive way for players to test their skills and strategic prowess based on Spin & Gold's ELO Rating System.</p>
+                                        <p>Participants can create or join these challenges, setting targets and timeframes to grow their ELO ratings and potentially win big.</p>
+                                        <p>Engaging in an ELO Challenge Prop Bet serves as a motivating tool for players, encouraging them to enhance their ELO ratings and poker abilities.</p>
+                                        <p>ELO Challenge Prop Bets can be found in the Prop Bet Menu or in the Spin & Gold Lobby.</p>
+                                    </div>
+                                    <div class="slide-content gif-section">
+                                        <img src="./propbet_files/ELO_Slide_1.gif" alt="ELO Challenge Animation 1">
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                    <div class="slide-content text-section">
+                                        <h4>How to Register?</h4>
+                                        <h5><strong>Creating a Challenge:</strong></h5>
+                                        <ul>
+                                            <li>Choose between Single Challenge or involve multiple Bettors.</li>
+                                            <li>Set the challenge duration in one-hour increments with a minimum of one day.</li>
+                                            <li>The start time aligns with the hour, with up to 7 days of advanced scheduling.</li>
+                                            <li>Personalize your challenge by inputting your desired target rating.</li>
+                                        </ul>
+                                        <h5><strong>Bettor Selection:</strong></h5>
+                                        <p>When creating your challenge, determine the number of participants; whether you prefer a solo challenge or want to engage with others.</p>
+                                        <h5><strong>Host Deposit:</strong></h5>
+                                        <p>Hosts are required to make an initial deposit based on the number of Bettors and the Bet Amount.</p>
+                                    </div>
+                                    <div class="slide-content gif-section">
+                                        <img src="./propbet_files/ELO_Slide_2.gif" alt="ELO Challenge Animation 2">
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                    <div class="slide-content text-section">
+                                        <h4>How to Win an ELO Challenge?</h4>
+                                        <h5><strong>Starting a Challenge:</strong></h5>
+                                        <p>To kick off the challenge, the ELO Challenge begins at the set time, as scheduled by the Host. If the Host initiates the challenge with Bettors, the host can choose to forfeit after a designated time.</p>
+                                        <p>As the challenge progresses, ELO Ratings are influenced by game results. ELO Rating changes are visible to all participants, providing real-time insights into the competition.</p>
+                                        <h5><strong>Challenge Conclusion:</strong></h5>
+                                        <p>The challenge concludes based on the following outcomes:</p>
+                                        <ul>
+                                            <li><strong>Host Win</strong> — If the Host hits the target ELO Rating within the time frame, they win.</li>
+                                            <li><strong>Bettor Win</strong> — If the Host falls short of the target, Bettors emerge victorious.</li>
+                                            <li><strong>Host Forfeit</strong> — The Host can choose to quit the challenge, leading to Bettors winning.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="slide-content gif-section">
+                                        <img src="./propbet_files/ELO_Slide_3.gif" alt="ELO Challenge Animation 3">
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                    <div class="slide-content text-section">
+                                        <h4>Additional Information</h4>
+                                        <h5><strong>Challenge Cancellation and Forfeiting:</strong></h5>
+                                        <ul>
+                                            <li>Hosts and operators have the authority to cancel challenges before they commence.</li>
+                                            <li>After the start of a challenge, cancelation by the host will result in a loss for the host.</li>
+                                            <li>Refunds for canceled challenges will be determined based on our standard T&C.</li>
+                                        </ul>
+                                        <h5><strong>History Tracking:</strong></h5>
+                                        <p>Prior to the start, the Host's 10 most recent games are visible. Once the challenge starts, all games played during the challenge are additionally visible.</p>
+                                        <h5><strong>Maintenance Extension:</strong></h5>
+                                        <p>Challenges may be extended due to server maintenance, and challenges commencing during maintenance will be canceled.</p>
+                                    </div>
+                                    <div class="slide-content gif-section">
+                                        <img src="./propbet_files/ELO_Slide_4.gif" alt="ELO Challenge Animation 4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-dots">
+                            <span class="slider-dot active"></span>
+                            <span class="slider-dot"></span>
+                            <span class="slider-dot"></span>
+                            <span class="slider-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="challenge-slider-section bankroll-challenge">
+                 <div class="bankroll-spray-bg spray-paint-bg"></div>
+                <div class="container">
+                    <div class="section-title-container align-left">
+                        <h2 class="section-title-bg">PROP BET</h2>
+                        <h2 class="section-title">Bankroll Challenge</h2>
+                    </div>
+
+                    <div class="slider-container">
+                        <div class="slider-track-container">
+                            <div class="slider-track">
+                                <div class="slide layout-reverse">
+                                    <div class="slide-content text-section">
+                                        <h4>What is Bankroll Challenge?</h4>
+                                        <p>Bankroll Challenge Prop Bets are a fun way for players to challenge each other or themselves to see how well they can perform over a period of time at building their bankroll.</p>
+                                        <p>Creating or joining in Bankroll Challenge Prop Bets is a way for players to track their progress and provide motivation to grow both their bankroll and their poker skill!</p>
+                                        <p>If the host manages to achieve the target amount in the set period of time, the host wins the Prop Bet. Otherwise, the bettors win the Prop Bet.​ Profits gained will be added towards the goal, and the losses will be deducted from the current amount.</p>
+                                        <p>Bankroll Challenge Prop Bets can be found in the Prop Bet Menu.</p>
+                                    </div>
+                                    <div class="slide-content gif-section">
+                                        <img src="./propbet_files/BKRC_GIF01_opt.gif" alt="Bankroll Challenge Animation 1">
+                                    </div>
+                                </div>
+                                <div class="slide layout-reverse">
+                                    <div class="slide-content text-section">
+                                        <h4>How to Register?</h4>
+                                        <p>To participate in a Bankroll Challenge Prop Bet, You can join or create a Bankroll Challenge Prop Bet from the Prop Bet Menu.</p>
+                                        <h5><strong>Bankroll Challenge is available for the following game types:</strong></h5>
+                                        <ul>
+                                            <li><strong>Tournaments:</strong> Spin & Gold, Battle Royale, Flip & Go, AoF Sit & Go, Regular Tournaments</li>
+                                            <li><strong>Cash Games:</strong> Hold'em, PLO / PLO-5, AoF (Hold'em / Omaha), Short Deck, Rush & Cash, VIP Games</li>
+                                        </ul>
+                                    </div>
+                                    <div class="slide-content gif-section">
+                                        <img src="./propbet_files/BKRC_GIF02_opt.gif" alt="Bankroll Challenge Animation 2">
+                                    </div>
+                                </div>
+                                <div class="slide layout-reverse">
+                                     <div class="slide-content text-section">
+                                        <h4>Game Types</h4>
+                                        <h5><strong>Single Mode:</strong></h5>
+                                        <ul>
+                                            <li>This is created when the host enters 0 as the number of bettors.</li>
+                                            <li>No bets will be placed, thus no prizes will be provided upon completion of the challenge.</li>
+                                        </ul>
+                                        <h5><strong>Bet Mode:</strong></h5>
+                                        <ul>
+                                            <li>Host can set the number of bettor(s) that can bet against the host's challenge.</li>
+                                            <li>If a host creates a Bet Mode but no bettors join, the bet amount deposited by the host will automatically be refunded, and the bet will change to a Single Mode.</li>
+                                            <li>If the number of bettors are not matched with the number of bettors set during the prop bet creation, the bet amount deposited for the difference of the number of bettors will be refunded.</li>
+                                        </ul>
+                                    </div>
+                                     <div class="slide-content gif-section">
+                                        <img src="./propbet_files/BKRC_GIF04_opt.gif" alt="Bankroll Challenge Animation 3">
+                                    </div>
+                                </div>
+                                <div class="slide layout-reverse">
+                                     <div class="slide-content text-section">
+                                        <h4>What are the Payouts?</h4>
+                                        <p>When creating the challenge, the host sets the challenge goal, start time, end time, the applied games, number of bettors, bet amount, and markup. The host is required to make a deposit to create the Prop Bet. Depending on the result of the challenge, the winnings are distributed as follows:</p>
+                                        <ul>
+                                            <li><strong>Host Wins the Challenge:</strong> All money bet by the bettors will be won by the host​, along with the host's deposited amount.</li>
+                                            <li><strong>Host Loses the Challenge:</strong> All money deposited by the host will be won by the bettor​s, along with the amount paid by the bettors. If there are more than 1 bettor, the deposited money will be awarded evenly to all the bettors.</li>
+                                            <li><strong>Give Up:</strong> If you do not want to continue the Bank Roll Challenge, you can only give up after 1 day from the start of the challenge. The payments will be settled as soon as you give up.</li>
+                                        </ul>
+                                    </div>
+                                     <div class="slide-content gif-section">
+                                        <img src="./propbet_files/BKRC_GIF05_opt.gif" alt="Bankroll Challenge Animation 4">
+                                    </div>
+                                </div>
+                                <div class="slide layout-reverse">
+                                     <div class="slide-content text-section">
+                                        <h4>Are Other Profits Included?</h4>
+                                        <h5><strong>Profits gained from the following features are included:</strong></h5>
+                                        <p>GGCheers & GGCare, Honeymoon for Newcomers, Bad Beat Jackpot, AoF Jackpot, Bounty Jackpot, Mystery Envelope / Cash Drop, All-In Fortune, Daily Leaderboards.</p>
+                                        <h5><strong>Profits gained from the following features are excluded:</strong></h5>
+                                        <p>Bet on Flop, Next Hand Roulette, Staking, Spin & Gold Insurance, Other Prop Bets.</p>
+                                        <p>However, for Jackpots, only those that occur in the configured blinds of Bankroll Challenge will apply.​ Profits include both C$ and T$. Unclaimed Fish Buffet rewards earned before the start of your challenge will not count as your challenge profit.</p>
+                                    </div>
+                                     <div class="slide-content gif-section">
+                                        <img src="./propbet_files/BKRC_GIF06_opt.gif" alt="Bankroll Challenge Animation 5">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-dots">
+                            <span class="slider-dot active"></span>
+                            <span class="slider-dot"></span>
+                            <span class="slider-dot"></span>
+                            <span class="slider-dot"></span>
+                            <span class="slider-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="challenge-slider-section last-longer-challenge">
+                 <div class="last-longer-spray-bg spray-paint-bg"></div>
+                <div class="container">
+                     <div class="section-title-container align-right">
+                        <h2 class="section-title-bg">PROP BET</h2>
+                        <h2 class="section-title">Last Longer</h2>
+                    </div>
+                    
+                    <div class="slider-container">
+                        <div class="slider-track-container">
+                            <div class="slider-track">
+                                <div class="slide">
+                                    <div class="slide-content text-section">
+                                        <h4>What is Last Longer?</h4>
+                                        <p>Last Longer Prop Bets can add an extra layer of competition and intensity to the game, as players strive to outlast each other in the tournament.</p>
+                                        <p>Participating in Last Longer Prop Bets can be a fun way for friends or colleagues to compete against each other in a friendly and exciting environment and a great way to make the most of your poker tournaments.</p>
+                                        <p>Last Longer Prop Bets can be found in the Prop Bet Menu or in the Tournament Lobby.</p>
+                                    </div>
+                                    <div class="slide-content gif-section">
+                                        <img src="./propbet_files/01_Whats_Propbet_B_gif.gif" alt="Last Longer Animation 1">
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                     <div class="slide-content text-section">
+                                        <h4>How to Register?</h4>
+                                        <p>To participate in a Last Longer Prop Bet, first, register for a tournament that has not yet begun. Once registered, you can join or create a Last Longer Prop Bet from the Prop Bet Menu or directly in the Tournament Lobby.</p>
+                                        <h5><strong>Last Longer is available for the following tournaments:</strong></h5>
+                                        <ul>
+                                            <li>Featured Tournaments</li>
+                                            <li>Signature Tournaments</li>
+                                            <li>Standard Tournaments</li>
+                                            <li>Battle Royale</li>
+                                            <li>AoF Sit & Go</li>
+                                        </ul>
+                                    </div>
+                                     <div class="slide-content gif-section">
+                                        <img src="./propbet_files/02_How-to-Register_B_gif.gif" alt="Last Longer Animation 2">
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                     <div class="slide-content text-section">
+                                        <h4>What are the Payouts?</h4>
+                                        <p>The payout of the Last Longer Prop Bet depends on how the winnings are paid out. You can choose how the prizes are split to win the payout before betting begins.</p>
+                                        <h5><strong>There are several types of payouts available:</strong></h5>
+                                        <ul>
+                                            <li><strong>Winner Takes All</strong> — The last person remaining wins 100% of the prize money when everyone else is eliminated.</li>
+                                            <li><strong>Payout x%</strong> — The last x% of participants split the prize money.</li>
+                                            <li><strong>Standard</strong> — Standard tournament distribution.</li>
+                                            <li><strong>Top Heavy</strong> — First place gets the largest share.</li>
+                                            <li><strong>Even</strong> — Prize is divided evenly among an amount of players.</li>
+                                        </ul>
+                                    </div>
+                                     <div class="slide-content gif-section">
+                                        <img src="./propbet_files/03_Payouts_B_gif.gif" alt="Last Longer Animation 3">
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                     <div class="slide-content text-section">
+                                        <h4>Finishing the Bet</h4>
+                                        <p>Bet payouts will be distributed at the conclusion of the Prop Bet, when all places have been decided.</p>
+                                        <h5><strong>Unregistering and Canceling:</strong></h5>
+                                        <p>When creating or joining a Last Longer Prop Bet, make sure you are aware of the payout structure and the minimum number of participants required to avoid any confusion.</p>
+                                        <ul>
+                                            <li>You can cancel the Last Longer or unregister before the tournament begins.</li>
+                                            <li>If the minimum number of participants is not met, the Last Longer will be canceled.</li>
+                                            <li>If the Last Longer is canceled after it has started, the winnings will be divided by the remaining players except for the dropout.</li>
+                                        </ul>
+                                    </div>
+                                     <div class="slide-content gif-section">
+                                        <img src="./propbet_files/04_Leave-LL_B_gif.gif" alt="Last Longer Animation 4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-dots">
+                            <span class="slider-dot active"></span>
+                            <span class="slider-dot"></span>
+                            <span class="slider-dot"></span>
+                            <span class="slider-dot"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="stay-tuned">
+                <div class="container">
+                    <p>STAY TUNED, MORE PROP BETS ARE COMING</p>
+                </div>
+            </section>
+            
+        </main>
+
+        <footer>
+            <section class="terms-footer">
+                <div class="container">
+                    <h4>Terms & Conditions</h4>
+                    <ul>
+                        <li>Players must be aged 18+, 19+, 21+, or 24+ depending on jurisdiction, to participate.</li>
+                        <li>Please note that any prize pools or guarantees are subject to change and some amounts listed on this website may not be current. Please check the guarantee amounts listed in the game client for the most up-to-date information.</li>
+                        <li>We reserve the right to modify or suspend any promotion, tournament, or game feature at any time.</li>
+                        <li>If any players fall under suspicion of fraudulent activity, we have the right to investigate and remove the players if confirmed.</li>
+                        <li>These terms and conditions are subject to the site terms and conditions, which can be found in the game client.</li>
+                    </ul>
+                    <p>Standard rules apply. What does gambling cost you? Stop on time, Play Responsibly.</p>
+                </div>
+            </section>
+            <section class="copyright-footer">
+                <p>© 2023 GGPoker. All rights reserved.</p>
+            </section>
+        </footer>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sliders = document.querySelectorAll('.slider-container');
+
+        const initSlider = (sliderContainer) => {
+            const track = sliderContainer.querySelector('.slider-track');
+            if (!track) return;
+
+            const slides = Array.from(track.children);
+            const nextButton = sliderContainer.querySelector('.slider-arrow.next');
+            const prevButton = sliderContainer.querySelector('.slider-arrow.prev');
+            const dotsNav = sliderContainer.querySelector('.slider-dots');
+            const dots = Array.from(dotsNav.children);
+
+            if (slides.length === 0) return;
+
+            let slideWidth = slides[0].getBoundingClientRect().width;
+            let currentIndex = 0;
+
+            const moveToSlide = (targetIndex) => {
+                track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
+                if (dots.length > 0) {
+                    dots[currentIndex].classList.remove('active');
+                    dots[targetIndex].classList.add('active');
+                }
+                currentIndex = targetIndex;
+            };
+
+            nextButton.addEventListener('click', () => {
+                let nextIndex = currentIndex + 1;
+                if (nextIndex >= slides.length) {
+                    nextIndex = 0;
+                }
+                moveToSlide(nextIndex);
+            });
+
+            prevButton.addEventListener('click', () => {
+                let prevIndex = currentIndex - 1;
+                if (prevIndex < 0) {
+                    prevIndex = slides.length - 1;
+                }
+                moveToSlide(prevIndex);
+            });
+
+            dotsNav.addEventListener('click', e => {
+                const targetDot = e.target.closest('.slider-dot');
+                if (!targetDot) return;
+                const targetIndex = dots.findIndex(dot => dot === targetDot);
+                moveToSlide(targetIndex);
+            });
+            
+            window.addEventListener('resize', () => {
+                slideWidth = slides[0].getBoundingClientRect().width;
+                track.style.transition = 'none';
+                track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
+                setTimeout(() => {
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                }, 50);
+            });
+        };
+
+        sliders.forEach(initSlider);
+    });
+    </script>
+</body>
+</html>

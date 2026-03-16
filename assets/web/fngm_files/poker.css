@@ -1,0 +1,451 @@
+.xcontainer {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.hero {
+	background-size: auto 100%;
+	background-position: 50% 50%;
+	min-height: 105px;
+	background-repeat: no-repeat;
+	background-color: #000;
+}
+
+.hero .herointro {
+	background-color: #0e0e0e;
+	width: 100%;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	padding-left: 10px;
+	opacity: 0.85;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 22px;
+	margin: 55px 0 0;
+	text-align: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.hero .wrap {
+	max-height: 105px;
+	/* min-height: 200px; */
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: left;
+}
+
+.dugray {
+	background-color: #1b1b1b;
+	padding-top: 18px;
+	padding-bottom: 18px;
+}
+
+.newblack {
+	background-color: #000;
+	padding-top: 18px;
+	padding-bottom: 18px;
+}
+
+.newgray {
+	background-color: #0e0e0e;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.newred {
+	background-color: #8c3636;
+	padding-top: 11px;
+	padding-bottom: 10px;
+}
+
+.headlines {
+	font-size: 30px;
+	font-weight: 400;
+	font-style: normal;
+	color: #ffffff;
+	letter-spacing: -1px;
+}
+
+.headlines:after {
+	content: "";
+	display: block;
+	margin: 0 auto;
+	width: 30%;
+	padding-top: 10px;
+	border-bottom: 2px solid #cd181f;
+}
+
+.stepsmain {
+	font-size: 11px;
+	color: #fff;
+}
+
+.stepsmain .step {
+	background: #fff0c1;
+	border-radius: 0.8em;
+	-moz-border-radius: 0.8em;
+	-webkit-border-radius: 0.8em;
+	color: #8c3636;
+	display: inline-block;
+	font-weight: 700;
+	line-height: 1.6em;
+	margin-right: 5px;
+	text-align: center;
+	width: 1.6em;
+	margin-left: 40%;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.posterbig {
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-bottom: 22px;
+	overflow: hidden;
+}
+
+.posterbigsize {
+	width: 173px;
+	height: auto;
+	border: 1px solid #171717;
+}
+
+.imagelisttitle {
+	font-size: 22px;
+	color: #cd181f;
+	margin-bottom: 25px;
+	padding-left: 30px;
+}
+
+.downloadnewgray {
+	background-color: #0e0e0e;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#SliderDiv {
+	padding-top: 20px;
+}
+
+#SliderDiv .shadow {
+	max-width: 100%;
+	margin: auto;
+	display: block;
+}
+
+#SliderDiv .slick-slide {
+	height: auto;
+}
+
+#per-slide-template {
+	padding-left: 20px;
+}
+
+#per-slide-template a {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	margin: 3px 0;
+	height: 37px;
+	padding-top: 2px;
+	padding-left: 10px;
+}
+
+.cycle-pager-active {
+	color: #fff;
+	border: 00px solid #171717;
+	position: relative;
+	background-image: url(/web/20221102134242im_/https://ggpoker.de/wp-content/themes/gg/css/img/selection-bar.png);
+	height: 37px;
+	max-height: 37px;
+	background-repeat: no-repeat;
+	margin-bottom: -3px;
+	padding-top: 2px;
+	background-position: right;
+}
+
+.cycle-slideshow {
+	max-width: 100%;
+	margin: auto;
+	width: 450px;
+	height: 100%;
+	border-radius: 3%;
+	float: left;
+}
+
+.cycle-slideshow .slick-slide img {
+	margin: auto;
+	margin-bottom: 0;
+}
+
+.cycle-slideshow img {
+	display: none;
+}
+
+.cycle-slideshow img.first {
+	display: block;
+}
+
+.step-title {
+	margin-bottom: 25px;
+	color: #cd181f;
+	font-weight: 700;
+}
+
+.step-text {
+	padding-bottom: 55px;
+}
+
+.dcta {
+	width: 175px;
+	border-radius: 3px;
+	font-size: 18px;
+	height: 40px;
+	text-transform: capitalize;
+	padding: 0;
+	line-height: 2;
+	font-weight: 400;
+}
+
+.dcta:hover {
+	color: #fff;
+}
+
+.bloghead {
+	margin-bottom: 50px;
+}
+
+.fi {
+	height: 160px;
+	background-size: auto 100% !important;
+	background-position: 50% 50% !important;
+}
+
+.wp-video-shortcode {
+	width: 100%;
+	max-width: 1170px;
+	height: auto;
+}
+
+h1.text-capitalize {
+	font-size: 25px;
+}
+
+img.alignleft {
+	float: left;
+	margin: 5px 10px 5px 0px;
+}
+
+.npt40 {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.mrl75 {
+	margin-left: 75px;
+	margin-right: 75px;
+}
+
+.nmbt55 {
+	margin-bottom: 55px;
+}
+
+.npt70 {
+	padding-top: 45px;
+	padding-bottom: 0;
+}
+
+.nmtp40 {
+	margin-top: 22px;
+	margin-bottom: 33px;
+}
+
+.msteps img {
+	width: auto;
+	max-width: 100%;
+}
+
+@media (min-width: 576px) {
+	.maincontent {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+	.posterbigsize {
+		width: 173px;
+		height: auto;
+		border: 1px solid #171717;
+	}
+	h1.text-capitalize {
+		font-size: 35px;
+	}
+	.nmbt55 {
+		margin-bottom: 45px;
+	}
+	.npt70 {
+		padding-top: 45px;
+		padding-bottom: 70px;
+	}
+
+	.hero {
+		min-height: 172px;
+	}
+
+	.hero .wrap {
+		max-height: 172px;
+	}
+	.hero .herointro {
+		font-size: 30px;
+		margin: 85px 0 0;
+		text-align: left;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+}
+@media (min-width: 768px) {
+	.maincontent {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	.newblack {
+		padding-top: 43px;
+	}
+	.newred {
+		padding-top: 18px;
+		padding-bottom: 18px;
+	}
+	.stepsmain {
+		font-size: 14px;
+	}
+
+	.posterbigsize {
+		width: 246px;
+		height: auto;
+		border: 1px solid #171717;
+	}
+	.step-text {
+		padding-bottom: 0px;
+	}
+
+	.fi {
+		height: 220px;
+	}
+
+	h1.text-capitalize {
+		font-size: 40px;
+	}
+
+	.npt70 {
+		padding-top: 45px;
+		padding-bottom: 70px;
+	}
+	.nmtp40 {
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+	.hero {
+		min-height: 229px;
+	}
+	.hero .wrap {
+		max-height: 229px;
+	}
+	.hero .herointro {
+		text-align: left;
+		font-size: 35px;
+		margin: 120px 0 0;
+	}
+}
+@media (min-width: 992px) {
+	.hero {
+		min-height: 240px;
+	}
+	.hero .wrap {
+		max-height: 240px;
+	}
+	.hero .herointro {
+		width: 70%;
+		font-size: 40px;
+		margin: 120px 0 0;
+	}
+	.downloadnewgray {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+
+	.posterbigsize {
+		width: 246px;
+		height: auto;
+		border: 1px solid #171717;
+	}
+
+	.headlines:after {
+		width: 10%;
+	}
+
+	.fi {
+		height: 300px;
+	}
+	h1.text-capitalize {
+		font-size: 45px;
+	}
+
+	.npt70 {
+		padding-top: 70px;
+		padding-bottom: 70px;
+	}
+}
+@media (min-width: 1200px) {
+	.xcontainer {
+		max-width: 1140px;
+	}
+	.hero {
+		min-height: 300px;
+	}
+	.hero .wrap {
+		max-height: 300px;
+		/* min-height: 300px; */
+	}
+	.hero .herointro {
+		width: 65%;
+		font-size: 50px;
+		margin: 170px 0 0;
+	}
+
+	.fi {
+		background-position: right center !important;
+	}
+	h1.text-capitalize {
+		font-size: 50px;
+	}
+	.posterbigsize {
+		width: 246px;
+		height: auto;
+		border: 1px solid #171717;
+	}
+}
+
+/*
+     FILE ARCHIVED ON 13:42:42 Nov 02, 2022 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 16:44:16 Jun 03, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.974
+  exclusion.robots: 0.041
+  exclusion.robots.policy: 0.018
+  esindex: 0.021
+  cdx.remote: 68.44
+  LoadShardBlock: 441.1 (3)
+  PetaboxLoader3.resolve: 1233.378 (3)
+  PetaboxLoader3.datanode: 228.945 (4)
+  load_resource: 1095.331
+*/
