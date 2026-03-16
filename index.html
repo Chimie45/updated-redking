@@ -196,36 +196,66 @@
     <section class="regions-section">
         <div class="container">
             <h2 class="section-title">Markets We Serve</h2>
-            <div class="regions-grid">
-                <div class="region-card">
-                    <span class="region-flag">&#127471;&#127477;</span>
-                    <h4>Japan</h4>
-                    <p>iGaming, Live Events, Localization</p>
-                </div>
-                <div class="region-card">
-                    <span class="region-flag">&#127472;&#127479;</span>
-                    <h4>South Korea</h4>
-                    <p>Gaming, Community, Market Entry</p>
-                </div>
-                <div class="region-card">
-                    <span class="region-flag">&#127482;&#127480;</span>
-                    <h4>North America</h4>
-                    <p>UA, Performance Marketing, Web</p>
-                </div>
-                <div class="region-card">
-                    <span class="region-flag">&#127463;&#127479;</span>
-                    <h4>Latin America</h4>
-                    <p>iGaming Growth, Cultural Strategy</p>
-                </div>
-                <div class="region-card">
-                    <span class="region-flag">&#127470;&#127475;</span>
-                    <h4>India</h4>
-                    <p>Mobile Gaming, Market Research</p>
-                </div>
-                <div class="region-card">
-                    <span class="region-flag">&#127468;&#127463;</span>
-                    <h4>Europe</h4>
-                    <p>Multilingual Ops, Web Management</p>
+            <div class="regions-map-wrapper">
+                <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" class="regions-map">
+                    <!-- Simplified world map paths -->
+                    <!-- North America -->
+                    <path class="region-path region-active" d="M150,80 L230,75 L260,90 L270,120 L265,160 L240,180 L220,210 L200,220 L180,210 L140,200 L120,170 L100,140 L95,120 L100,95 Z" />
+                    <!-- Latin America -->
+                    <path class="region-path region-active" d="M200,220 L220,210 L240,230 L260,260 L270,300 L265,340 L250,370 L230,390 L210,380 L195,350 L185,310 L180,270 L185,240 Z" />
+                    <!-- Europe -->
+                    <path class="region-path region-active" d="M440,75 L480,70 L520,75 L540,90 L535,110 L525,130 L510,145 L490,150 L465,145 L445,130 L435,110 L430,90 Z" />
+                    <!-- India -->
+                    <path class="region-path region-active" d="M620,170 L650,165 L670,180 L680,210 L675,240 L660,265 L640,275 L625,260 L615,235 L610,210 L612,190 Z" />
+                    <!-- Japan / Korea -->
+                    <path class="region-path region-active" d="M770,110 L790,105 L805,115 L810,135 L805,155 L795,170 L780,175 L765,165 L758,145 L760,125 Z" />
+                    <!-- Southeast Asia (inactive) -->
+                    <path class="region-path" d="M700,200 L740,195 L760,210 L765,235 L755,255 L735,260 L715,250 L700,235 L695,215 Z" />
+                    <!-- Africa (inactive) -->
+                    <path class="region-path" d="M450,170 L490,165 L520,180 L535,210 L530,260 L520,310 L500,340 L475,350 L455,335 L440,300 L435,260 L438,220 L440,190 Z" />
+                    <!-- Australia (inactive) -->
+                    <path class="region-path" d="M750,320 L800,310 L830,325 L840,350 L830,375 L800,385 L770,375 L750,355 L745,340 Z" />
+
+                    <!-- Connection lines from highlighted regions to labels -->
+                    <!-- North America line -->
+                    <line x1="180" y1="150" x2="130" y2="430" stroke="var(--muted-gold)" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+                    <!-- LATAM line -->
+                    <line x1="230" y1="340" x2="280" y2="430" stroke="var(--muted-gold)" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+                    <!-- Europe line -->
+                    <line x1="490" y1="130" x2="430" y2="430" stroke="var(--muted-gold)" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+                    <!-- India line -->
+                    <line x1="650" y1="250" x2="580" y2="430" stroke="var(--muted-gold)" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+                    <!-- Japan/Korea line -->
+                    <line x1="785" y1="155" x2="730" y2="430" stroke="var(--muted-gold)" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+
+                    <!-- Glowing dots on active regions -->
+                    <circle cx="180" cy="150" r="5" fill="var(--muted-gold)" opacity="0.9"><animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/></circle>
+                    <circle cx="230" cy="340" r="5" fill="var(--muted-gold)" opacity="0.9"><animate attributeName="r" values="4;7;4" dur="2s" begin="0.4s" repeatCount="indefinite"/></circle>
+                    <circle cx="490" cy="130" r="5" fill="var(--muted-gold)" opacity="0.9"><animate attributeName="r" values="4;7;4" dur="2s" begin="0.8s" repeatCount="indefinite"/></circle>
+                    <circle cx="650" cy="250" r="5" fill="var(--muted-gold)" opacity="0.9"><animate attributeName="r" values="4;7;4" dur="2s" begin="1.2s" repeatCount="indefinite"/></circle>
+                    <circle cx="785" cy="155" r="5" fill="var(--muted-gold)" opacity="0.9"><animate attributeName="r" values="4;7;4" dur="2s" begin="1.6s" repeatCount="indefinite"/></circle>
+                </svg>
+                <div class="regions-labels">
+                    <div class="region-label">
+                        <h4>North America</h4>
+                        <p>UA, Performance Marketing, Web</p>
+                    </div>
+                    <div class="region-label">
+                        <h4>Latin America</h4>
+                        <p>iGaming Growth, Cultural Strategy</p>
+                    </div>
+                    <div class="region-label">
+                        <h4>Europe</h4>
+                        <p>Multilingual Ops, Web Management</p>
+                    </div>
+                    <div class="region-label">
+                        <h4>India</h4>
+                        <p>Mobile Gaming, Market Research</p>
+                    </div>
+                    <div class="region-label">
+                        <h4>Japan &amp; Korea</h4>
+                        <p>iGaming, Live Events, Localization</p>
+                    </div>
                 </div>
             </div>
         </div>
