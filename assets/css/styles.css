@@ -811,7 +811,7 @@ nav .container {
 /* Testimonials Section */
 .testimonials {
     padding: 80px 0;
-    background: var(--dark-gray);
+    background: linear-gradient(135deg, rgba(185, 28, 28, 0.15) 0%, rgba(220, 20, 60, 0.1) 100%);
     border-top: 2px solid var(--muted-gold);
     border-bottom: 2px solid var(--muted-gold);
 }
@@ -1151,65 +1151,72 @@ nav .container {
     letter-spacing: 0.5px;
 }
 
-/* Region Coverage Map */
+/* Region Coverage */
 .regions-section {
     padding: 60px 0;
     background: var(--dark-gray);
 }
 
-.regions-map-wrapper {
+.section-subtitle {
+    text-align: center;
+    color: #999;
+    font-size: 1.1rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
+
+.regions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
-.regions-map {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    display: block;
+.region-card {
+    background: var(--black);
+    border: 1px solid rgba(201, 176, 55, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
-.region-path {
-    fill: rgba(255, 255, 255, 0.05);
-    stroke: rgba(255, 255, 255, 0.1);
-    stroke-width: 1;
-    transition: fill 0.3s ease, stroke 0.3s ease;
+.region-card:hover {
+    border-color: var(--muted-gold);
+    transform: translateY(-4px);
 }
 
-.region-path.region-active {
-    fill: rgba(201, 176, 55, 0.15);
-    stroke: var(--muted-gold);
-    stroke-width: 1.5;
-}
-
-.region-path.region-active:hover {
-    fill: rgba(201, 176, 55, 0.3);
-}
-
-.regions-labels {
+.region-flags {
     display: flex;
     justify-content: center;
+    gap: 8px;
+    margin-bottom: 1rem;
     flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(201, 176, 55, 0.15);
 }
 
-.region-label {
-    text-align: center;
-    min-width: 140px;
+.region-flag-img {
+    width: 40px;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
 }
 
-.region-label h4 {
+.region-card:hover .region-flag-img {
+    transform: scale(1.1);
+}
+
+.region-card h4 {
     color: var(--muted-gold);
-    font-size: 0.95rem;
-    margin-bottom: 0.25rem;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
 }
 
-.region-label p {
+.region-card p {
     color: #999;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     margin: 0;
+    line-height: 1.5;
 }
 
 /* Book a Call CTA */
@@ -2045,11 +2052,8 @@ nav .container {
     .stat-number {
         font-size: 2.2rem;
     }
-    .regions-labels {
-        gap: 1rem;
-    }
-    .region-label {
-        min-width: 120px;
+    .regions-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
     .contact-info .book-call-link {
         width: 100%;
