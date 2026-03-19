@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Octopi Poker x PlayLive Melbourne</title>
+    <title>Octopi Poker x PokerGO</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,9 +15,10 @@
             theme: {
                 extend: {
                     colors: {
-                        playlive: {
-                            red: '#e60000',
-                            darkred: '#990000',
+                        pokergo: {
+                            purple: '#7B2D8E',
+                            lightpurple: '#9B4DCA',
+                            darkpurple: '#4A1A5E',
                             bg: '#0a0a0a'
                         },
                         octopi: {
@@ -42,6 +43,17 @@
             background-color: #252932;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
+        }
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
         }
     </style>
 </head>
@@ -73,7 +85,7 @@
                     <i class="fa-regular fa-sun text-gray-400 hover:text-white cursor-pointer transition"></i>
                     <div class="relative cursor-pointer">
                         <i class="fa-regular fa-bell text-gray-400 hover:text-white transition text-lg"></i>
-                        <span class="absolute -top-1.5 -right-2 bg-playlive-red text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">5</span>
+                        <span class="absolute -top-1.5 -right-2 bg-pokergo-purple text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">5</span>
                     </div>
                     <img src="https://i.pravatar.cc/150?img=11" alt="Profile" class="w-8 h-8 rounded-full border border-gray-600 ml-2">
                 </div>
@@ -90,18 +102,17 @@
     <main class="flex-grow pt-16">
         <div class="relative overflow-hidden bg-octopi-bg min-h-[600px] flex items-center justify-center">
             
+            <!-- Background pattern (fallback while video loads) -->
             <div class="absolute inset-0 z-0 opacity-40" style="background-image: url('https://i.imgur.com/rvBrxFb.png'); background-repeat: repeat; background-size: 200px;"></div>
             
-            <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-10">
-                <iframe 
-                    src="https://www.youtube.com/embed/TfrPbYh6sJo?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=TfrPbYh6sJo" 
-                    class="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] transform -translate-x-1/2 -translate-y-1/2 opacity-100 object-cover" 
-                    frameborder="0" 
-                    allow="autoplay; encrypted-media" 
-                    allowfullscreen>
-                </iframe>
+            <!-- Background video (local MP4) -->
+            <div class="absolute inset-0 w-full h-full overflow-hidden z-10">
+                <video class="hero-video" autoplay muted loop playsinline>
+                    <source src="../videos/USOPEN.mp4" type="video/mp4">
+                </video>
             </div>
             
+            <!-- Gradient overlay -->
             <div class="absolute inset-0 bg-gradient-to-b from-octopi-bg/90 via-black/70 to-octopi-bg pointer-events-none z-20"></div>
             
             <div class="relative w-full max-w-[850px] mx-auto px-4 sm:px-6 pt-[50px] pb-[50px] text-center z-30">
@@ -109,16 +120,16 @@
                 <div class="flex items-center justify-center gap-4 mb-6">
                     <img src="https://i.imgur.com/LtUd4sC.png" alt="Octopi Poker" class="h-8 sm:h-10 object-contain">
                     <span class="text-gray-500 font-light text-2xl">x</span>
-                    <img src="https://i.imgur.com/ONja7tQ.png" alt="PlayLive Melbourne" class="h-6 sm:h-8 object-contain">
+                    <img src="../images/pokergo-logo.png" alt="PokerGO" class="h-8 sm:h-10 object-contain">
                 </div>
                 
                 <h1 class="font-extrabold tracking-tight text-white drop-shadow-lg leading-tight relative z-20 flex flex-col items-center gap-2">
                     <span class="text-4xl md:text-5xl lg:text-6xl">Unlock Your Free Trial of</span>
-                    <span class="text-4xl md:text-5xl lg:text-6xl text-playlive-red tracking-wide">Octopi Poker</span>
+                    <span class="text-4xl md:text-5xl lg:text-6xl text-pokergo-lightpurple tracking-wide">Octopi Poker</span>
                 </h1>
                 
                 <p class="mt-8 text-lg md:text-xl text-gray-300 mx-auto mb-10 drop-shadow-md font-normal leading-relaxed max-w-2xl">
-                    With Octopi Poker you can study tournament situations with a GTO trainer and review final tables from PlayLive Melbourne, Triton, the WSOP, and other big tournament series.
+                    With Octopi Poker you can study tournament situations with a GTO trainer and review final tables from the PGT, Triton, the WSOP, and other big tournament series.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
@@ -130,6 +141,7 @@
             </div>
         </div>
 
+        <!-- Demo video section -->
         <div class="bg-octopi-bg pb-12 lg:pb-16 relative z-10">
             <div class="max-w-[850px] mx-auto px-4 sm:px-6">
                 <div class="relative w-full rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(124,58,237,0.15)] border border-octopi-border bg-black" style="padding-top: 56.25%;">
@@ -144,6 +156,7 @@
             </div>
         </div>
 
+        <!-- Features section -->
         <div class="bg-octopi-bg pb-12 relative z-10">
             <div class="max-w-[850px] mx-auto px-4 sm:px-6">
                 <div class="text-center mb-10">
@@ -153,17 +166,17 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-octopi-nav rounded-2xl p-6">
                         <h3 class="text-[15px] tracking-tight whitespace-nowrap font-bold mb-3 text-white">Free Pro Access</h3>
-                        <p class="text-xs text-gray-400 leading-relaxed">Unlock the full power of Octopi Poker's Professional tier from now until April 4th.</p>
+                        <p class="text-xs text-gray-400 leading-relaxed">Unlock the full power of Octopi Poker's Professional tier from now until [DATE TBD].</p>
                     </div>
 
                     <div class="bg-octopi-nav rounded-2xl p-6 relative overflow-hidden">
                         <h3 class="text-[15px] tracking-tight whitespace-nowrap font-bold mb-3 text-white">Full Vault Access</h3>
-                        <p class="text-xs text-gray-400 leading-relaxed">Study final tables from PlayLive, Triton, WSOP and other tournament series, including fully simulated hands for in-depth review.</p>
+                        <p class="text-xs text-gray-400 leading-relaxed">Study final tables from the PGT, Triton, WSOP and other tournament series, including fully simulated hands for in-depth review.</p>
                     </div>
 
                     <div class="bg-octopi-nav rounded-2xl p-6">
-                        <h3 class="text-[15px] tracking-tight whitespace-nowrap font-bold mb-3 text-white">Special PlayLive Analysis</h3>
-                        <p class="text-xs text-gray-400 leading-relaxed">Watch special hand reviews and breakdowns from Octopi Pros like Matt Hunt, featuring guest appearances by PlayLive's Josh Abady</p>
+                        <h3 class="text-[15px] tracking-tight whitespace-nowrap font-bold mb-3 text-white">GTO Trainer</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Practice real tournament spots with our GTO trainer. Drill preflop and postflop decisions and get instant feedback on every play.</p>
                     </div>
                 </div>
                 
