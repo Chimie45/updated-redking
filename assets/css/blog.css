@@ -151,8 +151,14 @@
 .blog-card-content h3 {
     font-size: 1.25rem;
     color: var(--white);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     line-height: 1.4;
+}
+
+.blog-card-meta {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 0.75rem;
 }
 
 .blog-card-content .article-excerpt {

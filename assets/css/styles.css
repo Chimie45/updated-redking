@@ -1165,6 +1165,44 @@ nav .container {
     margin-bottom: 1rem;
 }
 
+/* About Stats Grid */
+.about-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.about-stat-card {
+    background: var(--dark-gray);
+    border: 1px solid rgba(201, 176, 55, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.about-stat-card:hover {
+    border-color: var(--muted-gold);
+    transform: translateY(-3px);
+}
+
+.about-stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--muted-gold);
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+}
+
+.about-stat-label {
+    color: #ccc;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .regions-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -2054,6 +2092,13 @@ nav .container {
     }
     .regions-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .about-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .about-stat-number {
+        font-size: 2rem;
     }
     .contact-info .book-call-link {
         width: 100%;
