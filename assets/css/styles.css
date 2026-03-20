@@ -705,6 +705,21 @@ nav .container {
     color: var(--white);
 }
 
+.portfolio-modal-heading {
+    color: var(--muted-gold);
+    margin-bottom: 1rem;
+}
+
+.portfolio-modal-text {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.portfolio-modal-text:last-child {
+    margin-bottom: 0;
+}
+
 
 .portfolio-modal .metrics, .team-metrics {
     display: grid;
