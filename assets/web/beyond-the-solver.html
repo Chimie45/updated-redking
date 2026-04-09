@@ -413,14 +413,21 @@ body {
 @media (max-width: 900px) {
   .site-nav-left, .site-nav-right { display: none; }
   .header-icons { margin-left: auto; }
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-right { order: -1; height: 50vw; max-height: 360px; }
-  .hero-left { padding: 32px 24px; max-width: none; margin-left: 0; }
+
+  /* Hero: overlap text up onto image */
+  .hero { grid-template-columns: 1fr; min-height: auto; padding-bottom: 0; }
+  .hero-right { order: -1; height: 50vw; max-height: 300px; }
+  .hero-left { padding: 0 24px 32px; max-width: none; margin-left: 0; margin-top: -30px; position: relative; z-index: 3; }
   .hero-quote { padding: 0 24px 20px; }
   .hero-quote blockquote { font-size: 14px; }
-  .scroll-chevron { position: relative; bottom: auto; left: auto; transform: none;
-    margin: 16px auto 0; animation: chevron-bounce-mobile 2s ease-in-out infinite; }
-  .hero { padding-bottom: 24px; }
+  .hero-desc { margin-bottom: 24px; }
+  .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: nowrap; }
+  .hero-actions .btn-primary { flex-shrink: 0; }
+  .hero-actions .btn-ghost { font-size: 13px; }
+
+  /* Hide scroll chevron on mobile */
+  .scroll-chevron { display: none; }
+
   .section-pad { padding-top: 56px; padding-bottom: 56px; }
   .solution-grid { grid-template-columns: 1fr; gap: 16px; }
   .problem-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -432,11 +439,21 @@ body {
   .coach-supporting-list { grid-template-columns: 1fr; }
   .coach-supporting-entry { grid-template-columns: 80px 1fr; gap: 16px; }
   .coach-supporting-entry img { width: 80px; }
+
+  /* Timeline: keep circles */
   .timeline { grid-template-columns: 1fr; gap: 24px; }
   .timeline::before { top: 0; bottom: 0; left: 20px; right: auto; width: 2px; height: auto; }
   .timeline-item { flex-direction: row; text-align: left; gap: 20px; align-items: start; }
-  .timeline-dot { margin-bottom: 0; }
+  .timeline-dot { margin-bottom: 0; min-width: 40px; min-height: 40px; }
   .timeline-desc { max-width: none; }
+
+  /* Accordion: stack title above author on mobile */
+  .accordion-header { flex-wrap: wrap; padding: 14px 16px; gap: 4px 12px; }
+  .accordion-num { min-width: 24px; }
+  .accordion-title { flex-basis: calc(100% - 80px); font-size: 14px; }
+  .accordion-coach { margin-left: 36px; margin-right: auto; }
+  .accordion-body-inner { padding: 0 16px 16px 40px; }
+
   .plan-grid { grid-template-columns: 1fr; }
   .site-footer { flex-direction: column; text-align: center; }
   .footer-links, .footer-social { justify-content: center; }
