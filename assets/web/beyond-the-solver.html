@@ -96,8 +96,22 @@ body {
 }
 .section-sub { font-size: 15px; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.6; }
 
+/* ── SCROLL CHEVRON ── */
+.scroll-chevron {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+  color: var(--brand); opacity: 0.7; transition: opacity 0.2s;
+  animation: chevron-bounce 2s ease-in-out infinite; z-index: 5;
+}
+.scroll-chevron:hover { opacity: 1; }
+.scroll-chevron svg { width: 40px; height: 40px; }
+@keyframes chevron-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
 /* ── HERO ── */
-.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 48px); }
+.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 48px); position: relative; }
 .hero-left {
   display: flex; flex-direction: column; justify-content: center;
   padding: 80px 48px; max-width: 640px; margin-left: auto;
@@ -463,10 +477,13 @@ body {
       <cite>&mdash; Thomas Boivin</cite>
     </div>
   </div>
+  <a href="#next-section" class="scroll-chevron" aria-label="Scroll down">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </a>
 </section>
 
 <!-- ═══════ PHOTO / TEXT BREAK ═══════ -->
-<div class="section-panel">
+<div class="section-panel" id="next-section">
   <div class="col section-pad">
     <div class="problem-grid">
       <img class="problem-img" src="https://i.imgur.com/IhTdhYt.png" alt="Thomas Boivin">
