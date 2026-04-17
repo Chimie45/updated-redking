@@ -353,6 +353,114 @@ nav .container {
     color: var(--black);
 }
 
+/* Process Section */
+.process-section {
+    padding: 80px 0;
+    background: var(--black);
+    border-top: 2px solid var(--muted-gold);
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.process-step {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.process-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--muted-gold);
+    margin-bottom: 0.75rem;
+    line-height: 1;
+}
+
+.process-step h3 {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.process-step p {
+    color: #999;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Sample Work Section */
+.sample-work-section {
+    padding: 60px 0;
+    background: var(--dark-gray);
+}
+
+.sample-work-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: var(--black);
+    border: 1px solid rgba(201, 176, 55, 0.2);
+    border-radius: 12px;
+    padding: 2.5rem;
+    transition: border-color 0.3s ease;
+}
+
+.sample-work-card:hover {
+    border-color: var(--muted-gold);
+}
+
+.sample-work-icon {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: rgba(201, 176, 55, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sample-work-icon i {
+    font-size: 2rem;
+    color: var(--muted-gold);
+}
+
+.sample-work-text h3 {
+    color: var(--muted-gold);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.sample-work-text p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+.sample-work-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--muted-gold);
+    color: var(--black);
+    padding: 10px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.sample-work-btn:hover {
+    background: var(--gold);
+    transform: translateY(-2px);
+}
+
 
 /* About Section */
 .about {
@@ -1982,6 +2090,15 @@ nav .container {
     .portfolio-grid,
     .site-footer .footer-main {
         grid-template-columns: 1fr;
+    }
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .sample-work-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
     }
     .site-footer .footer-about,
     .site-footer .footer-links-wrapper,
