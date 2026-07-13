@@ -353,6 +353,32 @@
     height: 100%;
 }
 
+/* Grouped vertical video grid (e.g. IG Reels) */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.video-grid-item {
+    position: relative;
+    width: 100%;
+    padding-bottom: 177.78%; /* 9:16 aspect ratio */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--muted-gold);
+}
+
+.video-grid-item video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* General Campaign & Creative Gallery Styles */
 .creative-gallery {
     margin-bottom: 2rem;
