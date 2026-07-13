@@ -174,12 +174,6 @@ nav .container {
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-        url('../images/home/header.gif');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -187,6 +181,27 @@ nav .container {
     position: relative;
     overflow: hidden;
     border-bottom: 3px solid var(--muted-gold);
+}
+
+.hero-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+    z-index: 1;
 }
 
 /* Page Header for sub-pages (Team, Blog, Services) */
