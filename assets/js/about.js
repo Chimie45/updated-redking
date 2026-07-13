@@ -2,46 +2,10 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all about page features
-    initScrollIndicator();
     initTimelineAnimations();
-    initCountUpAnimations();
     initParallaxEffects();
     initPhilosophyCards();
 });
-
-// Scroll indicator functionality
-function initScrollIndicator() {
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    if (scrollIndicator) {
-        scrollIndicator.addEventListener('click', function() {
-            const timelineSection = document.querySelector('.timeline-section');
-            if (timelineSection) {
-                const navHeight = document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 0;
-                const elementPosition = timelineSection.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - navHeight - 20;
-                
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
-            }
-        });
-
-        // Hide scroll indicator when user scrolls past hero
-        window.addEventListener('scroll', function() {
-            const heroHeight = document.querySelector('.about-hero').offsetHeight;
-            const scrollPosition = window.pageYOffset;
-            
-            if (scrollPosition > heroHeight * 0.8) {
-                scrollIndicator.style.opacity = '0';
-                scrollIndicator.style.pointerEvents = 'none';
-            } else {
-                scrollIndicator.style.opacity = '1';
-                scrollIndicator.style.pointerEvents = 'auto';
-            }
-        });
-    }
-}
 
 // Timeline animations on scroll
 function initTimelineAnimations() {
@@ -67,63 +31,6 @@ function initTimelineAnimations() {
     timelineItems.forEach(item => {
         timelineObserver.observe(item);
     });
-}
-
-// Count-up animations for achievement numbers
-function initCountUpAnimations() {
-    const achievementNumbers = document.querySelectorAll('.achievement-number');
-    
-    const countUpObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const element = entry.target;
-                const target = parseInt(element.getAttribute('data-target'));
-                animateCountUp(element, target);
-                countUpObserver.unobserve(element);
-            }
-        });
-    }, {
-        threshold: 0.5
-    });
-
-    achievementNumbers.forEach(number => {
-        countUpObserver.observe(number);
-    });
-}
-
-// Count-up animation function
-function animateCountUp(element, target) {
-    const duration = 2000; // 2 seconds
-    const frameDuration = 16; // ~60fps
-    const totalFrames = Math.round(duration / frameDuration);
-    let frame = 0;
-    
-    const counter = setInterval(() => {
-        frame++;
-        const progress = frame / totalFrames;
-        
-        // Easing function for smooth animation
-        const easeOutExpo = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-        const currentValue = Math.round(target * easeOutExpo);
-        
-        // Format large numbers
-        element.textContent = formatNumber(currentValue);
-        
-        if (frame === totalFrames) {
-            clearInterval(counter);
-            element.textContent = formatNumber(target);
-        }
-    }, frameDuration);
-}
-
-// Format numbers with appropriate suffixes
-function formatNumber(num) {
-    if (num >= 1000000) {
-        return (num / 1000000).toFixed(num % 1000000 === 0 ? 0 : 1) + 'M';
-    } else if (num >= 1000) {
-        return (num / 1000).toFixed(num % 1000 === 0 ? 0 : 1) + 'K';
-    }
-    return num.toString();
 }
 
 // Parallax effects for hero section
@@ -201,20 +108,6 @@ window.addEventListener('scroll', function() {
             }, index * 100);
         }
     });
-    
-    // Mission section elements
-    const missionElements = document.querySelectorAll('.mission-content > *');
-    missionElements.forEach((element, index) => {
-        const rect = element.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        
-        if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
-            setTimeout(() => {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }, index * 150);
-        }
-    });
 });
 
 // Initialize elements with initial hidden state
@@ -225,14 +118,6 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.opacity = '0';
         card.style.transform = 'translateY(30px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-    
-    // Hide mission elements initially
-    const missionElements = document.querySelectorAll('.mission-content > *');
-    missionElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
     });
 });
 
@@ -249,17 +134,6 @@ function enhanceCrownAnimation() {
         });
     }
 }
-
-// Add crown spin keyframe
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes crownSpin {
-        0% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-15px) rotate(180deg); }
-        100% { transform: translateY(0px) rotate(360deg); }
-    }
-`;
-document.head.appendChild(style);
 
 // Initialize crown enhancement
 document.addEventListener('DOMContentLoaded', enhanceCrownAnimation);
@@ -284,31 +158,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: "smooth"
                 });
             }
-        });
-    });
-});
-
-// Add subtle mouse movement effects to achievement cards
-document.addEventListener('DOMContentLoaded', function() {
-    const achievementCards = document.querySelectorAll('.achievement-card');
-    
-    achievementCards.forEach(card => {
-        card.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-            
-            this.style.transform = `translateY(-10px) scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1) rotateX(0) rotateY(0)';
         });
     });
 });

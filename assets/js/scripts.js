@@ -16,20 +16,17 @@ function enhanceHomeCrownAnimation() {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', enhanceHomeCrownAnimation);
-// Portfolio modal functions
-function openPortfolioModal(modalId) {
+// Shared modal open/close helpers used by all modal--is-open based modals
+function openModal(modalId, onOpen) {
     const modal = document.getElementById(modalId);
-    if (!modal) return;
-    const modalHeader = modal.querySelector('.portfolio-modal-header');
-    const modalImg = modalHeader ? modalHeader.querySelector('img') : null;
-    if (modalImg && modalImg.src && modalHeader) modalHeader.style.backgroundImage = `url(${modalImg.src})`;
-
+    if (!modal) return null;
     modal.style.removeProperty('display'); // Remove inline display:none if present
     modal.classList.add('modal--is-open');
     document.body.style.overflow = 'hidden';
-    modal.querySelectorAll('.metric-number').forEach(num => animateValue(num));
+    if (onOpen) onOpen(modal);
+    return modal;
 }
-function closePortfolioModal(modalId) {
+function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.remove('modal--is-open');
@@ -38,82 +35,68 @@ function closePortfolioModal(modalId) {
     checkAndRestoreScroll();
 }
 
+function resetModalScroll(modal, contentSelector) {
+    setTimeout(() => {
+        if (modal.contains(document.activeElement)) modal.blur();
+        modal.scrollTop = 0;
+        const content = modal.querySelector(contentSelector);
+        if (content) content.scrollTop = 0;
+    }, 0);
+}
+
+// Portfolio modal functions
+function openPortfolioModal(modalId) {
+    openModal(modalId, (modal) => {
+        const modalHeader = modal.querySelector('.portfolio-modal-header');
+        const modalImg = modalHeader ? modalHeader.querySelector('img') : null;
+        if (modalImg && modalImg.src && modalHeader) modalHeader.style.backgroundImage = `url(${modalImg.src})`;
+        modal.querySelectorAll('.metric-number').forEach(num => animateValue(num));
+    });
+}
+function closePortfolioModal(modalId) {
+    closeModal(modalId);
+}
+
 // Team Member Modal Functions
 function openTeamModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (!modal) return;
-    const modalHeader = modal.querySelector('.team-modal-header');
-    const modalImg = modalHeader ? modalHeader.querySelector('.team-modal-img-main') : null;
-    if (modalImg && modalImg.src && modalHeader) modalHeader.style.backgroundImage = `url(${modalImg.src})`;
-
-    modal.style.removeProperty('display');
-    modal.classList.add('modal--is-open');
-    document.body.style.overflow = 'hidden';
-    modal.querySelectorAll('.metric-number').forEach(num => animateValue(num));
+    openModal(modalId, (modal) => {
+        const modalHeader = modal.querySelector('.team-modal-header');
+        const modalImg = modalHeader ? modalHeader.querySelector('.team-modal-img-main') : null;
+        if (modalImg && modalImg.src && modalHeader) modalHeader.style.backgroundImage = `url(${modalImg.src})`;
+        modal.querySelectorAll('.metric-number').forEach(num => animateValue(num));
+    });
 }
 function closeTeamModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.classList.remove('modal--is-open');
-        modal.style.display = 'none';
-    }
-    checkAndRestoreScroll();
+    closeModal(modalId);
 }
 
 // Job Modal Functions
 function openJobModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (!modal) return;
-
-    modal.style.removeProperty('display');
-    modal.classList.add('modal--is-open');
-    document.body.style.overflow = 'hidden';
-
-    const form = modal.querySelector('.job-application-form');
-    if (form) form.reset();
-    const messageDiv = modal.querySelector('.form-submission-feedback');
-    if (messageDiv) { messageDiv.style.display = 'none'; messageDiv.textContent = ''; messageDiv.className = 'form-submission-feedback'; }
-    const charCounter = modal.querySelector('.char-counter');
-    const messageTextarea = modal.querySelector('textarea[name="message"]');
-    if (charCounter && messageTextarea && messageTextarea.maxLength) {
-        charCounter.textContent = `${messageTextarea.maxLength} characters remaining`;
-        charCounter.style.color = '#aaa';
-    } else if (charCounter && messageTextarea) {
-        charCounter.textContent = `Check character limit`;
-    }
+    openModal(modalId, (modal) => {
+        const form = modal.querySelector('.job-application-form');
+        if (form) form.reset();
+        const messageDiv = modal.querySelector('.form-submission-feedback');
+        if (messageDiv) { messageDiv.style.display = 'none'; messageDiv.textContent = ''; messageDiv.className = 'form-submission-feedback'; }
+        const charCounter = modal.querySelector('.char-counter');
+        const messageTextarea = modal.querySelector('textarea[name="message"]');
+        if (charCounter && messageTextarea && messageTextarea.maxLength) {
+            charCounter.textContent = `${messageTextarea.maxLength} characters remaining`;
+            charCounter.style.color = '#aaa';
+        } else if (charCounter && messageTextarea) {
+            charCounter.textContent = `Check character limit`;
+        }
+    });
 }
 function closeJobModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.classList.remove('modal--is-open');
-        modal.style.display = 'none';
-    }
-    checkAndRestoreScroll();
+    closeModal(modalId);
 }
 
 // Service Detail Modal Functions
 function openServiceModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (!modal) return;
-
-    modal.style.removeProperty('display'); // Clear any inline display:none
-    modal.classList.add('modal--is-open'); // Add class to trigger display:flex and transitions
-    document.body.style.overflow = 'hidden';
-
-    setTimeout(() => {
-       if(modal.contains(document.activeElement)) modal.blur();
-       modal.scrollTop = 0;
-       const content = modal.querySelector('.service-modal-content');
-       if(content) content.scrollTop = 0;
-    },0);
+    openModal(modalId, (modal) => resetModalScroll(modal, '.service-modal-content'));
 }
 function closeServiceModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.classList.remove('modal--is-open');
-        modal.style.display = 'none';
-    }
-    checkAndRestoreScroll();
+    closeModal(modalId);
 }
 
 // Function for Service Modal CTA buttons: Scroll to contact and close modal

@@ -2,32 +2,11 @@
 
 // Gallery Modal Functions
 function openGalleryModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (!modal) { 
-        /* gallery modal not found */ 
-        return; 
-    }
-    
-    modal.style.removeProperty('display');
-    modal.classList.add('modal--is-open');
-    document.body.style.overflow = 'hidden';
-    
-    // Reset modal scroll position
-    setTimeout(() => {
-        if(modal.contains(document.activeElement)) modal.blur();
-        modal.scrollTop = 0;
-        const content = modal.querySelector('.gallery-modal-content');
-        if(content) content.scrollTop = 0;
-    }, 0);
+    openModal(modalId, (modal) => resetModalScroll(modal, '.gallery-modal-content'));
 }
 
 function closeGalleryModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.classList.remove('modal--is-open');
-        modal.style.display = 'none';
-    }
-    checkAndRestoreScroll();
+    closeModal(modalId);
 }
 
 // Gallery Filter Functionality

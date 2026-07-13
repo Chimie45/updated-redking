@@ -21,17 +21,6 @@
     text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
 }
 
-@keyframes crownFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-}
-
-@keyframes crownSpin {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(180deg); }
-    100% { transform: translateY(0px) rotate(360deg); }
-}
-
 /* Particles Background for Services Page */
 #services-page-header .hero-particles {
     position: absolute;
@@ -50,11 +39,6 @@
     background-size: 200px 100px;
     animation: particleMove 20s linear infinite;
     opacity: 0.3;
-}
-
-@keyframes particleMove {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-200px, -100px); }
 }
 
 #services-page-header .hero-content h1 {
@@ -88,10 +72,6 @@
 
 #services .service-card {
     cursor: pointer; 
-}
-
-.service-modal-content { 
-    max-width: 850px;
 }
 
 .service-modal-body {

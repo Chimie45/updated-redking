@@ -214,13 +214,5 @@ async function openBlogModal(articleId) {
 }
 
 function closeBlogModal() {
-    const modal = document.getElementById('blog-modal');
-    if (modal) {
-        modal.classList.remove('modal--is-open');
-    }
-    if(typeof checkAndRestoreScroll === 'function') {
-        checkAndRestoreScroll();
-    } else {
-        document.body.style.overflow = 'auto';
-    }
+    closeModal('blog-modal');
 }

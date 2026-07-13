@@ -704,6 +704,12 @@ nav .container {
 .job-modal-content { max-width: 800px; }
 .service-modal-content { max-width: 850px; }
 
+/* Shared section heading utilities (replace repeated inline styles) */
+.legal-section-heading { color: var(--gold); margin-top: 2rem; margin-bottom: 1rem; }
+.modal-section-heading { color: var(--muted-gold); margin-bottom: 1rem; }
+.modal-body-text { color: #ccc; line-height: 1.6; }
+.modal-body-text--spaced { color: #ccc; line-height: 1.6; margin-bottom: 2rem; }
+
 
 /* Common Modal Header Styles (Portfolio, Team, Blog - for modals with cover images) */
 .portfolio-modal-header, .team-modal-header, .blog-modal-header {
@@ -1274,12 +1280,6 @@ nav .container {
     letter-spacing: 0.5px;
 }
 
-/* Region Coverage */
-.regions-section {
-    padding: 60px 0;
-    background: var(--dark-gray);
-}
-
 .section-subtitle {
     text-align: center;
     color: #999;
@@ -1324,60 +1324,6 @@ nav .container {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
-
-.regions-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.region-card {
-    background: var(--black);
-    border: 1px solid rgba(201, 176, 55, 0.2);
-    border-radius: 10px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: border-color 0.3s ease, transform 0.3s ease;
-}
-
-.region-card:hover {
-    border-color: var(--muted-gold);
-    transform: translateY(-4px);
-}
-
-.region-flags {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-}
-
-.region-flag-img {
-    width: 40px;
-    height: auto;
-    border-radius: 3px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease;
-}
-
-.region-card:hover .region-flag-img {
-    transform: scale(1.1);
-}
-
-.region-card h4 {
-    color: var(--muted-gold);
-    font-size: 1.05rem;
-    margin-bottom: 0.4rem;
-}
-
-.region-card p {
-    color: #999;
-    font-size: 0.85rem;
-    margin: 0;
-    line-height: 1.5;
 }
 
 /* Book a Call CTA */
