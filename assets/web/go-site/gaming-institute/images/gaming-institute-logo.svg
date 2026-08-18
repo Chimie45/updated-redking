@@ -1,0 +1,11 @@
+<!-- PLACEHOLDER ONLY. Swap in the real Gaming Institute logo, keeping this filename
+     (or update the src in index.html). Their site uses GI_Logo_Schrift_1012x400.png,
+     ratio roughly 2.53:1. Kept neutral grey on purpose: the page is built in Octopi's
+     design system, so no Gaming Institute brand colour drives anything here. -->
+<svg width="253" height="100" viewBox="0 0 253 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="251" height="98" rx="6" fill="#F5F5F7" stroke="#E5E7EB" stroke-width="2"/>
+  <text x="126.5" y="44" text-anchor="middle" font-family="Inter, Arial, sans-serif"
+        font-size="24" font-weight="700" fill="#6B7280" letter-spacing="1">GAMING</text>
+  <text x="126.5" y="72" text-anchor="middle" font-family="Inter, Arial, sans-serif"
+        font-size="24" font-weight="700" fill="#9CA3AF" letter-spacing="1">INSTITUTE</text>
+</svg>
