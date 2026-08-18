@@ -5,8 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0B0913">
-<title>Octopi Poker — Affiliate Offer</title>
-<meta name="description" content="Start training with Octopi Poker. Use your affiliate code to unlock the offer.">
+<title>Come back to Octopi Poker — 20% off your first month</title>
+<meta name="description" content="A lot has changed in Octopi since your last session: Leak Analytics, Train Everywhere, new courses, and more. Use code RETURN20 for 20% off your first month back.">
+
+<!-- Canonical / social — NOTE: URL is assumed (go.octopipoker.ai/return20/); update once the final path is set -->
+<link rel="canonical" href="https://go.octopipoker.ai/return20/">
+<meta property="og:site_name" content="Octopi Poker">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://go.octopipoker.ai/return20/">
+<meta property="og:title" content="Come back to Octopi — 20% off your first month back">
+<meta property="og:description" content="A lot has changed since your last session: Leak Analytics, Train Everywhere, new courses, and more. Use code RETURN20 for 20% off your first month back.">
+<meta property="og:image" content="https://go.octopipoker.ai/return20/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="Octopi Poker — come back and get 20% off your first month.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@OctopiPoker">
+<meta name="twitter:title" content="Come back to Octopi — 20% off your first month back">
+<meta name="twitter:description" content="A lot has changed since your last session: Leak Analytics, Train Everywhere, new courses, and more. Use code RETURN20 for 20% off your first month back.">
+<meta name="twitter:image" content="https://go.octopipoker.ai/return20/images/og-image.jpg">
+<meta name="twitter:image:alt" content="Octopi Poker — come back and get 20% off your first month.">
 
 <!-- Favicons -->
 <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -53,15 +73,16 @@ a { color: inherit; }
 
 /* -- HERO -- */
 .hero { position: relative; overflow: hidden; }
-.hero-bg { position: absolute; inset: 0; z-index: 0; background-repeat: no-repeat; background-size: cover; background-position: 78% center;
+.hero-bg { position: absolute; inset: 0; z-index: 0; background-repeat: no-repeat; background-size: cover; background-position: 46% center;
   -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 66%, transparent 100%);
   mask-image: linear-gradient(180deg, #000 0%, #000 66%, transparent 100%); }
 .hero-bg::after { content: ''; position: absolute; inset: 0; }
 .hero-inner { position: relative; z-index: 2; max-width: var(--col-width); margin: 0 auto; padding: 116px var(--page-pad) 54px; min-height: 560px; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; }
 .hero-content { max-width: 540px; }
-/* Group 1 — eyebrow + name share one size/colour (ported from Return20) */
-.hero-eyebrow { font-family: 'Poppins', sans-serif; font-style: italic; font-weight: 500; font-size: 20px; color: var(--lavender); margin-bottom: 4px; }
-.hero-name { font-family: 'Poppins', sans-serif; font-style: normal; font-weight: 700; font-size: 30px; letter-spacing: -0.01em; color: var(--text-primary); margin-bottom: 24px; }
+/* Eyebrow — "Welcome Back Offer" label above the headline */
+.hero-eyebrow { display: block; font-family: 'Poppins', sans-serif; font-style: normal; font-weight: 700; font-size: 16px; letter-spacing: 0.2px; color: var(--lavender); margin-bottom: 16px; }
+.hero-name { font-family: 'Poppins', sans-serif; font-style: italic; font-weight: 500; font-size: 20px; letter-spacing: -0.01em; color: var(--lavender); margin-bottom: 22px; }
+.hero-name:empty { display: none; }
 /* Group 2 — headline, single colour */
 .hero-headline { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 58px); line-height: 1.14; letter-spacing: -0.03em; color: var(--text-primary); margin-bottom: 22px; }
 .hero-headline .accent { display: block; }
@@ -99,7 +120,7 @@ a { color: inherit; }
 /* -- PRICING (3-plan grid with billing toggle) -- */
 .pricing { position: relative; z-index: 1; max-width: var(--col-width); margin: 0 auto; padding: 0 var(--page-pad) 96px; }
 .pricing::before { content: ''; position: absolute; inset: -4% 0 24% 0; background: radial-gradient(ellipse 55% 60% at 50% 32%, rgba(108,92,231,0.22), transparent 62%); pointer-events: none; z-index: 0; }
-.pricing-headline { position: relative; z-index: 1; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 42px); line-height: 1.1; letter-spacing: -0.02em; color: var(--text-primary); text-align: left; margin-bottom: 48px; }
+.pricing-headline { position: relative; z-index: 1; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 42px); line-height: 1.1; letter-spacing: -0.02em; color: var(--text-primary); text-align: center; margin-bottom: 48px; }
 .pricing-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; align-items: stretch; }
 .pricing-card { position: relative; display: flex; flex-direction: column; background-color: var(--bg-card); background-image: linear-gradient(180deg, rgba(138,123,255,0.06) 0%, rgba(138,123,255,0) 40%); border: 1px solid var(--border); border-radius: 14px; padding: 30px 26px; overflow: hidden; }
 .pricing-card--free { background-image: linear-gradient(180deg, rgba(138,123,255,0.05) 0%, rgba(138,123,255,0) 60%); }
@@ -132,19 +153,26 @@ a { color: inherit; }
 .pricing-card-features li { position: relative; padding-left: 15px; font-size: 12px; color: var(--text-secondary); line-height: 1.45; }
 .pricing-card-features li::before { content: '•'; position: absolute; left: 0; top: 0; color: var(--lavender); font-size: 13px; line-height: 1.45; }
 .pricing-note { position: relative; z-index: 1; margin-top: 24px; font-size: 12px; color: var(--text-muted); text-align: center; }
+/* two-plan (monthly-only) layout */
+.pricing-grid--duo { grid-template-columns: 1fr 1fr; }
+.price-block { padding: 4px 0 20px; }
+.price-discount { display: inline-block; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--lavender); background: rgba(108,92,231,0.14); border: 1px solid var(--border-bright); border-radius: 5px; padding: 4px 8px; margin-bottom: 14px; }
+.price-row { display: flex; align-items: baseline; gap: 10px; }
+.price-now { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.02em; color: var(--text-primary); line-height: 1; }
+.price-was { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 20px; color: var(--text-muted); text-decoration: line-through; }
+.price-per { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-secondary); }
+.price-after { display: block; margin-top: 10px; font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-muted); }
 
 /* -- WHAT YOU GET -- */
 .value { position: relative; z-index: 1; max-width: var(--col-width); margin: 0 auto; padding: 0 var(--page-pad) 76px; }
 .value-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: clamp(24px, 3vw, 34px); line-height: 1.15; letter-spacing: -0.02em; text-align: left; color: var(--text-primary); margin-bottom: 40px; }
 /* folder-style tabs across the top */
-.value-tabs { display: flex; gap: 5px; padding-left: 16px; padding-right: 16px; position: relative; z-index: 2; flex-wrap: nowrap; }
-.value-tab { flex: 0 0 auto; width: calc((100% - 40px) / 9); display: flex; align-items: center; justify-content: center; text-align: center; min-height: 50px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 12px; line-height: 1.18; letter-spacing: -0.01em; color: var(--text-secondary); padding: 8px 5px; white-space: normal; background-color: #14111F; border: 1px solid var(--border); border-radius: 10px 10px 0 0; cursor: pointer; margin-bottom: -1px; transition: background-color .18s, color .18s; }
+.value-tabs { display: flex; gap: 5px; padding-left: 16px; position: relative; z-index: 2; flex-wrap: nowrap; }
+.value-tab { flex: 0 0 auto; width: calc((100% - 30px) / 6); display: flex; align-items: center; justify-content: center; text-align: center; min-height: 50px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px; line-height: 1.18; letter-spacing: -0.01em; color: var(--text-secondary); padding: 8px 8px; white-space: normal; background-color: #14111F; border: 1px solid var(--border); border-radius: 10px 10px 0 0; cursor: pointer; margin-bottom: -1px; transition: background-color .18s, color .18s; }
 .value-tab:hover { color: var(--text-primary); background-color: #1B1730; }
 .value-tab.is-active { background-color: var(--bg-card); background-image: linear-gradient(rgba(138,123,255,0.08), rgba(138,123,255,0.08)); border-bottom: 0; color: var(--text-primary); z-index: 3; }
 .value-tab-name { color: inherit; }
 .value-tab .vt-sm { display: none; }
-/* Basics of MTT tab shows on mobile only (desktop row keeps 9) */
-.value-tab--mobile-only { display: none; }
 /* fixed-size content box (does not resize with content) */
 .value-card { height: 400px; background-color: var(--bg-card); background-image: linear-gradient(180deg, rgba(138,123,255,0.08) 0%, rgba(138,123,255,0) 50%); border: 1px solid var(--border); border-radius: 14px; padding: 0; overflow: hidden; position: relative; z-index: 1; }
 .value-panels { height: 100%; }
@@ -181,7 +209,7 @@ a { color: inherit; }
 /* -- MODAL -- */
 /* Tight desktop range: push the hero subject right so the text clears his face */
 @media (min-width: 901px) and (max-width: 1200px) {
-  .hero-bg { background-position: 50% center; }
+  .hero-bg { background-position: 40% center; }
 }
 
 @media (max-width: 900px) {
@@ -199,15 +227,15 @@ a { color: inherit; }
   /* pull the text up into the faded bottom of the photo — no dead gap */
   .hero-inner { min-height: 0; padding: 0 20px 28px; margin-top: -175px; flex-direction: column; justify-content: flex-start; align-items: stretch; }
   .hero-content { max-width: none; }
-  .hero-eyebrow { font-size: 16px; margin-bottom: 4px; }
-  .hero-name { font-size: 24px; margin-bottom: 18px; }
+  .hero-eyebrow { font-size: 15px; margin-bottom: 14px; }
+  .hero-name { font-size: 17px; margin-bottom: 16px; }
   .hero-headline { font-size: clamp(34px, 9.6vw, 44px); margin-bottom: 16px; }
   .hero-body { font-size: 15px; margin-bottom: 32px; }
   .hero-cta-row { flex-direction: column; align-items: stretch; }
   .btn-cta { width: 100%; }
   .hero-cta-row .btn-cta { min-width: 0; }
   .cta-note { max-width: none; text-align: center; }
-  .hero-code { order: -1; margin: 0 auto 20px; width: 400px; max-width: 100%; }
+  .hero-code { margin: 24px auto 0; width: 400px; max-width: 100%; }
   .steps { padding: 24px 20px 56px; }
   .steps-grid { grid-template-columns: 1fr; }
   .step-num { font-size: 44px; }
@@ -215,12 +243,11 @@ a { color: inherit; }
   .pricing { padding: 0 20px 64px; }
   .pricing-headline { font-size: clamp(24px, 6.5vw, 32px); margin-bottom: 36px; }
   .pricing-grid { grid-template-columns: 1fr; gap: 16px; }
+  .pricing-grid--duo { grid-template-columns: 1fr; }
   .pricing-card { padding: 28px 24px; }
   .value { padding: 0 20px 56px; }
   .value-tabs { padding-left: 0; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
-  /* 2 rows of 5 on mobile */
-  .value-tab { flex: 0 0 calc((100% - 24px) / 5); width: auto; min-width: 0; min-height: 44px; text-align: center; padding: 8px 2px; font-size: 10px; letter-spacing: -0.02em; border-radius: 9px; margin-bottom: 0; }
-  .value-tab--mobile-only { display: flex; }
+  .value-tab { flex: 1 1 30%; width: auto; min-width: 0; min-height: 44px; text-align: center; padding: 8px 6px; font-size: 12px; border-radius: 9px; margin-bottom: 0; }
   .value-tab.is-active { border: 1px solid var(--brand); background-color: rgba(108,92,231,0.16); background-image: none; }
   .value-tab .vt-lg { display: none; }
   .value-tab .vt-sm { display: inline; }
@@ -252,7 +279,7 @@ const CONFIG = {
   },
 
   affiliate: {
-    name:  "Sam Greenwood"
+    name:  ""
   },
 
   hero: {
@@ -261,83 +288,35 @@ const CONFIG = {
     // Recommended export: 2560 x 1080 px (see notes).
     image:          "images/hero-bg.webp",
     overlay:        "images/hero-overlay.webp",   // optional transparent PNG layered ON TOP of image (e.g. the cut-out person). "" = none.
-    eyebrow:        "Trusted by pros like",
-    headline:       "Get 50% off",
-    headlineAccent: "your first month",     // shown in lavender on its own line
-    body:           "Study with the same tools that {{name}} uses. Practice any spot in the GTO Trainer. Replay the largest final tables in The Vault. Improve your ranges with the full Sim Library. Are you new to Octopi? Use the affiliate code below. You pay 50% less for your first month on any monthly plan.",
-    badge:          "Official Octopi Partner"   // small pill, top-right. Set to "" to hide.
+    eyebrow:        "Welcome Back Offer",
+    headline:       "Get 20% off your",
+    headlineAccent: "first month back",     // shown in lavender on its own line
+    body:           "Since your last session we've added Leak Analytics to identify your weaknesses, Train Everywhere to drill any hand in one click, enhanced Aggregate Reports, and several new courses. Use code RETURN20 to save 20% off your first month back.",
+    badge:          ""   // small pill, top-right. Set to "" to hide.
   },
 
   offer: {
-    code:      "PUNT",
-    codeParam: "affiliate",   // applies the affiliate code at checkout via ?affiliate=CODE&cart_force_affiliate=true. Set "" to disable.
-    ctaText:   "Join Octopi Today",
+    code:      "RETURN20",
+    codeParam: "promo",   // applies the coupon at checkout via ?promo=CODE&cart_force_promo=true. Set "" to disable.
+    ctaText:   "Reactivate now",
     ctaUrl:    "https://octopipoker.ai/pricing",
-    note:      "New users only"
+    note:      "Offer expires Thursday, Aug 13th"
   },
 
   steps: [
-    { title: "Create your free Octopi account" },
-    { title: "Apply code {{code}} at checkout" },
-    { title: "Start training and improve" }
+    { title: "Log in to your Octopi account" },
+    { title: "Use {{code}} at checkout" },
+    { title: "Improve your tournament game" }
   ],
 
-  valueTitle: "Everything inside Octopi",
+  valueTitle: "New since your last session",
   value: [
-    {
-      title: "GTO Trainer", tab: "GTO<br>Trainer", img: "images/trainer.webp",
-      modalTitle: "The Trainer",
-      modal: [
-        "Sharpen your skills with targeted training on the most intuitive, engaging and educational GTO Trainer on the market. Choose from Preflop, Postflop, Complete Hand or fan-favorite Surprise Me modes and get comprehensive feedback as you work through each spot.",
-        "Practice ChipEV or ICM scenarios on your computer or phone, and build custom drills for any situation — specific board textures, hand classes, and the spots that matter most to your game."
-      ]
-    },
-    {
-      title: "Preflop", tab: "Preflop", img: "images/sims.webp",
-      modalTitle: "Preflop Sims",
-      modal: [
-        "Explore high-precision preflop ranges for MTTs, Cash 6-max and Heads Up with our fast, intuitive and easy-to-use preflop viewer.",
-        "With the powerful and innovative Compare Range tool, learning how ranges and strategies change between positions, stack depths or tournament stages has never been easier."
-      ]
-    },
-    {
-      title: "Postflop", tab: "Postflop", img: "images/platform-postflop.webp",
-      modalTitle: "Postflop Dashboard",
-      modal: [
-        "Study GTO strategies or look up specific spots related to your own hands in our massive and constantly growing library of postflop simulations.",
-        "Our intuitive, seamless and lightning-fast UI helps you understand how the solver thinks about poker, with the visual Game Tree, Range Map, Runouts, Side-by-Side range explorer, 3D experience and more."
-      ]
-    },
-    {
-      title: "The Vault", tab: "The<br>Vault", img: "images/vault.webp",
-      modalTitle: "The Vault",
-      modal: [
-        "Relive the excitement of high-stakes poker from Triton, PokerGO, WSOP and more. Over 18K hands and 2k preflop and postflop ICM sims to explore in both live play and HH replayer format.",
-        "Or put your skills to the test with our immersive trainer experience and compare your plays to those of the real players alongside the AI solutions."
-      ]
-    },
-    {
-      title: "The Academy", tab: "The<br>Academy", img: "images/academy.webp",
-      modalTitle: "The Academy",
-      modal: [
-        "The Academy is the learning center of Octopi, where full courses and guided programs bring structure to your study instead of leaving you to piece it together. Lessons pair short videos with drills and quizzes, so what you watch actually sticks.",
-        "Every program is built directly on the training tools, so theory and practice live in the same place. New courses and content are added continuously, from fundamentals to advanced tournament concepts. Start wherever your game needs the most work and move at your own pace."
-      ]
-    },
     {
       title: "Leak Analytics", tab: "Leak<br>Analytics", img: "images/leak-analytics.webp",
       modalTitle: "Leak Analytics",
       modal: [
         "Play a session in the Trainer and Leak Analytics shows you exactly where you're losing EV, broken down by point in the hand, stack depth, position, and stage of the tournament. Instead of a single score, it sorts your mistakes by how much each one actually costs you.",
         "That turns a vague plan to study more into a specific, ranked list of the spots to fix first. Work down the list, run more sessions, and the same leaks stop showing up. It's the fastest way to know what to work on next."
-      ]
-    },
-    {
-      title: "Aggregate Reports", tab: "Aggregate<br>Reports", img: "images/agg-reports.webp",
-      modalTitle: "Aggregate Reports",
-      modal: [
-        "Aggregate Reports is a sharper way to study flops across a whole range of boards at once. Sort textures by how far they run from the average strategy, so the boards that break the standard line rise straight to the top.",
-        "Read equity realization and betting volume at a glance, then drill into any texture to see why the solver treats it differently. The new Actions tab, built with Stephen Chidwick and our team, lays out how your aggression should shift from board to board. It's the difference between memorizing lines and understanding them."
       ]
     },
     {
@@ -349,10 +328,26 @@ const CONFIG = {
       ]
     },
     {
-      title: "Basics of MTT", tab: "Basics<br>of MTT", img: "images/basics-mtt.webp", mobileOnly: true,
+      title: "Aggregate Reports", tab: "Aggregate<br>Reports", img: "images/agg-reports.webp",
+      modalTitle: "Aggregate Reports",
+      modal: [
+        "Aggregate Reports is a sharper way to study flops across a whole range of boards at once. Sort textures by how far they run from the average strategy, so the boards that break the standard line rise straight to the top.",
+        "Read equity realization and betting volume at a glance, then drill into any texture to see why the solver treats it differently. The new Actions tab, built with Stephen Chidwick and our team, lays out how your aggression should shift from board to board. It's the difference between memorizing lines and understanding them."
+      ]
+    },
+    {
+      title: "The Academy", tab: "The<br>Academy", img: "images/academy.webp",
+      modalTitle: "The Academy",
+      modal: [
+        "The Academy is the learning center of Octopi, where full courses and guided programs bring structure to your study instead of leaving you to piece it together. Lessons pair short videos with drills and quizzes, so what you watch actually sticks.",
+        "Every program is built directly on the training tools, so theory and practice live in the same place. New courses and content are added continuously, from fundamentals to advanced tournament concepts. Start wherever your game needs the most work and move at your own pace."
+      ]
+    },
+    {
+      title: "Basics of MTT", tab: "Basics<br>of MTT", img: "images/basics-mtt.webp",
       modalTitle: "Basics of MTT Self-Study",
       modal: [
-        "Basics of MTT Self-Study is three courses that teach you how to actually study tournament poker, not just what the answers are. You'll learn to read solver outputs, decide what to focus on first, and turn that work into better decisions at the table.",
+        "Basics of MTT Self-Study is three new courses that teach you how to actually study tournament poker, not just what the answers are. You'll learn to read solver outputs, decide what to focus on first, and turn that work into better decisions at the table.",
         "It's the on-ramp to everything else on Octopi, so you're never staring at a tool wondering what to do with it. The lessons are ready to take at your own pace, as quickly or slowly as you want. All three courses are included with your Pro plan."
       ]
     },
@@ -361,16 +356,15 @@ const CONFIG = {
       modalTitle: "And more on the way",
       modal: [
         "Octopi ships constantly, with new tools, sims, and courses landing all the time, and more are already in the works.",
-        "The Discord stays open to everyone, from strategy to mindset, with players and coaches trading ideas daily. It's a young, fast-growing platform, and it keeps getting better every week."
+        "Come back and you'll pick up everything that's been added since you left, with more arriving all the time. The Discord stays open to everyone, from strategy to mindset, with players and coaches trading ideas daily. There's a lot more here now than at your last session, and it keeps growing."
       ]
     }
   ],
 
   terms: [
-    "The affiliate code applies 50% off your first month for new subscribers only. Limited to one per person.",
+    "Code RETURN20 applies 20% off your first month only. Limited to one per person.",
     "Advanced features (final table drills, full Vault access, and ICM 25/50 drills) are available on the Professional plan.",
-    "Annual Professional subscribers also receive a 1-year PokerGO subscription ($99 value).",
-    "Subscriptions renew automatically at the standard rate unless cancelled before the renewal date. You can cancel anytime in your account settings."
+    "Subscriptions renew automatically at the standard monthly rate unless cancelled before the renewal date. You can cancel anytime in your account settings."
   ],
 
   footer: { copyright: "© 2026 Octopi Poker Studios, Inc. All rights reserved." }
@@ -398,15 +392,6 @@ const CONFIG = {
           <a class="btn-cta" data-bind="offer.ctaText" href="#pricing"></a>
           <p class="cta-note" data-bind="offer.note"></p>
         </div>
-        <div class="hero-code">
-          <span class="hero-code-label">Affiliate code</span>
-          <div class="hero-code-row">
-            <span class="hero-code-value" data-bind="offer.code"></span>
-            <button class="hero-code-copy" type="button" aria-label="Copy code">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -428,25 +413,7 @@ const CONFIG = {
   <!-- PRICING -->
   <section class="pricing" id="pricing">
     <h2 class="pricing-headline">Pick the plan that fits your game.</h2>
-    <div class="pricing-grid">
-
-      <!-- FREE -->
-      <div class="pricing-card pricing-card--free">
-        <p class="pricing-card-badge">Free Forever</p>
-        <div class="pricing-card-header">
-          <p class="pricing-card-name">Community</p>
-        </div>
-        <div class="pricing-free-callout">
-          <p class="pricing-free-desc">Get started with essential poker study tools for free. Explore preflop ranges, practice in the GTO Trainer (button spots only), and join the Octopi Discord community.</p>
-        </div>
-        <a href="#" class="btn-cta" data-forward-params>Start for Free</a>
-        <ul class="pricing-card-features">
-          <li>Basic platform access</li>
-          <li>3-day Pro trial included</li>
-          <li>Preflop ranges and button-spot Trainer</li>
-          <li>Join the Octopi Poker Discord</li>
-        </ul>
-      </div>
+    <div class="pricing-grid pricing-grid--duo">
 
       <!-- PERSONAL -->
       <div class="pricing-card">
@@ -454,24 +421,13 @@ const CONFIG = {
         <div class="pricing-card-header">
           <p class="pricing-card-name">Personal</p>
         </div>
-        <div class="billing-options">
-          <label class="billing-option">
-            <input type="radio" name="billing-personal" value="personal-annual" checked>
-            <span class="radio-dot"></span>
-            <span class="billing-option-text">
-              <span class="billing-option-name">Pay Annually</span>
-              <span class="billing-option-savings">Save $100</span>
-            </span>
-            <span class="billing-option-price"><span class="amount">$200</span><span class="period">/year</span></span>
-          </label>
-          <label class="billing-option">
-            <input type="radio" name="billing-personal" value="personal-monthly">
-            <span class="radio-dot"></span>
-            <span class="billing-option-text">
-              <span class="billing-option-name">Pay Monthly</span>
-            </span>
-            <span class="billing-option-price"><span class="amount">$25</span><span class="period">/month</span></span>
-          </label>
+        <div class="price-block">
+          <span class="price-discount">20% off first month</span>
+          <div class="price-row">
+            <span class="price-now">$20</span>
+            <span class="price-was">$25</span>
+          </div>
+          <span class="price-after">then $25/month</span>
         </div>
         <a href="#" class="btn-cta" data-plan-cta="personal" data-forward-params>Choose Personal</a>
         <ul class="pricing-card-features">
@@ -488,36 +444,25 @@ const CONFIG = {
         <div class="pricing-card-header">
           <p class="pricing-card-name">Professional</p>
         </div>
-        <div class="billing-options">
-          <label class="billing-option">
-            <input type="radio" name="billing-professional" value="professional-annual" checked>
-            <span class="radio-dot"></span>
-            <span class="billing-option-text">
-              <span class="billing-option-name">Pay Annually</span>
-              <span class="billing-option-savings">Save $180</span>
-            </span>
-            <span class="billing-option-price"><span class="amount">$600</span><span class="period">/year</span></span>
-          </label>
-          <label class="billing-option">
-            <input type="radio" name="billing-professional" value="professional-monthly">
-            <span class="radio-dot"></span>
-            <span class="billing-option-text">
-              <span class="billing-option-name">Pay Monthly</span>
-            </span>
-            <span class="billing-option-price"><span class="amount">$65</span><span class="period">/month</span></span>
-          </label>
+        <div class="price-block">
+          <span class="price-discount">20% off first month</span>
+          <div class="price-row">
+            <span class="price-now">$52</span>
+            <span class="price-was">$65</span>
+          </div>
+          <span class="price-after">then $65/month</span>
         </div>
         <a href="#" class="btn-cta" data-plan-cta="professional" data-forward-params>Choose Professional</a>
         <ul class="pricing-card-features">
+          <li>Everything in the Personal plan included</li>
           <li>ICM 25/50 drills, real final tables, heads up</li>
           <li>Uneven stacks, bubble, final table sims</li>
           <li>Full Vault: WSOP, Triton, PGT sims</li>
-          <li>1-year PokerGO included ($99 value)</li>
         </ul>
       </div>
 
     </div>
-    <p class="pricing-note">Use code <strong style="color: var(--lavender);" data-bind="offer.code"></strong> at checkout for your first-month discount. New subscribers only.</p>
+    <p class="pricing-note">Use code <strong style="color: var(--lavender);" data-bind="offer.code"></strong> at checkout for 20% off your first month.</p>
   </section>
 </main>
 
@@ -595,13 +540,13 @@ const CONFIG = {
     });
   }
 
-  // Pre-apply the affiliate code at checkout (cart reads it from ?affiliate= + cart_force_affiliate=true)
+  // Pre-apply the coupon at checkout (cart reads it from ?promo= + cart_force_promo=true)
   if (CONFIG.offer && CONFIG.offer.code && CONFIG.offer.codeParam) {
     document.querySelectorAll('a[data-forward-params]').forEach(function (a) {
       try {
         var u = new URL(a.getAttribute('href'), window.location.origin);
         u.searchParams.set(CONFIG.offer.codeParam, CONFIG.offer.code);
-        u.searchParams.set('cart_force_affiliate', 'true');
+        u.searchParams.set('cart_force_promo', 'true');
         a.setAttribute('href', u.toString());
       } catch (e) { /* skip */ }
     });
@@ -625,7 +570,7 @@ const CONFIG = {
     (CONFIG.value || []).forEach(function (v, i) {
       var active = i === 0 ? ' is-active' : '';
       tabsEl.insertAdjacentHTML('beforeend',
-        '<button class="value-tab' + active + (v.mobileOnly ? ' value-tab--mobile-only' : '') + '" type="button" data-vtab="' + i + '"><span class="value-tab-name">' + (v.tab || v.title) + '</span></button>');
+        '<button class="value-tab' + active + '" type="button" data-vtab="' + i + '"><span class="value-tab-name">' + (v.tab || v.title) + '</span></button>');
       var img = v.img ? '<div class="value-panel-fig"><img class="value-panel-img" src="' + v.img + '" alt="' + v.title + '" loading="lazy" decoding="async"></div>' : '';
       var paras = (v.modal && v.modal.length) ? v.modal.slice(0, 2) : [v.text];
       var body = '<div class="value-panel-body"><div class="value-panel-text"><h3>' + (v.modalTitle || v.title) + '</h3><div class="value-rule"></div>' +
@@ -646,27 +591,10 @@ const CONFIG = {
   function cartUrl(productId) {
     return '#';
   }
-  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+  // Monthly-only plans: point each CTA at its monthly cart (carries the code)
   function setupPlan(planKey) {
-    var radios = document.querySelectorAll('input[name="billing-' + planKey + '"]');
     var cta = document.querySelector('a[data-plan-cta="' + planKey + '"]');
-    if (!cta || !radios.length) return;
-    function update() {
-      var chosen = null;
-      radios.forEach(function (r) { if (r.checked) chosen = r; });
-      if (chosen) {
-        cta.setAttribute('href', cartUrl(chosen.value));
-        var parts = chosen.value.split('-');
-        cta.textContent = 'Choose ' + cap(parts[0]) + ' ' + cap(parts[1]);
-      }
-    }
-    radios.forEach(function (r) {
-      r.addEventListener('change', update);
-      r.addEventListener('click', update);
-      var label = r.closest('label.billing-option');
-      if (label) label.addEventListener('click', function () { setTimeout(update, 0); });
-    });
-    update();
+    if (cta) cta.setAttribute('href', cartUrl(planKey + '-monthly'));
   }
   setupPlan('personal');
   setupPlan('professional');
@@ -675,8 +603,7 @@ const CONFIG = {
   var termsEl = document.getElementById('terms');
   (CONFIG.terms || []).forEach(function (t) { termsEl.insertAdjacentHTML('beforeend', '<li>' + t + '</li>'); });
 
-  // Page title
-  if (CONFIG.affiliate && CONFIG.affiliate.name) document.title = CONFIG.affiliate.name + ' — Octopi Poker Offer';
+  // Page title is set statically in <head> (win-back page, not per-affiliate).
 })();
 </script>
 
@@ -685,7 +612,7 @@ const CONFIG = {
 (function () {
   var incoming = new URLSearchParams(window.location.search);
   if (!incoming.toString()) return;
-  var skip = ['cart_items', 'cart_open', 'cart_force', 'cart_force_items', 'cart_force_promo', 'cart_force_affiliate', 'cart_currency', 'affiliate'];
+  var skip = ['cart_items', 'cart_open', 'cart_force', 'cart_force_items', 'cart_force_promo', 'cart_force_affiliate', 'cart_currency', 'promo'];
   document.querySelectorAll('a[data-forward-params]').forEach(function (a) {
     try {
       var url = new URL(a.getAttribute('href'), window.location.origin);

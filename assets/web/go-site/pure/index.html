@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0F1312">
+<title>Pure Poker × Octopi Poker : votre accès inclus</title>
+<meta name="description" content="Chaque membre Pure Poker reçoit le plan Personal d'Octopi sans frais supplémentaires. GTO Trainer, bibliothèque postflop, comparaison de ranges et import de mains.">
+
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+:root{
+  --bg:#0F1312;
+  --surface:#151A19;
+  --card:#1A211F;
+  --card-2:#202826;
+  --border:#252E2C;
+  --border-bright:#37433F;
+  --text:#FFFFFF;
+  --text-2:#C8C5D1;
+  --text-3:#7E8886;
+  --teal:#3EC8B9;
+  --teal-bright:#5FE3D4;
+  --teal-deep:#186C62;
+  --purple:#6C5CE7;
+  --purple-bright:#8A7BFF;
+  --crimson:#E2445C;
+  --crimson-deep:#6E1F2E;
+  --col:1180px;
+  --pad:24px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* ---------- scrollbars: dark track, purple thumb ---------- */
+*{scrollbar-width:thin;scrollbar-color:var(--purple) var(--surface)}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:var(--surface)}
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,var(--purple-bright),var(--purple));
+  border-radius:8px;border:2px solid var(--surface);
+}
+::-webkit-scrollbar-thumb:hover{background:var(--purple-bright)}
+::-webkit-scrollbar-corner{background:var(--surface)}
+
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--bg);color:var(--text);
+  -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+h1,h2,h3{font-family:'Poppins',sans-serif;letter-spacing:-0.02em;line-height:1.1;text-wrap:balance}
+
+.wrap{max-width:var(--col);margin:0 auto;padding:0 var(--pad)}
+.section{padding:112px 0;position:relative}
+.accent{color:var(--teal)}
+/* purple = Octopi's side of the partnership, teal = Pure Poker's */
+.accent-purple{color:var(--purple-bright)}
+
+.lead{color:var(--text-2);font-size:17px;max-width:58ch;margin-top:20px}
+.section-head{margin-bottom:56px;max-width:720px}
+.section-head h2{font-size:clamp(34px,5vw,52px);font-weight:700}
+
+/* ---------- buttons: dark base, gradient washes in on hover ---------- */
+.btn{
+  --mx:50%; --my:50%;
+  position:relative;display:inline-flex;align-items:center;gap:10px;
+  padding:14px 26px;border-radius:14px;
+  font-size:15px;font-weight:600;
+  background:var(--card);border:1px solid var(--border-bright);
+  overflow:hidden;isolation:isolate;
+  transition:border-color .35s ease,transform .35s ease,box-shadow .35s ease;
+}
+.btn>*{position:relative;z-index:2}
+/* base wash: sits under the cursor blob so the button never shows bare card colour */
+.btn::before{content:'';position:absolute;inset:0;z-index:1;opacity:0;transition:opacity .4s ease}
+/* cursor-tracking blob follows --mx/--my, set on mousemove */
+.btn::after{
+  content:'';position:absolute;inset:0;z-index:1;opacity:0;
+  transition:opacity .4s ease;
+  background:radial-gradient(circle 130px at var(--mx) var(--my),
+             var(--blob-in) 0%, var(--blob-mid) 42%, transparent 78%);
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:hover::before,.btn:hover::after{opacity:1}
+.btn svg{width:17px;height:17px;flex:none;transition:color .38s ease}
+
+.btn-teal{
+  border-color:rgba(62,200,185,.42);
+  --blob-in:#8CFFF0; --blob-mid:var(--teal);
+}
+.btn-teal::before{background:linear-gradient(100deg,var(--teal-deep) 0%,#22A395 100%)}
+.btn-teal:hover{border-color:var(--teal-bright);box-shadow:0 10px 34px -10px rgba(62,200,185,.55)}
+.btn-teal svg{color:var(--teal)}
+.btn-teal:hover svg,.btn-teal:hover span{color:#06201D}
+
+.btn-crimson{
+  border-color:rgba(226,68,92,.42);
+  --blob-in:#FF8FA1; --blob-mid:var(--crimson);
+}
+.btn-crimson::before{background:linear-gradient(100deg,var(--crimson-deep) 0%,#B8303F 100%)}
+.btn-crimson:hover{border-color:var(--crimson);box-shadow:0 10px 34px -10px rgba(226,68,92,.5)}
+.btn-crimson svg{color:var(--crimson)}
+.btn-crimson:hover svg,.btn-crimson:hover span{color:#fff}
+
+.btn-sm{padding:10px 18px;font-size:14px;border-radius:12px}
+
+/* ---------- header ---------- */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:100;border-bottom:1px solid transparent;transition:background .3s ease,border-color .3s ease}
+.hdr.stuck{background:rgba(15,19,18,.82);backdrop-filter:blur(16px);border-bottom-color:var(--border)}
+.hdr-in{max-width:var(--col);margin:0 auto;padding:15px var(--pad);display:flex;align-items:center;gap:26px}
+
+.lockup{display:flex;align-items:center;gap:12px;flex:none}
+.lockup img{height:19px;width:auto}
+.lockup .x{color:var(--text-3);font-size:13px}
+.lockup .octo{display:flex;align-items:center;gap:7px;font-family:'Poppins';font-weight:700;font-size:16px}
+.lockup .octo img{height:22px}
+
+.nav{display:flex;gap:26px;margin-left:auto;font-size:14px;color:var(--text-2);font-weight:500}
+.nav a{transition:color .2s ease}
+.nav a:hover{color:var(--text)}
+.hdr-right{display:flex;align-items:center;gap:12px}
+
+.lang{display:flex;background:var(--card);border:1px solid var(--border);border-radius:11px;padding:3px;gap:2px}
+.lang button{padding:5px 12px;border-radius:8px;font-size:12.5px;font-weight:600;color:var(--text-3);letter-spacing:.04em;transition:all .25s ease}
+.lang button.on{background:var(--teal);color:#06201D}
+.lang button:not(.on):hover{color:var(--text-2)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:168px 0 96px;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-330px;right:-180px;width:980px;height:920px;pointer-events:none;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(62,200,185,.20),transparent 68%)}
+.hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url('images/PATTERN-PP-WHITE.ae12cO2N.png');background-size:320px;opacity:.025;
+  -webkit-mask-image:radial-gradient(ellipse 70% 80% at 28% 40%,#000,transparent 72%);
+  mask-image:radial-gradient(ellipse 70% 80% at 28% 40%,#000,transparent 72%);
+}
+.hero-in{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+.hero h1{font-size:clamp(38px,4.9vw,60px);font-weight:800}
+.hero .lead{font-size:18px;max-width:53ch}
+.hero-cta{display:flex;gap:13px;margin-top:36px;flex-wrap:wrap}
+
+.hero-art{position:relative}
+.hero-art img{width:100%;filter:drop-shadow(0 40px 80px rgba(0,0,0,.6));animation:float 9s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+.hero-art::before{content:'';position:absolute;inset:14% 10%;border-radius:50%;background:radial-gradient(circle,rgba(62,200,185,.28),transparent 66%);filter:blur(48px);z-index:-1}
+
+/* ---------- marquee ---------- */
+.marquee{
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg,rgba(62,200,185,.05),transparent);
+  padding:20px 0;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+}
+.marquee.rev{border-top:none;padding:16px 0;opacity:.4;background:none}
+.mq-track{display:flex;width:max-content;animation:mq 46s linear infinite}
+.marquee.rev .mq-track{animation-direction:reverse;animation-duration:38s}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq-item{
+  display:flex;align-items:center;gap:26px;padding:0 26px;
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:34px;
+  letter-spacing:.02em;text-transform:uppercase;white-space:nowrap;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(200,197,209,.62);
+  text-stroke:1px rgba(200,197,209,.62);
+}
+.marquee.rev .mq-item{
+  font-size:26px;
+  -webkit-text-stroke:1px rgba(126,136,134,.55);
+  text-stroke:1px rgba(126,136,134,.55);
+}
+/* suits stay solid so the outlined type has something to punctuate it */
+.mq-item span{color:var(--teal);font-size:16px;-webkit-text-stroke:0;text-stroke:0}
+.marquee.rev .mq-item span{color:var(--text-3);font-size:13px}
+/* browsers without text-stroke fall back to filled type rather than invisible type */
+@supports not ((-webkit-text-stroke:1px #000) or (text-stroke:1px #000)){
+  .mq-item{color:var(--text-2)}
+  .marquee.rev .mq-item{color:var(--text-3)}
+}
+
+/* ---------- bento ---------- */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border)}
+.cell{
+  position:relative;padding:34px 30px 38px;min-height:238px;
+  border-right:1px solid var(--border);border-bottom:1px solid var(--border);
+  transition:background .4s ease;overflow:hidden;
+}
+.cell:not(.off):hover{background:radial-gradient(ellipse 90% 90% at 20% 0%,rgba(62,200,185,.09),transparent 70%)}
+.cell::after{content:'';position:absolute;top:-1px;left:-1px;width:7px;height:7px;border-top:1px solid var(--teal);border-left:1px solid var(--teal);opacity:0;transition:opacity .4s ease}
+.cell:not(.off):hover::after{opacity:.85}
+.ico{
+  width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:26px;
+  background:var(--card-2);border:1px solid var(--border-bright);color:var(--teal);
+  transition:all .4s ease;
+}
+.cell:not(.off):hover .ico{background:var(--teal);color:#06201D;border-color:var(--teal);box-shadow:0 0 26px -4px rgba(62,200,185,.6)}
+.ico svg{width:20px;height:20px}
+.cell h3{font-size:17.5px;font-weight:600;margin-bottom:9px}
+.cell p{font-size:14.5px;color:var(--text-3);line-height:1.62}
+.cell.off{opacity:.36}
+.cell.off .ico{color:var(--text-3)}
+.locked{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bright);margin-top:14px}
+.locked svg{width:12px;height:12px}
+
+/* ---------- feature modal ---------- */
+.cell[data-modal]{cursor:pointer}
+.cell[data-modal]::before{
+  content:'';position:absolute;right:26px;bottom:30px;width:22px;height:22px;
+  border-radius:50%;border:1px solid var(--border-bright);
+  background:
+    linear-gradient(currentColor,currentColor) center/9px 1px no-repeat,
+    linear-gradient(currentColor,currentColor) center/1px 9px no-repeat;
+  color:var(--text-3);opacity:0;transform:scale(.8);
+  transition:opacity .35s ease,transform .35s ease,color .35s ease,border-color .35s ease;
+}
+.cell[data-modal]:hover::before{opacity:1;transform:scale(1);color:var(--purple-bright);border-color:var(--purple)}
+.cell[data-modal]:focus-visible{outline:2px solid var(--purple-bright);outline-offset:-3px}
+
+.modal{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:24px}
+.modal[hidden]{display:none}
+.modal-back{position:absolute;inset:0;background:rgba(6,10,9,.78);backdrop-filter:blur(7px);animation:fade .3s ease}
+.modal-box{
+  position:relative;width:min(880px,100%);max-height:88vh;overflow-y:auto;
+  background:linear-gradient(170deg,var(--card-2) 0%,var(--surface) 100%);
+  border:1px solid var(--border-bright);border-radius:20px;
+  box-shadow:0 40px 90px -20px rgba(0,0,0,.8),0 0 90px -40px rgba(108,92,231,.55);
+  animation:pop .34s cubic-bezier(.2,.9,.3,1);
+}
+@keyframes fade{from{opacity:0}}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.97)}}
+.modal-x{
+  position:absolute;top:16px;right:16px;z-index:3;width:36px;height:36px;border-radius:10px;
+  display:grid;place-items:center;background:rgba(15,19,18,.7);border:1px solid var(--border-bright);
+  color:var(--text-2);transition:all .25s ease;
+}
+.modal-x:hover{color:#fff;border-color:var(--purple-bright);background:rgba(108,92,231,.22)}
+.modal-x svg{width:16px;height:16px}
+.modal-shot{padding:22px 22px 0}
+.modal-shot img{width:100%;height:auto;border-radius:12px}
+.modal-shot.mascot{padding:34px 22px 0;display:grid;place-items:center}
+.modal-shot.mascot img{width:170px;border-radius:0}
+.modal-body{padding:28px 34px 34px}
+.modal-kicker{
+  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--purple-bright);margin-bottom:12px;
+}
+.modal-body h3{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:14px}
+.modal-body p.mtext{font-size:15.5px;color:var(--text-2);line-height:1.72;max-width:66ch}
+
+/* ---------- activation rail ----------
+   One lit marker (the user's single action) and two dim ones (our side).
+   No cards. The line carries the sequence. */
+.rail{position:relative;padding-top:58px}
+.rail::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,var(--teal) 0%,var(--teal) 6%,var(--border-bright) 34%,var(--border) 100%);
+}
+.rail-in{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:48px}
+.rail-step{position:relative}
+.rail-step::before{
+  content:'';position:absolute;top:-58px;left:0;
+  width:11px;height:11px;border-radius:50%;transform:translateY(-50%);
+  background:var(--bg);border:1px solid var(--purple);
+}
+.rail-step:not(.you) .rail-tag{color:var(--purple-bright)}
+.rail-step.you::before{
+  background:var(--teal);border-color:var(--teal);
+  box-shadow:0 0 0 5px rgba(62,200,185,.14),0 0 20px rgba(62,200,185,.85);
+}
+.rail-tag{
+  display:block;font-size:11px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--text-3);margin-bottom:14px;
+}
+.rail-step.you .rail-tag{color:var(--teal)}
+.rail-step h3{font-size:21px;font-weight:600;margin-bottom:11px;max-width:20ch}
+.rail-step.you h3{font-size:25px;max-width:23ch}
+.rail-step p{font-size:14.5px;color:var(--text-3);line-height:1.65;max-width:38ch}
+.rail-step:not(.you){opacity:.62}
+.rail-note{
+  margin-top:52px;padding-top:26px;border-top:1px solid var(--border);
+  font-size:14px;color:var(--text-3);
+}
+.rail-note b{color:var(--text-2);font-weight:600}
+
+/* ---------- orbit ---------- */
+.orbit-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+.omenu{display:flex;flex-direction:column;gap:4px}
+.oitem{
+  display:flex;gap:16px;padding:17px 18px;border-radius:13px;cursor:pointer;
+  border-left:2px solid transparent;transition:all .3s ease;opacity:.42;
+}
+.oitem:hover{opacity:.75}
+.oitem.on{opacity:1;background:linear-gradient(90deg,rgba(62,200,185,.08),transparent);border-left-color:var(--teal)}
+.oitem .oico{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--card-2);border:1px solid var(--border);color:var(--text-3);flex:none;transition:all .3s ease}
+.oitem.on .oico{background:var(--teal);border-color:var(--teal);color:#06201D}
+.oitem .oico svg{width:16px;height:16px}
+.oitem h3{font-size:15.5px;font-weight:600;margin-bottom:4px}
+.oitem p{font-size:13.5px;color:var(--text-3);line-height:1.55}
+
+.orbit{position:relative;width:100%;aspect-ratio:1/.92;max-width:520px;margin-left:auto}
+.orbit svg.lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.orbit .ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border:1px solid var(--border-bright);border-radius:50%}
+.orbit .ring.r1{width:56%;height:56%}
+.orbit .ring.r2{width:92%;height:92%;border-style:dashed;opacity:.55}
+.ocore{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:112px;height:112px;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle,#25302E,var(--surface));
+  border:1px solid var(--purple-bright);
+  box-shadow:0 0 80px -6px rgba(108,92,231,.55),inset 0 0 30px -8px rgba(138,123,255,.45);
+}
+.ocore img{width:42px}
+.onode{
+  position:absolute;width:62px;height:62px;border-radius:16px;display:grid;place-items:center;
+  background:var(--card-2);border:1px solid var(--border-bright);color:var(--text-2);
+  transform:translate(-50%,-50%);transition:all .4s cubic-bezier(.4,0,.2,1);
+}
+.onode svg{width:22px;height:22px}
+.onode.on{
+  background:var(--teal);border-color:var(--teal);color:#06201D;
+  box-shadow:0 0 44px -4px rgba(62,200,185,.75);
+  width:74px;height:74px;
+}
+
+/* ---------- faq ---------- */
+.faq-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+.faq-art{position:relative}
+.faq-art img{width:51%;margin:0 auto;animation:float 11s ease-in-out infinite}
+.faq-art::before{content:'';position:absolute;inset:8% 6%;border-radius:50%;background:radial-gradient(circle,rgba(62,200,185,.2),transparent 65%);filter:blur(46px)}
+.faq{display:flex;flex-direction:column;gap:10px}
+.qa{border:1px solid var(--border);border-radius:14px;background:var(--card);overflow:hidden;transition:border-color .3s ease}
+.qa.open{border-color:var(--border-bright);background:var(--card-2)}
+.qa>button{width:100%;display:flex;align-items:center;gap:18px;padding:20px 22px;text-align:left;font-size:15.5px;font-weight:600}
+.qa .plus{margin-left:auto;flex:none;width:16px;height:16px;position:relative;transition:transform .35s ease}
+.qa .plus::before,.qa .plus::after{content:'';position:absolute;background:var(--teal);border-radius:2px;transition:opacity .3s ease}
+.qa .plus::before{top:7px;left:0;width:16px;height:2px}
+.qa .plus::after{left:7px;top:0;width:2px;height:16px}
+.qa.open .plus{transform:rotate(135deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.qa .a p{padding:0 22px 22px;font-size:14.5px;color:var(--text-3);line-height:1.68;max-width:62ch}
+
+/* ---------- closing ---------- */
+.close-panel{
+  position:relative;border-radius:26px;overflow:hidden;
+  padding:96px 40px 100px 300px;text-align:left;
+  background:radial-gradient(ellipse 60% 100% at 22% 110%,rgba(108,92,231,.30),transparent 64%),
+             radial-gradient(ellipse 70% 100% at 85% 120%,rgba(62,200,185,.18),transparent 66%),
+             linear-gradient(165deg,var(--card) 0%,var(--surface) 100%);
+  border:1px solid var(--border-bright);
+}
+.close-panel .ghost{
+  position:absolute;top:8%;left:50%;transform:translateX(-50%);
+  font-family:'Poppins';font-weight:800;font-size:clamp(90px,15vw,190px);
+  color:#fff;opacity:.032;letter-spacing:-.04em;white-space:nowrap;pointer-events:none;
+}
+/* George sits in the panel rather than beside it, so the copy keeps the left edge */
+.close-george{
+  position:absolute;left:44px;bottom:0;width:210px;pointer-events:none;
+  filter:drop-shadow(0 24px 44px rgba(0,0,0,.55));
+  animation:float 10s ease-in-out infinite;
+}
+.close-george::before{
+  content:'';position:absolute;inset:12% 6% 8%;border-radius:50%;
+  background:radial-gradient(circle,rgba(108,92,231,.45),transparent 65%);
+  filter:blur(38px);z-index:-1;
+}
+.close-panel h2{position:relative;font-size:clamp(32px,4.6vw,50px);font-weight:700}
+.close-panel p{position:relative;color:var(--text-2);margin:18px 0 34px;max-width:44ch;font-size:16.5px}
+.close-panel .hero-cta{margin-top:0}
+
+/* ---------- footer: minimal, one row ---------- */
+.ftr{border-top:1px solid var(--border);padding:26px 0;background:var(--bg)}
+.ftr .in{
+  max-width:var(--col);margin:0 auto;padding:0 var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  font-size:12.5px;color:var(--text-3);
+}
+.ftr-copy{flex:1 1 0;min-width:0}
+.ftr-links{flex:0 1 auto;display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.ftr-links a{transition:color .2s ease;white-space:nowrap}
+.ftr-links a:hover{color:var(--teal)}
+.ftr-social{flex:1 1 0;display:flex;gap:8px;justify-content:flex-end}
+.ftr-social a{
+  width:26px;height:26px;border-radius:50%;display:grid;place-items:center;flex:none;
+  background:var(--card);color:var(--text-3);
+  transition:background .2s ease,color .2s ease;
+}
+.ftr-social a:hover{background:var(--teal);color:#06201D}
+.ftr-social svg{width:11px;height:11px;fill:currentColor}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  .mq-track,.hero-art img,.faq-art img{animation:none}
+  .rv{opacity:1;transform:none;transition:none}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .section{padding:76px 0}
+  .hero{padding:130px 0 72px}
+  .hero-in{grid-template-columns:1fr;gap:44px}
+  .hero-art{max-width:400px;margin:0 auto}
+  .nav{display:none}
+  .hdr-in{gap:14px}
+  .hdr-right{margin-left:auto}
+  .bento{grid-template-columns:1fr}
+  /* header can't hold lockup + lang + CTA at this width; the hero CTA is right below */
+  .hdr-right .btn{display:none}
+  .lockup img{height:16px}
+  .lockup .octo img{height:19px}
+  /* rail turns vertical, line runs down the left edge, markers sit on it */
+  .rail{padding-top:0;padding-left:28px}
+  .rail::before{
+    top:2px;bottom:0;left:0;right:auto;width:1px;height:auto;
+    background:linear-gradient(180deg,var(--teal) 0%,var(--teal) 4%,var(--border-bright) 34%,var(--border) 100%);
+  }
+  .rail-in{grid-template-columns:1fr;gap:40px}
+  .rail-step::before{top:9px;left:-28px;transform:translateX(-50%)}
+  .rail-step h3,.rail-step.you h3{max-width:none}
+  .rail-step.you h3{font-size:22px}
+  .rail-step p{max-width:none}
+  .rail-note{margin-top:40px}
+  .orbit-wrap{grid-template-columns:1fr;gap:44px}
+  .orbit{margin:0 auto;max-width:400px}
+  .faq-wrap{grid-template-columns:1fr;gap:40px}
+  .faq-art{max-width:250px;margin:0 auto}
+  .ftr{padding:30px 0 26px}
+  .ftr .in{flex-direction:column;gap:20px;text-align:center}
+  .ftr-links{order:1;gap:16px 20px;justify-content:center}
+  .ftr-social{order:2;justify-content:center}
+  .ftr-copy{order:3;font-size:12px}
+  /* George goes above the copy rather than beside it, and the panel re-centres */
+  .close-panel{padding:56px 24px 72px;text-align:center}
+  .close-george{position:static;width:150px;margin:0 auto 26px;animation:none}
+  .close-panel p{margin-left:auto;margin-right:auto}
+  .close-panel .hero-cta{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a class="lockup" href="#top">
+      <img src="images/pp-logo-baseline-landscape.svg" alt="Pure Poker Coaching">
+      <em class="x">×</em>
+      <span class="octo"><img src="images/octopi-logo-white.svg" alt="Octopi Poker"></span>
+    </a>
+    <nav class="nav">
+      <a href="#included" data-i18n="nav1">Ce qui est inclus</a>
+      <a href="#how" data-i18n="nav2">Comment ça marche</a>
+      <a href="#faq" data-i18n="nav3">Questions</a>
+    </nav>
+    <div class="hdr-right">
+      <div class="lang">
+        <button class="on" data-lang="fr">FR</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <a class="btn btn-teal btn-sm" href="#claim">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span data-i18n="navcta">Activer mon accès</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <div>
+      <h1 data-i18n="heroH1">Votre abonnement Pure Poker inclut <span class="accent-purple">Octopi</span>.</h1>
+      <p class="lead" data-i18n="heroLead">Chaque membre Pure Poker reçoit le plan Personal d'Octopi, sans frais supplémentaires. Le GTO Trainer, la bibliothèque postflop, la comparaison de ranges et l'import de vos mains. Tout cela aussi longtemps que votre abonnement reste actif.</p>
+      <div class="hero-cta">
+        <a class="btn btn-teal" href="#claim">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <span data-i18n="heroCta1">Activer mon accès</span>
+        </a>
+        <a class="btn btn-crimson" href="#included">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l4 3 5-6 5 6 4-3-2 11H5L3 7z"/></svg>
+          <span data-i18n="heroCta2">Voir ce qui est inclus</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="images/video-bg-chips-cards.png" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="mq-track" id="mq1"></div>
+</div>
+<div class="marquee rev">
+  <div class="mq-track" id="mq2"></div>
+</div>
+
+<!-- ============ INCLUDED ============ -->
+<section class="section" id="included">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2 data-i18n="incH2">Ce que vous obtenez</h2>
+      <p class="lead" data-i18n="incLead">Le plan Personal complet, débloqué sur votre compte Octopi. C'est la formule à 200 $ par an, incluse dans votre abonnement Pure Poker.</p>
+    </div>
+    <div class="bento rv">
+      <div class="cell" data-modal="f1" role="button" tabindex="0">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div>
+        <h3 data-i18n="f1t">GTO Trainer</h3>
+        <p data-i18n="f1d">Jouez de vrais spots contre George, l'adversaire GTO d'Octopi. Chaque décision est notée immédiatement, avec la perte d'EV associée.</p>
+      </div>
+      <div class="cell" data-modal="f2" role="button" tabindex="0">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></div>
+        <h3 data-i18n="f2t">Bibliothèque postflop</h3>
+        <p data-i18n="f2d">Des milliers de simulations solver à explorer. Filtrez par board, par action et par taille de mise pour trouver le spot exact qui vous intéresse.</p>
+      </div>
+      <div class="cell" data-modal="f3" role="button" tabindex="0">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+        <h3 data-i18n="f3t">Ranges préflop</h3>
+        <p data-i18n="f3d">Ouverture, défense, 3-bet et 4-bet pour tous les formats de tournoi et toutes les profondeurs de tapis.</p>
+      </div>
+      <div class="cell" data-modal="f4" role="button" tabindex="0">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v18M15 3v18"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+        <h3 data-i18n="f4t">Comparaison de ranges</h3>
+        <p data-i18n="f4d">Deux stratégies côte à côte. Vous voyez précisément où elles divergent, et de combien.</p>
+      </div>
+      <div class="cell" data-modal="f5" role="button" tabindex="0">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M8 8l4-4 4 4"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></div>
+        <h3 data-i18n="f5t">Import de vos mains</h3>
+        <p data-i18n="f5d">Chargez vos historiques, rejouez-les et reliez votre jeu réel à l'analyse solver. Vos fuites deviennent visibles.</p>
+      </div>
+      <div class="cell" data-modal="f6" role="button" tabindex="0">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h3 data-i18n="f6t">Ask George</h3>
+        <p data-i18n="f6d">Une question sur un spot ou sur la plateforme. L'assistant répond directement, sans quitter votre session d'étude.</p>
+      </div>
+      <div class="cell off" data-modal="f7" role="button" tabindex="0">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 4 3 5-7"/></svg></div>
+        <h3 data-i18n="f7t">ICM Trainer</h3>
+        <p data-i18n="f7d">L'entraînement en bulle et en table finale, avec les calculs ICM appliqués à chaque décision.</p>
+        <p class="locked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg><span data-i18n="lockedLabel">Plan Professional</span></p>
+      </div>
+      <div class="cell off" data-modal="f8" role="button" tabindex="0">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 012-2h12a2 2 0 012 2v16l-8-4-8 4z"/></svg></div>
+        <h3 data-i18n="f8t">The Vault</h3>
+        <p data-i18n="f8d">Les mains des grands tournois diffusés (WSOP, Triton, PokerGO), décortiquées avec analyse solver.</p>
+        <p class="locked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg><span data-i18n="lockedLabel2">Plan Professional</span></p>
+      </div>
+      <div class="cell off" data-modal="f9" role="button" tabindex="0">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg></div>
+        <h3 data-i18n="f9t">Coaching</h3>
+        <p data-i18n="f9d">Les sessions et le suivi assurés par les coachs de l'Academy Octopi.</p>
+        <p class="locked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg><span data-i18n="lockedLabel3">Plan Professional</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section" id="how" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2 data-i18n="howH2">Une seule chose à faire</h2>
+      <p class="lead" data-i18n="howLead">Vous vous inscrivez. Le reste se passe de notre côté, sans que vous ayez à y revenir.</p>
+    </div>
+    <div class="rail rv">
+      <div class="rail-in">
+        <div class="rail-step you">
+          <span class="rail-tag" data-i18n="s1tag">Votre part</span>
+          <h3 data-i18n="s1t">Inscrivez-vous avec votre e‑mail Pure Poker</h3>
+          <p data-i18n="s1d">Le bouton de cette page ouvre une inscription réservée aux membres. Utilisez l'adresse liée à votre abonnement. C'est ce qui nous permet de vous reconnaître.</p>
+        </div>
+        <div class="rail-step">
+          <span class="rail-tag" data-i18n="s2tag">De notre côté</span>
+          <h3 data-i18n="s2t">Nous vous identifions</h3>
+          <p data-i18n="s2d">Votre inscription est rapprochée de la liste des membres Pure Poker.</p>
+        </div>
+        <div class="rail-step">
+          <span class="rail-tag" data-i18n="s3tag">De notre côté</span>
+          <h3 data-i18n="s3t">Personal est activé</h3>
+          <p data-i18n="s3d">Votre compte bascule sur le plan Personal et vous recevez une confirmation par e‑mail.</p>
+        </div>
+      </div>
+      <p class="rail-note" data-i18n="railNote">Rien à installer, rien à payer, aucun code à saisir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ORBIT / TRAINER ============ -->
+<section class="section">
+  <div class="wrap orbit-wrap">
+    <div class="rv">
+      <h2 style="font-size:clamp(32px,4.4vw,46px);font-weight:700" data-i18n="trH2">Le Trainer</h2>
+      <p class="lead" style="margin-bottom:36px" data-i18n="trLead">Là où l'étude devient de la pratique. Vous jouez, vous vous trompez, vous corrigez.</p>
+      <div class="omenu" id="omenu">
+        <div class="oitem on" data-node="0">
+          <div class="oico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg></div>
+          <div><h3 data-i18n="t1t">Préflop</h3><p data-i18n="t1d">Ouvertures, défenses et 3-bets sur tous les stacks.</p></div>
+        </div>
+        <div class="oitem" data-node="1">
+          <div class="oico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+          <div><h3 data-i18n="t2t">Postflop</h3><p data-i18n="t2d">Flop, turn et river joués jusqu'au bout du spot.</p></div>
+        </div>
+        <div class="oitem" data-node="2">
+          <div class="oico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div><h3 data-i18n="t3t">Drills ciblés</h3><p data-i18n="t3d">Le trainer réenvoie les spots que vous ratez le plus.</p></div>
+        </div>
+        <div class="oitem" data-node="3">
+          <div class="oico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <div><h3 data-i18n="t4t">Retour immédiat</h3><p data-i18n="t4d">Parfait, erreur ou blunder, avec l'EV perdue sur chaque main.</p></div>
+        </div>
+        <div class="oitem" data-node="4">
+          <div class="oico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+          <div><h3 data-i18n="t5t">Suivi des résultats</h3><p data-i18n="t5d">L'historique de vos sessions et la progression spot par spot.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit rv" id="orbit">
+      <div class="ring r1"></div>
+      <div class="ring r2"></div>
+      <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <g stroke="#37433F" stroke-width=".4" fill="none">
+          <line x1="50" y1="50" x2="50" y2="8"/>
+          <line x1="50" y1="50" x2="92" y2="32"/>
+          <line x1="50" y1="50" x2="84" y2="82"/>
+          <line x1="50" y1="50" x2="16" y2="82"/>
+          <line x1="50" y1="50" x2="8" y2="32"/>
+        </g>
+      </svg>
+      <div class="ocore"><img src="images/octopi-mark-white.svg" alt=""></div>
+      <div class="onode on" style="left:50%;top:8%"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg></div>
+      <div class="onode" style="left:92%;top:32%"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+      <div class="onode" style="left:84%;top:82%"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <div class="onode" style="left:16%;top:82%"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg></div>
+      <div class="onode" style="left:8%;top:32%"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq" style="background:var(--surface);border-top:1px solid var(--border)">
+  <div class="wrap faq-wrap">
+    <div class="rv">
+      <h2 style="font-size:clamp(32px,4.4vw,46px);font-weight:700" data-i18n="faqH2">Vos questions</h2>
+      <div class="faq-art" style="margin-top:44px"><img src="images/pp-icon-3d.png" alt=""></div>
+    </div>
+    <div class="faq rv" id="faq-list">
+      <div class="qa">
+        <button><span data-i18n="q1">Est-ce vraiment gratuit ?</span><span class="plus"></span></button>
+        <div class="a"><p data-i18n="a1">Oui. Le plan Personal est offert par Pure Poker à ses membres. Vous ne payez rien à Octopi et aucune carte bancaire ne vous est demandée à l'inscription.</p></div>
+      </div>
+      <div class="qa">
+        <button><span data-i18n="q2">Combien de temps l'accès dure-t-il ?</span><span class="plus"></span></button>
+        <div class="a"><p data-i18n="a2">Aussi longtemps que votre abonnement Pure Poker reste actif. S'il prend fin, votre compte Octopi bascule simplement sur le plan Community gratuit. Vous ne perdez ni vos mains importées, ni votre historique de sessions.</p></div>
+      </div>
+      <div class="qa">
+        <button><span data-i18n="q3">J'ai déjà un compte Octopi.</span><span class="plus"></span></button>
+        <div class="a"><p data-i18n="a3">Gardez-le. Connectez-vous avec l'adresse liée à votre abonnement Pure Poker et nous appliquerons l'accès Personal à ce compte existant.</p></div>
+      </div>
+      <div class="qa">
+        <button><span data-i18n="q4">Quelle adresse e‑mail dois-je utiliser ?</span><span class="plus"></span></button>
+        <div class="a"><p data-i18n="a4">Celle de votre compte Pure Poker. C'est le seul élément qui nous permet de faire le lien entre les deux plateformes. Avec une adresse différente, nous ne pourrons pas identifier votre abonnement.</p></div>
+      </div>
+      <div class="qa">
+        <button><span data-i18n="q5">Quand mon accès sera-t-il actif ?</span><span class="plus"></span></button>
+        <div class="a"><p data-i18n="a5">L'activation intervient après votre inscription et vous recevez une confirmation par e‑mail. En attendant, votre compte est déjà utilisable sur le plan Community.</p></div>
+      </div>
+      <div class="qa">
+        <button><span data-i18n="q6">Et si je veux aller plus loin ?</span><span class="plus"></span></button>
+        <div class="a"><p data-i18n="a6">Le plan Professional ajoute l'ICM Trainer, The Vault et le coaching. Vous pouvez passer au niveau supérieur à tout moment depuis votre compte, et vous ne payez que la différence.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="section" id="claim">
+  <div class="wrap">
+    <div class="close-panel rv">
+      <div class="ghost">OCTOPI</div>
+      <img class="close-george" src="images/mascot.webp" alt="" aria-hidden="true">
+      <h2 data-i18n="ccH2">Votre accès vous attend</h2>
+      <p data-i18n="ccP">Créez votre compte Octopi et commencez à travailler vos spots dès aujourd'hui.</p>
+      <div class="hero-cta">
+        <a class="btn btn-teal" href="#" id="cta-main">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <span data-i18n="ccCta">Activer mon accès</span>
+        </a>
+        <a class="btn btn-crimson" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l4 3 5-6 5 6 4-3-2 11H5L3 7z"/></svg>
+          <span data-i18n="ccCta2">Retour à Pure Poker</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ftr">
+  <div class="in">
+    <span class="ftr-copy" data-i18n="ftrCopy">© 2026 Octopi Poker. Offre réservée aux membres Pure Poker Coaching.</span>
+    <nav class="ftr-links">
+      <a href="#" data-i18n="ftrAup">Utilisation acceptable</a>
+      <a href="#" data-i18n="ftrTerms">Conditions</a>
+      <a href="#" data-i18n="ftrPrivacy">Confidentialité</a>
+      <a href="#" data-i18n="ftrContact">Contact</a>
+    </nav>
+    <div class="ftr-social">
+      <a href="#" aria-label="Discord"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 00-4.885-1.515.07.07 0 00-.79.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.74 19.74 0 003.677 4.37a.07.07 0 00-.32.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.1 13.1 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.3 12.3 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.84 19.84 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.412c0-3.026 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.971H15.83c-1.491 0-1.956.93-1.956 1.886v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      <a href="#" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932zM17.61 20.644h2.039L6.486 3.24H4.298z"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FEATURE MODAL ============ -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-back" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-x" data-close aria-label="Fermer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="modal-shot" id="modal-shot"></div>
+    <div class="modal-body">
+      <p class="modal-kicker" id="modal-kicker"></p>
+      <h3 id="modal-title"></h3>
+      <p class="mtext" id="modal-text"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- i18n ---------- */
+const I18N = {
+  en:{
+    mIncluded:"Included in your access", mPro:"Professional plan",
+    m1:"You play real hands against George, Octopi's GTO opponent. On every decision the Trainer compares your choice to the solver's and tells you straight away whether it was perfect, a mistake or a blunder, with the exact EV you left behind. You pick the format, the stack depth and the kind of spot, then repeat until the decision stops requiring thought.",
+    m2:"The Strategy Dashboard gives you the whole strategy on any board. Action frequencies, EV per hand, range map, blockers and hand classes are all on one screen and filterable. You move through the decision tree node by node, flop to river, and you can edit the spot to test another stack depth or another line.",
+    m3:"Every open, defence, 3-bet and 4-bet range, for each position and each stack depth. The grids sit side by side so you can compare one position against another without changing screens, and any range copies in a single click for your notes or your off-table work.",
+    m4:"Put two strategies against each other and see exactly where they diverge. Aggregate reports take it further: instead of one board you look at how a range behaves across whole families of flops, rainbow, two-tone and monotone, so you learn the pattern rather than memorising isolated cases.",
+    m5:"Import your hand histories and review them inside the same tool you study with. Your real play sits next to the solver's answer, so the spots you actually misplay are the ones you end up drilling, instead of whatever happened to come up.",
+    m6:"George answers questions about the platform and about poker. Where to find a specific range, why the solver prefers a check in a given spot, how to read an aggregate report. You ask in plain language and stay inside your study session instead of going to look somewhere else.",
+    m7:"Bubble and final-table training with ICM applied to every decision. Chip EV and real money stop agreeing at exactly the moments that decide tournaments, and this is where you practise the difference. Included with the Professional plan.",
+    m8:"Hands from the big televised tournaments, WSOP, Triton and PokerGO, with solver analysis alongside the video of how it actually played out. You watch the hand, then see what the solver would have done. Included with the Professional plan.",
+    m9:"Structured courses from the Academy coaches, combining video, written lessons, quizzes and drills, so study follows a path instead of jumping between tools. Included with the Professional plan.",
+    nav1:"What's included", nav2:"How it works", nav3:"Questions", navcta:"Activate my access",
+    heroH1:'Your Pure Poker membership now includes <span class="accent-purple">Octopi</span>.',
+    heroLead:"Every Pure Poker member gets the Octopi Personal plan at no extra cost. The GTO Trainer, the postflop library, range comparison and your own hand histories. All of it for as long as your membership stays active.",
+    heroCta1:"Activate my access", heroCta2:"See what's included", incH2:"What you get",
+    incLead:"The full Personal plan, unlocked on your Octopi account. That is the $200-a-year tier, included with your Pure Poker membership.",
+    f1t:"GTO Trainer", f1d:"Play real spots against George, Octopi's GTO opponent. Every decision is graded on the spot, with the EV you gave up.",
+    f2t:"Postflop library", f2d:"Thousands of solver sims to explore. Filter by board, by action and by bet size to reach the exact spot you care about.",
+    f3t:"Preflop ranges", f3d:"Opens, defences, 3-bets and 4-bets across every tournament format and stack depth.",
+    f4t:"Compare ranges", f4d:"Two strategies side by side. You see exactly where they diverge, and by how much.",
+    f5t:"Upload your hands", f5d:"Import your histories, replay them and connect your real play to solver analysis. Your leaks become visible.",
+    f6t:"Ask George", f6d:"A question about a spot or about the platform. The assistant answers directly, without leaving your study session.",
+    f7t:"ICM Trainer", f7d:"Bubble and final-table training, with ICM applied to every decision.",
+    f8t:"The Vault", f8d:"Hands from the big televised tournaments (WSOP, Triton, PokerGO), broken down with solver analysis.",
+    f9t:"Coaching", f9d:"Sessions and follow-up run by the coaches of the Octopi Academy.",
+    lockedLabel:"Professional plan", lockedLabel2:"Professional plan", lockedLabel3:"Professional plan", howH2:"Only one thing to do",
+    howLead:"You sign up. The rest happens on our side, without you having to come back to it.",
+    s1tag:"Your part", s2tag:"Our side", s3tag:"Our side",
+    s1t:"Sign up with your Pure Poker email", s1d:"The button on this page opens a signup reserved for members. Use the address tied to your membership. That is what lets us recognise you.",
+    s2t:"We match you up", s2d:"Your signup is checked against the Pure Poker member list.",
+    s3t:"Personal is switched on", s3d:"Your account moves to the Personal plan and you get a confirmation by email.",
+    railNote:"Nothing to install, nothing to pay, no code to enter.", trH2:"The Trainer",
+    trLead:"Where study turns into practice. You play, you get it wrong, you fix it.",
+    t1t:"Preflop", t1d:"Opens, defences and 3-bets at every stack depth.",
+    t2t:"Postflop", t2d:"Flop, turn and river played through to the end of the spot.",
+    t3t:"Targeted drills", t3d:"The trainer sends back the spots you miss most often.",
+    t4t:"Instant feedback", t4d:"Perfect, mistake or blunder, with the EV lost on each hand.",
+    t5t:"Results tracking", t5d:"Your session history and progress, spot by spot.", faqH2:"Your questions",
+    q1:"Is this really free?", a1:"Yes. The Personal plan is covered by Pure Poker for its members. You pay Octopi nothing and no card is requested at signup.",
+    q2:"How long does the access last?", a2:"For as long as your Pure Poker membership is active. If it ends, your Octopi account simply drops to the free Community plan. You keep your uploaded hands and your session history.",
+    q3:"I already have an Octopi account.", a3:"Keep it. Sign in with the address tied to your Pure Poker membership and we will apply Personal access to that existing account.",
+    q4:"Which email should I use?", a4:"The one on your Pure Poker account. It is the only thing that lets us match the two platforms. With a different address we cannot identify your membership.",
+    q5:"When will my access be live?", a5:"Activation happens after you sign up and you get a confirmation by email. In the meantime your account already works on the Community plan.",
+    q6:"What if I want more?", a6:"The Professional plan adds the ICM Trainer, The Vault and coaching. You can move up at any time from your account, and you only pay the difference.",
+    ccH2:"Your access is waiting", ccP:"Create your Octopi account and start working on your spots today.",
+    ccCta:"Activate my access", ccCta2:"Back to Pure Poker",
+    ftrAup:"Acceptable Use Policy", ftrTerms:"Terms of Service", ftrPrivacy:"Privacy Policy", ftrContact:"Contact us",
+    ftrCopy:"© 2026 Octopi Poker. Offer reserved for Pure Poker Coaching members.",
+    mq:["GTO TRAINER","PREFLOP RANGES","POSTFLOP LIBRARY","COMPARE RANGES","HAND UPLOADS","ASK GEORGE","TARGETED DRILLS"],
+    mq2:["PURE POKER × OCTOPI","INCLUDED WITH YOUR MEMBERSHIP","NO CARD REQUIRED","$200 A YEAR, ON THE HOUSE"]
+  },
+  fr:{
+    mIncluded:"Inclus dans votre accès", mPro:"Plan Professional",
+    m1:"Vous jouez de vraies mains contre George, l'adversaire GTO d'Octopi. À chaque décision, le Trainer compare votre choix à celui du solver et vous dit immédiatement si c'était parfait, une erreur ou un blunder, avec l'EV exacte que vous avez laissée. Vous choisissez le format, la profondeur de tapis et le type de spot, puis vous répétez jusqu'à ce que la décision ne demande plus de réflexion.",
+    m2:"Le Strategy Dashboard vous donne la stratégie complète sur n'importe quel board. Fréquences d'action, EV par main, range map, blockers et classes de mains tiennent sur un seul écran et se filtrent. Vous parcourez l'arbre de décision nœud par nœud, du flop à la river, et vous pouvez éditer le spot pour tester une autre profondeur ou une autre ligne.",
+    m3:"Toutes les ranges d'ouverture, de défense, de 3-bet et de 4-bet, pour chaque position et chaque profondeur de tapis. Les grilles s'affichent côte à côte pour comparer une position à l'autre sans changer d'écran, et chaque range se copie en un clic pour vos notes ou votre travail hors table.",
+    m4:"Mettez deux stratégies face à face et voyez exactement où elles divergent. Les rapports agrégés vont plus loin : au lieu d'un seul board, vous observez le comportement d'une range sur des familles entières de flops, rainbow, deux tons et monotones. Vous apprenez la logique au lieu de mémoriser des cas isolés.",
+    m5:"Importez vos historiques de mains et relisez-les dans l'outil où vous étudiez. Votre jeu réel se retrouve à côté de la réponse du solver, si bien que vous travaillez les spots que vous jouez mal pour de vrai, et non ceux qui sont simplement tombés pendant la session.",
+    m6:"George répond aux questions sur la plateforme comme sur le poker. Où trouver une range précise, pourquoi le solver préfère un check dans un spot donné, comment lire un rapport agrégé. Vous demandez en langage courant et vous restez dans votre session d'étude au lieu d'aller chercher ailleurs.",
+    m7:"L'entraînement en bulle et en table finale, avec l'ICM appliqué à chaque décision. Le ChipEV et l'argent réel cessent d'être d'accord précisément aux moments qui décident des tournois, et c'est là que vous travaillez la différence. Inclus dans le plan Professional.",
+    m8:"Les mains des grands tournois diffusés, WSOP, Triton et PokerGO, avec l'analyse solver à côté de la vidéo de ce qui s'est réellement passé. Vous regardez la main, puis vous voyez ce que le solver aurait fait. Inclus dans le plan Professional.",
+    m9:"Les cours structurés des coachs de l'Academy, mêlant vidéo, leçons écrites, quiz et drills, pour que l'étude suive un chemin au lieu de sauter d'un outil a l'autre. Inclus dans le plan Professional.",
+    nav1:"Ce qui est inclus", nav2:"Comment ça marche", nav3:"Questions", navcta:"Activer mon accès",
+    heroH1:'Votre abonnement Pure Poker inclut <span class="accent-purple">Octopi</span>.',
+    heroLead:"Chaque membre Pure Poker reçoit le plan Personal d'Octopi, sans frais supplémentaires. Le GTO Trainer, la bibliothèque postflop, la comparaison de ranges et l'import de vos mains. Tout cela aussi longtemps que votre abonnement reste actif.",
+    heroCta1:"Activer mon accès", heroCta2:"Voir ce qui est inclus", incH2:"Ce que vous obtenez",
+    incLead:"Le plan Personal complet, débloqué sur votre compte Octopi. C'est la formule à 200 $ par an, incluse dans votre abonnement Pure Poker.",
+    f1t:"GTO Trainer", f1d:"Jouez de vrais spots contre George, l'adversaire GTO d'Octopi. Chaque décision est notée immédiatement, avec la perte d'EV associée.",
+    f2t:"Bibliothèque postflop", f2d:"Des milliers de simulations solver à explorer. Filtrez par board, par action et par taille de mise pour trouver le spot exact qui vous intéresse.",
+    f3t:"Ranges préflop", f3d:"Ouverture, défense, 3-bet et 4-bet pour tous les formats de tournoi et toutes les profondeurs de tapis.",
+    f4t:"Comparaison de ranges", f4d:"Deux stratégies côte à côte. Vous voyez précisément où elles divergent, et de combien.",
+    f5t:"Import de vos mains", f5d:"Chargez vos historiques, rejouez-les et reliez votre jeu réel à l'analyse solver. Vos fuites deviennent visibles.",
+    f6t:"Ask George", f6d:"Une question sur un spot ou sur la plateforme. L'assistant répond directement, sans quitter votre session d'étude.",
+    f7t:"ICM Trainer", f7d:"L'entraînement en bulle et en table finale, avec les calculs ICM appliqués à chaque décision.",
+    f8t:"The Vault", f8d:"Les mains des grands tournois diffusés (WSOP, Triton, PokerGO), décortiquées avec analyse solver.",
+    f9t:"Coaching", f9d:"Les sessions et le suivi assurés par les coachs de l'Academy Octopi.",
+    lockedLabel:"Plan Professional", lockedLabel2:"Plan Professional", lockedLabel3:"Plan Professional", howH2:"Une seule chose à faire",
+    howLead:"Vous vous inscrivez. Le reste se passe de notre côté, sans que vous ayez à y revenir.",
+    s1tag:"Votre part", s2tag:"De notre côté", s3tag:"De notre côté",
+    s1t:"Inscrivez-vous avec votre e‑mail Pure Poker", s1d:"Le bouton de cette page ouvre une inscription réservée aux membres. Utilisez l'adresse liée à votre abonnement. C'est ce qui nous permet de vous reconnaître.",
+    s2t:"Nous vous identifions", s2d:"Votre inscription est rapprochée de la liste des membres Pure Poker.",
+    s3t:"Personal est activé", s3d:"Votre compte bascule sur le plan Personal et vous recevez une confirmation par e‑mail.",
+    railNote:"Rien à installer, rien à payer, aucun code à saisir.", trH2:"Le Trainer",
+    trLead:"Là où l'étude devient de la pratique. Vous jouez, vous vous trompez, vous corrigez.",
+    t1t:"Préflop", t1d:"Ouvertures, défenses et 3-bets sur tous les stacks.",
+    t2t:"Postflop", t2d:"Flop, turn et river joués jusqu'au bout du spot.",
+    t3t:"Drills ciblés", t3d:"Le trainer réenvoie les spots que vous ratez le plus.",
+    t4t:"Retour immédiat", t4d:"Parfait, erreur ou blunder, avec l'EV perdue sur chaque main.",
+    t5t:"Suivi des résultats", t5d:"L'historique de vos sessions et la progression spot par spot.", faqH2:"Vos questions",
+    q1:"Est-ce vraiment gratuit ?", a1:"Oui. Le plan Personal est offert par Pure Poker à ses membres. Vous ne payez rien à Octopi et aucune carte bancaire ne vous est demandée à l'inscription.",
+    q2:"Combien de temps l'accès dure-t-il ?", a2:"Aussi longtemps que votre abonnement Pure Poker reste actif. S'il prend fin, votre compte Octopi bascule simplement sur le plan Community gratuit. Vous ne perdez ni vos mains importées, ni votre historique de sessions.",
+    q3:"J'ai déjà un compte Octopi.", a3:"Gardez-le. Connectez-vous avec l'adresse liée à votre abonnement Pure Poker et nous appliquerons l'accès Personal à ce compte existant.",
+    q4:"Quelle adresse e‑mail dois-je utiliser ?", a4:"Celle de votre compte Pure Poker. C'est le seul élément qui nous permet de faire le lien entre les deux plateformes. Avec une adresse différente, nous ne pourrons pas identifier votre abonnement.",
+    q5:"Quand mon accès sera-t-il actif ?", a5:"L'activation intervient après votre inscription et vous recevez une confirmation par e‑mail. En attendant, votre compte est déjà utilisable sur le plan Community.",
+    q6:"Et si je veux aller plus loin ?", a6:"Le plan Professional ajoute l'ICM Trainer, The Vault et le coaching. Vous pouvez passer au niveau supérieur à tout moment depuis votre compte, et vous ne payez que la différence.",
+    ccH2:"Votre accès vous attend", ccP:"Créez votre compte Octopi et commencez à travailler vos spots dès aujourd'hui.",
+    ccCta:"Activer mon accès", ccCta2:"Retour à Pure Poker",
+    ftrAup:"Utilisation acceptable", ftrTerms:"Conditions", ftrPrivacy:"Confidentialité", ftrContact:"Contact",
+    ftrCopy:"© 2026 Octopi Poker. Offre réservée aux membres Pure Poker Coaching.",
+    mq:["GTO TRAINER","RANGES PRÉFLOP","BIBLIOTHÈQUE POSTFLOP","COMPARAISON DE RANGES","IMPORT DE MAINS","ASK GEORGE","DRILLS CIBLÉS"],
+    mq2:["PURE POKER × OCTOPI","INCLUS DANS VOTRE ABONNEMENT","AUCUNE CARTE BANCAIRE","200 $ PAR AN, OFFERTS"]
+  }
+};
+
+const SUITS = ['♠','♦','♥','♣'];
+
+function buildMarquee(el, words){
+  const group = words.map((w,i)=>
+    '<div class="mq-item">'+w+'<span>'+SUITS[i%4]+'</span></div>'
+  ).join('');
+  // One group has to be at least a full viewport wide, or the -50% loop shows gaps.
+  el.innerHTML = group;
+  let reps = 1;
+  while(el.scrollWidth < innerWidth && reps < 12){ el.innerHTML += group; reps++; }
+  el.innerHTML = el.innerHTML + el.innerHTML;   // duplicate for the seamless loop
+}
+addEventListener('resize', ()=>{
+  buildMarquee(document.getElementById('mq1'), I18N[lang].mq);
+  buildMarquee(document.getElementById('mq2'), I18N[lang].mq2);
+});
+
+let lang = 'fr';
+function setLang(l){
+  lang = l;
+  const d = I18N[l];
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v = d[el.dataset.i18n];
+    if(v !== undefined) el.innerHTML = v;
+  });
+  buildMarquee(document.getElementById('mq1'), d.mq);
+  buildMarquee(document.getElementById('mq2'), d.mq2);
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on', b.dataset.lang===l));
+  document.querySelectorAll('.qa.open').forEach(qa=>{
+    qa.querySelector('.a').style.maxHeight = qa.querySelector('.a').scrollHeight + 'px';
+  });
+}
+document.querySelectorAll('.lang button').forEach(b=>{
+  b.addEventListener('click',()=>setLang(b.dataset.lang));
+});
+
+/* ---------- cursor-tracking gradient on buttons ---------- */
+document.querySelectorAll('.btn').forEach(btn=>{
+  let raf = null, px = 0, py = 0;
+  btn.addEventListener('pointermove', e=>{
+    const r = btn.getBoundingClientRect();
+    px = e.clientX - r.left; py = e.clientY - r.top;
+    if(raf) return;
+    raf = requestAnimationFrame(()=>{
+      btn.style.setProperty('--mx', px + 'px');
+      btn.style.setProperty('--my', py + 'px');
+      raf = null;
+    });
+  });
+  // park the blob where the pointer left, so the fade-out reads naturally
+  btn.addEventListener('pointerleave', ()=>{
+    if(raf){ cancelAnimationFrame(raf); raf = null; }
+  });
+});
+
+/* ---------- feature modal ---------- */
+const SHOTS = {
+  f1:'images/platform-trainer.webp',
+  f2:'images/platform-postflop.webp',
+  f3:'images/preflop-ranges.webp',
+  f4:'images/agg-reports.webp',
+  f5:null,                              // no uploader / My Hands screenshot exists yet
+  f6:{src:'images/mascot.webp', mascot:true},
+  f7:null,                              // no dedicated ICM screenshot yet
+  f8:'images/platform-vault.webp',
+  f9:'images/platform-academy.webp'
+};
+const PRO = ['f7','f8','f9'];
+const modal = document.getElementById('modal');
+const mShot = document.getElementById('modal-shot');
+let lastFocus = null;
+
+function openModal(key){
+  const d = I18N[lang], shot = SHOTS[key];
+  mShot.className = 'modal-shot';
+  if(shot){
+    const src = typeof shot === 'string' ? shot : shot.src;
+    if(typeof shot !== 'string' && shot.mascot) mShot.classList.add('mascot');
+    mShot.innerHTML = '<img src="' + src + '" alt="">';
+  } else {
+    mShot.innerHTML = '';
+  }
+  document.getElementById('modal-kicker').textContent = PRO.includes(key) ? d.mPro : d.mIncluded;
+  document.getElementById('modal-title').textContent  = d[key + 't'];
+  document.getElementById('modal-text').textContent   = d['m' + key.slice(1)];
+  lastFocus = document.activeElement;
+  modal.hidden = false;
+  document.body.style.overflow = 'hidden';
+  modal.querySelector('.modal-x').focus();
+}
+function closeModal(){
+  modal.hidden = true;
+  document.body.style.overflow = '';
+  if(lastFocus) lastFocus.focus();
+}
+document.querySelectorAll('.cell[data-modal]').forEach(c=>{
+  c.addEventListener('click', ()=>openModal(c.dataset.modal));
+  c.addEventListener('keydown', e=>{
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openModal(c.dataset.modal); }
+  });
+});
+modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click', closeModal));
+addEventListener('keydown', e=>{ if(e.key === 'Escape' && !modal.hidden) closeModal(); });
+
+/* ---------- header ---------- */
+const hdr = document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('stuck', scrollY > 20),{passive:true});
+
+/* ---------- faq ---------- */
+document.querySelectorAll('.qa').forEach(qa=>{
+  const btn = qa.querySelector('button'), a = qa.querySelector('.a');
+  btn.addEventListener('click',()=>{
+    const open = qa.classList.contains('open');
+    document.querySelectorAll('.qa.open').forEach(o=>{
+      o.classList.remove('open'); o.querySelector('.a').style.maxHeight = null;
+    });
+    if(!open){ qa.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+  });
+});
+
+/* ---------- orbit sync ---------- */
+const items = [...document.querySelectorAll('.oitem')];
+const nodes = [...document.querySelectorAll('.onode')];
+let oi = 0, timer;
+function selectNode(i){
+  oi = i;
+  items.forEach((el,n)=>el.classList.toggle('on', n===i));
+  nodes.forEach((el,n)=>el.classList.toggle('on', n===i));
+}
+function cycle(){ timer = setInterval(()=>selectNode((oi+1)%items.length), 3200); }
+items.forEach((el,i)=>{
+  el.addEventListener('mouseenter',()=>{ clearInterval(timer); selectNode(i); });
+  el.addEventListener('mouseleave',()=>{ clearInterval(timer); cycle(); });
+});
+nodes.forEach((el,i)=>{
+  el.addEventListener('mouseenter',()=>{ clearInterval(timer); selectNode(i); });
+  el.addEventListener('mouseleave',()=>{ clearInterval(timer); cycle(); });
+});
+
+/* ---------- reveal ---------- */
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ---------- init ---------- */
+setLang('fr');
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches) cycle();
+</script>
+</body>
+</html>
